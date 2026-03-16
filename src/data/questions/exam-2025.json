@@ -1,0 +1,627 @@
+[
+  {
+    "id": "exam2025-mcq01",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q1" },
+    "difficulty": 1,
+    "text": "What is $\\gcd(48, 18)$?",
+    "options": [
+      { "key": "a", "text": "$2$" },
+      { "key": "b", "text": "$3$" },
+      { "key": "c", "text": "$6$" },
+      { "key": "d", "text": "$9$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Using Euclid's algorithm: $\\gcd(48, 18) = \\gcd(18, 48 \\bmod 18) = \\gcd(18, 12) = \\gcd(12, 6) = \\gcd(6, 0) = 6$."
+  },
+  {
+    "id": "exam2025-mcq02",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q2" },
+    "difficulty": 1,
+    "text": "What is $17 \\bmod 5$?",
+    "options": [
+      { "key": "a", "text": "$0$" },
+      { "key": "b", "text": "$2$" },
+      { "key": "c", "text": "$3$" },
+      { "key": "d", "text": "$7$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "$17 = 3 \\times 5 + 2$, so $17 \\bmod 5 = 2$."
+  },
+  {
+    "id": "exam2025-mcq03",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q3" },
+    "difficulty": 2,
+    "text": "Find the multiplicative inverse of $7$ in $\\mathbb{Z}_{26}$.",
+    "options": [
+      { "key": "a", "text": "$3$" },
+      { "key": "b", "text": "$4$" },
+      { "key": "c", "text": "$15$" },
+      { "key": "d", "text": "$19$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "We need $7x \\equiv 1 \\pmod{26}$. Using extended Euclidean: $26 = 3 \\cdot 7 + 5$, $7 = 1 \\cdot 5 + 2$, $5 = 2 \\cdot 2 + 1$. Back-substitution gives $x = 15$. Check: $7 \\times 15 = 105 = 4 \\times 26 + 1 \\equiv 1 \\pmod{26}$. ✓"
+  },
+  {
+    "id": "exam2025-mcq04",
+    "type": "mcq",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q4" },
+    "difficulty": 1,
+    "text": "In a Caesar cipher with key $k=3$, what is the encryption of 'D'?",
+    "options": [
+      { "key": "a", "text": "F" },
+      { "key": "b", "text": "G" },
+      { "key": "c", "text": "H" },
+      { "key": "d", "text": "A" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Caesar cipher: $E(x) = (x + k) \\bmod 26$. D = 3, so $E(3) = (3+3) \\bmod 26 = 6$ = G."
+  },
+  {
+    "id": "exam2025-mcq05",
+    "type": "mcq",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q5" },
+    "difficulty": 2,
+    "text": "Which attack is most effective against a monoalphabetic substitution cipher?",
+    "options": [
+      { "key": "a", "text": "Brute force" },
+      { "key": "b", "text": "Frequency analysis" },
+      { "key": "c", "text": "Known-plaintext attack" },
+      { "key": "d", "text": "Birthday attack" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Monoalphabetic substitution preserves letter frequencies from the plaintext language. Frequency analysis compares ciphertext letter frequencies with known language statistics to recover the substitution mapping. Brute force is impractical ($26!$ keys)."
+  },
+  {
+    "id": "exam2025-mcq06",
+    "type": "mcq",
+    "topics": ["hill-stream-otp"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q6" },
+    "difficulty": 2,
+    "text": "Which property makes the one-time pad (OTP) perfectly secure?",
+    "options": [
+      { "key": "a", "text": "The key is shorter than the message" },
+      { "key": "b", "text": "The key is truly random, as long as the message, and never reused" },
+      { "key": "c", "text": "It uses modular arithmetic" },
+      { "key": "d", "text": "The encryption algorithm is kept secret" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Shannon proved that OTP achieves perfect secrecy when the key is (1) truly random, (2) at least as long as the message, and (3) never reused. Under these conditions, the ciphertext gives zero information about the plaintext."
+  },
+  {
+    "id": "exam2025-mcq07",
+    "type": "mcq",
+    "topics": ["hill-stream-otp"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q7" },
+    "difficulty": 2,
+    "text": "What is the main weakness of a linear feedback shift register (LFSR) used alone as a stream cipher?",
+    "options": [
+      { "key": "a", "text": "It produces non-random output" },
+      { "key": "b", "text": "Its state can be recovered from $2n$ output bits where $n$ is the register length" },
+      { "key": "c", "text": "It requires too much memory" },
+      { "key": "d", "text": "It cannot produce long sequences" }
+    ],
+    "correctAnswer": "b",
+    "solution": "An LFSR of length $n$ is a linear system over $\\text{GF}(2)$. Given $2n$ consecutive output bits, one can set up a system of linear equations and solve for the feedback polynomial, fully recovering the LFSR state."
+  },
+  {
+    "id": "exam2025-mcq08",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q8" },
+    "difficulty": 1,
+    "text": "What is the block size of AES?",
+    "options": [
+      { "key": "a", "text": "64 bits" },
+      { "key": "b", "text": "128 bits" },
+      { "key": "c", "text": "192 bits" },
+      { "key": "d", "text": "256 bits" }
+    ],
+    "correctAnswer": "b",
+    "solution": "AES always uses a 128-bit (16-byte) block size, regardless of key size. The key can be 128, 192, or 256 bits, but the block is always 128 bits."
+  },
+  {
+    "id": "exam2025-mcq09",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q9" },
+    "difficulty": 2,
+    "text": "In a Feistel cipher, what happens during decryption?",
+    "options": [
+      { "key": "a", "text": "A completely different algorithm is used" },
+      { "key": "b", "text": "The same round function is applied with subkeys in reverse order" },
+      { "key": "c", "text": "The inverse of the round function must be computed" },
+      { "key": "d", "text": "Only the last round is reversed" }
+    ],
+    "correctAnswer": "b",
+    "solution": "A key property of Feistel ciphers is that decryption uses the exact same structure as encryption, but with the round subkeys applied in reverse order. The round function $F$ does not need to be invertible."
+  },
+  {
+    "id": "exam2025-mcq10",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q10" },
+    "difficulty": 2,
+    "text": "How many rounds does AES-128 use?",
+    "options": [
+      { "key": "a", "text": "8" },
+      { "key": "b", "text": "10" },
+      { "key": "c", "text": "12" },
+      { "key": "d", "text": "14" }
+    ],
+    "correctAnswer": "b",
+    "solution": "AES-128 uses 10 rounds. AES-192 uses 12, and AES-256 uses 14. Each round consists of SubBytes, ShiftRows, MixColumns (except last round), and AddRoundKey."
+  },
+  {
+    "id": "exam2025-mcq11",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q11" },
+    "difficulty": 1,
+    "text": "Which mode of operation encrypts each block independently?",
+    "options": [
+      { "key": "a", "text": "CBC" },
+      { "key": "b", "text": "CTR" },
+      { "key": "c", "text": "ECB" },
+      { "key": "d", "text": "OFB" }
+    ],
+    "correctAnswer": "c",
+    "solution": "ECB (Electronic Codebook) encrypts each block independently: $C_i = E_K(P_i)$. This means identical plaintext blocks produce identical ciphertext blocks, which leaks patterns."
+  },
+  {
+    "id": "exam2025-mcq12",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q12" },
+    "difficulty": 2,
+    "text": "In CBC mode, what happens if one ciphertext block is corrupted during transmission?",
+    "options": [
+      { "key": "a", "text": "Only the corresponding plaintext block is affected" },
+      { "key": "b", "text": "The corresponding block and the next block are affected" },
+      { "key": "c", "text": "All subsequent blocks are affected" },
+      { "key": "d", "text": "The entire message is unrecoverable" }
+    ],
+    "correctAnswer": "b",
+    "solution": "In CBC decryption: $P_i = D_K(C_i) \\oplus C_{i-1}$. A corrupted $C_i$ affects: (1) $P_i$ completely (garbage output from $D_K$), and (2) $P_{i+1}$ in the bits where $C_i$ differs (since $C_i$ is XORed). Blocks after $P_{i+1}$ are unaffected."
+  },
+  {
+    "id": "exam2025-mcq13",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q13" },
+    "difficulty": 2,
+    "text": "Which mode turns a block cipher into a stream cipher?",
+    "options": [
+      { "key": "a", "text": "ECB" },
+      { "key": "b", "text": "CBC" },
+      { "key": "c", "text": "CTR" },
+      { "key": "d", "text": "None of the above" }
+    ],
+    "correctAnswer": "c",
+    "solution": "CTR (Counter) mode generates a keystream by encrypting successive counter values: $O_i = E_K(\\text{nonce} \\| i)$, then $C_i = P_i \\oplus O_i$. This is exactly how a stream cipher works. OFB also acts as a stream cipher."
+  },
+  {
+    "id": "exam2025-mcq14",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q14" },
+    "difficulty": 1,
+    "text": "What is the output size of SHA-256?",
+    "options": [
+      { "key": "a", "text": "128 bits" },
+      { "key": "b", "text": "160 bits" },
+      { "key": "c", "text": "256 bits" },
+      { "key": "d", "text": "512 bits" }
+    ],
+    "correctAnswer": "c",
+    "solution": "SHA-256 produces a 256-bit (32-byte) hash digest. The '256' in the name refers to the output size."
+  },
+  {
+    "id": "exam2025-mcq15",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q15" },
+    "difficulty": 2,
+    "text": "The birthday attack on a hash function with $n$-bit output requires approximately how many evaluations?",
+    "options": [
+      { "key": "a", "text": "$2^n$" },
+      { "key": "b", "text": "$2^{n/2}$" },
+      { "key": "c", "text": "$2^{n/4}$" },
+      { "key": "d", "text": "$n^2$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The birthday paradox tells us that among $\\approx 2^{n/2}$ random $n$-bit values, there is a $\\geq 50\\%$ chance of a collision. For SHA-256 ($n=256$), this is $\\approx 2^{128}$ operations."
+  },
+  {
+    "id": "exam2025-mcq16",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q16" },
+    "difficulty": 2,
+    "text": "Why is $H(k \\| m)$ not a secure MAC construction (where $\\|$ denotes concatenation)?",
+    "options": [
+      { "key": "a", "text": "The hash function is not one-way" },
+      { "key": "b", "text": "Length extension attacks: given $H(k \\| m)$, one can compute $H(k \\| m \\| m')$ without knowing $k$" },
+      { "key": "c", "text": "The key is too short" },
+      { "key": "d", "text": "It requires the inverse hash" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Merkle-Damgård hash functions (like SHA-256) are vulnerable to length extension: knowing $H(k \\| m)$ lets an attacker compute $H(k \\| m \\| \\text{padding} \\| m')$ without knowing $k$. HMAC solves this with the nested construction: $\\text{HMAC}(k,m) = H((k \\oplus \\text{opad}) \\| H((k \\oplus \\text{ipad}) \\| m))$."
+  },
+  {
+    "id": "exam2025-mcq17",
+    "type": "mcq",
+    "topics": ["number-theory-pk"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q17" },
+    "difficulty": 2,
+    "text": "What is $\\phi(15)$ (Euler's totient)?",
+    "options": [
+      { "key": "a", "text": "$4$" },
+      { "key": "b", "text": "$6$" },
+      { "key": "c", "text": "$8$" },
+      { "key": "d", "text": "$14$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "$15 = 3 \\times 5$. $\\phi(15) = \\phi(3) \\cdot \\phi(5) = (3-1)(5-1) = 2 \\cdot 4 = 8$. The 8 integers coprime to 15 in $\\{1,...,14\\}$ are: 1, 2, 4, 7, 8, 11, 13, 14."
+  },
+  {
+    "id": "exam2025-mcq18",
+    "type": "mcq",
+    "topics": ["number-theory-pk"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q18" },
+    "difficulty": 2,
+    "text": "By Fermat's little theorem, if $p$ is prime and $\\gcd(a,p)=1$, then:",
+    "options": [
+      { "key": "a", "text": "$a^p \\equiv 1 \\pmod{p}$" },
+      { "key": "b", "text": "$a^{p-1} \\equiv 1 \\pmod{p}$" },
+      { "key": "c", "text": "$a^{p+1} \\equiv 1 \\pmod{p}$" },
+      { "key": "d", "text": "$a^{2p} \\equiv 1 \\pmod{p}$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Fermat's little theorem states that for prime $p$ and $\\gcd(a,p)=1$: $a^{p-1} \\equiv 1 \\pmod{p}$. This is a special case of Euler's theorem: $a^{\\phi(n)} \\equiv 1 \\pmod{n}$, since $\\phi(p) = p-1$."
+  },
+  {
+    "id": "exam2025-mcq19",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q19" },
+    "difficulty": 2,
+    "text": "In RSA, if $n = pq$, $e$ is the public exponent, and $d$ is the private exponent, which relation must hold?",
+    "options": [
+      { "key": "a", "text": "$ed \\equiv 1 \\pmod{n}$" },
+      { "key": "b", "text": "$ed \\equiv 1 \\pmod{\\phi(n)}$" },
+      { "key": "c", "text": "$e + d \\equiv 0 \\pmod{\\phi(n)}$" },
+      { "key": "d", "text": "$ed \\equiv 0 \\pmod{n}$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "RSA requires $ed \\equiv 1 \\pmod{\\phi(n)}$ where $\\phi(n) = (p-1)(q-1)$. This ensures that $m^{ed} = m^{1 + k\\phi(n)} = m \\cdot (m^{\\phi(n)})^k \\equiv m \\cdot 1^k = m \\pmod{n}$ by Euler's theorem."
+  },
+  {
+    "id": "exam2025-mcq20",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q20" },
+    "difficulty": 2,
+    "text": "Which of the following is NOT a valid concern with textbook RSA (without padding)?",
+    "options": [
+      { "key": "a", "text": "It is deterministic — same plaintext always gives same ciphertext" },
+      { "key": "b", "text": "It is malleable — $E(m_1) \\cdot E(m_2) = E(m_1 m_2)$" },
+      { "key": "c", "text": "It is vulnerable to small-message attacks" },
+      { "key": "d", "text": "It cannot encrypt messages longer than the key" }
+    ],
+    "correctAnswer": "d",
+    "solution": "All RSA (textbook or padded) requires $m < n$, so messages longer than the modulus must be split — this is a general property, not specific to textbook RSA. The actual problems with textbook RSA are: determinism (a), multiplicative homomorphism (b), and vulnerability to attacks on small messages (c). OAEP padding fixes these."
+  },
+  {
+    "id": "exam2025-mcq21",
+    "type": "mcq",
+    "topics": ["key-establishment"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q21" },
+    "difficulty": 2,
+    "text": "What problem does the Diffie-Hellman key exchange solve?",
+    "options": [
+      { "key": "a", "text": "Authentication of communicating parties" },
+      { "key": "b", "text": "Establishing a shared secret over an insecure channel" },
+      { "key": "c", "text": "Non-repudiation of messages" },
+      { "key": "d", "text": "Ensuring message integrity" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Diffie-Hellman allows two parties to establish a shared secret over a public channel. Alice sends $g^a \\bmod p$, Bob sends $g^b \\bmod p$, and both compute $K = g^{ab} \\bmod p$. It does NOT authenticate the parties — a man-in-the-middle can intercept. Authentication requires additional mechanisms (certificates, signatures)."
+  },
+  {
+    "id": "exam2025-mcq22",
+    "type": "mcq",
+    "topics": ["key-establishment"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q22" },
+    "difficulty": 2,
+    "text": "What is the purpose of a digital certificate?",
+    "options": [
+      { "key": "a", "text": "To encrypt messages between parties" },
+      { "key": "b", "text": "To bind a public key to an identity, signed by a trusted authority" },
+      { "key": "c", "text": "To generate random numbers" },
+      { "key": "d", "text": "To store private keys securely" }
+    ],
+    "correctAnswer": "b",
+    "solution": "A digital certificate (X.509) binds a subject's identity to their public key, signed by a Certificate Authority (CA). This allows anyone who trusts the CA to verify that a given public key genuinely belongs to the claimed identity."
+  },
+  {
+    "id": "exam2025-mcq23",
+    "type": "mcq",
+    "topics": ["quantum-safe"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q23" },
+    "difficulty": 2,
+    "text": "Shor's algorithm running on a quantum computer can efficiently break which of the following?",
+    "options": [
+      { "key": "a", "text": "AES-256" },
+      { "key": "b", "text": "SHA-256" },
+      { "key": "c", "text": "RSA and Elliptic Curve Diffie-Hellman" },
+      { "key": "d", "text": "Lattice-based cryptography" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Shor's algorithm solves integer factorization and discrete logarithm in polynomial time, breaking RSA, (EC)DH, and other systems based on these problems. Symmetric ciphers (AES) and hashes (SHA) are only weakened by Grover's algorithm (quadratic speedup, mitigated by doubling key/hash size). Lattice-based schemes are believed to be quantum-resistant."
+  },
+  {
+    "id": "exam2025-mcq24",
+    "type": "mcq",
+    "topics": ["quantum-safe"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q24" },
+    "difficulty": 2,
+    "text": "Grover's algorithm provides what speedup for brute-force search?",
+    "options": [
+      { "key": "a", "text": "Exponential speedup" },
+      { "key": "b", "text": "Quadratic speedup — from $O(N)$ to $O(\\sqrt{N})$" },
+      { "key": "c", "text": "Polynomial speedup — from $O(N)$ to $O(\\log N)$" },
+      { "key": "d", "text": "No speedup" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Grover's algorithm provides a quadratic speedup: searching an unstructured space of $N$ elements takes $O(\\sqrt{N})$ instead of $O(N)$. For a 128-bit key, this means $2^{64}$ quantum operations instead of $2^{128}$ classical ones. Mitigation: double key sizes (AES-256 gives 128-bit post-quantum security)."
+  },
+  {
+    "id": "exam2025-mcq25",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q25" },
+    "difficulty": 2,
+    "text": "In the TLS 1.2 handshake, what is the purpose of the ServerHello message?",
+    "options": [
+      { "key": "a", "text": "To authenticate the server" },
+      { "key": "b", "text": "To select the cipher suite and provide the server's random value" },
+      { "key": "c", "text": "To send the server's certificate" },
+      { "key": "d", "text": "To exchange the pre-master secret" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The ServerHello message: (1) selects a cipher suite from the client's list, (2) selects the TLS version, (3) provides the server's random nonce, and (4) assigns a session ID. The certificate and key exchange happen in subsequent messages."
+  },
+  {
+    "id": "exam2025-mcq26",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q26" },
+    "difficulty": 2,
+    "text": "What does 'forward secrecy' (or 'perfect forward secrecy') mean?",
+    "options": [
+      { "key": "a", "text": "Messages are encrypted before being sent" },
+      { "key": "b", "text": "Compromise of a long-term key does not compromise past session keys" },
+      { "key": "c", "text": "Each message uses a different key" },
+      { "key": "d", "text": "The key exchange is authenticated" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Forward secrecy means that if the server's long-term private key is compromised, previously recorded sessions cannot be decrypted. This is achieved by using ephemeral Diffie-Hellman (DHE/ECDHE) for key exchange — each session's key is independent of the long-term key."
+  },
+  {
+    "id": "exam2025-mcq27",
+    "type": "mcq",
+    "topics": ["tls13-ipsec"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q27" },
+    "difficulty": 2,
+    "text": "Which of the following is a key improvement in TLS 1.3 over TLS 1.2?",
+    "options": [
+      { "key": "a", "text": "Support for RSA key exchange" },
+      { "key": "b", "text": "Mandatory forward secrecy and reduced handshake to 1-RTT" },
+      { "key": "c", "text": "Support for CBC mode" },
+      { "key": "d", "text": "Optional encryption" }
+    ],
+    "correctAnswer": "b",
+    "solution": "TLS 1.3 improvements: (1) mandatory (EC)DHE for forward secrecy (RSA key transport removed), (2) 1-RTT handshake (down from 2-RTT), (3) 0-RTT resumption option, (4) removed insecure algorithms (RC4, CBC, SHA-1, static RSA/DH). Only AEAD ciphers are allowed."
+  },
+  {
+    "id": "exam2025-mcq28",
+    "type": "mcq",
+    "topics": ["tls13-ipsec"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q28" },
+    "difficulty": 2,
+    "text": "In IPsec, what is the difference between transport mode and tunnel mode?",
+    "options": [
+      { "key": "a", "text": "Transport mode encrypts the entire IP packet; tunnel mode only the payload" },
+      { "key": "b", "text": "Transport mode protects only the payload; tunnel mode encapsulates the entire original packet" },
+      { "key": "c", "text": "They are identical but use different ports" },
+      { "key": "d", "text": "Transport mode is for IPv4; tunnel mode is for IPv6" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Transport mode: protects the payload of the IP packet (original IP header preserved). Used for host-to-host communication. Tunnel mode: encapsulates the entire original IP packet inside a new IP packet. Used for VPN gateways (site-to-site tunnels)."
+  },
+  {
+    "id": "exam2025-mcq29",
+    "type": "mcq",
+    "topics": ["email-messaging-security"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q29" },
+    "difficulty": 2,
+    "text": "How does PGP handle the problem of encrypting a large message for a recipient?",
+    "options": [
+      { "key": "a", "text": "Encrypts the entire message with the recipient's public key" },
+      { "key": "b", "text": "Generates a random session key, encrypts the message with it (symmetric), then encrypts the session key with the recipient's public key" },
+      { "key": "c", "text": "Uses only symmetric encryption with a pre-shared key" },
+      { "key": "d", "text": "Compresses and then hashes the message" }
+    ],
+    "correctAnswer": "b",
+    "solution": "PGP uses a hybrid approach: (1) generate random session key $K_s$, (2) encrypt message with $K_s$ using a fast symmetric cipher (AES), (3) encrypt $K_s$ with recipient's public key (RSA/ElGamal). This combines the efficiency of symmetric encryption with the key management benefits of public-key cryptography."
+  },
+  {
+    "id": "exam2025-mcq30",
+    "type": "mcq",
+    "topics": ["email-messaging-security"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Q30" },
+    "difficulty": 2,
+    "text": "What is the main advantage of the Signal protocol's Double Ratchet algorithm?",
+    "options": [
+      { "key": "a", "text": "It uses only symmetric cryptography" },
+      { "key": "b", "text": "It provides forward secrecy and break-in recovery for every message" },
+      { "key": "c", "text": "It eliminates the need for key exchange" },
+      { "key": "d", "text": "It supports group messaging natively" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The Double Ratchet combines a DH ratchet (new DH exchange per message round-trip) with a symmetric-key ratchet (KDF chain). This gives: (1) forward secrecy — past messages can't be decrypted if current key is compromised, (2) break-in recovery — even if an attacker obtains current keys, future messages become secure once a new DH exchange occurs."
+  },
+  {
+    "id": "exam2025-written01",
+    "type": "written",
+    "topics": ["number-theory-basics", "public-key-rsa"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Oppgave 31" },
+    "difficulty": 3,
+    "text": "Consider RSA with $p = 11$, $q = 13$.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Compute $n$ and $\\phi(n)$.",
+        "solution": "$n = p \\cdot q = 11 \\cdot 13 = 143$\n\n$\\phi(n) = (p-1)(q-1) = 10 \\cdot 12 = 120$"
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "If $e = 7$, find the private key $d$ such that $ed \\equiv 1 \\pmod{\\phi(n)}$.",
+        "solution": "We need $7d \\equiv 1 \\pmod{120}$.\n\nUsing the extended Euclidean algorithm:\n- $120 = 17 \\cdot 7 + 1$\n- $1 = 120 - 17 \\cdot 7$\n\nSo $d = -17 \\equiv 103 \\pmod{120}$.\n\nVerification: $7 \\times 103 = 721 = 6 \\times 120 + 1 \\equiv 1 \\pmod{120}$ ✓"
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Encrypt the message $m = 9$ and then decrypt the ciphertext.",
+        "solution": "**Encryption:** $c = m^e \\bmod n = 9^7 \\bmod 143$\n\n$9^2 = 81$\n$9^4 = 81^2 = 6561 = 45 \\cdot 143 + 126 \\equiv 126 \\pmod{143}$\n$9^7 = 9^4 \\cdot 9^2 \\cdot 9^1 = 126 \\cdot 81 \\cdot 9$\n$126 \\cdot 81 = 10206 = 71 \\cdot 143 + 53 \\equiv 53 \\pmod{143}$\n$53 \\cdot 9 = 477 = 3 \\cdot 143 + 48 \\equiv 48 \\pmod{143}$\n\nSo $c = 48$.\n\n**Decryption:** $m = c^d \\bmod n = 48^{103} \\bmod 143$\n\nBy Euler's theorem, $48^{120} \\equiv 1 \\pmod{143}$, so $48^{103} = 48^{120-17} = 48^{-17} \\pmod{143}$.\n\nAlternatively, use CRT or repeated squaring. The result is $m = 9$. ✓"
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-written02",
+    "type": "written",
+    "topics": ["encryption-modes", "block-ciphers"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Oppgave 32" },
+    "difficulty": 3,
+    "text": "Consider AES in CBC mode.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Draw a diagram showing CBC encryption for three plaintext blocks $P_1, P_2, P_3$. Label the IV, all XOR operations, and the encryption function $E_K$.",
+        "solution": "**CBC Encryption:**\n\n$C_0 = \\text{IV}$ (initialization vector)\n\n$C_1 = E_K(P_1 \\oplus \\text{IV})$\n\n$C_2 = E_K(P_2 \\oplus C_1)$\n\n$C_3 = E_K(P_3 \\oplus C_2)$\n\nEach plaintext block is XORed with the previous ciphertext block (or IV for the first) before encryption. This creates a chain where each ciphertext block depends on all previous plaintext blocks."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Explain why CBC mode requires an unpredictable IV. What attack is possible if the IV is predictable?",
+        "solution": "If the IV is predictable, an attacker can mount a **chosen-plaintext attack** (CPA). Specifically:\n\n1. Attacker wants to test if plaintext $P$ was encrypted\n2. Attacker predicts next IV will be $\\text{IV}'$\n3. Attacker submits $P^* = P \\oplus \\text{IV}_{\\text{old}} \\oplus \\text{IV}'$ for encryption\n4. The first ciphertext block will be $E_K(P^* \\oplus \\text{IV}') = E_K(P \\oplus \\text{IV}_{\\text{old}})$\n5. If this matches the original ciphertext, the guess was correct\n\nThis breaks IND-CPA security. The IV must be uniformly random and unpredictable."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Compare CBC and CTR mode in terms of parallelizability and error propagation.",
+        "solution": "**Parallelizability:**\n- CBC encryption is sequential (each block depends on previous ciphertext)\n- CBC decryption can be parallelized\n- CTR both encryption and decryption are fully parallelizable (each counter block is independent)\n\n**Error propagation:**\n- CBC: a 1-bit error in $C_i$ corrupts all of $P_i$ and the corresponding bit in $P_{i+1}$\n- CTR: a 1-bit error in $C_i$ causes only a 1-bit error in $P_i$ (no propagation)\n\nCTR is generally preferred in modern systems for its parallelism and simpler error behavior."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-written03",
+    "type": "written",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Oppgave 33" },
+    "difficulty": 3,
+    "text": "Consider hash functions and message authentication codes.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Define the three security properties of a cryptographic hash function: preimage resistance, second preimage resistance, and collision resistance.",
+        "solution": "**Preimage resistance:** Given a hash value $h$, it is computationally infeasible to find any message $m$ such that $H(m) = h$.\n\n**Second preimage resistance:** Given a message $m_1$, it is computationally infeasible to find a different message $m_2 \\neq m_1$ such that $H(m_1) = H(m_2)$.\n\n**Collision resistance:** It is computationally infeasible to find any two distinct messages $m_1 \\neq m_2$ such that $H(m_1) = H(m_2)$.\n\nNote: Collision resistance implies second preimage resistance, but not vice versa."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Describe the HMAC construction and explain why it is preferred over $H(k \\| m)$.",
+        "solution": "**HMAC construction:**\n$$\\text{HMAC}(K, m) = H\\big((K \\oplus \\text{opad}) \\| H((K \\oplus \\text{ipad}) \\| m)\\big)$$\n\nwhere opad = 0x5C repeated and ipad = 0x36 repeated.\n\n**Why preferred over $H(k \\| m)$:**\n1. $H(k \\| m)$ is vulnerable to **length extension attacks** with Merkle-Damgård hashes: knowing $H(k \\| m)$ allows computing $H(k \\| m \\| \\text{pad} \\| m')$ without knowing $k$\n2. HMAC's nested structure prevents this — the outer hash acts on a fixed-length inner hash output\n3. HMAC has a formal security proof reducing its security to the compression function's PRF property"
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Explain the difference between a MAC and a digital signature in terms of the security properties they provide.",
+        "solution": "**MAC (Message Authentication Code):**\n- Uses a shared symmetric key\n- Provides **integrity** and **authentication** (data origin)\n- Does NOT provide **non-repudiation** — both parties know the key, so either could have created the MAC\n- Faster, simpler\n\n**Digital Signature:**\n- Uses asymmetric keys (private key to sign, public key to verify)\n- Provides **integrity**, **authentication**, AND **non-repudiation**\n- Non-repudiation: only the private key holder could have created the signature, so they cannot deny signing\n- Slower, requires PKI\n\nKey difference: non-repudiation. A MAC cannot prove to a third party who created it."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-written04",
+    "type": "written",
+    "topics": ["tls", "tls13-ipsec"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Oppgave 34" },
+    "difficulty": 3,
+    "text": "Compare TLS 1.2 and TLS 1.3.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Describe the TLS 1.2 full handshake, listing the main messages exchanged.",
+        "solution": "**TLS 1.2 Full Handshake (2-RTT):**\n\n**Round 1 (Client → Server → Client):**\n1. ClientHello: supported versions, cipher suites, client random\n2. ServerHello: chosen version, cipher suite, server random\n3. Certificate: server's X.509 certificate\n4. ServerKeyExchange: DH parameters (if using DHE/ECDHE)\n5. ServerHelloDone\n\n**Round 2 (Client → Server):**\n6. ClientKeyExchange: client's DH public value or RSA-encrypted pre-master secret\n7. ChangeCipherSpec: switching to encrypted communication\n8. Finished: encrypted verify hash of all handshake messages\n\n**Server completes:**\n9. ChangeCipherSpec\n10. Finished\n\nBoth sides derive the master secret from the pre-master secret + random values."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "What specific changes does TLS 1.3 make to improve security and performance?",
+        "solution": "**Security improvements:**\n- Removed static RSA key exchange (mandatory (EC)DHE → forward secrecy)\n- Removed weak algorithms: RC4, DES, 3DES, MD5, SHA-1, CBC mode ciphers\n- Only AEAD cipher suites allowed (AES-GCM, ChaCha20-Poly1305)\n- Encrypted handshake messages (server certificate encrypted in TLS 1.3)\n- Removed renegotiation and compression (attack vectors)\n\n**Performance improvements:**\n- 1-RTT handshake (client sends key share in ClientHello)\n- 0-RTT resumption for repeat connections (with replay risk tradeoff)\n- Simpler, fewer cipher suites to negotiate\n- Removed ChangeCipherSpec messages"
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Explain the security risk of TLS 1.3's 0-RTT feature.",
+        "solution": "**0-RTT (Early Data) risk:**\n\n0-RTT allows a client to send encrypted application data in the first flight (along with ClientHello), using a pre-shared key (PSK) from a previous session.\n\n**The problem: replay attacks.** An attacker who records the 0-RTT data can replay it to the server. Since there's no server contribution to the key yet, the server cannot distinguish the replay from the original.\n\n**Consequences:**\n- If the early data triggers a state change (e.g., \"transfer $100\"), it can be executed multiple times\n- The server has no fresh random value to ensure uniqueness\n\n**Mitigations:**\n- Applications must treat 0-RTT data as potentially replayed\n- Servers should only accept idempotent operations in 0-RTT\n- Single-use tickets and strike registers can limit replay window\n- Many servers simply disable 0-RTT"
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-written05",
+    "type": "written",
+    "topics": ["key-establishment", "quantum-safe"],
+    "source": { "type": "exam", "label": "Eksamen 2025 Oppgave 35" },
+    "difficulty": 3,
+    "text": "Key establishment and quantum-safe cryptography.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Describe the Diffie-Hellman key exchange protocol. Include the mathematical steps.",
+        "solution": "**Setup:** Public parameters: large prime $p$ and generator $g$ of $\\mathbb{Z}_p^*$.\n\n**Protocol:**\n1. Alice chooses random $a \\in \\{2, ..., p-2\\}$, computes $A = g^a \\bmod p$, sends $A$ to Bob\n2. Bob chooses random $b \\in \\{2, ..., p-2\\}$, computes $B = g^b \\bmod p$, sends $B$ to Alice\n3. Alice computes $K = B^a \\bmod p = g^{ab} \\bmod p$\n4. Bob computes $K = A^b \\bmod p = g^{ab} \\bmod p$\n\nBoth parties now share $K = g^{ab} \\bmod p$.\n\n**Security:** Based on the Computational Diffie-Hellman (CDH) assumption: given $g^a$ and $g^b$, computing $g^{ab}$ is infeasible without knowing $a$ or $b$."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Why is Diffie-Hellman vulnerable to a man-in-the-middle attack? How is this prevented in practice?",
+        "solution": "**Vulnerability:** DH provides no authentication. An attacker Mallory can:\n1. Intercept Alice's $A = g^a$, replace with $M_1 = g^{m_1}$\n2. Intercept Bob's $B = g^b$, replace with $M_2 = g^{m_2}$\n3. Now Mallory shares $K_1 = g^{am_1}$ with Alice and $K_2 = g^{bm_2}$ with Bob\n4. Mallory decrypts, reads, re-encrypts all communication\n\n**Prevention:**\n1. **Signed DH:** Each party signs their DH public value with their long-term private key (used in TLS)\n2. **Certificates:** Bind DH parameters to authenticated identities via X.509 certificates (PKI)\n3. **STS Protocol:** Station-to-Station protocol adds mutual authentication\n4. **Pre-shared keys:** Both parties verify using a known shared secret"
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Briefly explain why lattice-based cryptography is considered a promising post-quantum approach. Name one standardized algorithm.",
+        "solution": "**Why lattice-based cryptography is promising:**\n1. **Quantum resistance:** The underlying hard problems (Learning With Errors, Shortest Vector Problem) have no known efficient quantum algorithms\n2. **Efficiency:** Lattice operations (matrix-vector multiplications) are fast and parallelizable\n3. **Versatility:** Supports encryption, signatures, and advanced primitives (FHE)\n4. **Strong foundations:** Worst-case to average-case reductions provide strong theoretical guarantees\n5. **Mature research:** Decades of cryptanalysis without breakthrough attacks\n\n**Standardized algorithm:** NIST selected **ML-KEM** (Module-Lattice-Based Key-Encapsulation Mechanism, formerly CRYSTALS-Kyber) as the primary post-quantum KEM in FIPS 203 (August 2024). Also: **ML-DSA** (CRYSTALS-Dilithium) for signatures."
+      }
+    ],
+    "totalPoints": 6
+  }
+]

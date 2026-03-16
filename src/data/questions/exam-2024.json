@@ -1,0 +1,615 @@
+[
+  {
+    "id": "exam2024-mcq01",
+    "type": "mcq",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Exam 2024 Q1" },
+    "difficulty": 1,
+    "text": "Which of the below represents a passive threat?",
+    "options": [
+      { "key": "a", "text": "Replay" },
+      { "key": "b", "text": "Denial of Service" },
+      { "key": "c", "text": "Traffic analysis" },
+      { "key": "d", "text": "Masquerade" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Traffic analysis is a passive attack where the attacker observes communication patterns (message frequency, timing, length) without modifying data. Replay, DoS, and masquerade are all active attacks that involve injecting or altering data."
+  },
+  {
+    "id": "exam2024-mcq02",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2024 Q2" },
+    "difficulty": 2,
+    "text": "$2^{-1} \\bmod 355$ is equal to:",
+    "options": [
+      { "key": "a", "text": "$1$" },
+      { "key": "b", "text": "$178$" },
+      { "key": "c", "text": "$350$" },
+      { "key": "d", "text": "$0.5$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "We need $2x \\equiv 1 \\pmod{355}$. Since $355$ is odd, $\\gcd(2, 355) = 1$ and the inverse exists. We can compute: $2 \\times 178 = 356 = 355 + 1 \\equiv 1 \\pmod{355}$. So $2^{-1} \\equiv 178 \\pmod{355}$."
+  },
+  {
+    "id": "exam2024-mcq03",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2024 Q3" },
+    "difficulty": 2,
+    "text": "In $\\mathbb{Z}^*_{11}$, the multiplicative group of non-zero integers modulo 11:",
+    "options": [
+      { "key": "a", "text": "$2$ is a generator" },
+      { "key": "b", "text": "$3$ is a generator" },
+      { "key": "c", "text": "$4$ is a generator" },
+      { "key": "d", "text": "There is no generator" }
+    ],
+    "correctAnswer": "a",
+    "solution": "$\\mathbb{Z}^*_{11}$ has order $\\varphi(11) = 10 = 2 \\times 5$. To check if $g$ is a generator, verify $g^{10/2} \\not\\equiv 1$ and $g^{10/5} \\not\\equiv 1 \\pmod{11}$.\n\nFor $g = 2$: $2^5 = 32 \\equiv 10 \\not\\equiv 1$ and $2^2 = 4 \\not\\equiv 1$. So $2$ is a generator.\n\nFor $g = 3$: $3^5 = 243 \\equiv 1 \\pmod{11}$, so $3$ has order $5$ and is not a generator.\n\nFor $g = 4$: $4^5 = 1024 \\equiv 1 \\pmod{11}$, so $4$ is not a generator either."
+  },
+  {
+    "id": "exam2024-mcq04",
+    "type": "mcq",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Exam 2024 Q4" },
+    "difficulty": 1,
+    "text": "In an alphabet of 32 characters, how many possible permutations are there for the random simple substitution cipher?",
+    "options": [
+      { "key": "a", "text": "$10^{32}$" },
+      { "key": "b", "text": "$2^{32}$" },
+      { "key": "c", "text": "$2 \\cdot 10^{32}$" },
+      { "key": "d", "text": "$32!$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "A simple substitution cipher maps each character to a unique other character, which is a permutation of the alphabet. For an alphabet of $n$ characters, the number of permutations is $n!$. With 32 characters, there are $32!$ possible keys."
+  },
+  {
+    "id": "exam2024-mcq05",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2024 Q5" },
+    "difficulty": 1,
+    "text": "According to Kerckhoffs's principle, which of the following should *not* be available to an attacker of an iterated block cipher?",
+    "options": [
+      { "key": "a", "text": "The round keys" },
+      { "key": "b", "text": "The number of rounds" },
+      { "key": "c", "text": "The key length" },
+      { "key": "d", "text": "The block length" }
+    ],
+    "correctAnswer": "a",
+    "solution": "Kerckhoffs's principle states that the security of a cryptosystem should depend only on the secrecy of the key, not on the secrecy of the algorithm. The number of rounds, key length, and block length are all part of the algorithm design and can be public. Only the round keys (derived from the secret key) must remain secret."
+  },
+  {
+    "id": "exam2024-mcq06",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2024 Q6" },
+    "difficulty": 2,
+    "text": "Double DES is the encryption algorithm defined by iterating two instances of the DES algorithm -- the initial DES ciphertext is fed back into the encryption algorithm with an independent key. The main disadvantage of double DES is:",
+    "options": [
+      { "key": "a", "text": "It is vulnerable to differential cryptanalysis" },
+      { "key": "b", "text": "It has poor avalanche effects" },
+      { "key": "c", "text": "The key length is too short to resist practical brute-force search" },
+      { "key": "d", "text": "There is a meet-in-the-middle attack which reduces the effective key length" }
+    ],
+    "correctAnswer": "d",
+    "solution": "Double DES uses two independent 56-bit keys for a total of 112 bits. However, a meet-in-the-middle attack reduces the effective security to about $2^{57}$ operations instead of $2^{112}$. The attacker encrypts the plaintext with all possible $K_1$ and decrypts the ciphertext with all possible $K_2$, then looks for matches in the middle."
+  },
+  {
+    "id": "exam2024-mcq07",
+    "type": "mcq",
+    "topics": ["hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2024 Q7" },
+    "difficulty": 1,
+    "text": "In the One-Time Pad (OTP), the key is:",
+    "options": [
+      { "key": "a", "text": "A random sequence of characters, each of them independently generated" },
+      { "key": "b", "text": "A random sequence of characters, each of them generated from a seed" },
+      { "key": "c", "text": "A pseudo-random sequence of characters" },
+      { "key": "d", "text": "A sequence of characters generated as a function of the message" }
+    ],
+    "correctAnswer": "a",
+    "solution": "The OTP requires a *truly* random key where each character is independently generated (not from a seed or PRNG). This independence is crucial for Shannon's proof of perfect secrecy. A seed-based or pseudo-random sequence would make it a stream cipher, not an OTP."
+  },
+  {
+    "id": "exam2024-mcq08",
+    "type": "mcq",
+    "topics": ["hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2024 Q8" },
+    "difficulty": 2,
+    "text": "Suppose that $10011$ is observed to be a ciphertext from the one-time pad using the binary alphabet. Then we know that:",
+    "options": [
+      { "key": "a", "text": "The plaintext was $11111$ with probability $1/2^5$" },
+      { "key": "b", "text": "The plaintext must be different from $10011$" },
+      { "key": "c", "text": "The plaintext could have been any 5-bit string" },
+      { "key": "d", "text": "The keystream used must be different from $10011$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "With a one-time pad, any ciphertext could correspond to *any* plaintext of the same length, because for every possible plaintext there exists exactly one key that maps it to the observed ciphertext. The ciphertext reveals zero information about the plaintext. In particular, the plaintext *could* equal $10011$ (when the key is $00000$), so (b) is false. And (d) is false since key $= 00000$ is possible."
+  },
+  {
+    "id": "exam2024-mcq09",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2024 Q9" },
+    "difficulty": 2,
+    "text": "Recall Euler's phi function $\\varphi$. If $n = 105$, what is the value of $\\varphi(n)$?",
+    "options": [
+      { "key": "a", "text": "$99$" },
+      { "key": "b", "text": "$104$" },
+      { "key": "c", "text": "$48$" },
+      { "key": "d", "text": "$47$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "First factor: $105 = 3 \\times 5 \\times 7$. Then use the formula for Euler's totient:\n\n$$\\varphi(105) = 105 \\cdot \\left(1 - \\frac{1}{3}\\right)\\left(1 - \\frac{1}{5}\\right)\\left(1 - \\frac{1}{7}\\right) = 105 \\cdot \\frac{2}{3} \\cdot \\frac{4}{5} \\cdot \\frac{6}{7} = 48$$"
+  },
+  {
+    "id": "exam2024-mcq10",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2024 Q10" },
+    "difficulty": 1,
+    "text": "For an integer $n$, when is testing for primality by trial division practical?",
+    "options": [
+      { "key": "a", "text": "When $n$ is a Mersenne prime" },
+      { "key": "b", "text": "When $n$ is small" },
+      { "key": "c", "text": "When $n$ is large" },
+      { "key": "d", "text": "When $n$ is a palindromic prime" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Trial division tests all primes up to $\\sqrt{n}$. For large $n$ (e.g., cryptographic sizes like 1024 bits), $\\sqrt{n}$ is still astronomically large, making trial division impractical. It is only feasible when $n$ is small. For large numbers, probabilistic tests like Miller-Rabin are used instead."
+  },
+  {
+    "id": "exam2024-mcq11",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2024 Q11" },
+    "difficulty": 2,
+    "text": "Which of the following pairs of equations *cannot* be solved using the Chinese Remainder Theorem?",
+    "options": [
+      { "key": "a", "text": "$x \\equiv 1 \\pmod{7}$ and $x \\equiv 3 \\pmod{17}$" },
+      { "key": "b", "text": "$x \\equiv 5 \\pmod{8}$ and $x \\equiv 3 \\pmod{17}$" },
+      { "key": "c", "text": "$x \\equiv 3 \\pmod{7}$ and $x \\equiv 5 \\pmod{18}$" },
+      { "key": "d", "text": "$x \\equiv 3 \\pmod{8}$ and $x \\equiv 5 \\pmod{18}$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "The CRT requires that the moduli be coprime, i.e., $\\gcd(m_1, m_2) = 1$.\n\n- (a): $\\gcd(7, 17) = 1$ -- coprime\n- (b): $\\gcd(8, 17) = 1$ -- coprime\n- (c): $\\gcd(7, 18) = 1$ -- coprime\n- (d): $\\gcd(8, 18) = 2 \\neq 1$ -- **not coprime**\n\nSince $8$ and $18$ share the factor $2$, the CRT cannot be directly applied to (d)."
+  },
+  {
+    "id": "exam2024-mcq12",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exam", "label": "Exam 2024 Q12" },
+    "difficulty": 1,
+    "text": "Let $p$ be a prime, and $g$ a generator for $\\mathbb{Z}^*_p$. The *Discrete Logarithm problem* is:",
+    "options": [
+      { "key": "a", "text": "Given $x$, recover $y$ given $y \\equiv x \\pmod{p}$" },
+      { "key": "b", "text": "Given $x$, recover $g$ given $y \\equiv g^x \\pmod{p}$" },
+      { "key": "c", "text": "Given $y$, recover $x$ given $y \\equiv x^g \\pmod{p}$" },
+      { "key": "d", "text": "Given $y$, recover $x$ given $y \\equiv g^x \\pmod{p}$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "The Discrete Logarithm Problem (DLP) is: given a prime $p$, a generator $g$, and a value $y = g^x \\bmod p$, find $x$. Computing $g^x \\bmod p$ is easy (fast exponentiation), but recovering $x$ from $y$ is computationally hard for large $p$. This one-way difficulty is the basis of DH key exchange, ElGamal, and DSA."
+  },
+  {
+    "id": "exam2024-mcq13",
+    "type": "mcq",
+    "topics": ["number-theory-pk"],
+    "source": { "type": "exam", "label": "Exam 2024 Q13" },
+    "difficulty": 2,
+    "text": "The Euler function $\\varphi$ is often useful for public key cryptography. For any integer $n > 1$ it is always true that:",
+    "options": [
+      { "key": "a", "text": "$\\varphi(n)$ is an odd integer" },
+      { "key": "b", "text": "$\\varphi(n)$ divides $n$" },
+      { "key": "c", "text": "$\\varphi(n)$ is an even integer" },
+      { "key": "d", "text": "$\\varphi(n) < n$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "For any $n > 1$, $\\varphi(n) < n$ because at minimum $n$ itself is not coprime to $n$.\n\n- (a) is false: $\\varphi(4) = 2$, which is even.\n- (b) is false: $\\varphi(5) = 4$ does not divide $5$.\n- (c) is false: $\\varphi(2) = 1$, which is odd.\n- (d) is always true for $n > 1$, since there is always at least one integer in $\\{1, \\ldots, n\\}$ (namely $n$) that is not coprime to $n$."
+  },
+  {
+    "id": "exam2024-mcq14",
+    "type": "mcq",
+    "topics": ["number-theory-pk"],
+    "source": { "type": "exam", "label": "Exam 2024 Q14" },
+    "difficulty": 3,
+    "text": "Algorithms for testing the primality of an integer $n$ sometimes result in obtaining a nontrivial square root of $1$ modulo $n$. Knowledge of such a value:",
+    "options": [
+      { "key": "a", "text": "Allows $n$ to be factorised" },
+      { "key": "b", "text": "Shows that $n$ is prime" },
+      { "key": "c", "text": "Shows that $n - 1$ is prime" },
+      { "key": "d", "text": "Shows that $n + 1$ is prime" }
+    ],
+    "correctAnswer": "a",
+    "solution": "A nontrivial square root of $1 \\pmod{n}$ is a value $a$ where $a^2 \\equiv 1 \\pmod{n}$ but $a \\not\\equiv \\pm 1 \\pmod{n}$. This means $n \\mid (a^2 - 1) = (a-1)(a+1)$, but $n \\nmid (a-1)$ and $n \\nmid (a+1)$. Therefore $\\gcd(a-1, n)$ gives a nontrivial factor of $n$. This is used in the Miller-Rabin test: finding such a root proves $n$ is composite and yields a factorisation."
+  },
+  {
+    "id": "exam2024-mcq15",
+    "type": "mcq",
+    "topics": ["quantum-safe"],
+    "source": { "type": "exam", "label": "Exam 2024 Q15" },
+    "difficulty": 1,
+    "text": "What do \"Harvest now, decrypt later\" attacks refer to?",
+    "options": [
+      { "key": "a", "text": "An attack where we collect TLS data on-the-fly, then decrypt later" },
+      { "key": "b", "text": "An attack where we collect data, and run a supercomputer in the background to decrypt" },
+      { "key": "c", "text": "An attack where we collect data now, and decrypt when a large enough quantum computer becomes available" },
+      { "key": "d", "text": "Any kind of attack where we collect data, then decrypt it in an offline phase" }
+    ],
+    "correctAnswer": "c",
+    "solution": "\"Harvest now, decrypt later\" specifically refers to the threat from quantum computing. Adversaries record encrypted data today with the expectation that future quantum computers (running Shor's algorithm) will be able to break current public-key cryptography (RSA, ECDH) and decrypt the stored data. This motivates the transition to post-quantum cryptography."
+  },
+  {
+    "id": "exam2024-mcq16",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Exam 2024 Q16" },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for encryption:",
+    "options": [
+      { "key": "a", "text": "The private key of the sender is needed during encryption" },
+      { "key": "b", "text": "The private key of the recipient is needed during encryption" },
+      { "key": "c", "text": "The private key of the sender is needed during decryption" },
+      { "key": "d", "text": "The private key of the recipient is needed during decryption" }
+    ],
+    "correctAnswer": "d",
+    "solution": "In public-key encryption, the sender encrypts with the **recipient's public key**, and the recipient decrypts with their own **private key**. This ensures only the intended recipient can read the message. The sender's keys are not involved in the encryption/decryption process (they would be used for signing, not encryption)."
+  },
+  {
+    "id": "exam2024-mcq17",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exam", "label": "Exam 2024 Q17" },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for digital signatures:",
+    "options": [
+      { "key": "a", "text": "The public key of the signer is used for signature verification" },
+      { "key": "b", "text": "The public key of the verifier is used for signature verification" },
+      { "key": "c", "text": "The private key of the signer is used for signature verification" },
+      { "key": "d", "text": "The private key of the verifier is used for signature verification" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In digital signatures, the signer creates the signature using their **private key**, and anyone can verify it using the signer's **public key**. This provides authenticity (only the signer could have created it) and non-repudiation (the signer cannot deny having signed)."
+  },
+  {
+    "id": "exam2024-mcq18",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exam", "label": "Exam 2024 Q18" },
+    "difficulty": 1,
+    "text": "The inputs to a public key verification algorithm are:",
+    "options": [
+      { "key": "a", "text": "The secret verification key, the message $m$ and the signature $\\sigma$" },
+      { "key": "b", "text": "The public verification key, the message $m$ and the signature $\\sigma$" },
+      { "key": "c", "text": "The public verification key and the hash of the signature $\\sigma$ and message $m$" },
+      { "key": "d", "text": "The secret verification key and the hash of the signature $\\sigma$ and message $m$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Verification must be publicly performable, so it uses the **public** verification key. The algorithm takes three inputs: (1) the public verification key, (2) the original message $m$, and (3) the signature $\\sigma$. It outputs accept/reject. The verification key is never secret -- that would defeat the purpose of public-key signatures."
+  },
+  {
+    "id": "exam2024-mcq19",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exam", "label": "Exam 2024 Q19" },
+    "difficulty": 2,
+    "text": "In a public key signature scheme, the *unforgeability* property refers to the fact that it is impossible to:",
+    "options": [
+      { "key": "a", "text": "Construct a pair $(m, \\sigma)$ that passes verification without the public verification key $K_s$" },
+      { "key": "b", "text": "Construct a pair $(m, \\sigma)$ that passes verification without the secret verification key $K_s$" },
+      { "key": "c", "text": "Construct a pair $(m, \\sigma)$ that passes verification without the public signing key $K_s$" },
+      { "key": "d", "text": "Construct a pair $(m, \\sigma)$ that passes verification without the secret signing key $K_s$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "Unforgeability means that without the **secret signing key**, no adversary can produce a valid message-signature pair $(m, \\sigma)$ that passes verification. The public verification key is available to everyone (needed for verification), so knowledge of it shouldn't help forge signatures. The security rests entirely on the secrecy of the signing key."
+  },
+  {
+    "id": "exam2024-mcq20",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Exam 2024 Q20" },
+    "difficulty": 1,
+    "text": "A message authentication code (MAC) requires a key as input while a hash function does not. Because of this:",
+    "options": [
+      { "key": "a", "text": "It is always easy to find collisions for a MAC" },
+      { "key": "b", "text": "The output size of a MAC must be longer than the output size of a hash function for the same security level" },
+      { "key": "c", "text": "A MAC must be more efficient to compute than a hash function" },
+      { "key": "d", "text": "A MAC can provide data integrity" }
+    ],
+    "correctAnswer": "d",
+    "solution": "Because a MAC uses a secret key, only parties who share the key can compute or verify the tag. This provides data integrity: an attacker who doesn't know the key cannot forge a valid MAC tag for a modified message. A hash function without a key cannot provide this, since anyone can compute the hash of a modified message."
+  },
+  {
+    "id": "exam2024-mcq21",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exam", "label": "Exam 2024 Q21" },
+    "difficulty": 2,
+    "text": "Two commonly used signature schemes are RSA signatures and DSA signatures. In practical implementations, and at the same security level:",
+    "options": [
+      { "key": "a", "text": "RSA signatures are faster to generate" },
+      { "key": "b", "text": "RSA signatures are shorter" },
+      { "key": "c", "text": "RSA signatures are faster to verify" },
+      { "key": "d", "text": "RSA signatures perform all computations with a shorter modulus" }
+    ],
+    "correctAnswer": "c",
+    "solution": "RSA verification uses a small public exponent (commonly $e = 65537$), making verification very fast. RSA signing is slower because the private exponent $d$ is large. DSA has the opposite trade-off: signing and verification have similar cost, but both involve modular exponentiations. At the same security level, RSA signatures are longer (e.g., 2048 bits vs. 320 bits for DSA) but faster to verify."
+  },
+  {
+    "id": "exam2024-mcq22",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Exam 2024 Q22" },
+    "difficulty": 2,
+    "text": "A cryptographic hash function $h$ often needs the property of collision resistance. To ensure that finding collisions is of the same order of difficulty as brute force key search on a symmetric cipher with a key of 128 bits, the output size of $h$ should be approximately:",
+    "options": [
+      { "key": "a", "text": "256 bits" },
+      { "key": "b", "text": "$\\sqrt{128}$ bits" },
+      { "key": "c", "text": "64 bits" },
+      { "key": "d", "text": "128 bits" }
+    ],
+    "correctAnswer": "a",
+    "solution": "Due to the birthday paradox, finding a collision in a hash function with $n$-bit output requires about $2^{n/2}$ operations. To match the $2^{128}$ difficulty of brute-force key search on a 128-bit symmetric cipher, we need $2^{n/2} = 2^{128}$, giving $n = 256$ bits. This is why SHA-256 provides 128-bit collision resistance."
+  },
+  {
+    "id": "exam2024-mcq23",
+    "type": "mcq",
+    "topics": ["hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2024 Q23" },
+    "difficulty": 2,
+    "text": "A plaintext $P$ is encrypted into a ciphertext $C$ with a one-time pad. Suppose that an attacker is able to mount a known plaintext attack to obtain a portion of $P$ and the corresponding portion of $C$. This enables the attacker to obtain:",
+    "options": [
+      { "key": "a", "text": "Nothing except what the attacker could obtain in a ciphertext only attack" },
+      { "key": "b", "text": "A portion of the keystream" },
+      { "key": "c", "text": "The whole keystream" },
+      { "key": "d", "text": "The whole plaintext $P$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "In a one-time pad, $C = P \\oplus K$. If the attacker knows a portion of $P$ and the corresponding portion of $C$, they can compute $K = P \\oplus C$ for that portion, recovering part of the keystream. However, since OTP key bits are independently random, knowing some key bits gives zero information about the remaining key bits. So the attacker cannot recover the whole keystream or the whole plaintext."
+  },
+  {
+    "id": "exam2024-mcq24",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2024 Q24" },
+    "difficulty": 1,
+    "text": "Which of the following is a valid key size for the Advanced Encryption Standard (AES)?",
+    "options": [
+      { "key": "a", "text": "256 bits" },
+      { "key": "b", "text": "512 bits" },
+      { "key": "c", "text": "1024 bits" },
+      { "key": "d", "text": "2048 bits" }
+    ],
+    "correctAnswer": "a",
+    "solution": "AES supports three key sizes: 128, 192, and 256 bits (corresponding to AES-128, AES-192, and AES-256 with 10, 12, and 14 rounds respectively). The block size is always 128 bits. Key sizes of 512, 1024, and 2048 bits are not part of the AES standard."
+  },
+  {
+    "id": "exam2024-mcq25",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Exam 2024 Q25" },
+    "difficulty": 2,
+    "text": "An advantage of cipher block chaining (CBC) mode for a block cipher, in comparison to electronic code book (ECB) mode, is that:",
+    "options": [
+      { "key": "a", "text": "CBC mode protects against dictionary attacks but ECB mode does not" },
+      { "key": "b", "text": "CBC mode protects against brute force key search but ECB mode does not" },
+      { "key": "c", "text": "CBC mode protects against replay attacks but ECB mode does not" },
+      { "key": "d", "text": "CBC mode protects against chosen plaintext attacks but ECB mode does not" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In ECB mode, identical plaintext blocks produce identical ciphertext blocks. An attacker can build a dictionary mapping ciphertext blocks to known plaintexts. CBC mode XORs each plaintext block with the previous ciphertext block before encryption, so identical plaintext blocks produce different ciphertext blocks (depending on position and IV). This prevents dictionary attacks. Neither mode protects against brute-force key search."
+  },
+  {
+    "id": "exam2024-mcq26",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Exam 2024 Q26" },
+    "difficulty": 3,
+    "text": "Three modes of operation for block ciphers are ECB mode, CBC mode and CTR mode. Consider the size of encrypted messages for each mode, measured as the total number of bits that must be communicated. Suppose that the nonce used in CTR mode is half the size of the block size. Which of the following is then true for any size of message?",
+    "options": [
+      { "key": "a", "text": "CTR mode always needs to communicate more bits than CBC mode" },
+      { "key": "b", "text": "CTR mode always needs to communicate more bits than ECB mode" },
+      { "key": "c", "text": "ECB mode always needs to communicate more bits than CBC mode" },
+      { "key": "d", "text": "CBC mode always needs to communicate more bits than ECB mode" }
+    ],
+    "correctAnswer": "d",
+    "solution": "ECB requires no additional overhead beyond the ciphertext blocks (plus possible padding). CBC requires transmitting the IV (one full block) in addition to the ciphertext blocks. CTR requires transmitting the nonce (half a block) plus the ciphertext.\n\nFor any message size:\n- ECB: ciphertext blocks only (with padding)\n- CBC: IV (1 block) + ciphertext blocks (with padding)\n- CTR: nonce (half block) + ciphertext (no padding needed)\n\nCBC always communicates at least one full block more than ECB (the IV), so (d) is always true."
+  },
+  {
+    "id": "exam2024-mcq27",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2024 Q27" },
+    "difficulty": 2,
+    "text": "One valid TLS 1.2 ciphersuite is denoted as `TLS_RSA_WITH_AES_128_CBC_SHA256`. When this ciphersuite is chosen, integrity of application data is provided by:",
+    "options": [
+      { "key": "a", "text": "An HMAC tag with SHA-256 as the underlying hash function" },
+      { "key": "b", "text": "A CBC-based tag with AES as the underlying encryption function" },
+      { "key": "c", "text": "Signing each application message with an RSA signature" },
+      { "key": "d", "text": "Appending a hash of each packet, using SHA-256, before encryption with AES" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In TLS 1.2 with MAC-then-encrypt, the `SHA256` at the end of the ciphersuite name specifies the hash function used in the HMAC construction for data integrity. The record protocol computes HMAC-SHA-256 over the plaintext, appends it, then encrypts with AES-128-CBC. RSA is used only for key exchange, not per-message integrity."
+  },
+  {
+    "id": "exam2024-mcq28",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2024 Q28" },
+    "difficulty": 1,
+    "text": "An X.509 digital certificate is issued by a certification authority $C$ for a subject $A$. Which of the following *must* be included in the certificate?",
+    "options": [
+      { "key": "a", "text": "The private key of $A$" },
+      { "key": "b", "text": "The private key of $C$" },
+      { "key": "c", "text": "A signature of $A$" },
+      { "key": "d", "text": "A signature of $C$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "An X.509 certificate binds a subject's identity to their public key, and this binding is vouched for by the CA's digital signature. The certificate contains $A$'s public key (not private key), the CA $C$'s signature over the certificate contents, validity period, issuer info, etc. Private keys are never included in certificates."
+  },
+  {
+    "id": "exam2024-mcq29",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2024 Q29" },
+    "difficulty": 2,
+    "text": "In the TLS 1.2 handshake protocol, the last message from the server is called the Server Finished message and includes a checksum over all of the previous handshake messages. If the client did not check the integrity of this message then an attacker could:",
+    "options": [
+      { "key": "a", "text": "Alter the ciphersuite agreed for this session" },
+      { "key": "b", "text": "Masquerade as the server" },
+      { "key": "c", "text": "Obtain the agreed pre-master secret" },
+      { "key": "d", "text": "Obtain the session key" }
+    ],
+    "correctAnswer": "a",
+    "solution": "The Finished message contains a MAC over the entire handshake transcript. If the client doesn't verify it, an active man-in-the-middle could have modified earlier handshake messages (e.g., the ServerHello) to downgrade the ciphersuite to a weaker one. The Finished message is specifically designed to detect such tampering. Without checking it, the client cannot detect ciphersuite downgrade attacks."
+  },
+  {
+    "id": "exam2024-mcq30",
+    "type": "mcq",
+    "topics": ["tls13-ipsec"],
+    "source": { "type": "exam", "label": "Exam 2024 Q30" },
+    "difficulty": 1,
+    "text": "A difference between TLS 1.3 and TLS 1.2 is:",
+    "options": [
+      { "key": "a", "text": "The TLS 1.3 handshake protocol always provides forward secrecy" },
+      { "key": "b", "text": "There are no known attacks on the TLS 1.3 protocol" },
+      { "key": "c", "text": "The TLS 1.3 record protocol includes data compression" },
+      { "key": "d", "text": "The TLS 1.3 protocol provides post-quantum security" }
+    ],
+    "correctAnswer": "a",
+    "solution": "TLS 1.3 removed static RSA key exchange and requires ephemeral Diffie-Hellman (DHE or ECDHE) for all connections, guaranteeing forward secrecy. TLS 1.2 optionally supported static RSA key exchange which does not provide forward secrecy. TLS 1.3 also removed compression (to prevent CRIME-style attacks) and does not provide post-quantum security by default."
+  },
+  {
+    "id": "exam2024-w-1",
+    "type": "written",
+    "topics": ["classical-encryption", "hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2024 W1" },
+    "difficulty": 3,
+    "text": "Frequency analysis is effective in cryptanalysis of historical ciphers. Consider the following three ciphers when used to encrypt plaintext from a natural language such as English:\n- The $3 \\times 3$ Hill cipher, with encryption $C = KP$ where $K$ is an invertible $3 \\times 3$ matrix\n- Random simple substitution cipher, which permutes the alphabet\n- Simple transposition, which permutes blocks of plaintext characters (blocks of at least 10 characters)",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "How many keys are possible for each of these ciphers (you only need to write down a formula)?",
+        "solution": "Assume an alphabet of 26 characters.\n\n**Hill Cipher ($3 \\times 3$):** The number of invertible $3 \\times 3$ matrices over $\\mathbb{Z}_{26}$. By CRT, $26 = 2 \\times 13$, so the count is:\n$$(2^3 - 1)(2^3 - 2)(2^3 - 4) \\times (13^3 - 1)(13^3 - 13)(13^3 - 169)$$\n$$= 168 \\times 9{,}726{,}417{,}792 = 1{,}634{,}038{,}189{,}056$$\n\nAlternatively, the formula $(n^3-1)(n^3-n)(n^3-n^2)$ applied per prime factor of $n$.\n\n**Random Simple Substitution:** $26!$ possible keys (all permutations of the alphabet).\n\n**Simple Transposition (block size $b \\geq 10$):** $b!$ possible keys. With blocks of exactly 10 characters: $10!$ keys."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "For the $3 \\times 3$ Hill cipher, how could you run a ciphertext-only attack (hint: think of using pairs of characters)? For the other two, how could you run a chosen plaintext attack, and how many chosen plaintexts would be necessary?",
+        "solution": "**Hill Cipher (ciphertext-only):** Since the Hill cipher encrypts trigrams, it preserves trigram frequency distributions. Perform frequency analysis on ciphertext trigrams. The most common ciphertext trigrams likely correspond to common English trigrams (THE, AND, THA, etc.). With three known plaintext-ciphertext trigram pairs, set up:\n$$C = KP \\implies K = CP^{-1}$$\nwhere $P$ and $C$ are $3 \\times 3$ matrices formed from three trigram pairs.\n\n**Random Simple Substitution (chosen plaintext):** Choose a plaintext containing all 26 alphabet characters (or 25 distinct characters, since the 26th can be deduced). This reveals the complete substitution mapping. So 26 characters (or 25) suffice.\n\n**Simple Transposition (chosen plaintext):** Choose a plaintext with 10 distinct characters in one block. The ciphertext reveals the permutation directly. So 10 chosen plaintext characters suffice."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2024-w-2",
+    "type": "written",
+    "topics": ["encryption-modes", "block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2024 W2" },
+    "difficulty": 3,
+    "text": "Consider a non-standard mode of operation for block ciphers, similar to but different from CTR mode. It has the following equation:\n\n$$C_t = O_t \\oplus P_t \\oplus C_{t-1}$$\n\nwhere $O_t = E(T_t, K)$ and $T_t = N \\| t$ is the concatenation of nonce $N$ and block number $t$, and $C_0 = 0$ (all-zero block).",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "What is the equation for decryption of ciphertext block $C_t$ to obtain the plaintext block $P_t$?",
+        "solution": "Starting from $C_t = O_t \\oplus P_t \\oplus C_{t-1}$, XOR both sides with $O_t$ and $C_{t-1}$:\n\n$$P_t = O_t \\oplus C_t \\oplus C_{t-1}$$\n\nwhere $O_t = E(T_t, K)$ and $T_t = N \\| t$, and $C_0 = 0$."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Suppose there is an error in transmission when block $C_t$ is sent to a recipient, so that one bit is changed. How many blocks, or partial blocks, are changed when the receiver decrypts? Explain your answer.",
+        "solution": "A 1-bit error in $C_t$ affects **two** decrypted blocks:\n\n1. **Block $P_t$:** Since $P_t = O_t \\oplus C_t \\oplus C_{t-1}$, the corrupted $C_t$ directly causes a 1-bit error in $P_t$.\n\n2. **Block $P_{t+1}$:** Since $P_{t+1} = O_{t+1} \\oplus C_{t+1} \\oplus C_t$, the corrupted $C_t$ also causes a 1-bit error in $P_{t+1}$.\n\nAll subsequent blocks $P_{t+2}, P_{t+3}, \\ldots$ are unaffected because they don't depend on $C_t$. The error does not propagate beyond one additional block."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Is it possible to encrypt multiple plaintext blocks in parallel? Is it possible to decrypt multiple blocks in parallel? Explain your answers.",
+        "solution": "**Encryption: No.** Encryption cannot be parallelised because $C_t = O_t \\oplus P_t \\oplus C_{t-1}$ requires $C_{t-1}$ from the previous block. Each block depends on the output of the previous encryption, creating a sequential chain.\n\n**Decryption: No.** Decryption also cannot be fully parallelised because $P_t = O_t \\oplus C_t \\oplus C_{t-1}$ requires the previous ciphertext block $C_{t-1}$. However, unlike encryption, all $C_t$ values are known upfront from the received ciphertext, so in practice the $O_t$ values can be precomputed in parallel, and then the XOR operations applied sequentially. But strictly, the dependency on $C_{t-1}$ means full parallel decryption is not possible in the same way as standard CTR mode.\n\n**Note:** The official solution states encryption is not parallel but decryption is possible in parallel, since all ciphertext blocks are available for the XOR operations and $O_t$ values can be computed independently."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2024-w-3",
+    "type": "written",
+    "topics": ["public-key-rsa", "number-theory-pk"],
+    "source": { "type": "exam", "label": "Exam 2024 W3" },
+    "difficulty": 2,
+    "text": "The Chinese Remainder Theorem (CRT) is often used to speed up RSA decryption. If the RSA modulus is $n = pq$, decryption exponent is $d$, and ciphertext is $C$, the method computes $M_p = C^{d \\bmod (p-1)} \\bmod p$ and $M_q = C^{d \\bmod (q-1)} \\bmod q$, then combines with CRT.\n\nIllustrate for $n = 55 = 5 \\times 11$, $d = 11$, $C = 2$.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Compute $M_p$ and $M_q$.",
+        "solution": "First compute the reduced exponents:\n- $d \\bmod (p-1) = 11 \\bmod 4 = 3$\n- $d \\bmod (q-1) = 11 \\bmod 10 = 1$\n\nThen:\n$$M_p = C^3 \\bmod 5 = 2^3 \\bmod 5 = 8 \\bmod 5 = 3$$\n$$M_q = C^1 \\bmod 11 = 2^1 \\bmod 11 = 2$$"
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Apply the CRT to find $M$.",
+        "solution": "By CRT:\n$$M = q \\cdot (q^{-1} \\bmod p) \\cdot M_p + p \\cdot (p^{-1} \\bmod q) \\cdot M_q \\pmod{n}$$\n\nCompute the inverses:\n- $q^{-1} \\bmod p = 11^{-1} \\bmod 5 = 1^{-1} \\bmod 5 = 1$ (since $11 \\equiv 1 \\pmod 5$)\n- $p^{-1} \\bmod q = 5^{-1} \\bmod 11 = 9$ (since $5 \\times 9 = 45 \\equiv 1 \\pmod{11}$)\n\nSubstitute:\n$$M = 11 \\cdot 1 \\cdot 3 + 5 \\cdot 9 \\cdot 2 = 33 + 90 = 123 \\equiv 13 \\pmod{55}$$\n\nSo $M = 13$."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Can the CRT be used to speed up decryption? How? Explain your reasoning.",
+        "solution": "**Yes.** RSA decryption computes $M = C^d \\bmod n$, which requires modular exponentiation with a large exponent $d$ and large modulus $n$.\n\nWith CRT, instead of one exponentiation modulo $n$ (an $k$-bit number), we perform two exponentiations modulo $p$ and $q$ (each roughly $k/2$-bit numbers) with reduced exponents.\n\nThe cost of modular exponentiation scales roughly as $O(\\log(d) \\cdot (\\log n)^2)$. Splitting into two half-size moduli and smaller exponents gives approximately a **4x speedup** (each exponentiation is about 4 times faster, and we do 2 of them, for a net $\\approx 4\\times / 2 = 2\\times$ improvement, though in practice the speedup is about 4x due to the cubic relationship between modulus size and computation cost)."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2024-w-4",
+    "type": "written",
+    "topics": ["discrete-log-crypto", "key-establishment"],
+    "source": { "type": "exam", "label": "Exam 2024 W4" },
+    "difficulty": 2,
+    "text": "Cryptosystems based on discrete logarithms often make use of a prime $p$ and a generator $g$ of $\\mathbb{Z}^*_p$.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "Show that when $p = 17$, the value $2$ is not a generator but the value $3$ is a generator.",
+        "solution": "For $p = 17$, the group $\\mathbb{Z}^*_{17}$ has order $\\varphi(17) = 16 = 2^4$. A value $g$ is a generator if $g^{16/q} \\not\\equiv 1 \\pmod{17}$ for each prime factor $q$ of $16$. The only prime factor of $16$ is $2$, so we check $g^{16/2} = g^8$.\n\n**For $g = 2$:**\n$$2^8 = 256 = 15 \\times 17 + 1 \\equiv 1 \\pmod{17}$$\nSince $2^8 \\equiv 1$, the order of $2$ divides $8 < 16$, so $2$ is **not** a generator.\n\n**For $g = 3$:**\n$$3^8 = 6561 = 385 \\times 17 + 16 \\equiv 16 \\equiv -1 \\not\\equiv 1 \\pmod{17}$$\nSince $3^8 \\not\\equiv 1$, the order of $3$ does not divide $8$, so $3$ must have order $16$ and is a **generator**."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "Consider Diffie-Hellman key exchange in $\\mathbb{Z}^*_p$ when $p = 17$ and $g = 3$. If A chooses random secret $a = 3$ and receives message $y = 4$ from B, what is the shared secret?",
+        "solution": "In Diffie-Hellman:\n1. A computes $g^a \\bmod p = 3^3 \\bmod 17 = 27 \\bmod 17 = 10$ and sends this to B.\n2. B sends $y = g^b \\bmod p = 4$ to A.\n3. A computes the shared secret: $y^a \\bmod p = 4^3 \\bmod 17 = 64 \\bmod 17 = 13$.\n\n(B computes the same value: $(g^a)^b = 10^b \\bmod 17 = 13$.)\n\nThe shared secret is $\\boxed{13}$."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2024-w-5",
+    "type": "written",
+    "topics": ["tls13-ipsec", "tls"],
+    "source": { "type": "exam", "label": "Exam 2024 W5" },
+    "difficulty": 2,
+    "text": "The TLS handshake protocol is complex and allows several variants. In this question we focus on TLS 1.3.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "It is optional for a client to use a certificate. What are the security consequences when a client does *not* have a certificate?",
+        "solution": "Without a client certificate, the server **cannot authenticate the client** at the TLS level. The server has no way to verify the client's identity cryptographically during the handshake.\n\nThis means another party could impersonate the legitimate client: if client A does not use a certificate, an attacker B could establish a TLS connection to the server and the server would have no way to distinguish B from A.\n\nIn practice, client authentication is then typically handled at the application layer (e.g., username/password, tokens) rather than at the TLS protocol level."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "TLS 1.3 offers several different ciphersuites which are negotiated in the handshake. State and explain one advantage and one disadvantage of allowing different ciphersuites.",
+        "solution": "**Advantage -- Flexibility and forward compatibility:** Supporting multiple ciphersuites allows the protocol to adapt as cryptographic knowledge evolves. If a vulnerability is found in one cipher, the system can switch to another without replacing all hardware/software. It also provides backward compatibility for clients with different capabilities.\n\n**Disadvantage -- Downgrade attacks:** A man-in-the-middle attacker can potentially manipulate the handshake to force both parties to use the weakest available ciphersuite. The attacker modifies the ClientHello to remove strong ciphersuites, causing the server to select a weaker one. TLS 1.3 mitigates this with the Finished message, but the attack surface exists whenever multiple strength levels are supported."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "How does 0-RTT enhance the protocol compared to TLS 1.2? Are there any security trade-offs?",
+        "solution": "**Enhancement:** 0-RTT (zero round-trip time) allows a client that has previously connected to a server to send encrypted application data in the very first message of a resumed handshake, without waiting for a server response. This reduces latency compared to TLS 1.2, which requires at least one full round-trip before application data can be sent.\n\n**Security trade-off:** 0-RTT data is vulnerable to **replay attacks**. An attacker can capture and re-send the client's 0-RTT data, and the server may process it again. This is because 0-RTT data is encrypted with a pre-shared key from a previous session, without fresh server input. For this reason, 0-RTT should only be used for idempotent operations (requests that are safe to repeat, like GET requests) and not for state-changing operations."
+      }
+    ],
+    "totalPoints": 6
+  }
+]

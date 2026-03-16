@@ -1,0 +1,220 @@
+[
+  {
+    "id": "l09-mcq01",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Discrete Log" },
+    "difficulty": 1,
+    "text": "In the Diffie-Hellman key exchange, Alice sends $A = g^a \\bmod p$ and Bob sends $B = g^b \\bmod p$. What shared secret do they both compute?",
+    "options": [
+      { "key": "a", "text": "$g^{a+b} \\bmod p$" },
+      { "key": "b", "text": "$g^{ab} \\bmod p$" },
+      { "key": "c", "text": "$g^{a-b} \\bmod p$" },
+      { "key": "d", "text": "$(a \\cdot b) \\bmod p$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Alice computes $B^a = (g^b)^a = g^{ab} \\bmod p$. Bob computes $A^b = (g^a)^b = g^{ab} \\bmod p$. Both arrive at $Z = g^{ab} \\bmod p$."
+  },
+  {
+    "id": "l09-mcq02",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Discrete Log" },
+    "difficulty": 2,
+    "text": "What is the main vulnerability of basic (unauthenticated) Diffie-Hellman?",
+    "options": [
+      { "key": "a", "text": "The shared secret is too short" },
+      { "key": "b", "text": "Man-in-the-middle attack — an attacker can establish separate keys with each party" },
+      { "key": "c", "text": "The discrete log can be computed efficiently" },
+      { "key": "d", "text": "The protocol leaks the private exponents" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Basic DH provides no authentication. An attacker Mallory can intercept $g^a$, replace it with $g^{m_1}$, intercept $g^b$, replace with $g^{m_2}$, and establish separate shared secrets with Alice and Bob. Mallory can then decrypt, read, and re-encrypt all traffic. Authentication (signatures, certificates) prevents this."
+  },
+  {
+    "id": "l09-mcq03",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Discrete Log" },
+    "difficulty": 2,
+    "text": "In the ElGamal cryptosystem with public key $(p, g, y)$ where $y = g^x \\bmod p$, the ciphertext of message $M$ with random $k$ is:",
+    "options": [
+      { "key": "a", "text": "$(g^k \\bmod p,\\; M \\cdot y^k \\bmod p)$" },
+      { "key": "b", "text": "$(g^k \\bmod p,\\; M \\oplus y^k \\bmod p)$" },
+      { "key": "c", "text": "$(M^k \\bmod p,\\; g^k \\bmod p)$" },
+      { "key": "d", "text": "$(g^x \\bmod p,\\; M^x \\bmod p)$" }
+    ],
+    "correctAnswer": "a",
+    "solution": "ElGamal encryption: choose random $k$, compute $C_1 = g^k \\bmod p$ and $C_2 = M \\cdot y^k \\bmod p$. The ciphertext is $(C_1, C_2)$. Decryption recovers $M = C_2 \\cdot C_1^{-x} \\bmod p$ since $C_2 \\cdot C_1^{-x} = M \\cdot y^k \\cdot (g^k)^{-x} = M \\cdot g^{xk} \\cdot g^{-xk} = M$."
+  },
+  {
+    "id": "l09-mcq04",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Discrete Log" },
+    "difficulty": 2,
+    "text": "What advantage does ElGamal encryption have over textbook RSA?",
+    "options": [
+      { "key": "a", "text": "It produces shorter ciphertexts" },
+      { "key": "b", "text": "Each encryption uses a random $k$, making it non-deterministic" },
+      { "key": "c", "text": "It does not require a modular inverse" },
+      { "key": "d", "text": "It supports longer messages" }
+    ],
+    "correctAnswer": "b",
+    "solution": "ElGamal encryption is randomized: the same plaintext encrypted twice with different random $k$ values produces different ciphertexts. This means it achieves IND-CPA security without padding, unlike textbook RSA which is deterministic and requires OAEP padding. The downside is that ElGamal ciphertexts are twice the size of the plaintext (two group elements)."
+  },
+  {
+    "id": "l09-mcq05",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Elliptic Curves" },
+    "difficulty": 2,
+    "text": "An elliptic curve over $\\mathbb{Z}_p$ is defined by $y^2 = x^3 + ax + b \\bmod p$. What is the group operation on points of this curve?",
+    "options": [
+      { "key": "a", "text": "Modular multiplication of coordinates" },
+      { "key": "b", "text": "Point addition defined geometrically via chord-and-tangent" },
+      { "key": "c", "text": "Component-wise XOR of coordinates" },
+      { "key": "d", "text": "Scalar multiplication of the prime $p$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The group operation on an elliptic curve is point addition. Geometrically, to add points $P$ and $Q$: draw a line through $P$ and $Q$, find the third intersection with the curve, then reflect across the $x$-axis. Algebraically, this translates to formulas involving the coordinates. The identity element is the 'point at infinity'."
+  },
+  {
+    "id": "l09-mcq06",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Elliptic Curves" },
+    "difficulty": 2,
+    "text": "Why are elliptic curve cryptosystems often preferred over RSA or DH over $\\mathbb{Z}_p^*$?",
+    "options": [
+      { "key": "a", "text": "They are provably secure against quantum computers" },
+      { "key": "b", "text": "They achieve the same security level with much smaller key sizes" },
+      { "key": "c", "text": "They don't require modular arithmetic" },
+      { "key": "d", "text": "They are simpler to implement" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The best known algorithms for solving the elliptic curve discrete log problem (ECDLP) are fully exponential ($O(\\sqrt{n})$ via Pollard's rho), compared to sub-exponential algorithms for factoring and DLP in $\\mathbb{Z}_p^*$ (number field sieve). This means ECC achieves equivalent security with much smaller parameters: a 256-bit EC key $\\approx$ 3072-bit RSA key in security."
+  },
+  {
+    "id": "l09-mcq07",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Elliptic Curves" },
+    "difficulty": 2,
+    "text": "The elliptic curve discrete logarithm problem (ECDLP) is: given points $P$ and $G$ on a curve where $P = [k]G$, find:",
+    "options": [
+      { "key": "a", "text": "The curve parameters $a$ and $b$" },
+      { "key": "b", "text": "The scalar $k$" },
+      { "key": "c", "text": "The prime $p$" },
+      { "key": "d", "text": "The point $G$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The ECDLP asks: given a generator point $G$ and a point $P = [k]G = G + G + \\ldots + G$ ($k$ times), find the integer $k$. This is believed to be computationally hard for properly chosen curves. It is the foundation of ECDH key exchange, ECDSA signatures, and other EC-based schemes."
+  },
+  {
+    "id": "l09-mcq08",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Discrete Log" },
+    "difficulty": 1,
+    "text": "In the Diffie-Hellman example with $p = 181$, $g = 2$, Alice picks $a = 50$ and Bob picks $b = 33$. What does Alice send to Bob?",
+    "options": [
+      { "key": "a", "text": "$2^{50} \\bmod 181 = 116$" },
+      { "key": "b", "text": "$2^{33} \\bmod 181 = 30$" },
+      { "key": "c", "text": "$50 \\cdot 33 \\bmod 181 = 49$" },
+      { "key": "d", "text": "$2^{50+33} \\bmod 181 = 49$" }
+    ],
+    "correctAnswer": "a",
+    "solution": "Alice sends $A = g^a \\bmod p = 2^{50} \\bmod 181 = 116$. Bob sends $B = g^b \\bmod p = 2^{33} \\bmod 181 = 30$. Both compute the shared secret $Z = g^{ab} \\bmod 181 = 49$."
+  },
+  {
+    "id": "l09-mcq09",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Discrete Log" },
+    "difficulty": 2,
+    "text": "What is the difference between static and ephemeral Diffie-Hellman?",
+    "options": [
+      { "key": "a", "text": "Static DH uses fixed long-term keys; ephemeral DH generates fresh keys per session" },
+      { "key": "b", "text": "Static DH is faster; ephemeral DH is slower" },
+      { "key": "c", "text": "Ephemeral DH uses RSA; static DH uses discrete log" },
+      { "key": "d", "text": "There is no difference" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In **static DH**, Alice and Bob each have a long-term key pair ($x_A, y_A = g^{x_A}$). The shared secret $S = g^{x_A x_B}$ remains the same until keys change. In **ephemeral DH**, fresh random values $a, b$ are chosen per session, giving a unique shared secret each time. Ephemeral DH provides forward secrecy; static DH does not."
+  },
+  {
+    "id": "l09-mcq10",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Discrete Log" },
+    "difficulty": 2,
+    "text": "How does the Computational Diffie-Hellman (CDH) problem relate to the Discrete Logarithm Problem (DLP)?",
+    "options": [
+      { "key": "a", "text": "They are the same problem" },
+      { "key": "b", "text": "Solving DLP solves CDH, but CDH may be easier than DLP" },
+      { "key": "c", "text": "Solving CDH solves DLP" },
+      { "key": "d", "text": "They are unrelated" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The CDH problem: given $g, g^a, g^b$, compute $g^{ab}$. The DLP: given $g, g^a$, find $a$. If you can solve DLP, you recover $a$ and trivially compute $g^{ab} = (g^b)^a$. However, it is unknown whether CDH can be solved without solving DLP — CDH might be strictly easier. Both are assumed hard for appropriately chosen groups."
+  },
+  {
+    "id": "l09-written01",
+    "type": "written",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 ElGamal" },
+    "difficulty": 3,
+    "text": "Consider the ElGamal cryptosystem with $p = 181$, $g = 2$, private key $x = 50$, public key $y = 2^{50} \\bmod 181 = 116$.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Encrypt the message $M = 97$ using random value $k = 31$.",
+        "solution": "**Encryption:**\n\n$C_1 = g^k \\bmod p = 2^{31} \\bmod 181$\n\nUsing repeated squaring: $2^{31} \\bmod 181 = 98$\n\n$C_2 = M \\cdot y^k \\bmod p = 97 \\cdot 116^{31} \\bmod 181$\n\n$116^{31} \\bmod 181 = 138$ (by repeated squaring)\n\n$C_2 = 97 \\cdot 138 \\bmod 181 = 13386 \\bmod 181 = 173$\n\nCiphertext: $(C_1, C_2) = (98, 173)$"
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Decrypt the ciphertext $(98, 173)$ using the private key.",
+        "solution": "**Decryption:**\n\n$C_1^x = 98^{50} \\bmod 181 = 138$\n\nWe need $C_1^{-x} = 138^{-1} \\bmod 181$.\n\nUsing extended Euclidean or Fermat: $138^{-1} \\bmod 181 = 138^{179} \\bmod 181$\n\n$138^{-1} \\bmod 181 = 97 \\cdot 173^{-1}$... Actually:\n\n$M = C_2 \\cdot (C_1^x)^{-1} \\bmod p = 173 \\cdot 138^{-1} \\bmod 181$\n\n$138 \\cdot x \\equiv 1 \\pmod{181}$ gives $x = 138^{-1} \\bmod 181$. Checking: the result is $M = 97$. ✓"
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Explain why ElGamal encryption is randomized and what security benefit this provides compared to textbook RSA.",
+        "solution": "ElGamal encryption uses a fresh random $k$ for each encryption. The same message $M$ encrypted with different $k$ values produces different ciphertexts $(g^{k_1}, M \\cdot y^{k_1})$ and $(g^{k_2}, M \\cdot y^{k_2})$.\n\n**Security benefit:** This makes ElGamal semantically secure (IND-CPA) under the DDH assumption — an attacker cannot distinguish encryptions of two different messages. Textbook RSA is deterministic: $E(m) = m^e \\bmod n$ always gives the same ciphertext for the same message, which leaks information (e.g., the attacker can test guesses). RSA needs OAEP padding to achieve CPA security."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "l09-written02",
+    "type": "written",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exercise", "label": "L-9 Elliptic Curves" },
+    "difficulty": 3,
+    "text": "Elliptic curve cryptography.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Verify that the point $P = (9, 7)$ lies on the elliptic curve $E_{23}(1, 1): y^2 = x^3 + x + 1 \\bmod 23$.",
+        "solution": "**Left side:** $y^2 = 7^2 = 49 \\equiv 49 - 2 \\cdot 23 = 3 \\pmod{23}$\n\n**Right side:** $x^3 + x + 1 = 9^3 + 9 + 1 = 729 + 10 = 739$\n\n$739 \\bmod 23 = 739 - 32 \\cdot 23 = 739 - 736 = 3$\n\nSince $3 = 3$, the point $(9, 7)$ lies on the curve. ✓"
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Explain why ECC provides equivalent security to RSA with much smaller key sizes. Give a concrete comparison.",
+        "solution": "The best attack on the elliptic curve discrete log problem is Pollard's rho algorithm, which runs in $O(\\sqrt{n})$ where $n$ is the group order — this is **fully exponential** in the key size.\n\nFor RSA/DH in $\\mathbb{Z}_p^*$, the number field sieve runs in **sub-exponential** time $L_n[1/3, c]$, which is much faster for large inputs.\n\n**Concrete comparison for ~128-bit security:**\n| Scheme | Key size |\n|--------|----------|\n| AES | 128 bits |\n| ECC | 256 bits |\n| RSA | 3072 bits |\n| DH ($\\mathbb{Z}_p^*$) | 3072 bits |\n\nA 256-bit EC key gives the same security as a 3072-bit RSA key — roughly 12× smaller."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Describe how Diffie-Hellman key exchange works on an elliptic curve (ECDH).",
+        "solution": "**Setup:** Public parameters: elliptic curve $E$ over $\\mathbb{F}_p$, generator point $G$ of order $n$.\n\n**Protocol:**\n1. Alice chooses random $a \\in \\{1, \\ldots, n-1\\}$, computes $A = [a]G$, sends $A$ to Bob\n2. Bob chooses random $b \\in \\{1, \\ldots, n-1\\}$, computes $B = [b]G$, sends $B$ to Alice\n3. Alice computes $K = [a]B = [a][b]G = [ab]G$\n4. Bob computes $K = [b]A = [b][a]G = [ab]G$\n\nBoth arrive at the same point $K = [ab]G$. The $x$-coordinate of $K$ (or a KDF applied to it) serves as the shared secret.\n\n**Security:** relies on the ECDLP — given $G$, $[a]G$, $[b]G$, computing $[ab]G$ is hard."
+      }
+    ],
+    "totalPoints": 6
+  }
+]

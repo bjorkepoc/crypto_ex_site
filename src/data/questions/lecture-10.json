@@ -1,0 +1,191 @@
+[
+  {
+    "id": "l10-mcq01",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 Digital Signatures" },
+    "difficulty": 1,
+    "text": "What security property do digital signatures provide that MACs do not?",
+    "options": [
+      { "key": "a", "text": "Integrity" },
+      { "key": "b", "text": "Authentication" },
+      { "key": "c", "text": "Non-repudiation" },
+      { "key": "d", "text": "Confidentiality" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Both MACs and digital signatures provide integrity and authentication. However, only digital signatures provide **non-repudiation**: since only the holder of the private signing key can create a valid signature, the signer cannot deny having signed. With a MAC, both parties share the key, so either could have created the tag — a third party (judge) cannot determine who created it."
+  },
+  {
+    "id": "l10-mcq02",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 Digital Signatures" },
+    "difficulty": 1,
+    "text": "A digital signature scheme consists of which three algorithms?",
+    "options": [
+      { "key": "a", "text": "Encrypt, Decrypt, Verify" },
+      { "key": "b", "text": "KeyGen, Sign, Verify" },
+      { "key": "c", "text": "Hash, Sign, Encrypt" },
+      { "key": "d", "text": "KeyGen, Encrypt, Decrypt" }
+    ],
+    "correctAnswer": "b",
+    "solution": "A digital signature scheme has three algorithms:\n1. **Key Generation**: outputs a private signing key $K_S$ and a public verification key $K_V$\n2. **Sign**: given message $m$ and $K_S$, outputs signature $\\sigma = \\text{Sign}(m, K_S)$\n3. **Verify**: given $m$, $\\sigma$, and $K_V$, outputs true/false: $\\text{Vf}(m, \\sigma, K_V)$"
+  },
+  {
+    "id": "l10-mcq03",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 RSA Signatures" },
+    "difficulty": 2,
+    "text": "In RSA signatures with public key $(e, n)$ and private key $d$, the signature on message $m$ is:",
+    "options": [
+      { "key": "a", "text": "$\\sigma = m^e \\bmod n$" },
+      { "key": "b", "text": "$\\sigma = H(m)^d \\bmod n$" },
+      { "key": "c", "text": "$\\sigma = H(m)^e \\bmod n$" },
+      { "key": "d", "text": "$\\sigma = m^d \\bmod n$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "RSA signature generation: $\\sigma = H(m)^d \\bmod n$, where $H$ is a hash function.\n\nVerification: compute $H(m)$ and check if $\\sigma^e \\bmod n = H(m)$.\n\nThis works because $\\sigma^e = (H(m)^d)^e = H(m)^{de} = H(m)^{1 + k\\phi(n)} \\equiv H(m) \\pmod{n}$.\n\nNote: we hash the message first to get a fixed-size value less than $n$, and to prevent existential forgery attacks on textbook RSA signatures."
+  },
+  {
+    "id": "l10-mcq04",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 RSA Signatures" },
+    "difficulty": 2,
+    "text": "Why must RSA signatures use a hash function (sign $H(m)^d$ rather than $m^d$)?",
+    "options": [
+      { "key": "a", "text": "To make the signature shorter" },
+      { "key": "b", "text": "To prevent existential forgery: without hashing, an attacker can forge signatures on arbitrary messages" },
+      { "key": "c", "text": "Because $m$ might be larger than $n$" },
+      { "key": "d", "text": "Both (b) and (c)" }
+    ],
+    "correctAnswer": "d",
+    "solution": "Both reasons apply:\n\n**(b) Existential forgery:** Without hashing, textbook RSA signatures are multiplicatively homomorphic. An attacker can pick random $\\sigma$, compute $m = \\sigma^e \\bmod n$, and claim $(m, \\sigma)$ as a valid signature. Also, given signatures $\\sigma_1$ on $m_1$ and $\\sigma_2$ on $m_2$, one can forge $\\sigma_1 \\cdot \\sigma_2$ as a signature on $m_1 \\cdot m_2$.\n\n**(c) Message size:** The message $m$ must be less than $n$. Hashing maps any-length messages to a fixed-size digest that fits."
+  },
+  {
+    "id": "l10-mcq05",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 ElGamal/Schnorr" },
+    "difficulty": 2,
+    "text": "In the ElGamal signature scheme, the signature on message $m$ is the pair $(r, s)$ where $r = g^k \\bmod p$. The verification equation is:",
+    "options": [
+      { "key": "a", "text": "$g^{H(m)} \\equiv y^r \\cdot r^s \\pmod{p}$" },
+      { "key": "b", "text": "$g^s \\equiv y^r \\cdot r^{H(m)} \\pmod{p}$" },
+      { "key": "c", "text": "$y^{H(m)} \\equiv g^r \\cdot r^s \\pmod{p}$" },
+      { "key": "d", "text": "$r^s \\equiv g^{H(m)} \\cdot y^r \\pmod{p}$" }
+    ],
+    "correctAnswer": "a",
+    "solution": "ElGamal signature verification checks: $g^{H(m)} \\equiv y^r \\cdot r^s \\pmod{p}$.\n\nThis works because $s = k^{-1}(H(m) - xr) \\bmod (p-1)$, so:\n$r^s = (g^k)^{k^{-1}(H(m) - xr)} = g^{H(m) - xr} = g^{H(m)} \\cdot g^{-xr} = g^{H(m)} \\cdot y^{-r}$\n\nTherefore: $y^r \\cdot r^s = y^r \\cdot g^{H(m)} \\cdot y^{-r} = g^{H(m)}$ ✓"
+  },
+  {
+    "id": "l10-mcq06",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 ElGamal/Schnorr" },
+    "difficulty": 2,
+    "text": "How do Schnorr signatures differ from ElGamal signatures?",
+    "options": [
+      { "key": "a", "text": "Schnorr uses the hash $e = H(r \\| m)$ in the signature, producing shorter signatures" },
+      { "key": "b", "text": "Schnorr doesn't use a hash function" },
+      { "key": "c", "text": "Schnorr is based on RSA, not discrete log" },
+      { "key": "d", "text": "There is no practical difference" }
+    ],
+    "correctAnswer": "a",
+    "solution": "Schnorr signatures:\n- Compute $r = g^k \\bmod p$, then $e = H(r \\| m)$\n- Compute $s = k - xe \\bmod (p-1)$\n- Signature is $(e, s)$\n\nKey differences from ElGamal:\n1. The hash $H(r \\| m)$ is included in the signature instead of $r$ itself, making signatures shorter\n2. The computation is simpler ($s = k - xe$ vs. $s = k^{-1}(H(m) - xr)$)\n3. Schnorr has a tight security proof in the Random Oracle Model\n4. The signature is $(e, s)$ — two short values, not two full group elements"
+  },
+  {
+    "id": "l10-mcq07",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 DSA" },
+    "difficulty": 2,
+    "text": "What is the main advantage of DSA over basic ElGamal signatures?",
+    "options": [
+      { "key": "a", "text": "DSA works in a subgroup of $\\mathbb{Z}_p^*$, producing shorter signatures and faster operations" },
+      { "key": "b", "text": "DSA doesn't require a hash function" },
+      { "key": "c", "text": "DSA uses symmetric cryptography" },
+      { "key": "d", "text": "DSA provides stronger security guarantees" }
+    ],
+    "correctAnswer": "a",
+    "solution": "DSA restricts all exponent computations to a subgroup of order $q$ (where $q | p-1$ and $q$ is much smaller than $p$).\n\n**Benefits:**\n- Shorter signatures: only $2N$ bits (e.g., 512 bits for $N=256$) vs. $2L$ bits for ElGamal\n- Faster computation: exponentiations use $N$-bit exponents instead of $L$-bit\n- Valid parameter combinations: $(L=2048, N=256)$ or $(L=3072, N=256)$\n- Avoids certain attacks that basic ElGamal is vulnerable to"
+  },
+  {
+    "id": "l10-mcq08",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 ECDSA" },
+    "difficulty": 2,
+    "text": "How does ECDSA relate to DSA?",
+    "options": [
+      { "key": "a", "text": "ECDSA replaces $\\mathbb{Z}_p^*$ with an elliptic curve group, keeping the same sign/verify structure" },
+      { "key": "b", "text": "ECDSA is a completely different algorithm" },
+      { "key": "c", "text": "ECDSA uses RSA instead of discrete log" },
+      { "key": "d", "text": "ECDSA only works with SHA-1" }
+    ],
+    "correctAnswer": "a",
+    "solution": "ECDSA is the elliptic curve version of DSA:\n- The parameter $q$ becomes the order $n$ of the EC group\n- Multiplication $\\bmod p$ is replaced by elliptic curve point addition\n- After the group operation, only the $x$-coordinate is kept\n- Sign: choose random $k$, compute $(x,y) = [k]G$, set $r = x$, compute $s = k^{-1}(H(m) + rd) \\bmod n$\n- Verify: compute $w = s^{-1}$, check if $x$-coordinate of $[H(m)w]G + [rw]Y$ equals $r$\n\nECDSA benefits from ECC's smaller key sizes while maintaining DSA's structure."
+  },
+  {
+    "id": "l10-mcq09",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 Security" },
+    "difficulty": 2,
+    "text": "What is the strongest standard security notion for digital signatures?",
+    "options": [
+      { "key": "a", "text": "Key recovery under known-message attack" },
+      { "key": "b", "text": "Selective forgery under chosen-message attack" },
+      { "key": "c", "text": "Existential unforgeability under chosen-message attack (EUF-CMA)" },
+      { "key": "d", "text": "Universal forgery under known-key attack" }
+    ],
+    "correctAnswer": "c",
+    "solution": "**EUF-CMA** (Existential Unforgeability under Chosen Message Attack) is the standard security notion:\n\n- **Chosen-message attack:** The attacker can request signatures on any messages of their choice\n- **Existential unforgeability:** Even after seeing many signatures, the attacker cannot forge a valid signature on *any* new message (even a meaningless one)\n\nThis is the strongest practical notion. Attack types from weakest to strongest:\n1. Key recovery (find private key)\n2. Universal forgery (forge signature on any chosen message)\n3. Selective forgery (forge on a pre-chosen message)\n4. Existential forgery (forge on any message)"
+  },
+  {
+    "id": "l10-mcq10",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 ECDSA" },
+    "difficulty": 2,
+    "text": "What is EdDSA, and how does it relate to the other signature schemes?",
+    "options": [
+      { "key": "a", "text": "A deterministic Schnorr signature scheme on Edwards curves (e.g., Ed25519)" },
+      { "key": "b", "text": "An encryption scheme based on elliptic curves" },
+      { "key": "c", "text": "A hash function" },
+      { "key": "d", "text": "A key exchange protocol" }
+    ],
+    "correctAnswer": "a",
+    "solution": "EdDSA (Edwards-curve Digital Signature Algorithm):\n- Uses **Edwards curves** (e.g., Curve25519 → Ed25519)\n- Is a **deterministic** variant of Schnorr signatures: the per-message nonce $k$ is derived from $H(\\text{private key} \\| m)$, eliminating the need for a random number generator\n- Standardized in FIPS 186-5 alongside ECDSA\n- **Advantages:** no RNG needed (avoids nonce-reuse attacks like the PS3 ECDSA break), fast, constant-time implementations are easier on Edwards curves"
+  },
+  {
+    "id": "l10-written01",
+    "type": "written",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exercise", "label": "L-10 Signatures" },
+    "difficulty": 3,
+    "text": "RSA and discrete log signatures.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Describe the RSA signature scheme: key generation, signing, and verification. Include the role of the hash function.",
+        "solution": "**Key Generation:**\n- Choose large primes $p, q$, compute $n = pq$\n- Choose $e$ with $\\gcd(e, \\phi(n)) = 1$\n- Compute $d = e^{-1} \\bmod \\phi(n)$\n- Signing key: $K_S = (d, p, q)$, Verification key: $K_V = (e, n)$\n- Fix a hash function $H$ (e.g., SHA-256)\n\n**Signing:** $\\sigma = H(m)^d \\bmod n$\n\n**Verification:** Check if $\\sigma^e \\bmod n = H(m)$\n\n**Role of hash function:**\n1. Maps arbitrary-length messages to a fixed-size value $< n$\n2. Prevents existential forgery (without $H$, attacker can pick $\\sigma$, compute $m = \\sigma^e$)\n3. Prevents multiplicative forgery ($\\sigma_1 \\cdot \\sigma_2$ would be a signature on $m_1 \\cdot m_2$)\n4. In practice, PSS padding (PKCS#1) adds randomization for provable security"
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Compare ElGamal signatures and Schnorr signatures. What are the key differences in construction and efficiency?",
+        "solution": "**ElGamal Signatures:**\n- Sign: $r = g^k \\bmod p$, $s = k^{-1}(H(m) - xr) \\bmod (p-1)$\n- Signature: $(r, s)$ — both are elements in $\\mathbb{Z}_p$\n- Verify: $g^{H(m)} \\stackrel{?}{=} y^r \\cdot r^s \\bmod p$\n- Requires modular inverse of $k$\n\n**Schnorr Signatures:**\n- Sign: $r = g^k \\bmod p$, $e = H(r \\| m)$, $s = k - xe \\bmod (p-1)$\n- Signature: $(e, s)$ — $e$ is a hash output (short!)\n- Verify: $e \\stackrel{?}{=} H(g^s \\cdot y^e \\| m)$\n- No modular inverse needed\n\n**Key differences:**\n1. Schnorr signatures are shorter ($e$ is hash-sized, not $p$-sized)\n2. Schnorr signing is simpler (subtraction vs. inverse)\n3. Schnorr has a tight security proof in the ROM\n4. ElGamal was patented earlier; Schnorr was patented until 2008"
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Explain the DSA verification equation and prove that it correctly verifies a valid signature.",
+        "solution": "**DSA Sign:** $r = (g^k \\bmod p) \\bmod q$, $s = k^{-1}(H(m) + xr) \\bmod q$\n\n**DSA Verify:** Compute $w = s^{-1} \\bmod q$, $u_1 = H(m) \\cdot w \\bmod q$, $u_2 = r \\cdot w \\bmod q$. Check: $(g^{u_1} y^{u_2} \\bmod p) \\bmod q \\stackrel{?}{=} r$\n\n**Proof of correctness:**\nFrom signing: $s = k^{-1}(H(m) + xr) \\bmod q$\n\nSo: $k = s^{-1}(H(m) + xr) \\bmod q = w \\cdot H(m) + w \\cdot x \\cdot r \\bmod q = u_1 + x \\cdot u_2 \\bmod q$\n\nTherefore:\n$g^{u_1} y^{u_2} = g^{u_1} g^{x \\cdot u_2} = g^{u_1 + x \\cdot u_2} = g^k \\pmod{p}$\n\nReducing $\\bmod q$: $(g^k \\bmod p) \\bmod q = r$ ✓"
+      }
+    ],
+    "totalPoints": 6
+  }
+]

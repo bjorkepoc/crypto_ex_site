@@ -1,0 +1,733 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "According to the provided material, which of the following is NOT one of the four critical phases of key management?",
+      "answerOptions": [
+        {
+          "text": "Key generation",
+          "isCorrect": false,
+          "rationale": "Key generation is the first phase where keys are ideally created as uniformly random values."
+        },
+        {
+          "text": "Key validation",
+          "isCorrect": true,
+          "rationale": "While important in some contexts, the four phases explicitly listed are generation, distribution, storage, and destruction."
+        },
+        {
+          "text": "Key distribution",
+          "isCorrect": false,
+          "rationale": "Key distribution is essential for ensuring keys reach the intended parties in a secure fashion."
+        },
+        {
+          "text": "Key destruction",
+          "isCorrect": false,
+          "rationale": "Removing a key from memory is identified as the final phase, which can often be difficult to implement perfectly."
+        }
+      ],
+      "hint": "Focus on the high-level lifecycle stages mentioned in the 'Key Management' slide."
+    },
+    {
+      "question": "Which type of cryptographic key is specifically generated for a single use and then deleted, with Diffie--Hellman being a common example?",
+      "answerOptions": [
+        {
+          "text": "Ephemeral keys",
+          "isCorrect": true,
+          "rationale": "Ephemeral keys are defined as being generated for one-time use and immediately discarded."
+        },
+        {
+          "text": "Long-term keys",
+          "isCorrect": false,
+          "rationale": "Long-term or static keys are intended to be used over an extended period, such as months or years."
+        },
+        {
+          "text": "Master keys",
+          "isCorrect": false,
+          "rationale": "Master keys are used at the bottom of the hierarchy to protect session keys and usually require non-cryptographic protection."
+        },
+        {
+          "text": "Static keys",
+          "isCorrect": false,
+          "rationale": "Static keys are another name for long-term keys, which are the opposite of single-use keys."
+        }
+      ],
+      "hint": "The term for these keys comes from a word meaning 'lasting for a very short time'."
+    },
+    {
+      "question": "In the context of key establishment security, what is the definition of the 'confidentiality' property?",
+      "answerOptions": [
+        {
+          "text": "An adversary is unable to obtain the session key accepted by a particular party.",
+          "isCorrect": true,
+          "rationale": "Confidentiality ensures the established key remains secret from any unauthorized third party."
+        },
+        {
+          "text": "If party $A$ believes the key is shared with $B$, it cannot be shared with $C$.",
+          "isCorrect": false,
+          "rationale": "This describes the authentication property of key establishment, not confidentiality."
+        },
+        {
+          "text": "The protocol ensures that both parties have correctly verified each other's identities.",
+          "isCorrect": false,
+          "rationale": "Identity verification is the primary goal of mutual authentication."
+        },
+        {
+          "text": "A compromise of a previous session key does not affect the security of current keys.",
+          "isCorrect": false,
+          "rationale": "This refers to independence between sessions, which is a desirable feature but not the base definition of confidentiality."
+        }
+      ],
+      "hint": "Think about the primary goal of keeping a secret value hidden from an eavesdropper."
+    },
+    {
+      "question": "What is a major disadvantage of using a 'Key Pre-Distribution' scheme where a Trusted Authority (TA) assigns a secret key for every possible pair of users?",
+      "answerOptions": [
+        {
+          "text": "The TA must remain online during every communication session.",
+          "isCorrect": false,
+          "rationale": "In pre-distribution, the TA only operates when users join and does not need to be online for subsequent sessions."
+        },
+        {
+          "text": "It requires computationally expensive public key algorithms.",
+          "isCorrect": false,
+          "rationale": "Pre-distribution schemes typically use simple symmetric keys rather than asymmetric cryptography."
+        },
+        {
+          "text": "The number of keys grows quadratically, leading to poor scalability.",
+          "isCorrect": true,
+          "rationale": "As the number of users increases, the total number of required pair-wise keys increases by $n^2$, making management difficult."
+        },
+        {
+          "text": "Users are required to generate their own high-quality random numbers.",
+          "isCorrect": false,
+          "rationale": "In this specific scheme, the TA is responsible for generating and distributing the keys."
+        }
+      ],
+      "hint": "Consider how the amount of storage for keys changes as the number of users in the network increases."
+    },
+    {
+      "question": "In a Key Transport protocol using asymmetric cryptography, what is the purpose of a Key Derivation Function (KDF)?",
+      "answerOptions": [
+        {
+          "text": "To encrypt the random value $Z$ with the receiver's public key.",
+          "isCorrect": false,
+          "rationale": "Encryption is performed by the public key primitive, while the KDF processes the result after decryption."
+        },
+        {
+          "text": "To bind the secret key material with other protocol elements to prevent certain attacks.",
+          "isCorrect": true,
+          "rationale": "A KDF ensures the session key is mathematically linked to the identities and nonces used in that specific session."
+        },
+        {
+          "text": "To generate a digital signature for the identities of party $A$ and party $B$.",
+          "isCorrect": false,
+          "rationale": "Signatures are used for authentication; a KDF is more akin to a hash function for key generation."
+        },
+        {
+          "text": "To verify the validity of the certificate provided by the Trusted Authority.",
+          "isCorrect": false,
+          "rationale": "Certificate verification involves checking digital signatures, which is a separate process from key derivation."
+        }
+      ],
+      "hint": "Think of the KDF as a processing step that combines different inputs into the final session key."
+    },
+    {
+      "question": "Which property is achieved if the compromise of long-term private keys does not reveal session keys that were previously agreed upon?",
+      "answerOptions": [
+        {
+          "text": "Mutual Authentication",
+          "isCorrect": false,
+          "rationale": "Mutual authentication is about identity verification, not protecting past session keys from future compromises."
+        },
+        {
+          "text": "Post-Compromise Security",
+          "isCorrect": false,
+          "rationale": "Post-Compromise Security is about recovering security *after* a compromise, often called self-healing."
+        },
+        {
+          "text": "Forward Secrecy",
+          "isCorrect": true,
+          "rationale": "Forward secrecy (or perfect forward secrecy) ensures that even if a static private key is stolen, past communications remain secure."
+        },
+        {
+          "text": "Unilateral Authentication",
+          "isCorrect": false,
+          "rationale": "Unilateral authentication only provides assurance of one party's identity."
+        }
+      ],
+      "hint": "This concept deals with the 'forward-looking' security of data captured in the past."
+    },
+    {
+      "question": "Post-Compromise Security (PCS) typically requires the protocol to 'self-heal'. Under what condition does the source material state PCS works?",
+      "answerOptions": [
+        {
+          "text": "When the attacker is passive.",
+          "isCorrect": true,
+          "rationale": "PCS allows for recovery if the long-term key evolves and the attacker is not actively interfering with the updates."
+        },
+        {
+          "text": "When the attacker is able to alter all messages in real-time.",
+          "isCorrect": false,
+          "rationale": "If an attacker is active, they can potentially subvert the key update process, preventing self-healing."
+        },
+        {
+          "text": "When only symmetric keys are used in the protocol.",
+          "isCorrect": false,
+          "rationale": "PCS is often implemented using Diffie--Hellman shares, which are asymmetric primitives."
+        },
+        {
+          "text": "When a physical meeting is required to reset the master key.",
+          "isCorrect": false,
+          "rationale": "PCS aims to recover security through protocol steps, such as rotating keys, without manual intervention."
+        }
+      ],
+      "hint": "Consider the level of interaction the adversary has with the messages during the 'healing' phase."
+    },
+    {
+      "question": "What is a significant drawback of using a 'Public-Key Authority' to distribute keys?",
+      "answerOptions": [
+        {
+          "text": "It is susceptible to replay attacks by Denning and Sacco.",
+          "isCorrect": false,
+          "rationale": "The replay attack mentioned specifically targeted the symmetric Needham--Schroeder protocol."
+        },
+        {
+          "text": "Users must appeal to the authority for every user they want to contact, creating a bottleneck.",
+          "isCorrect": true,
+          "rationale": "Because the directory is dynamic and central, the authority can become a single point of failure and a performance drag."
+        },
+        {
+          "text": "It requires the use of self-signed root certificates.",
+          "isCorrect": false,
+          "rationale": "Self-signed root certificates are a feature of the Browser PKI model, not necessarily a Public-Key Authority."
+        },
+        {
+          "text": "The authority cannot be trusted to maintain a dynamic directory.",
+          "isCorrect": false,
+          "rationale": "The authority is trusted by definition; the issue lies in its operational efficiency and availability."
+        }
+      ],
+      "hint": "Think about the operational impact of requiring a central server to mediate every initial connection."
+    },
+    {
+      "question": "Which field in an $X.509$ digital certificate is responsible for identifying the party that signed the certificate?",
+      "answerOptions": [
+        {
+          "text": "Subject",
+          "isCorrect": false,
+          "rationale": "The 'Subject' field identifies the owner of the public key contained within the certificate."
+        },
+        {
+          "text": "Issuer",
+          "isCorrect": true,
+          "rationale": "The 'Issuer' field contains the name of the Certification Authority (CA) that created and signed the certificate."
+        },
+        {
+          "text": "Serial number",
+          "isCorrect": false,
+          "rationale": "The serial number is a unique identifier assigned by the CA for management purposes."
+        },
+        {
+          "text": "Validity period",
+          "isCorrect": false,
+          "rationale": "The validity period defines the dates during which the certificate is considered active."
+        }
+      ],
+      "hint": "Consider the relationship between a document and the entity that issues it."
+    },
+    {
+      "question": "What happens in a 'Certification Path' if the public key of a specific CA ($CA_0$) is not initially known or trusted?",
+      "answerOptions": [
+        {
+          "text": "The certificate for $CA_0$ is automatically considered invalid.",
+          "isCorrect": false,
+          "rationale": "The system attempts to build a chain of trust rather than failing immediately."
+        },
+        {
+          "text": "A different CA ($CA_1$) can certify $CA_0$, creating a chain of trust.",
+          "isCorrect": true,
+          "rationale": "By having a higher or different CA sign the lower CA's key, trust is inherited through the chain."
+        },
+        {
+          "text": "The user must physically meet the owner of $CA_0$ to verify the key.",
+          "isCorrect": false,
+          "rationale": "PKI is designed to avoid the need for physical meetings through digital trust structures."
+        },
+        {
+          "text": "The browser uses Certificate Transparency to verify the key without a chain.",
+          "isCorrect": false,
+          "rationale": "Certificate Transparency logs certificates, but the primary method for establishing trust in a key is still the certification path."
+        }
+      ],
+      "hint": "Think about how trust is delegated from one entity to another in a hierarchy."
+    },
+    {
+      "question": "In the Browser PKI model, how is the trust for a 'Root CA' established?",
+      "answerOptions": [
+        {
+          "text": "Root certificates are signed by a global naming authority.",
+          "isCorrect": false,
+          "rationale": "There is no single global authority above the Root CAs in the current model."
+        },
+        {
+          "text": "Root certificates are self-signed, and the CA's public key is pre-loaded into the browser.",
+          "isCorrect": true,
+          "rationale": "Since there is no higher authority, Root CAs sign themselves; the browser trust depends on them being pre-installed."
+        },
+        {
+          "text": "They are verified using the Online Certificate Status Protocol (OCSP).",
+          "isCorrect": false,
+          "rationale": "OCSP is used for checking revocation status, not for establishing the initial trust of a root."
+        },
+        {
+          "text": "The user must manually sign every root certificate they encounter.",
+          "isCorrect": false,
+          "rationale": "While users can add certificates, the standard model relies on pre-installed trust to be user-friendly."
+        }
+      ],
+      "hint": "Consider what entity acts as the 'CA for the Root CA'."
+    },
+    {
+      "question": "Which revocation mechanism involves a client downloading a list of all revoked certificates periodically issued by a CA?",
+      "answerOptions": [
+        {
+          "text": "Online Certificate Status Protocol (OCSP)",
+          "isCorrect": false,
+          "rationale": "OCSP involves real-time queries for specific certificates rather than downloading a full list."
+        },
+        {
+          "text": "Certificate Transparency (CT)",
+          "isCorrect": false,
+          "rationale": "CT is a logging mechanism to detect fraudulent issuance, not a primary revocation method."
+        },
+        {
+          "text": "Certificate Revocation List (CRL)",
+          "isCorrect": true,
+          "rationale": "A CRL is a published list of serial numbers for certificates that are no longer valid."
+        },
+        {
+          "text": "Public Key Pinning",
+          "isCorrect": false,
+          "rationale": "Pinning is a security feature to lock a key to a site, not a revocation check."
+        }
+      ],
+      "hint": "The name of this method directly describes a 'list' of 'revoked' items."
+    },
+    {
+      "question": "What is the primary goal of Certificate Transparency (CT)?",
+      "answerOptions": [
+        {
+          "text": "To provide a faster alternative to CRL and OCSP checks.",
+          "isCorrect": false,
+          "rationale": "CT serves a different purpose than revocation; it focuses on the issuance process."
+        },
+        {
+          "text": "To prevent a certificate from being issued without it being publicly known to everyone.",
+          "isCorrect": true,
+          "rationale": "CT logs are public and auditable, making it impossible for a CA to secretly issue a certificate for impersonation."
+        },
+        {
+          "text": "To encrypt the communication between the browser and the CA server.",
+          "isCorrect": false,
+          "rationale": "The communication is usually already protected by TLS; CT provides an audit trail."
+        },
+        {
+          "text": "To allow users to generate their own certificates without a CA.",
+          "isCorrect": false,
+          "rationale": "CT still requires certificates to be supplied by an entity, typically a CA, to be logged."
+        }
+      ],
+      "hint": "Think about how making information 'transparent' helps prevent impersonation attacks."
+    },
+    {
+      "question": "In the original Needham--Schroeder protocol, who generates the new session key $K_{AB}$?",
+      "answerOptions": [
+        {
+          "text": "Party $A$",
+          "isCorrect": false,
+          "rationale": "In this symmetric protocol, the users $A$ and $B$ rely on a central server for key generation."
+        },
+        {
+          "text": "Party $B$",
+          "isCorrect": false,
+          "rationale": "Party $B$ receives the key but does not generate it."
+        },
+        {
+          "text": "The Trusted Authority $S$",
+          "isCorrect": true,
+          "rationale": "The server $S$ is responsible for creating the session key and distributing it to both parties."
+        },
+        {
+          "text": "It is derived jointly using Diffie--Hellman.",
+          "isCorrect": false,
+          "rationale": "Needham--Schroeder is a symmetric key distribution protocol, not a key agreement protocol like Diffie--Hellman."
+        }
+      ],
+      "hint": "Identify the role of the central 'S' entity in the protocol diagrams."
+    },
+    {
+      "question": "The Denning and Sacco attack on the Needham--Schroeder protocol is classified as which type of attack?",
+      "answerOptions": [
+        {
+          "text": "Man-in-the-middle attack",
+          "isCorrect": false,
+          "rationale": "While it involves an adversary, the specific mechanism is replaying old data rather than intercepting and modifying live traffic."
+        },
+        {
+          "text": "Replay attack",
+          "isCorrect": true,
+          "rationale": "The attack involves resending old protocol messages to trick a party into accepting a compromised, previous session key."
+        },
+        {
+          "text": "Denial of service attack",
+          "isCorrect": false,
+          "rationale": "The attack aims to subvert security and masquerade as a user, not to take the system offline."
+        },
+        {
+          "text": "Brute force attack",
+          "isCorrect": false,
+          "rationale": "The attack exploits a logic flaw in the protocol rather than trying to guess a key via exhaustive search."
+        }
+      ],
+      "hint": "Consider the term used when an attacker 'plays back' captured traffic from a previous run."
+    },
+    {
+      "question": "How does the 'repaired' Needham--Schroeder protocol (using random challenges) prevent the replay attack?",
+      "answerOptions": [
+        {
+          "text": "By requiring the Trusted Authority to be offline during the key exchange.",
+          "isCorrect": false,
+          "rationale": "The authority must be online to generate and protect the session keys."
+        },
+        {
+          "text": "By ensuring the key established is fresh through the use of nonces from both $A$ and $B$.",
+          "isCorrect": true,
+          "rationale": "Using random nonces ($N_A, N_B$) that must be reflected in the response proves that the message was generated recently."
+        },
+        {
+          "text": "By switching to asymmetric encryption for all message exchanges.",
+          "isCorrect": false,
+          "rationale": "The protocol remains symmetric; the repair focuses on freshness mechanisms, not changing the primitives."
+        },
+        {
+          "text": "By removing the identity fields from the encrypted packets.",
+          "isCorrect": false,
+          "rationale": "Identities are still required to ensure the key is being distributed to the correct parties."
+        }
+      ],
+      "hint": "Look for the mechanism that proves a message is 'new' for each session."
+    },
+    {
+      "question": "What is the format of a 'ticket' in the context of the Needham--Schroeder protocol using timestamps?",
+      "answerOptions": [
+        {
+          "text": "$\\{K_{AB}, ID_A, ID_B, T_B\\}_{K_{BS}}$",
+          "isCorrect": true,
+          "rationale": "The ticket contains the key and identities, protected by $B$'s long-term key, including a timestamp $T_B$ for validity."
+        },
+        {
+          "text": "$\\{K_{AB}, N_A, N_B\\}_{K_{AS}}$",
+          "isCorrect": false,
+          "rationale": "This format uses nonces and $A$'s key, whereas a ticket for $B$ must be encrypted with $B$'s key."
+        },
+        {
+          "text": "$\\{ID_A, T_B\\}_{K_{AB}}$",
+          "isCorrect": false,
+          "rationale": "A ticket must deliver the session key to $B$; it cannot be encrypted *with* the session key $B$ doesn't have yet."
+        },
+        {
+          "text": "$Sig_A(ID_A, ID_B, g^a, g^b)$",
+          "isCorrect": false,
+          "rationale": "This represents a signed Diffie--Hellman message, not a symmetric key ticket."
+        }
+      ],
+      "hint": "A ticket must be readable by the destination server $B$ but not by the client $A$ holding it."
+    },
+    {
+      "question": "In Kerberos Level 1, the client interacts with the Authentication Server (AS) to obtain which specific item?",
+      "answerOptions": [
+        {
+          "text": "A service ticket for the application server.",
+          "isCorrect": false,
+          "rationale": "A service ticket is obtained in Level 2 from the Ticket-Granting Server (TGS)."
+        },
+        {
+          "text": "A ticket-granting ticket (TGT).",
+          "isCorrect": true,
+          "rationale": "The first step in Kerberos allows the user to prove their identity once and receive a TGT for subsequent requests."
+        },
+        {
+          "text": "The long-term master key of the application server.",
+          "isCorrect": false,
+          "rationale": "Clients never see the long-term keys of other servers; they only receive session keys."
+        },
+        {
+          "text": "A digital signature of the naming authority.",
+          "isCorrect": false,
+          "rationale": "Kerberos is primarily a symmetric key system and does not rely on PKI signatures in its standard form."
+        }
+      ],
+      "hint": "This item is used later to 'buy' tickets for specific services."
+    },
+    {
+      "question": "In Kerberos, how is the client's symmetric key $K_C$ typically generated?",
+      "answerOptions": [
+        {
+          "text": "It is a random value sent by the Authentication Server in cleartext.",
+          "isCorrect": false,
+          "rationale": "Sending a key in cleartext would compromise the entire security of the session."
+        },
+        {
+          "text": "It is derived from a password entered by the user at login time.",
+          "isCorrect": true,
+          "rationale": "Kerberos leverages user passwords to create a shared secret between the client and the AS."
+        },
+        {
+          "text": "It is pre-installed in the hardware of the client's workstation.",
+          "isCorrect": false,
+          "rationale": "While possible, the standard Kerberos login process uses user passwords for flexibility."
+        },
+        {
+          "text": "It is the same as the long-term key $K_{tgs}$ shared between AS and TGS.",
+          "isCorrect": false,
+          "rationale": "Each user must have a unique key; $K_{tgs}$ is a server-to-server secret."
+        }
+      ],
+      "hint": "Think about the piece of information a human user provides when logging into a computer."
+    },
+    {
+      "question": "What is the role of an 'authenticator' in the Kerberos protocol?",
+      "answerOptions": [
+        {
+          "text": "It is a long-term key used to sign certificates.",
+          "isCorrect": false,
+          "rationale": "Authenticators are transient values used to prove knowledge of a session key."
+        },
+        {
+          "text": "It is a message containing a timestamp and the client's ID, encrypted with a session key.",
+          "isCorrect": true,
+          "rationale": "The authenticator proves that the client possesses the session key and that the request is current."
+        },
+        {
+          "text": "It is a public directory that stores all active user sessions.",
+          "isCorrect": false,
+          "rationale": "The authenticator is a cryptographic token, not a database or directory."
+        },
+        {
+          "text": "It is the server that decides if a user is authorized for a service.",
+          "isCorrect": false,
+          "rationale": "The server performs authentication, but the 'authenticator' is the specific data structure sent by the client."
+        }
+      ],
+      "hint": "This component is used alongside a ticket to prove 'live' possession of a key."
+    },
+    {
+      "question": "Why is 'Single Sign-On' (SSO) considered a benefit of the Kerberos protocol?",
+      "answerOptions": [
+        {
+          "text": "It allows all servers to share the same long-term secret key.",
+          "isCorrect": false,
+          "rationale": "Sharing keys between all servers would be insecure; Kerberos uses unique session keys."
+        },
+        {
+          "text": "Users only need to enter their credentials once for an entire session.",
+          "isCorrect": true,
+          "rationale": "After getting a TGT, the client software automatically handles requests for other services without prompting the user."
+        },
+        {
+          "text": "It simplifies the protocol by removing the need for timestamps.",
+          "isCorrect": false,
+          "rationale": "Kerberos relies heavily on timestamps to prevent replays, which is essential for SSO security."
+        },
+        {
+          "text": "It ensures that only one user can be logged into the network at a time.",
+          "isCorrect": false,
+          "rationale": "SSO refers to a single user accessing multiple services, not limiting concurrent users."
+        }
+      ],
+      "hint": "Think about the user experience of logging into a corporate network."
+    },
+    {
+      "question": "Which of the following is a known security vulnerability for Kerberos, especially regarding the client key $K_C$?",
+      "answerOptions": [
+        {
+          "text": "Forward secrecy is automatically provided by standard symmetric Kerberos.",
+          "isCorrect": false,
+          "rationale": "Standard Kerberos does not provide forward secrecy as long-term keys can decrypt past session tickets."
+        },
+        {
+          "text": "Offline password guessing attacks.",
+          "isCorrect": true,
+          "rationale": "Since $K_C$ is derived from a human-memorable password, an attacker can capture the encrypted response and try many passwords locally."
+        },
+        {
+          "text": "It is vulnerable to the same replay attack as the original Needham--Schroeder protocol.",
+          "isCorrect": false,
+          "rationale": "Kerberos uses timestamps and authenticators specifically to solve the replay vulnerability of the original Needham--Schroeder."
+        },
+        {
+          "text": "It cannot support multiple realms or corporate environments.",
+          "isCorrect": false,
+          "rationale": "Kerberos does support multiple realms, although scalability can be limited due to key sharing requirements."
+        }
+      ],
+      "hint": "Consider the weakness of the source material used to derive the initial client key."
+    },
+    {
+      "question": "In the context of Signed Diffie--Hellman, what is the shared secret $Z$ calculated by Party $A$?",
+      "answerOptions": [
+        {
+          "text": "$Z = (g^b)^a = g^{ab}$",
+          "isCorrect": true,
+          "rationale": "Party $A$ takes the received value $g^b$ and raises it to their secret power $a$ to derive the common secret."
+        },
+        {
+          "text": "$Z = KDF(g^a, g^b)$",
+          "isCorrect": false,
+          "rationale": "The KDF is applied to the shared secret $Z$ *after* it is calculated, not to the public shares themselves."
+        },
+        {
+          "text": "$Z = (g^a) \\times (g^b)$",
+          "isCorrect": false,
+          "rationale": "Diffie--Hellman relies on exponentiation ($g^{ab}$), not simple multiplication of the public components."
+        },
+        {
+          "text": "$Z = Sig_B(g^b)$",
+          "isCorrect": false,
+          "rationale": "The signature is used for authentication, not for the mathematical derivation of the shared secret."
+        }
+      ],
+      "hint": "Recall the fundamental mathematical property that allows two parties to arrive at the same value in Diffie--Hellman."
+    },
+    {
+      "question": "According to the X.509 standard, what is the purpose of the 'Serial number' field?",
+      "answerOptions": [
+        {
+          "text": "To identify the encryption algorithm used to protect the session.",
+          "isCorrect": false,
+          "rationale": "The encryption algorithm is negotiated during the protocol (like TLS), not fixed in the serial number."
+        },
+        {
+          "text": "To serve as a unique identifier for the certificate, assigned by the issuing CA.",
+          "isCorrect": true,
+          "rationale": "The CA uses the serial number to distinguish between certificates it has issued, especially for revocation lists."
+        },
+        {
+          "text": "To store the public key of the root authority.",
+          "isCorrect": false,
+          "rationale": "The root's public key is found in the root's own certificate, not in the serial number field of a leaf certificate."
+        },
+        {
+          "text": "To indicate the number of times the certificate has been used.",
+          "isCorrect": false,
+          "rationale": "Certificates are static documents and do not track usage counts."
+        }
+      ],
+      "hint": "Think of this as a unique 'ID card number' provided by the government."
+    },
+    {
+      "question": "What is 'Public Key Pinning' intended to protect against?",
+      "answerOptions": [
+        {
+          "text": "Attacks due to compromised Certification Authorities (CAs).",
+          "isCorrect": true,
+          "rationale": "By pinning a specific key, the browser will reject a fraudulent certificate for that site, even if signed by a valid (but compromised) CA."
+        },
+        {
+          "text": "Offline password guessing by an adversary.",
+          "isCorrect": false,
+          "rationale": "Pinning is a certificate/PKI protection and does not involve user passwords."
+        },
+        {
+          "text": "Replay attacks in symmetric protocols like Kerberos.",
+          "isCorrect": false,
+          "rationale": "Pinning is a feature of web browsers and the public key infrastructure, not symmetric authentication systems."
+        },
+        {
+          "text": "The bottleneck caused by a centralized Public-Key Authority.",
+          "isCorrect": false,
+          "rationale": "Pinning actually adds a local check to the browser, which doesn't resolve the scalability issues of centralized authorities."
+        }
+      ],
+      "hint": "Consider what happens if an attacker convinces a 'trusted' authority to issue a fake certificate for a famous website."
+    },
+    {
+      "question": "In the three-level Kerberos protocol, when does the interaction with the Application Server ($V$) occur?",
+      "answerOptions": [
+        {
+          "text": "Once per working day at the start of the session.",
+          "isCorrect": false,
+          "rationale": "The start of the day interaction is typically Level 1 with the Authentication Server."
+        },
+        {
+          "text": "Once for each different server the client wants to access.",
+          "isCorrect": false,
+          "rationale": "This describes Level 2 (obtaining a service ticket from the TGS)."
+        },
+        {
+          "text": "Each time the client requires a specific service during the session.",
+          "isCorrect": true,
+          "rationale": "Level 3 is the actual use of the ticket to communicate with the end application or service."
+        },
+        {
+          "text": "Only when the Ticket-Granting Ticket (TGT) has expired.",
+          "isCorrect": false,
+          "rationale": "TGT expiration requires going back to Level 1; Level 3 is for routine service access."
+        }
+      ],
+      "hint": "This is the final stage where the client actually uses the service they are authorized for."
+    },
+    {
+      "question": "What does a Key Establishment protocol achieve if it provides 'unilateral' authentication?",
+      "answerOptions": [
+        {
+          "text": "Both parties are convinced of each other's identity.",
+          "isCorrect": false,
+          "rationale": "This describes mutual authentication."
+        },
+        {
+          "text": "Only one party is convinced of the identity of the other.",
+          "isCorrect": true,
+          "rationale": "Unilateral means 'one-sided'; a typical example is a web browser verifying a server's identity without the server verifying the user's."
+        },
+        {
+          "text": "Neither party is authenticated, but the key remains confidential.",
+          "isCorrect": false,
+          "rationale": "Key establishment without any authentication is possible (like anonymous DH) but is not called unilateral authentication."
+        },
+        {
+          "text": "The session key is only valid for one direction of communication.",
+          "isCorrect": false,
+          "rationale": "Authentication refers to identity verification, not the technical usage of the session key."
+        }
+      ],
+      "hint": "Focus on the meaning of the word 'unilateral' in a two-party interaction."
+    },
+    {
+      "question": "The slides mention that in Kerberos, both the Authentication Server (AS) and the Ticket-Granting Server (TGS) may reside where?",
+      "answerOptions": [
+        {
+          "text": "On every client workstation for local verification.",
+          "isCorrect": false,
+          "rationale": "AS and TGS are trusted central services; they are not distributed to non-trusted clients."
+        },
+        {
+          "text": "On the same physical machine.",
+          "isCorrect": true,
+          "rationale": "In practice, these two roles are often combined within a single server or 'Key Distribution Centre'."
+        },
+        {
+          "text": "In a public cloud accessible via Certificate Transparency.",
+          "isCorrect": false,
+          "rationale": "Kerberos is typically used in private corporate environments, not public cloud PKI infrastructures."
+        },
+        {
+          "text": "Within the application server ($V$) itself.",
+          "isCorrect": false,
+          "rationale": "The Application Server is separate; it relies on tickets issued by the TGS."
+        }
+      ],
+      "hint": "Consider the common practical implementation of these two central trusted roles."
+    }
+  ]
+}

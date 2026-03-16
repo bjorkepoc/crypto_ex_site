@@ -1,0 +1,317 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "According to NIST SP 800-38A, what is the standard method for padding a plaintext string that does not fit into a complete block?",
+      "answerOptions": [
+        {
+          "text": "Append a single '1' bit followed by as many '0' bits as necessary to complete the final block.",
+          "isCorrect": true,
+          "rationale": "This specific sequence allows the receiver to unambiguously identify and remove the padding by locating the last '1' bit."
+        },
+        {
+          "text": "Append '0' bits until the block is full, with the final byte indicating the number of padding bits added.",
+          "isCorrect": false,
+          "rationale": "While used in other standards, NIST SP 800-38A specifically defines a bit-based approach starting with a '1' to avoid ambiguity with data."
+        },
+        {
+          "text": "Append random bits to the end of the string and send the original length in the message header.",
+          "isCorrect": false,
+          "rationale": "Using random bits would require an external mechanism to signal the length, whereas the NIST method is self-describing."
+        },
+        {
+          "text": "Repeat the last byte of the message multiple times until the block boundary is reached.",
+          "isCorrect": false,
+          "rationale": "Repeating data could lead to confusion if the original message naturally ended with those repeated characters."
+        }
+      ],
+      "hint": "Consider how a receiver can distinguish between original data bits and added padding bits without extra metadata."
+    },
+    {
+      "question": "In the context of encryption modes, why is Electronic Codebook (ECB) mode considered unsuitable for encrypting data with high redundancy, such as digital images?",
+      "answerOptions": [
+        {
+          "text": "Identical plaintext blocks are encrypted into identical ciphertext blocks, revealing structural patterns.",
+          "isCorrect": true,
+          "rationale": "Because ECB is deterministic and lacks an initialization vector, it fails to hide patterns in the underlying data."
+        },
+        {
+          "text": "ECB mode cannot be processed in parallel, making it too slow for large files like images.",
+          "isCorrect": false,
+          "rationale": "ECB is actually highly efficient and parallelisable; its primary weakness is security, not performance."
+        },
+        {
+          "text": "The error propagation in ECB mode corrupts the entire file if a single bit is lost during transmission.",
+          "isCorrect": false,
+          "rationale": "In ECB, bit errors are contained within the specific block where they occur and do not propagate to others."
+        },
+        {
+          "text": "ECB mode requires the key to be changed for every block, creating a massive key management overhead.",
+          "isCorrect": false,
+          "rationale": "ECB uses the same key for every block; the lack of variation in processing is what leads to the pattern leakage."
+        }
+      ],
+      "hint": "Think about the consequences of a block cipher behaving as a simple substitution on fixed-size blocks."
+    },
+    {
+      "question": "Which of the following mathematical expressions correctly describes the encryption of a plaintext block $P_t$ using Cipher Block Chaining (CBC) mode?",
+      "answerOptions": [
+        {
+          "text": "$C_t = E(P_t \\oplus C_{t-1}, K)$",
+          "isCorrect": true,
+          "rationale": "CBC 'chains' blocks by XORing the current plaintext with the previous ciphertext block before applying the block cipher."
+        },
+        {
+          "text": "$C_t = E(P_t, K) \\oplus C_{t-1}$",
+          "isCorrect": false,
+          "rationale": "XORing after encryption describes a different feedback mechanism and does not provide the same diffusion properties as CBC."
+        },
+        {
+          "text": "$C_t = E(C_{t-1}, K) \\oplus P_t$",
+          "isCorrect": false,
+          "rationale": "This formula actually represents Cipher Feedback (CFB) mode, which operates more like a stream cipher."
+        },
+        {
+          "text": "$C_t = E(P_t \\oplus IV, K)$",
+          "isCorrect": false,
+          "rationale": "This only applies to the first block ($t=1$); subsequent blocks must use the preceding ciphertext block for chaining."
+        }
+      ],
+      "hint": "Recall that in CBC, the output of one encryption stage serves as an input to the XOR operation of the next stage."
+    },
+    {
+      "question": "What is a major efficiency disadvantage of Cipher Block Chaining (CBC) mode during the encryption process?",
+      "answerOptions": [
+        {
+          "text": "It is sequential and cannot be performed in parallel because each block depends on the previous ciphertext.",
+          "isCorrect": true,
+          "rationale": "Since $C_{t-1}$ is required to compute $C_t$, the encryption of the next block cannot begin until the current one is finished."
+        },
+        {
+          "text": "It requires the decryption process to also be sequential, preventing fast retrieval of data.",
+          "isCorrect": false,
+          "rationale": "CBC decryption is actually parallelisable because all ciphertext blocks are available to the receiver simultaneously."
+        },
+        {
+          "text": "It increases the size of the ciphertext significantly compared to the original plaintext.",
+          "isCorrect": false,
+          "rationale": "Except for the addition of the initialization vector and padding, CBC does not increase the data volume."
+        },
+        {
+          "text": "It is incompatible with modern block ciphers like AES due to the XOR overhead.",
+          "isCorrect": false,
+          "rationale": "CBC is widely used with AES and the XOR operation is computationally trivial compared to the block cipher itself."
+        }
+      ],
+      "hint": "Consider whether the input of the current encryption step is available before the previous step is completed."
+    },
+    {
+      "question": "How does Cipher Feedback (CFB) mode achieve 'self-synchronisation' if a ciphertext block is lost during transmission?",
+      "answerOptions": [
+        {
+          "text": "The receiver can re-synchronise as soon as it has received enough consecutive correct ciphertext bits to fill the feedback register.",
+          "isCorrect": true,
+          "rationale": "Once the feedback register is populated with valid ciphertext, the generated keystream will once again match the sender's."
+        },
+        {
+          "text": "It uses a special 'sync' block sent every ten blocks to reset the internal counter.",
+          "isCorrect": false,
+          "rationale": "CFB does not rely on external markers; the synchronisation is an inherent property of using ciphertext as feedback."
+        },
+        {
+          "text": "The initialization vector ($IV$) is re-sent automatically whenever the receiver detects a bit error.",
+          "isCorrect": false,
+          "rationale": "The $IV$ is only sent at the start; the mode's ability to recover is based on its dependency on previous ciphertexts."
+        },
+        {
+          "text": "It uses error-correcting codes embedded in the padding to fix the lost blocks.",
+          "isCorrect": false,
+          "rationale": "CFB is a mode of operation, not an error-correction scheme; it simply limits the duration of the corruption."
+        }
+      ],
+      "hint": "Focus on how the keystream generation depends on the history of the ciphertext."
+    },
+    {
+      "question": "In Output Feedback (OFB) mode, what is the effect of a single-bit error occurring in the ciphertext during transmission?",
+      "answerOptions": [
+        {
+          "text": "A single-bit error occurs in the decrypted plaintext at the exact same bit position.",
+          "isCorrect": true,
+          "rationale": "Because OFB acts as a synchronous stream cipher, the keystream is independent of the ciphertext, so errors do not propagate."
+        },
+        {
+          "text": "The current plaintext block and the subsequent plaintext block are both completely corrupted.",
+          "isCorrect": false,
+          "rationale": "This level of propagation is characteristic of CBC or CFB, where the ciphertext is used in the decryption of later blocks."
+        },
+        {
+          "text": "The error is automatically corrected because the keystream is generated purely from the key and $IV$.",
+          "isCorrect": false,
+          "rationale": "While the keystream generation is independent, XORing a corrupted ciphertext bit with a correct keystream bit still yields a corrupted plaintext bit."
+        },
+        {
+          "text": "The decryption process fails immediately because the block cipher detects the mismatch.",
+          "isCorrect": false,
+          "rationale": "Standard OFB does not include integrity checks; it will continue decrypting even if the ciphertext is altered."
+        }
+      ],
+      "hint": "Reflect on whether the ciphertext bits are used as input for generating subsequent parts of the keystream."
+    },
+    {
+      "question": "Which of the following encryption modes allows for random access, enabling the decryption of block $n$ without needing to decrypt blocks $1$ through $n-1$?",
+      "answerOptions": [
+        {
+          "text": "Counter (CTR) Mode",
+          "isCorrect": true,
+          "rationale": "Since the keystream for any block is derived solely from the nonce, the key, and the block index, any block can be decrypted independently."
+        },
+        {
+          "text": "Cipher Block Chaining (CBC) Mode",
+          "isCorrect": false,
+          "rationale": "While decryption is parallelisable, you still need $C_{n-1}$ to decrypt $C_n$, though you don't necessarily need the full plaintext history."
+        },
+        {
+          "text": "Output Feedback (OFB) Mode",
+          "isCorrect": false,
+          "rationale": "OFB requires the sequential generation of all preceding internal states ($O_1, O_2, \\dots$) to reach the state needed for block $n$."
+        },
+        {
+          "text": "Cipher Feedback (CFB) Mode",
+          "isCorrect": false,
+          "rationale": "CFB requires the ciphertext of the previous block to generate the current keystream, preventing true independent random access."
+        }
+      ],
+      "hint": "Look for a mode where the 'keystream' is a function of a predictable, non-repeating value and the encryption key."
+    },
+    {
+      "question": "What is the primary distinction between a True Random Number Generator (TRNG) and a Pseudorandom Number Generator (PRNG)?",
+      "answerOptions": [
+        {
+          "text": "A TRNG uses a physical source of entropy, while a PRNG uses a deterministic algorithm.",
+          "isCorrect": true,
+          "rationale": "TRNGs rely on unpredictable physical processes (like noise), whereas PRNGs produce output based on a mathematical formula and a seed."
+        },
+        {
+          "text": "PRNGs are always more secure than TRNGs because they are standardised by NIST.",
+          "isCorrect": false,
+          "rationale": "TRNGs are generally considered superior for security because they are truly unpredictable; PRNGs are used for efficiency."
+        },
+        {
+          "text": "A TRNG requires a seed to start, whereas a PRNG does not.",
+          "isCorrect": false,
+          "rationale": "It is the opposite: PRNGs require a seed to produce a sequence, while TRNGs draw directly from a physical source."
+        },
+        {
+          "text": "PRNGs produce bit strings with higher statistical bias than TRNGs.",
+          "isCorrect": false,
+          "rationale": "Well-designed PRNGs pass statistical tests for randomness; the difference is in predictability, not necessarily statistical distribution."
+        }
+      ],
+      "hint": "Think about whether the sequence of numbers is generated by a repeatable calculation or a natural physical phenomenon."
+    },
+    {
+      "question": "In the CTR_DRBG algorithm, if the block size and key size are both 128 bits, how is the state updated to produce a new key $K'$ and state $V'$?",
+      "answerOptions": [
+        {
+          "text": "$K' \\| V' = (E(V, K) \\| E(V+1, K)) \\oplus D$",
+          "isCorrect": true,
+          "rationale": "The update function runs the cipher in counter mode to generate new bits, which are then XORed with optional data to derive the next state."
+        },
+        {
+          "text": "$K' \\| V' = E(V \\oplus D, K)$",
+          "isCorrect": false,
+          "rationale": "Updating involves generating enough bits for both a new key and a new counter, which requires multiple block cipher operations."
+        },
+        {
+          "text": "$K' = E(K, V)$ and $V' = V+1$",
+          "isCorrect": false,
+          "rationale": "The key and the state are typically updated together using output blocks to ensure backtracking resistance."
+        },
+        {
+          "text": "$K' \\| V' = H(K \\| V \\| D)$ where $H$ is a hash function.",
+          "isCorrect": false,
+          "rationale": "While Hash_DRBGs exist, the CTR_DRBG specifically uses block cipher encryption to perform its updates."
+        }
+      ],
+      "hint": "The update process must generate 256 bits of material to refresh both the 128-bit key and the 128-bit counter."
+    },
+    {
+      "question": "Which security property ensures that an attacker who compromises the current internal state of a DRBG cannot determine the bits generated in previous calls?",
+      "answerOptions": [
+        {
+          "text": "Backtracking resistance",
+          "isCorrect": true,
+          "rationale": "This property ensures that the state update function is effectively one-way, protecting the secrecy of past outputs."
+        },
+        {
+          "text": "Forward prediction resistance",
+          "isCorrect": false,
+          "rationale": "Forward prediction resistance refers to preventing an attacker from predicting future outputs after a state compromise."
+        },
+        {
+          "text": "Uniform distribution",
+          "isCorrect": false,
+          "rationale": "Uniform distribution is a statistical property ensuring bits appear with equal frequency, not a state-protection property."
+        },
+        {
+          "text": "Independence",
+          "isCorrect": false,
+          "rationale": "Independence means that knowing some outputs does not help predict others, but it doesn't specifically define the impact of a state compromise."
+        }
+      ],
+      "hint": "Think about looking 'backwards' in time from the point of compromise."
+    },
+    {
+      "question": "What was the specific technical criticism of the Dual_EC_DRBG algorithm that preceded reports of its potential NSA 'backdoor'?",
+      "answerOptions": [
+        {
+          "text": "The output bits demonstrated an observable statistical bias.",
+          "isCorrect": true,
+          "rationale": "Research, including work by NTNU's Kristian Gj\u00f8steen, showed that the output was not perfectly uniform."
+        },
+        {
+          "text": "It was too fast, allowing for efficient brute-force attacks on the seed.",
+          "isCorrect": false,
+          "rationale": "Dual_EC_DRBG was actually significantly slower than other DRBGs in the NIST standard."
+        },
+        {
+          "text": "It required a hardware TRNG to function, making it impossible to implement in software.",
+          "isCorrect": false,
+          "rationale": "Like other DRBGs, it is a deterministic algorithm that can be implemented entirely in software given a seed."
+        },
+        {
+          "text": "It was based on the RSA problem, which was considered outdated by 2006.",
+          "isCorrect": false,
+          "rationale": "The algorithm was based on the elliptic curve discrete logarithm problem, not RSA."
+        }
+      ],
+      "hint": "Consider the statistical criteria required for random number generators."
+    },
+    {
+      "question": "For AES-128 used in CTR_DRBG mode, what is the total bit length of the required seed?",
+      "answerOptions": [
+        {
+          "text": "256 bits",
+          "isCorrect": true,
+          "rationale": "The seed must provide enough entropy to initialize both the 128-bit key and the 128-bit state value."
+        },
+        {
+          "text": "128 bits",
+          "isCorrect": false,
+          "rationale": "A 128-bit seed would only be sufficient for the key, leaving the counter (state) without adequate initial entropy."
+        },
+        {
+          "text": "512 bits",
+          "isCorrect": false,
+          "rationale": "While a longer seed could be used, the standard requirement for AES-128 is the sum of the key and block lengths."
+        },
+        {
+          "text": "192 bits",
+          "isCorrect": false,
+          "rationale": "This doesn't align with the standard block or key sizes for the basic AES-128 configuration."
+        }
+      ],
+      "hint": "The seed needs to cover the sum of the key length and the block length."
+    }
+  ]
+}

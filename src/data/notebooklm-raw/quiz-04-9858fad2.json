@@ -1,0 +1,655 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "What is the primary reason that discrete log cryptosystems, when implemented on elliptic curves, are often preferred over the RSA cryptosystem?",
+      "answerOptions": [
+        {
+          "text": "They use significantly smaller parameters for equivalent security levels.",
+          "isCorrect": true,
+          "rationale": "Elliptic curve systems are more efficient because their security relies on a problem with higher computational complexity, allowing for shorter key lengths."
+        },
+        {
+          "text": "They are based on the integer factorisation hardness assumption.",
+          "isCorrect": false,
+          "rationale": "Integer factorisation is the foundation of RSA, whereas discrete log systems rely on the difficulty of finding logarithms in finite groups."
+        },
+        {
+          "text": "They eliminate the need for any public communication during key exchange.",
+          "isCorrect": false,
+          "rationale": "All public-key systems, including those based on discrete logs, require the exchange of public values over potentially insecure channels."
+        },
+        {
+          "text": "They use larger moduli to ensure better resistance to brute-force attacks.",
+          "isCorrect": false,
+          "rationale": "A key advantage is actually the use of smaller parameters, not larger ones, to achieve the same security level."
+        }
+      ],
+      "hint": "Consider the relationship between key size and computational efficiency."
+    },
+    {
+      "question": "In the Diffie\u2013Hellman key exchange, if Alice selects a private value $a$ and Bob selects a private value $b$, how do they both arrive at the same shared secret $Z$?",
+      "answerOptions": [
+        {
+          "text": "They both compute $g^{ab}$ by raising the received public value to their own private power.",
+          "isCorrect": true,
+          "rationale": "Using the properties of exponents in a group, $(g^b)^a$ and $(g^a)^b$ both result in the identical value $g^{ab}$."
+        },
+        {
+          "text": "They add their private values to the generator $g$ to reach $g + a + b$.",
+          "isCorrect": false,
+          "rationale": "The protocol relies on modular exponentiation or group scalar multiplication rather than simple addition."
+        },
+        {
+          "text": "Alice sends $a$ to Bob and Bob sends $b$ to Alice to compute $a \\cdot b$.",
+          "isCorrect": false,
+          "rationale": "Private values $a$ and $b$ must never be sent over the insecure channel; only values derived via the group operation are exchanged."
+        },
+        {
+          "text": "They use a public hash function to combine $g^a$ and $g^b$ into a single sum.",
+          "isCorrect": false,
+          "rationale": "While hash functions are used for key derivation later, the initial shared secret is formed through the group's mathematical structure."
+        }
+      ],
+      "hint": "Think about the mathematical properties of exponents in modular arithmetic."
+    },
+    {
+      "question": "Which specific problem must an attacker solve to determine the shared secret $Z$ from the public values $g$, $g^a$, and $g^b$?",
+      "answerOptions": [
+        {
+          "text": "The computational Diffie\u2013Hellman problem.",
+          "isCorrect": true,
+          "rationale": "This problem specifically refers to the difficulty of computing the shared secret $g^{ab}$ from the publicly available exchange values."
+        },
+        {
+          "text": "The integer factorisation problem.",
+          "isCorrect": false,
+          "rationale": "This problem is the basis for RSA security rather than the discrete logarithm problem used in Diffie-Hellman."
+        },
+        {
+          "text": "The symmetric key collision problem.",
+          "isCorrect": false,
+          "rationale": "Collisions relate to hash functions or block ciphers, not the foundational hardness assumption of the DH protocol."
+        },
+        {
+          "text": "The Euclidean algorithm complexity problem.",
+          "isCorrect": false,
+          "rationale": "The Euclidean algorithm is used for finding greatest common divisors and is computationally efficient, not a hard problem."
+        }
+      ],
+      "hint": "This problem is named after the creators of the key exchange protocol."
+    },
+    {
+      "question": "What is a major vulnerability of the basic Diffie\u2013Hellman protocol if the exchanged messages are not authenticated?",
+      "answerOptions": [
+        {
+          "text": "A man-in-the-middle attack.",
+          "isCorrect": true,
+          "rationale": "Without authentication, an adversary can intercept the public values and establish separate shared keys with both parties, relaying messages between them."
+        },
+        {
+          "text": "A timing side-channel attack.",
+          "isCorrect": false,
+          "rationale": "While possible in implementation, timing attacks are not a fundamental flaw of the unauthenticated protocol logic itself."
+        },
+        {
+          "text": "The inability to use the generator $g$.",
+          "isCorrect": false,
+          "rationale": "The generator $g$ is a public parameter and its use is unaffected by the presence or absence of authentication."
+        },
+        {
+          "text": "The requirement for a very large prime $p$.",
+          "isCorrect": false,
+          "rationale": "The size of $p$ is determined by security requirements against discrete log attacks, not by the authentication mechanism."
+        }
+      ],
+      "hint": "Consider what happens if an adversary sits between Alice and Bob."
+    },
+    {
+      "question": "What distinguishes 'Static' Diffie\u2013Hellman from the 'Ephemeral' version of the protocol?",
+      "answerOptions": [
+        {
+          "text": "Static DH uses long-term public keys, while Ephemeral DH uses keys that are discarded after a single use.",
+          "isCorrect": true,
+          "rationale": "Ephemeral keys provide forward secrecy because they are temporary, whereas static keys are persistent identities used across multiple sessions."
+        },
+        {
+          "text": "Static DH is only performed on elliptic curves, while Ephemeral DH is used for $Z_p^*$.",
+          "isCorrect": false,
+          "rationale": "Both versions of the protocol can be implemented using either finite field or elliptic curve groups."
+        },
+        {
+          "text": "Ephemeral DH requires the generator $g$ to change for every transaction.",
+          "isCorrect": false,
+          "rationale": "The generator is typically a fixed part of the system parameters, even when keys are ephemeral."
+        },
+        {
+          "text": "Static DH cannot be used to generate a shared secret $S$.",
+          "isCorrect": false,
+          "rationale": "Static DH is specifically designed to allow parties to calculate a long-term shared secret $S = g^{x_A x_B}$ from their public keys."
+        }
+      ],
+      "hint": "Think about the meaning of the word 'ephemeral' in the context of duration."
+    },
+    {
+      "question": "In the ElGamal cryptosystem, what is the structure of the ciphertext $C$ returned by the encryption algorithm?",
+      "answerOptions": [
+        {
+          "text": "A pair of values $(C_1, C_2)$ where $C_1 = g^k \\pmod p$.",
+          "isCorrect": true,
+          "rationale": "ElGamal encryption produces a tuple consisting of the ephemeral public key and the masked message."
+        },
+        {
+          "text": "A single integer $M^e \\pmod n$.",
+          "isCorrect": false,
+          "rationale": "This structure describes RSA encryption rather than the ElGamal scheme."
+        },
+        {
+          "text": "A set of three values $(p, g, y)$ representing the public key.",
+          "isCorrect": false,
+          "rationale": "These are the public key parameters used for encryption, not the resulting ciphertext itself."
+        },
+        {
+          "text": "A hashed value of the message combined with the private key $x$.",
+          "isCorrect": false,
+          "rationale": "ElGamal is an encryption scheme that uses an ephemeral secret $k$, not just a hash of the private key."
+        }
+      ],
+      "hint": "Recall that ElGamal is based on the Diffie-Hellman exchange, which involves two public parts."
+    },
+    {
+      "question": "How does the recipient of an ElGamal ciphertext $(C_1, C_2)$ recover the original message $M$ using their private key $x$?",
+      "answerOptions": [
+        {
+          "text": "By computing $C_2 \\cdot C_1^{-x} \\pmod p$.",
+          "isCorrect": true,
+          "rationale": "Because $C_1 = g^k$ and $C_2 = M \\cdot g^{xk}$, multiplying $C_2$ by $(g^k)^{-x}$ cancels the masking factor $g^{xk}$."
+        },
+        {
+          "text": "By taking the discrete logarithm of $C_2$ base $C_1$.",
+          "isCorrect": false,
+          "rationale": "Taking a discrete log is computationally infeasible; the recipient uses their knowledge of $x$ to bypass this difficulty."
+        },
+        {
+          "text": "By dividing $C_1$ by $C_2$ and then adding $g$.",
+          "isCorrect": false,
+          "rationale": "The decryption process involves modular inversion and exponentiation, not simple division and addition."
+        },
+        {
+          "text": "By computing $C_1^x \\pmod p$.",
+          "isCorrect": false,
+          "rationale": "While $C_1^x$ is part of the process, it only yields the masking factor; further steps are needed to extract $M$ from $C_2$."
+        }
+      ],
+      "hint": "The recipient must remove the 'mask' applied to the message during encryption."
+    },
+    {
+      "question": "Which statement regarding the security of ElGamal is true compared to the RSA cryptosystem?",
+      "answerOptions": [
+        {
+          "text": "ElGamal is randomised and does not require padding like RSA to be secure against certain attacks.",
+          "isCorrect": true,
+          "rationale": "The inclusion of a random ephemeral value $k$ for every encryption ensures that the same message results in different ciphertexts."
+        },
+        {
+          "text": "ElGamal is significantly more vulnerable to the discrete log problem than RSA is to factorisation.",
+          "isCorrect": false,
+          "rationale": "Discrete log and factorisation are considered comparable in difficulty for similar bit-lengths of $p$ and $n$."
+        },
+        {
+          "text": "ElGamal encryption is deterministic, meaning the same message always encrypts to the same ciphertext.",
+          "isCorrect": false,
+          "rationale": "ElGamal is probabilistic because it samples a random $k$ for each encryption operation."
+        },
+        {
+          "text": "ElGamal requires a private key $x$ to be shared between the sender and receiver before communication.",
+          "isCorrect": false,
+          "rationale": "As a public-key system, only the receiver's public key $(p, g, y)$ is needed by the sender."
+        }
+      ],
+      "hint": "Consider the role of the random variable $k$ in the encryption process."
+    },
+    {
+      "question": "What is the standard algebraic form for an elliptic curve over a finite field $Z_p$ (often called Short Weierstrass form)?",
+      "answerOptions": [
+        {
+          "text": "$y^2 = x^3 + ax + b \\pmod p$",
+          "isCorrect": true,
+          "rationale": "This cubic equation defines the points that form the elliptic curve group when the identity element is included."
+        },
+        {
+          "text": "$y = x^2 + bx + c \\pmod p$",
+          "isCorrect": false,
+          "rationale": "This is a quadratic equation defining a parabola, not the cubic equation required for elliptic curves."
+        },
+        {
+          "text": "$x^2 + y^2 = r^2 \\pmod p$",
+          "isCorrect": false,
+          "rationale": "This is the equation of a circle, which does not possess the group properties used in ECC."
+        },
+        {
+          "text": "$y^2 = x^3 + ax^2 + bx + c \\pmod p$",
+          "isCorrect": false,
+          "rationale": "While cubic, the standard Short Weierstrass form used in most protocols simplifies the $x^2$ term away."
+        }
+      ],
+      "hint": "Recall the cubic equation mentioned as the most common format."
+    },
+    {
+      "question": "In elliptic curve cryptography, how is the 'discrete log problem' defined?",
+      "answerOptions": [
+        {
+          "text": "Finding the scalar $k$ such that $P = [k]G$, where $P$ is a point and $G$ is a generator.",
+          "isCorrect": true,
+          "rationale": "The difficulty of reversing scalar multiplication (repeated point addition) is the basis of ECC security."
+        },
+        {
+          "text": "Calculating the square root of $x^3 + ax + b$ for a given $y$.",
+          "isCorrect": false,
+          "rationale": "This is a component of checking if a point is on the curve, not the hard problem securing the system."
+        },
+        {
+          "text": "Determining the sum of two distinct points $P + Q$ on the curve.",
+          "isCorrect": false,
+          "rationale": "Adding two points is an efficient operation and part of the protocol's functionality, not its security hardness."
+        },
+        {
+          "text": "Finding the prime factors of the field order $p$.",
+          "isCorrect": false,
+          "rationale": "The field order $p$ is public and typically prime; the security does not rely on its factorisation."
+        }
+      ],
+      "hint": "Think about the scalar multiple in the context of repeated group operations."
+    },
+    {
+      "question": "Which algorithm is used to efficiently compute elliptic curve scalar multiplication, analogous to the 'square-and-multiply' algorithm for exponentiation?",
+      "answerOptions": [
+        {
+          "text": "The double-and-add algorithm.",
+          "isCorrect": true,
+          "rationale": "Since the group operation in ECC is addition, scalar multiplication is achieved by doubling points and adding the base point according to the bits of the scalar."
+        },
+        {
+          "text": "The Euclidean algorithm.",
+          "isCorrect": false,
+          "rationale": "The Euclidean algorithm is used for modular inverses or GCDs, not for scalar multiplication on curves."
+        },
+        {
+          "text": "The Pollard's rho algorithm.",
+          "isCorrect": false,
+          "rationale": "Pollard's rho is an algorithm used to solve the discrete log problem (attack the system), not to perform standard encryption operations."
+        },
+        {
+          "text": "The Montgomery ladder.",
+          "isCorrect": false,
+          "rationale": "While the Montgomery ladder is a specific way to perform multiplication, 'double-and-add' is the general conceptual replacement for square-and-multiply."
+        }
+      ],
+      "hint": "Look for an algorithm that replaces 'squaring' with 'doubling'."
+    },
+    {
+      "question": "Why might a cryptographer choose to use an elliptic curve in 'Montgomery form', such as Curve25519, over the Short Weierstrass form?",
+      "answerOptions": [
+        {
+          "text": "It allows for fixed-time multiplication to protect against timing side-channel attacks.",
+          "isCorrect": true,
+          "rationale": "Montgomery form supports efficient implementation of the Montgomery ladder, which has uniform execution time regardless of secret key bits."
+        },
+        {
+          "text": "It requires fewer points on the curve, making the group smaller and easier to manage.",
+          "isCorrect": false,
+          "rationale": "The security of the curve is linked to the size of the prime-order subgroup, not the specific representation form."
+        },
+        {
+          "text": "It is the only form compatible with NIST standards like SP 800-186.",
+          "isCorrect": false,
+          "rationale": "NIST standards include multiple forms, including Short Weierstrass and Montgomery forms."
+        },
+        {
+          "text": "It uses integer multiplication instead of group addition.",
+          "isCorrect": false,
+          "rationale": "All ECC forms use the group operation (addition) to perform scalar multiplication."
+        }
+      ],
+      "hint": "Consider security vulnerabilities related to the time it takes to perform a calculation."
+    },
+    {
+      "question": "According to NIST recommendations (SP 800-57), what length of an elliptic curve group is considered equivalent in security strength to a 3072-bit RSA modulus?",
+      "answerOptions": [
+        {
+          "text": "256 bits",
+          "isCorrect": true,
+          "rationale": "A 256-bit ECC key provides approximately 128 bits of security, which matches the strength of a 3072-bit RSA key."
+        },
+        {
+          "text": "160 bits",
+          "isCorrect": false,
+          "rationale": "A 160-bit ECC key is roughly equivalent to a 1024-bit RSA key, representing a lower security level."
+        },
+        {
+          "text": "512 bits",
+          "isCorrect": false,
+          "rationale": "512-bit ECC is equivalent to a much larger 15360-bit RSA modulus, used for the highest security levels."
+        },
+        {
+          "text": "128 bits",
+          "isCorrect": false,
+          "rationale": "128-bit ECC only provides about 64 bits of security, which is well below the 3072-bit RSA equivalent."
+        }
+      ],
+      "hint": "This size is also commonly used as the key length for high-security AES."
+    },
+    {
+      "question": "In the NIST Curve P-256, what is the significance of the value $a = -3 \\pmod p$?",
+      "answerOptions": [
+        {
+          "text": "It is chosen to improve the efficiency of the point addition and doubling formulas.",
+          "isCorrect": true,
+          "rationale": "The value $a = -3$ allows for specific mathematical optimisations in the arithmetic of the curve."
+        },
+        {
+          "text": "It ensures that the curve is in Montgomery form.",
+          "isCorrect": false,
+          "rationale": "P-256 is a Short Weierstrass curve; Montgomery curves have a different equation structure."
+        },
+        {
+          "text": "It is a seed generated from a SHA-1 hash to prove randomness.",
+          ";isCorrect": false,
+          "rationale": "The parameter $s$ is the seed for randomness, while $a$ is a fixed coefficient in the curve equation."
+        },
+        {
+          "text": "It guarantees that the group order $n$ is exactly equal to the prime $p$.",
+          "isCorrect": false,
+          "rationale": "The group order $n$ and field prime $p$ are typically very close but not identical for elliptic curves."
+        }
+      ],
+      "hint": "Think about why standard curves might fix certain parameters to small values."
+    },
+    {
+      "question": "Curve25519, proposed by Bernstein in 2005, uses which field as its basis?",
+      "answerOptions": [
+        {
+          "text": "Integers modulo $p = 2^{255} - 19$.",
+          "isCorrect": true,
+          "rationale": "The prime $p$ is chosen to be a Pseudo-Mersenne prime, which allows for extremely fast modular reduction."
+        },
+        {
+          "text": "The set of all rational numbers $\\mathbb{Q}$.",
+          "isCorrect": false,
+          "rationale": "Cryptography requires finite structures (finite fields) rather than infinite sets like rational numbers."
+        },
+        {
+          "text": "Binary fields of the form $GF(2^n)$.",
+          "isCorrect": false,
+          "rationale": "While ECC can be built on binary fields, Curve25519 specifically uses a prime field $Z_p$."
+        },
+        {
+          "text": "Integers modulo a product of two large primes $n = pq$.",
+          "isCorrect": false,
+          "rationale": "This describes the field used in RSA, whereas ECC systems generally use prime fields."
+        }
+      ],
+      "hint": "The name of the curve contains a clue about the prime used."
+    },
+    {
+      "question": "What happens when an elliptic curve addition operation $P + Q$ is performed on two points where $x_1 = x_2$ but $y_2 = -y_1$?",
+      "answerOptions": [
+        {
+          "text": "The result is the point at infinity, denoted as $O$.",
+          "isCorrect": true,
+          "rationale": "In this case, the points are symmetric across the x-axis, and their sum is the identity element of the group."
+        },
+        {
+          "text": "The result is a new point $(x_3, y_3)$ calculated using the slope $\\lambda$.",
+          "isCorrect": false,
+          "rationale": "The standard slope formula involves division by zero ($x_1 - x_2$) in this case, indicating the result is the identity element."
+        },
+        {
+          "text": "The operation fails and the protocol must restart.",
+          "isCorrect": false,
+          "rationale": "The point at infinity $O$ is a valid member of the group, so the operation is mathematically well-defined."
+        },
+        {
+          "text": "The points are doubled to result in $2P$.",
+          "isCorrect": false,
+          "rationale": "Doubling only occurs when $P = Q$ (i.e., $x_1 = x_2$ AND $y_1 = y_2$)."
+        }
+      ],
+      "hint": "Consider the geometric interpretation of a vertical line intersecting the curve."
+    },
+    {
+      "question": "Why is the relative advantage of elliptic curve cryptography expected to increase as security requirements move to higher levels?",
+      "answerOptions": [
+        {
+          "text": "RSA key sizes grow sub-exponentially, while ECC key sizes grow linearly with security level.",
+          "isCorrect": true,
+          "rationale": "Because the best attacks on RSA are sub-exponential, RSA keys must grow much faster than ECC keys to maintain equivalent security."
+        },
+        {
+          "text": "Elliptic curves become easier to compute as the prime $p$ gets larger.",
+          "isCorrect": false,
+          "rationale": "Computation becomes more intensive as $p$ grows, but the growth is less prohibitive than the key size growth required for RSA."
+        },
+        {
+          "text": "Discrete log problems are solved in constant time regardless of key length.",
+          "isCorrect": false,
+          "rationale": "Solving the discrete log problem is exponential in key length, which is precisely why it is considered a hard problem."
+        },
+        {
+          "text": "RSA is incompatible with modern TLS 1.3 standards at high security levels.",
+          "isCorrect": false,
+          "rationale": "RSA is still used, but it is less efficient than ECC at the higher security tiers mandated by modern standards."
+        }
+      ],
+      "hint": "Compare how much larger RSA keys must get compared to ECC keys to double the security."
+    },
+    {
+      "question": "In the context of the Diffie\u2013Hellman protocol, what is a Key Derivation Function (KDF)?",
+      "answerOptions": [
+        {
+          "text": "A function that transforms the shared secret $Z$ into a key suitable for a symmetric cipher like AES.",
+          "isCorrect": true,
+          "rationale": "The raw shared secret $Z$ may have mathematical structure that is unsuitable for direct use as a symmetric key; a KDF (often hash-based) fixes this."
+        },
+        {
+          "text": "An algorithm used to generate the prime $p$ and generator $g$.",
+          "isCorrect": false,
+          "rationale": "These parameters are generated during system setup, not from the shared secret."
+        },
+        {
+          "text": "A method for Alice to verify Bob's digital signature.",
+          "isCorrect": false,
+          "rationale": "Verification is handled by signature algorithms, whereas a KDF is used to derive session keys."
+        },
+        {
+          "text": "A formula used to calculate the discrete logarithm in the group $G$.",
+          "isCorrect": false,
+          "rationale": "A KDF is a constructive tool for users, not an attack tool for solving discrete logarithms."
+        }
+      ],
+      "hint": "It 'derives' the final key from the raw shared secret."
+    },
+    {
+      "question": "The ElGamal encryption of message $M$ with public key $y$ uses an ephemeral value $k$ to compute $C_2 = M \\cdot y^k \\pmod p$. What does $y^k$ represent in this context?",
+      "answerOptions": [
+        {
+          "text": "The shared secret established between the sender and the receiver.",
+          "isCorrect": true,
+          "rationale": "Since $y = g^x$, $y^k$ is $(g^x)^k = g^{xk}$, which is the same secret value the receiver computes as $(g^k)^x$."
+        },
+        {
+          "text": "The public identity of the sender.",
+          "isCorrect": false,
+          "rationale": "The sender's identity is not necessarily tied to $y^k$; the value $g^k$ is the ephemeral public part of the transmission."
+        },
+        {
+          "text": "A digital signature ensuring the message's integrity.",
+          "isCorrect": false,
+          "rationale": "ElGamal is an encryption scheme; while related schemes exist for signatures, $y^k$ here is used for masking the plaintext."
+        },
+        {
+          "text": "The original plaintext message converted to an integer.",
+          "isCorrect": false,
+          "rationale": "The plaintext message is $M$; $y^k$ is the multiplier used to obfuscate $M$."
+        }
+      ],
+      "hint": "Think of the Diffie-Hellman secret being used as a one-time mask."
+    },
+    {
+      "question": "Which of the following describes 'Edwards form' for elliptic curves?",
+      "answerOptions": [
+        {
+          "text": "A representation that allows for faster group operation computations.",
+          "isCorrect": true,
+          "rationale": "Edwards curves provide the fastest known formulas for point addition, making them popular for high-performance applications."
+        },
+        {
+          "text": "A form specifically designed to be identical to the RSA algorithm.",
+          "isCorrect": false,
+          "rationale": "ECC and RSA are fundamentally different mathematical systems and cannot be 'identical'."
+        },
+        {
+          "text": "The standard form used for calculating discrete logs in finite fields $Z_p^*$.",
+          "isCorrect": false,
+          "rationale": "Edwards form is specific to elliptic curve groups, not multiplicative groups of integers."
+        },
+        {
+          "text": "A representation that uses only one-dimensional values instead of $(x, y)$ coordinates.",
+          "isCorrect": false,
+          "rationale": "ECC points in Edwards form are still represented as coordinates on a curve, though they may use different coordinate systems for efficiency."
+        }
+      ],
+      "hint": "This form is often chosen when performance is the top priority."
+    },
+    {
+      "question": "What is the security level (in symmetric key equivalent bits) for a 1024-bit RSA modulus according to the source material?",
+      "answerOptions": [
+        {
+          "text": "80 bits",
+          "isCorrect": true,
+          "rationale": "1024-bit RSA is widely considered to offer approximately 80 bits of security, which is now considered insufficient for long-term security."
+        },
+        {
+          "text": "128 bits",
+          "isCorrect": false,
+          "rationale": "128-bit security requires a 3072-bit RSA modulus, significantly larger than 1024 bits."
+        },
+        {
+          "text": "192 bits",
+          "isCorrect": false,
+          "rationale": "192-bit security requires a 7680-bit RSA modulus."
+        },
+        {
+          "text": "256 bits",
+          "isCorrect": false,
+          "rationale": "256-bit security, the highest standard level, requires a massive 15360-bit RSA modulus."
+        }
+      ],
+      "hint": "This is the lowest security level listed in the NIST comparison table."
+    },
+    {
+      "question": "In the ElGamal encryption example provided ($p = 181, g = 2, y = 116$), if the sender chooses $k = 31$ to encrypt $M = 97$, why would a different sender encrypting the same message with the same key get a different ciphertext?",
+      "answerOptions": [
+        {
+          "text": "Because ElGamal is a probabilistic encryption scheme.",
+          "isCorrect": true,
+          "rationale": "The sender chooses a new random $k$ for every encryption, ensuring that identical messages produce different ciphertexts."
+        },
+        {
+          "text": "Because the generator $g$ changes automatically for every user.",
+          "isCorrect": false,
+          "rationale": "The generator $g$ is a fixed public parameter for the system."
+        },
+        {
+          "text": "Because the prime $p$ is redefined every time a message is sent.",
+          "isCorrect": false,
+          "rationale": "The prime $p$ is part of the recipient's static public key and does not change per message."
+        },
+        {
+          "text": "Because the message $M$ must be hashed before encryption.",
+          "isCorrect": false,
+          "rationale": "While hashing is common in practice, the core ElGamal algorithm encrypts the message directly (or as an element of the group)."
+        }
+      ],
+      "hint": "Consider the effect of selecting a random 'k' for each operation."
+    },
+    {
+      "question": "Which mathematical structure is formed by elliptic curve points once an identity element $O$ is added and a binary operation is defined?",
+      "answerOptions": [
+        {
+          "text": "An elliptic curve group.",
+          "isCorrect": true,
+          "rationale": "The points, together with the addition operation and identity $O$, satisfy the group axioms required for cryptographic use."
+        },
+        {
+          "text": "A finite vector space.",
+          "isCorrect": false,
+          "rationale": "While related, ECC specifically uses the properties of an Abelian group rather than a full vector space structure."
+        },
+        {
+          "text": "A multiplicative field of integers.",
+          "isCorrect": false,
+          "rationale": "The field $Z_p$ is the 'underlying' structure, but the 'curve points' themselves form a group under addition."
+        },
+        {
+          "text": "A set of irrational coordinates.",
+          "isCorrect": false,
+          "rationale": "In cryptography, we use elliptic curves over finite fields, so all coordinates are integers modulo $p$."
+        }
+      ],
+      "hint": "It is the fundamental algebraic structure used throughout public-key cryptography."
+    },
+    {
+      "question": "What is the relationship between solving the discrete log problem over $Z_p^*$ and factorising an RSA modulus $n$ of the same bit-length?",
+      "answerOptions": [
+        {
+          "text": "They are considered to have comparable computational difficulty.",
+          "isCorrect": true,
+          "rationale": "Both problems have sub-exponential time complexity for their best-known general solvers in finite fields and integers."
+        },
+        {
+          "text": "Factorising $n$ is significantly harder than solving the discrete log over $Z_p^*$.",
+          "isCorrect": false,
+          "rationale": "They are roughly equivalent; a system with a 2048-bit $p$ provides similar security to 2048-bit RSA."
+        },
+        {
+          "text": "The discrete log problem is purely exponential and therefore much harder.",
+          "isCorrect": false,
+          "rationale": "This is true for elliptic curve groups, but for the finite field $Z_p^*$, the problem is sub-exponential."
+        },
+        {
+          "text": "There is no known relationship between the two mathematical problems.",
+          "isCorrect": false,
+          "rationale": "They are closely linked in the sense that the best algorithms for both (like the General Number Field Sieve) share similar logic."
+        }
+      ],
+      "hint": "Think about why RSA and finite-field DH have similar recommended key lengths."
+    },
+    {
+      "question": "In NIST P-256, the parameters include a large prime $n$. What does this $n$ represent?",
+      "answerOptions": [
+        {
+          "text": "The number of points (order) of the group generated by $G$.",
+          "isCorrect": true,
+          "rationale": "The order $n$ tells us how many elements are in the cycle; security depends on this value being a large prime."
+        },
+        {
+          "text": "The prime characteristic of the finite field $Z_p$.",
+          "isCorrect": false,
+          "rationale": "The prime characteristic is $p$; $n$ is the count of points on the curve."
+        },
+        {
+          "text": "The private key used by the NIST authority.",
+          "isCorrect": false,
+          "rationale": "Parameters for standard curves are public; there is no private key held by the generating authority."
+        },
+        {
+          "text": "The seed for the random number generator.",
+          "isCorrect": false,
+          "rationale": "The seed is denoted by $s$; $n$ is a mathematical property of the curve itself."
+        }
+      ],
+      "hint": "It is related to the size of the set of points satisfying the curve equation."
+    }
+  ]
+}

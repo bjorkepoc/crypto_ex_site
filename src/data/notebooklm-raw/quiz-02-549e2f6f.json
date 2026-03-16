@@ -1,0 +1,265 @@
+{
+  "title": "Kryptografi Quiz",
+  "questions": [
+    {
+      "question": "Hvilken spesifikk svakhet ved Electronic Codebook (ECB) modus gj\u00f8r den uegnet for kryptering av store datamengder med repeterende m\u00f8nstre?",
+      "answerOptions": [
+        {
+          "text": "Den krever en unik initialiseringsvektor for hver blokk, noe som \u00f8ker overhead.",
+          "isCorrect": false,
+          "rationale": "ECB bruker faktisk ingen initialiseringsvektor (IV), noe som er en del av problemet med dens deterministiske natur."
+        },
+        {
+          "text": "Den er deterministisk, slik at identiske plaintext-blokker resulterer i identiske ciphertext-blokker under samme n\u00f8kkel.",
+          "isCorrect": true,
+          "rationale": "Siden hver blokk krypteres uavhengig og uten randomisering, vil m\u00f8nstre i inndata v\u00e6re direkte synlige i utdata."
+        },
+        {
+          "text": "Den tillater ikke parallell prosessering, noe som gj\u00f8r den for treg for bulk-data.",
+          "isCorrect": false,
+          "rationale": "ECB tillater faktisk full parallellisering av b\u00e5de kryptering og dekryptering siden blokkene er uavhengige."
+        },
+        {
+          "text": "Feil i \u00e9n ciphertext-bit vil forplante seg og \u00f8delegge alle etterf\u00f8lgende blokker.",
+          "isCorrect": false,
+          "rationale": "I ECB begrenses feilforplantning kun til den blokken der feilen oppstod."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hva som skjer hvis du krypterer et bilde av en pingvin der store omr\u00e5der har n\u00f8yaktig samme farge."
+    },
+    {
+      "question": "Dersom en enkelt bit blir endret i en ciphertext-blokk $C_{t}$ under overf\u00f8ring i Cipher Block Chaining (CBC) modus, hvordan p\u00e5virker dette dekryptert plaintext?",
+      "answerOptions": [
+        {
+          "text": "Kun den tilsvarende biten i $P_{t}$ blir endret, mens alle andre blokker forblir intakte.",
+          "isCorrect": false,
+          "rationale": "Dette beskriver oppf\u00f8rselen til en str\u00f8m-krypter (som OFB eller CTR), ikke en blokk-kjeding som CBC."
+        },
+        {
+          "text": "Hele plaintext-blokken $P_{t}$ blir \u00f8delagt, og den tilsvarende bit-posisjonen i $P_{t+1}$ blir endret.",
+          "isCorrect": true,
+          "rationale": "Dekryptering av $C_{t}$ krever korrekt inndata for \u00e5 f\u00e5 $P_{t}$, mens $P_{t+1}$ beregnes ved \u00e5 XOR-e med $C_{t}$, noe som overf\u00f8rer bit-feilen direkte."
+        },
+        {
+          "text": "Alle etterf\u00f8lgende plaintext-blokker fra $P_{t}$ til $P_{n}$ vil bli fullstendig korrupte.",
+          "isCorrect": false,
+          "rationale": "CBC-dekryptering har begrenset feilforplantning; etter blokk $t+1$ vil systemet gjenvinne korrekt plaintext."
+        },
+        {
+          "text": "Ingen endring skjer i plaintext fordi CBC er selv-synkroniserende ved bit-feil.",
+          "isCorrect": false,
+          "rationale": "Selv-synkronisering refererer til tap av hele blokker, ikke endring av enkelt-bits i en eksisterende blokk."
+        }
+      ],
+      "hint": "Vurder hvordan dekrypteringsformelen $P_{t} = D(C_{t}, K) \\oplus C_{t-1}$ p\u00e5virkes n\u00e5r $C_{t}$ er feilaktig."
+    },
+    {
+      "question": "Hvilken egenskap skiller Cipher Feedback (CFB) fra Output Feedback (OFB) n\u00e5r det gjelder feilh\u00e5ndtering i kanalen?",
+      "answerOptions": [
+        {
+          "text": "CFB krever padding, mens OFB fungerer som en str\u00f8m-krypter uten behov for padding.",
+          "isCorrect": false,
+          "rationale": "Begge moduser kan operere uten padding ved \u00e5 fungere som str\u00f8m-kryptere."
+        },
+        {
+          "text": "CFB er selv-synkroniserende etter tap av en blokk, mens OFB vil miste synkroniseringen permanent.",
+          "isCorrect": true,
+          "rationale": "CFB bruker tidligere ciphertext som input til krypteringsfunksjonen, som gj\u00f8r at den kan 'hente seg inn' n\u00e5r korrekt ciphertext mottas igjen."
+        },
+        {
+          "text": "OFB tillater parallell kryptering, mens CFB tillater parallell dekryptering.",
+          "isCorrect": false,
+          "rationale": "OFB tillater ikke parallell prosessering i det hele tatt (selv om keystream kan pre-beregnes), mens CFB tillater parallell dekryptering."
+        },
+        {
+          "text": "I CFB vil en bit-feil kun p\u00e5virke \u00e9n bit i plaintext, mens i OFB vil den \u00f8delegge hele blokken.",
+          "isCorrect": false,
+          "rationale": "Det er motsatt; OFB har bit-for-bit feil-respons, mens CFB sprer feilen til neste blokk."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hvilken modus som 'f\u00f8der' den faktiske ciphertexten tilbake i systemet."
+    },
+    {
+      "question": "I henhold til NIST SP 800-90A, hva er den n\u00f8dvendige seed-lengden for \u00e5 instansiere en CTR\\_DRBG som benytter AES-128?",
+      "answerOptions": [
+        {
+          "text": "128 biter.",
+          "isCorrect": false,
+          "rationale": "Dette tilsvarer kun n\u00f8kkellengden, men en DRBG trenger ogs\u00e5 en startverdi for tilstanden (V)."
+        },
+        {
+          "text": "192 biter.",
+          "isCorrect": false,
+          "rationale": "Dette tallet korresponderer ikke med summen av blokk- og n\u00f8kkellengde for AES-128."
+        },
+        {
+          "text": "256 biter.",
+          "isCorrect": true,
+          "rationale": "Standarder krever at seed-lengden er lik summen av n\u00f8kkellengden (128) og blokklengden (128) for den underliggende algoritmen."
+        },
+        {
+          "text": "512 biter.",
+          "isCorrect": false,
+          "rationale": "Dette er mer enn det som kreves for AES-128, selv om h\u00f8yere entropi alltid er \u00f8nskelig."
+        }
+      ],
+      "hint": "Seed-lengden m\u00e5 dekke b\u00e5de den kryptografiske n\u00f8kkelen ($K$) og tilstandsvariabelen ($V$)."
+    },
+    {
+      "question": "Hvilken sikkerhetsegenskap garanterer at en angriper som kompromitterer den n\u00e5v\u00e6rende tilstanden til en DRBG, ikke kan rekonstruere tidligere genererte tilfeldige biter?",
+      "answerOptions": [
+        {
+          "text": "Forward prediction resistance.",
+          "isCorrect": false,
+          "rationale": "Denne egenskapen beskytter mot prediksjon av *fremtidige* utdata, ikke rekonstruksjon av fortid."
+        },
+        {
+          "text": "Backtracking resistance.",
+          "isCorrect": true,
+          "rationale": "Dette sikrer at tidligere utdata er utilgjengelige selv om den interne tilstanden blir kjent p\u00e5 et senere tidspunkt."
+        },
+        {
+          "text": "Uniform distribution.",
+          "isCorrect": false,
+          "rationale": "Dette er en statistisk egenskap om frekvensen av 0 og 1, ikke en egenskap om motstand mot tilstandskompromittering."
+        },
+        {
+          "text": "Self-synchronization.",
+          "isCorrect": false,
+          "rationale": "Dette er en egenskap ved krypteringsmoduser for \u00e5 h\u00e5ndtere datatap, ikke en DRBG-sikkerhetsgaranti."
+        }
+      ],
+      "hint": "Navnet p\u00e5 egenskapen antyder \u00e5 se bakover i tid."
+    },
+    {
+      "question": "Hvorfor er Dual\\_EC\\_DRBG ansett som en kontroversiell og potensielt usikker algoritme i kryptografihistorien?",
+      "answerOptions": [
+        {
+          "text": "Den er for rask, noe som gj\u00f8r den s\u00e5rbar for brute-force angrep.",
+          "isCorrect": false,
+          "rationale": "Dual_EC_DRBG er faktisk mye tregere enn de andre DRBG-algoritmen i standarden."
+        },
+        {
+          "text": "Den har ingen teoretisk basis i matematiske problemer.",
+          "isCorrect": false,
+          "rationale": "Den er basert p\u00e5 det elliptiske kurve-diskrete logaritme-problemet, som er et anerkjent hardt problem."
+        },
+        {
+          "text": "Forskning viste en observerbar bias i utdata, og det ble rapportert om en mulig bakd\u00f8r innsatt av NSA.",
+          "isCorrect": true,
+          "rationale": "Kristian Gj\u00f8steen ved NTNU var med p\u00e5 \u00e5 p\u00e5vise svakheter, og senere avsl\u00f8ringer indikerte finansielle avtaler for \u00e5 fremme algoritmen tross svakhetene."
+        },
+        {
+          "text": "Den st\u00f8tter ikke bruk av TRNG som seed-kilde.",
+          "isCorrect": false,
+          "rationale": "Alle DRBGs i NIST-standarden kan (og b\u00f8r) bruke en TRNG som kilde for sin initielle seed."
+        }
+      ],
+      "hint": "Tenk p\u00e5 involvering fra nasjonale sikkerhetsbyr\u00e5er og norske bidrag til kryptoanalyse."
+    },
+    {
+      "question": "I Counter (CTR) modus, hvordan genereres keystream-blokken $O_{t}$ for en gitt blokk $t$?",
+      "answerOptions": [
+        {
+          "text": "$O_{t} = E(P_{t}, K) \\oplus C_{t-1}$",
+          "isCorrect": false,
+          "rationale": "Dette ligner mer p\u00e5 krypteringssteget i CBC-modus."
+        },
+        {
+          "text": "$O_{t} = E(N \\parallel t, K)$",
+          "isCorrect": true,
+          "rationale": "Keystream genereres ved \u00e5 kryptere en unik teller (ofte en kombinasjon av en nonce og blokknummeret) med den hemmelige n\u00f8kkelen."
+        },
+        {
+          "text": "$O_{t} = E(O_{t-1}, K)$",
+          "isCorrect": false,
+          "rationale": "Dette beskriver keystream-genereringen i Output Feedback (OFB) modus, ikke CTR."
+        },
+        {
+          "text": "$O_{t} = D(C_{t}, K) \\oplus N$",
+          "isCorrect": false,
+          "rationale": "Dette er ikke en korrekt representasjon av noen av standardmodusene; CTR bruker kun krypteringsfunksjonen ($E$)."
+        }
+      ],
+      "hint": "Formelen involverer en nonce ($N$) og en verdi som inkrementeres for hver blokk."
+    },
+    {
+      "question": "Hvilken av f\u00f8lgende NIST-standarder beskriver 'XTS-AES Mode' spesifikt for bruk i lagringsenheter?",
+      "answerOptions": [
+        {
+          "text": "SP 800-38A",
+          "isCorrect": false,
+          "rationale": "Dette er den generelle standarden for de fem grunnleggende konfidensialitetsmodusene."
+        },
+        {
+          "text": "SP 800-38D",
+          "isCorrect": false,
+          "rationale": "Denne standarden omhandler Galois/Counter Mode (GCM)."
+        },
+        {
+          "text": "SP 800-38E",
+          "isCorrect": true,
+          "rationale": "Denne publikasjonen spesifiserer XTS-AES, som er optimalisert for lagringsmedier."
+        },
+        {
+          "text": "SP 800-38G",
+          "isCorrect": false,
+          "rationale": "Dette er standarden for format-bevarende kryptering (FPE)."
+        }
+      ],
+      "hint": "Denne standarden kom ut i 2010 og fokuserer p\u00e5 data-at-rest p\u00e5 disker."
+    },
+    {
+      "question": "N\u00e5r man bruker padding-metoden beskrevet i NIST SP 800-38A, hvordan identifiserer mottakeren hvor den faktiske meldingen slutter?",
+      "answerOptions": [
+        {
+          "text": "Ved \u00e5 lese de siste 8 bitene som inneholder lengden p\u00e5 paddingen.",
+          "isCorrect": false,
+          "rationale": "Dette beskriver andre padding-skjemaer (som PKCS#7), men ikke NISTs spesifiserte metode i 800-38A."
+        },
+        {
+          "text": "Ved \u00e5 fjerne alle etterf\u00f8lgende '0'-biter og deretter fjerne den aller siste '1'-biten.",
+          "isCorrect": true,
+          "rationale": "Metoden legger til en '1' og s\u00e5 mange '0' som trengs; reversering skjer ved \u00e5 finne den siste '1'-biten."
+        },
+        {
+          "text": "Ved \u00e5 dekryptere blokken to ganger og se etter repetisjoner i bit-m\u00f8nsteret.",
+          "isCorrect": false,
+          "rationale": "Dette ville v\u00e6re ekstremt ineffektivt og gir ingen garanti for korrekt fjerning av padding."
+        },
+        {
+          "text": "Padding fjernes automatisk av blokk-krypteringsalgoritmen som AES.",
+          "isCorrect": false,
+          "rationale": "AES opererer kun p\u00e5 faste blokker; padding er et lag over algoritmen som m\u00e5 h\u00e5ndteres av modusen."
+        }
+      ],
+      "hint": "Metoden starter med \u00e5 legge til en enkelt '1'-bit f\u00f8r eventuelle nuller."
+    },
+    {
+      "question": "Hvilken av de f\u00f8lgende modusene krever *ikke* padding av plaintext, selv om inndata ikke g\u00e5r opp i blokkst\u00f8rrelsen?",
+      "answerOptions": [
+        {
+          "text": "ECB",
+          "isCorrect": false,
+          "rationale": "ECB krever at inndata er et multiplum av blokkst\u00f8rrelsen."
+        },
+        {
+          "text": "CBC",
+          "isCorrect": false,
+          "rationale": "CBC opererer p\u00e5 hele blokker og krever derfor padding eller ciphertext stealing."
+        },
+        {
+          "text": "CTR",
+          "isCorrect": true,
+          "rationale": "Siden CTR fungerer som en str\u00f8m-krypter ved \u00e5 XOR-e plaintext med en keystream, kan den h\u00e5ndtere vilk\u00e5rlig antall biter uten padding."
+        },
+        {
+          "text": "B\u00e5de ECB og CBC",
+          "isCorrect": false,
+          "rationale": "Begge disse er blokk-orienterte moduser som krever fullstendige blokker som inndata."
+        }
+      ],
+      "hint": "Se etter en modus som fungerer mer som en str\u00f8m-krypter enn en tradisjonell blokk-krypter."
+    }
+  ]
+}

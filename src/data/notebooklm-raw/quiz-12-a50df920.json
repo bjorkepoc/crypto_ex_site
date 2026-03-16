@@ -1,0 +1,265 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "According to the TTM4135 course introduction, what is the weighting of the final written examination in the overall assessment?",
+      "answerOptions": [
+        {
+          "text": "40%",
+          "rationale": "This percentage corresponds to the portfolio assignment, which includes quizzes, a practical exercise, and lab work.",
+          "isCorrect": false
+        },
+        {
+          "text": "50%",
+          "rationale": "The assessment is split into two parts, but they are not weighted equally.",
+          "isCorrect": false
+        },
+        {
+          "text": "60%",
+          "rationale": "The written examination constitutes the majority of the final grade, with the remaining part covered by the portfolio assignment.",
+          "isCorrect": true
+        },
+        {
+          "text": "70%",
+          "rationale": "While the exam is the larger component, its weighting is not this high.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Recall the two main components of the course assessment and their respective contributions to the final grade."
+    },
+    {
+      "question": "Which component of the CIA triad in information security is primarily concerned with preventing unauthorised disclosure of information?",
+      "answerOptions": [
+        {
+          "text": "Integrity",
+          "rationale": "This principle focuses on preventing the unauthorised modification or destruction of information.",
+          "isCorrect": false
+        },
+        {
+          "text": "Availability",
+          "rationale": "This principle ensures that resources are accessible to authorised users when required.",
+          "isCorrect": false
+        },
+        {
+          "text": "Authentication",
+          "rationale": "Authentication is a service that confirms identity, which supports security goals but is not one of the three core principles of the triad.",
+          "isCorrect": false
+        },
+        {
+          "text": "Confidentiality",
+          "rationale": "This principle is defined as preventing information from being disclosed to unauthorised individuals or systems.",
+          "isCorrect": true
+        }
+      ],
+      "hint": "Consider the three main goals of information security, often represented by a well-known acronym."
+    },
+    {
+      "question": "In group theory, what defines a group element '$g$' as a 'generator' for a group '$G$'?",
+      "answerOptions": [
+        {
+          "text": "The element '$g$' is the identity element of the group '$G$'.",
+          "rationale": "The identity element has an order of 1 (unless the group is trivial), whereas a generator has the maximum possible order.",
+          "isCorrect": false
+        },
+        {
+          "text": "The order of the element '$g$' is equal to the order of the group '$G$'.",
+          "rationale": "A generator is an element whose repeated application can produce every other element in the group, meaning its order '$|g|$' must equal the group's order '$|G|$'.",
+          "isCorrect": true
+        },
+        {
+          "text": "The element '$g$' has a multiplicative inverse in the group '$G$'.",
+          "rationale": "All elements in a group must have an inverse; this property is not unique to a generator.",
+          "isCorrect": false
+        },
+        {
+          "text": "The element '$g$' is a prime number.",
+          "rationale": "The concept of a generator applies to the structure of the group, not the numerical properties of the elements themselves.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Think about the relationship between the order of an element and the total number of elements in the group."
+    },
+    {
+      "question": "For an integer '$a$' where '$0 < a < n$', what condition must be met for '$a$' to have a multiplicative inverse modulo '$n$'?",
+      "answerOptions": [
+        {
+          "text": "The integer '$n$' must be a prime number.",
+          "rationale": "While an inverse always exists if '$n$' is prime (for non-zero '$a$'), this is a sufficient but not a necessary condition; inverses can exist for composite '$n$'.",
+          "isCorrect": false
+        },
+        {
+          "text": "The greatest common divisor of '$a$' and '$n$' must be 1.",
+          "rationale": "The theorem states that an inverse '$a^{-1} \\pmod n$' exists if and only if '$a$' and '$n$' are relatively prime, or co-prime.",
+          "isCorrect": true
+        },
+        {
+          "text": "The integer '$a$' must be a prime number.",
+          "rationale": "The primality of '$a$' does not determine the existence of its inverse modulo '$n$'.",
+          "isCorrect": false
+        },
+        {
+          "text": "The integer '$a$' must be a factor of '$n$'.",
+          "rationale": "If '$a$' is a factor of '$n$' (and '$a>1$'), their GCD would be '$a$', not 1, so an inverse would not exist.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Consider the relationship between the two numbers that is crucial for the extended Euclidean algorithm to yield a result of 1."
+    },
+    {
+      "question": "What is the primary output of the extended Euclidean algorithm when applied to two integers '$a$' and '$b$'?",
+      "answerOptions": [
+        {
+          "text": "The prime factors of '$a$' and '$b$'.",
+          "rationale": "The algorithm is based on division and remainders, not factorization.",
+          "isCorrect": false
+        },
+        {
+          "text": "The least common multiple of '$a$' and '$b$'.",
+          "rationale": "The standard Euclidean algorithm finds the greatest common divisor, not the least common multiple.",
+          "isCorrect": false
+        },
+        {
+          "text": "Integers '$x$' and '$y$' such that '$ax + by = \\text{gcd}(a,b)$'.",
+          "rationale": "This algorithm uses back-substitution on the steps of the standard Euclidean algorithm to express the GCD as a linear combination of '$a$' and '$b$'.",
+          "isCorrect": true
+        },
+        {
+          "text": "A check for whether '$a$' and '$b$' are prime.",
+          "rationale": "Primality testing is a different computational problem; this algorithm is concerned with divisors.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "This algorithm goes one step beyond just finding the greatest common divisor."
+    },
+    {
+      "question": "What is the order (number of elements) of the multiplicative group '$Z_p^*$' for a prime number '$p$'?",
+      "answerOptions": [
+        {
+          "text": "'$p$'",
+          "rationale": "The set of integers modulo '$p$' has '$p$' elements, but the multiplicative group '$Z_p^*$' excludes zero.",
+          "isCorrect": false
+        },
+        {
+          "text": "'$p - 1$'",
+          "rationale": "The group '$Z_p^*$' consists of the integers from 1 to '$p-1$' under multiplication modulo '$p$', so it contains '$p-1$' elements.",
+          "isCorrect": true
+        },
+        {
+          "text": "'$p + 1$'",
+          "rationale": "This value does not correspond to the size of a standard group related to modulo '$p$' arithmetic.",
+          "isCorrect": false
+        },
+        {
+          "text": "The value depends on the number of generators.",
+          "rationale": "The number of generators depends on the order of the group, not the other way around.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Consider which elements from the set '$\\{0, 1, ..., p-1\\}$' form a group under multiplication."
+    },
+    {
+      "question": "An attacker who intercepts a message and sends it again later is performing which type of active threat?",
+      "answerOptions": [
+        {
+          "text": "Masquerade",
+          "rationale": "A masquerade attack involves an attacker claiming to be a different entity.",
+          "isCorrect": false
+        },
+        {
+          "text": "Modification",
+          "rationale": "A modification attack involves changing the content of messages during transmission.",
+          "isCorrect": false
+        },
+        {
+          "text": "Denial of service",
+          "rationale": "A denial of service attack aims to prevent legitimate users from accessing resources.",
+          "isCorrect": false
+        },
+        {
+          "text": "Replay",
+          "rationale": "This type of attack involves the capture of a data unit and its subsequent retransmission to produce an unauthorised effect.",
+          "isCorrect": true
+        }
+      ],
+      "hint": "Think about the active threats that involve altering the flow of information rather than its content."
+    },
+    {
+      "question": "In the context of finite fields, addition in '$GF(2)$' is equivalent to which common logical operation?",
+      "answerOptions": [
+        {
+          "text": "Logical AND",
+          "rationale": "The AND operation corresponds to multiplication in '$GF(2)$', not addition.",
+          "isCorrect": false
+        },
+        {
+          "text": "Logical OR",
+          "rationale": "The truth table for OR does not match binary addition modulo 2 (e.g., $1+1=0$ in $GF(2)$ but $1 \\lor 1 = 1$).",
+          "isCorrect": false
+        },
+        {
+          "text": "Logical XOR (exclusive-OR)",
+          "rationale": "Binary addition modulo 2 ($0+0=0, 0+1=1, 1+0=1, 1+1=0$) is identical to the XOR operation.",
+          "isCorrect": true
+        },
+        {
+          "text": "Logical NOT (negation)",
+          "rationale": "Negation is a unary operation (one input), whereas addition in a field is a binary operation (two inputs).",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Consider the result of '$1+1$' in this particular field."
+    },
+    {
+      "question": "Which security service specifically protects against an entity falsely denying that they sent a message?",
+      "answerOptions": [
+        {
+          "text": "Data integrity",
+          "rationale": "Data integrity ensures that data has not been altered, but does not prevent the sender from denying they sent the original, unaltered message.",
+          "isCorrect": false
+        },
+        {
+          "text": "Data origin authentication",
+          "rationale": "This confirms the source of the data, but non-repudiation adds the element of proof to a third party to prevent denial.",
+          "isCorrect": false
+        },
+        {
+          "text": "Non-repudiation",
+          "rationale": "This service provides proof of the origin and integrity of data in a way that prevents the originator from successfully denying their involvement.",
+          "isCorrect": true
+        },
+        {
+          "text": "Peer entity authentication",
+          "rationale": "This service confirms the identity of an entity during a communication session, but doesn't specifically address denial of past actions.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "This service is crucial for legally binding digital contracts and involves providing proof to a third party."
+    },
+    {
+      "question": "Finite fields, also known as Galois Fields, are stated to exist only for sizes of a specific form. What is this form?",
+      "answerOptions": [
+        {
+          "text": "'$p^n$', where '$p$' is any integer and '$n$' is a positive integer.",
+          "rationale": "The base of the exponentiation must have a specific property for the field to exist.",
+          "isCorrect": false
+        },
+        {
+          "text": "'$p^n$', where '$p$' is a prime number and '$n$' is a positive integer.",
+          "rationale": "A key theorem states that finite fields exist only when their size (order) is a prime power.",
+          "isCorrect": true
+        },
+        {
+          "text": "Any prime number '$p$'.",
+          "rationale": "This covers the case where '$n=1$', but finite fields also exist for sizes like '$2^8$' (or 256), which is not a prime number.",
+          "isCorrect": false
+        },
+        {
+          "text": "Any even number.",
+          "rationale": "The size of a finite field is not restricted to being even; for example, '$GF(3)$' and '$GF(5)$' are valid finite fields.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "The rule for the size involves a prime number and an exponent."
+    }
+  ]
+}

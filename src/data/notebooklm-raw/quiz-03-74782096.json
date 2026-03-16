@@ -1,0 +1,265 @@
+{
+  "title": "Kryptografi Quiz",
+  "questions": [
+    {
+      "question": "I henhold til Kerckhoffs' prinsipp, hva er den eneste informasjonen en angriper ikke skal ha kjennskap til for at et kryptosystem skal v\u00e6re sikkert?",
+      "answerOptions": [
+        {
+          "text": "Selve krypteringsalgoritmen",
+          "isCorrect": false,
+          "rationale": "\u00c5 holde algoritmen hemmelig er kjent som 'security through obscurity' og er i strid med Kerckhoffs' prinsipp."
+        },
+        {
+          "text": "Dekrypteringsn\u00f8kkelen",
+          "isCorrect": true,
+          "rationale": "Prinsippet postulerer at systemet m\u00e5 v\u00e6re sikkert selv om angriperen kjenner alt bortsett fra den hemmelige n\u00f8kkelen."
+        },
+        {
+          "text": "Statistikken over spr\u00e5ket som brukes",
+          "isCorrect": false,
+          "rationale": "Statistiske egenskaper ved spr\u00e5ket er allment tilgjengelig kunnskap og kan ikke holdes hemmelig i praksis."
+        },
+        {
+          "text": "Karaktersettet eller alfabetet som benyttes",
+          "isCorrect": false,
+          "rationale": "Kildematerialet bemerker at en angriper i den virkelige verden uansett vil klare \u00e5 utlede hvilket alfabet som brukes."
+        }
+      ],
+      "hint": "Dette prinsippet fokuserer p\u00e5 hva som m\u00e5 holdes hemmelig kontra hva som er antatt kjent av en motstander."
+    },
+    {
+      "question": "Ved bruk av et Caesar-chiffer med et alfabet p\u00e5 $n = 27$ karakterer (inkludert mellomrom $\\nabla$), hvilken funksjon beskriver korrekt dekryptering av en karakter $c_i$ med n\u00f8kkelen $j$?",
+      "answerOptions": [
+        {
+          "text": "$m_i = (c_i + j) \\pmod{27}$",
+          "isCorrect": false,
+          "rationale": "Dette er formelen for kryptering, som forskyver klarteksten fremover i alfabetet."
+        },
+        {
+          "text": "$m_i = (c_i - j) \\pmod{27}$",
+          "isCorrect": true,
+          "rationale": "Dekryptering i et Caesar-chiffer reverserer forskyvningen ved \u00e5 subtrahere n\u00f8kkelverdien modulo alfabetst\u00f8rrelsen."
+        },
+        {
+          "text": "$m_i = (c_i \\times j) \\pmod{27}$",
+          "isCorrect": false,
+          "rationale": "Multiplikasjon brukes ikke i standard Caesar-chiffer, som utelukkende baserer seg p\u00e5 additiv forskyvning."
+        },
+        {
+          "text": "$m_i = (c_i - 1) \\pmod j$",
+          "isCorrect": false,
+          "rationale": "Modulo-operasjonen m\u00e5 utf\u00f8res over alfabetst\u00f8rrelsen, ikke over n\u00f8kkelverdien."
+        }
+      ],
+      "hint": "Vurder hvordan man matematisk reverserer en additiv forskyvning i en modul\u00e6r ring."
+    },
+    {
+      "question": "Hva kjennetegner et 'Chosen Ciphertext Attack' (CCA) sammenlignet med andre angrepsformer?",
+      "answerOptions": [
+        {
+          "text": "Angriperen har kun tilgang til avskj\u00e6rt chiffertekst",
+          "isCorrect": false,
+          "rationale": "Dette beskriver et 'Ciphertext Only' angrep, som er den mest begrensede formen for ressursilgang."
+        },
+        {
+          "text": "Angriperen kan velge spesifikke klartekster og se deres chiffertekst-ekvivalenter",
+          "isCorrect": false,
+          "rationale": "Dette beskriver et 'Chosen Plaintext Attack' (CPA), ikke et angrep basert p\u00e5 chiffertekst."
+        },
+        {
+          "text": "Angriperen kan velge spesifikke chiffertekster og f\u00e5 ut de tilsvarende klartekstene",
+          "isCorrect": true,
+          "rationale": "I et CCA-scenario har angriperen tilgang til en 'innvendig dekrypt\u00f8r' som kan dekryptere valgte meldinger."
+        },
+        {
+          "text": "Angriperen kjenner en liten mengde klartekst og dens faste chiffertekst-par",
+          "isCorrect": false,
+          "rationale": "Dette er definisjonen p\u00e5 et 'Known Plaintext Attack' (KPA)."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hvilken ressurs angriperen har tilgang til, spesifikt om det er en krypterings- eller dekrypteringsfunksjon."
+    },
+    {
+      "question": "Hvilken effekt har et polyalfabetisk substitusjonschiffer p\u00e5 frekvensfordelingen til chifferteksten sammenlignet med et monoalfabetisk chiffer?",
+      "answerOptions": [
+        {
+          "text": "Det bevarer den n\u00f8yaktige frekvensfordelingen til klarteksten",
+          "isCorrect": false,
+          "rationale": "Dette er karakteristisk for transposisjonschiffer, hvor karakterene bare bytter plass."
+        },
+        {
+          "text": "Det utjevner frekvensfordelingen slik at direkte frekvensanalyse blir ineffektiv",
+          "isCorrect": true,
+          "rationale": "Ved \u00e5 bruke flere alfabeter blir den samme klartekstkarakteren kryptert til forskjellige chiffertegn, noe som skjuler de statistiske m\u00f8nstrene."
+        },
+        {
+          "text": "Det forsterker de mest frekvente bokstavene for \u00e5 gj\u00f8re dekryptering vanskeligere",
+          "isCorrect": false,
+          "rationale": "\u00c5 forsterke frekvenser ville gjort statistisk analyse enklere, ikke vanskeligere."
+        },
+        {
+          "text": "Det endrer bare rekkef\u00f8lgen p\u00e5 karakterene uten \u00e5 endre deres frekvens",
+          "isCorrect": false,
+          "rationale": "Dette beskriver et transposisjonschiffer, mens polyalfabetiske chiffer faktisk endrer karakterenes verdi."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hvordan bruken av flere krypteringsalfabeter p\u00e5virker de typiske 'toppene' i et spr\u00e5kdiagram."
+    },
+    {
+      "question": "I analysen av et transposisjonschiffer, hva er det som indikerer at man st\u00e5r overfor nettopp denne typen chiffer fremfor et substitusjonschiffer?",
+      "answerOptions": [
+        {
+          "text": "Chifferteksten har en helt flat frekvensfordeling",
+          "isCorrect": false,
+          "rationale": "En flat fordeling er typisk for sterke polyalfabetiske chiffer, ikke enkle transposisjoner."
+        },
+        {
+          "text": "Frekvensfordelingen i chifferteksten er identisk med klartekstens frekvensfordeling",
+          "isCorrect": true,
+          "rationale": "Siden karakterene bare flyttes rundt og ikke byttes ut, forblir forekomsten av hver enkelt bokstav den samme."
+        },
+        {
+          "text": "N\u00f8kkelen best\u00e5r av et ord som gjentas over hele meldingen",
+          "isCorrect": false,
+          "rationale": "Dette er typisk for Vigen\u00e8re-chifferet, som er et substitusjonschiffer."
+        },
+        {
+          "text": "Antall karakterer i chifferteksten er dobbelt s\u00e5 stort som i klarteksten",
+          "isCorrect": false,
+          "rationale": "Klassiske transposisjonschiffer endrer vanligvis ikke lengden p\u00e5 meldingen."
+        }
+      ],
+      "hint": "Vurder hva som skjer med bokstavenes identitet n\u00e5r de bare bytter posisjon."
+    },
+    {
+      "question": "Kasiski-metoden brukes i kryptanalyse av Vigen\u00e8re-chifferet for \u00e5 finne periodelengden $d$. Hvilken observasjon baserer denne metoden seg p\u00e5?",
+      "answerOptions": [
+        {
+          "text": "At enkelte bokstaver alltid krypteres til seg selv",
+          "isCorrect": false,
+          "rationale": "Dette stemmer ikke for Vigen\u00e8re, da forskyvningen avhenger av n\u00f8kkelen."
+        },
+        {
+          "text": "Gjentakelse av strenger i chifferteksten som oppst\u00e5r n\u00e5r like klartekstfragmenter krypteres med samme del av n\u00f8kkelen",
+          "isCorrect": true,
+          "rationale": "Avstanden mellom slike gjentatte strenger vil sannsynligvis v\u00e6re et multiplum av n\u00f8kkellengden."
+        },
+        {
+          "text": "At indeksen for sammenfall (Index of Coincidence) alltid er $0.067$",
+          "isCorrect": false,
+          "rationale": "Dette er en verdi for engelsk klartekst, men Kasiski-metoden baserer seg p\u00e5 m\u00f8nstergjenkjenning av strenger, ikke IC-beregning."
+        },
+        {
+          "text": "Bruk av auto-korrelasjon for \u00e5 plotte et histogram over bokstavforskyvninger",
+          "isCorrect": false,
+          "rationale": "Selv om auto-korrelasjon er en annen metode for \u00e5 finne perioden, er det ikke det Kasiski-metoden spesifikt g\u00e5r ut p\u00e5."
+        }
+      ],
+      "hint": "Metoden ser p\u00e5 m\u00f8nstre som oppst\u00e5r n\u00e5r en periodisk n\u00f8kkel treffer de samme ordene i teksten."
+    },
+    {
+      "question": "Hvorfor er et 'Random Simple Substitution Cipher' s\u00e5rbart for frekvensanalyse selv om det har over $10^{26}$ mulige n\u00f8kler?",
+      "answerOptions": [
+        {
+          "text": "Fordi n\u00f8kkelen alltid er en enkel forskyvning av alfabetet",
+          "isCorrect": false,
+          "rationale": "Dette gjelder kun for Caesar-chifferet, som er et spesialtilfelle med f\u00e5 n\u00f8kler."
+        },
+        {
+          "text": "Fordi hver klartekstkarakter alltid mappes til den samme chiffertekstkarakteren",
+          "isCorrect": true,
+          "rationale": "Dette bevarer spr\u00e5klige statistikker som digramer og trigramer, noe som gj\u00f8r det mulig \u00e5 gjette karakterer steg for steg."
+        },
+        {
+          "text": "Fordi moderne datamaskiner kan utf\u00f8re et utt\u00f8mmende n\u00f8kkels\u00f8k p\u00e5 $26!$ kombinasjoner",
+          "isCorrect": false,
+          "rationale": "$26!$ er et s\u00e5 stort tall at et r\u00e5kraftangrep (brute-force) er umulig selv med moderne teknologi."
+        },
+        {
+          "text": "Fordi algoritmen endrer seg for hver bokstav i meldingen",
+          "isCorrect": false,
+          "rationale": "Dette ville v\u00e6rt et polyalfabetisk chiffer, mens enkel substitusjon er monoalfabetisk."
+        }
+      ],
+      "hint": "Tenk p\u00e5 om kartleggingen mellom klartekst og chiffertekst er statisk eller dynamisk gjennom meldingen."
+    },
+    {
+      "question": "N\u00e5r kryptografi brukes for autentisering (integritet), hva er det n\u00f8kkelen prim\u00e6rt kreves for?",
+      "answerOptions": [
+        {
+          "text": "For \u00e5 kunne lese meldingen",
+          "isCorrect": false,
+          "rationale": "Dette er form\u00e5let med konfidensialitet, ikke autentisering."
+        },
+        {
+          "text": "For \u00e5 kunne skrive (opprette) meldingen",
+          "isCorrect": true,
+          "rationale": "Ved autentisering m\u00e5 man ha n\u00f8kkelen for \u00e5 generere et gyldig bevis p\u00e5 at meldingen kommer fra rett kilde og ikke er endret."
+        },
+        {
+          "text": "For \u00e5 kunne skjule meldingens lengde",
+          "isCorrect": false,
+          "rationale": "Skjul av lengde er en avansert form for konfidensialitet og er ikke hovedm\u00e5let med autentisering."
+        },
+        {
+          "text": "For \u00e5 kunne utf\u00f8re statistisk analyse",
+          "isCorrect": false,
+          "rationale": "Statistisk analyse krever vanligvis ikke n\u00f8kkelen; det er et verkt\u00f8y som brukes i kryptanalyse for \u00e5 finne n\u00f8kkelen."
+        }
+      ],
+      "hint": "Skille mellom behovet for \u00e5 dekryptere informasjonen og behovet for \u00e5 bevise opprinnelsen."
+    },
+    {
+      "question": "Hva er den st\u00f8rste forskjellen mellom et 'Autokey' chiffer og et standard Vigen\u00e8re-chiffer?",
+      "answerOptions": [
+        {
+          "text": "Autokey bruker en n\u00f8kkel som aldri gjentas",
+          "isCorrect": false,
+          "rationale": "Selv om den ikke er periodisk, er forskjellen hvordan n\u00f8kkelen genereres, ikke bare frav\u00e6r av repetisjon."
+        },
+        {
+          "text": "Autokey bruker klarteksten selv til \u00e5 definere p\u00e5f\u00f8lgende alfabeter etter at den opprinnelige n\u00f8kkelen er brukt",
+          "isCorrect": true,
+          "rationale": "Dette fjerner periodisiteten som finnes i Vigen\u00e8re, noe som gj\u00f8r tradisjonell Kasiski-analyse ubrukelig."
+        },
+        {
+          "text": "Vigen\u00e8re bruker en uendelig n\u00f8kkel fra en bok, mens Autokey er begrenset",
+          "isCorrect": false,
+          "rationale": "Bruk av n\u00f8kkel fra en bok kalles 'Running Key' chiffer eller bokchiffer."
+        },
+        {
+          "text": "Autokey er et transposisjonschiffer, mens Vigen\u00e8re er et substitusjonschiffer",
+          "isCorrect": false,
+          "rationale": "Begge er polyalfabetiske substitusjonschiffer."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hvilken kilde som brukes for \u00e5 utvide n\u00f8kkelen utover den initielle hemmeligheten."
+    },
+    {
+      "question": "Hvor mange mulige n\u00f8kler finnes det for et transposisjonschiffer med en fast periode p\u00e5 $d = 10$?",
+      "answerOptions": [
+        {
+          "text": "$10$",
+          "isCorrect": false,
+          "rationale": "Dette ville bare tillatt 10 mulige forskyvninger, som i et begrenset Caesar-chiffer."
+        },
+        {
+          "text": "$10^2$",
+          "isCorrect": false,
+          "rationale": "Dette tallet har ingen direkte relevans for antall permutasjoner av 10 elementer."
+        },
+        {
+          "text": "$3,628,800$",
+          "isCorrect": true,
+          "rationale": "Antall n\u00f8kler er $d!$ (10 fakultet), som tilsvarer alle mulige rekkef\u00f8lger av 10 karakterer."
+        },
+        {
+          "text": "$26^{10}$",
+          "isCorrect": false,
+          "rationale": "Dette representerer antall mulige tekststrenger av lengde 10 med et alfabet p\u00e5 26 bokstaver, ikke antall permutasjoner."
+        }
+      ],
+      "hint": "Beregn antall mulige permutasjoner av en blokk med karakterer av gitt lengde."
+    }
+  ]
+}

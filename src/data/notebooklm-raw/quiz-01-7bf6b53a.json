@@ -1,0 +1,265 @@
+{
+  "title": "Quantum Quiz",
+  "questions": [
+    {
+      "question": "According to the lecture material, what is the primary impact of Shor's quantum algorithm on current public key cryptographic primitives?",
+      "answerOptions": [
+        {
+          "text": "It requires the doubling of key sizes and output lengths for symmetric encryption.",
+          "isCorrect": false,
+          "rationale": "This describes the impact of Grover's algorithm, not Shor's algorithm, which targets asymmetric foundations."
+        },
+        {
+          "text": "It can factorise integers and compute discrete logarithms as efficiently as standard usage.",
+          "isCorrect": true,
+          "rationale": "Shor's algorithm significantly reduces the complexity of solving factoring and discrete log problems, breaking RSA and ECC."
+        },
+        {
+          "text": "It provides a square root factor speed-up for exhaustive key searches.",
+          "isCorrect": false,
+          "rationale": "The square root speed-up for exhaustive searches is specifically attributed to Grover's algorithm."
+        },
+        {
+          "text": "It renders hash functions completely unusable due to inevitable collision findings.",
+          "isCorrect": false,
+          "rationale": "The source suggests hash functions are generally fine, potentially only needing doubled outputs to remain secure."
+        }
+      ],
+      "hint": "Consider the specific mathematical foundations of RSA and Diffie-Hellman that are vulnerable to quantum computing."
+    },
+    {
+      "question": "In the context of the Learning With Errors ($\\text{LWE}$) problem, which of the following changes would typically make the problem harder to solve?",
+      "answerOptions": [
+        {
+          "text": "Decreasing the dimension $n$ of the matrix.",
+          "isCorrect": false,
+          "rationale": "Decreasing the dimension typically makes lattice problems easier to solve as the search space shrinks."
+        },
+        {
+          "text": "Increasing the size of the modulus $q$.",
+          "isCorrect": false,
+          "rationale": "For $\\text{LWE}$, a larger modulus relative to the error makes the problem easier, whereas a smaller modulus makes it harder."
+        },
+        {
+          "text": "Increasing the size of the secret values $\\beta$.",
+          "isCorrect": true,
+          "rationale": "Larger secret values and dimensions increase the complexity and hardness of the $\\text{LWE}$ problem."
+        },
+        {
+          "text": "Reducing the error vector $e$ to zero.",
+          "isCorrect": false,
+          "rationale": "Without error, the problem reduces to simple linear algebra which is solvable in polynomial time."
+        }
+      ],
+      "hint": "Think about which parameter adjustments increase the 'noise' or the size of the search space."
+    },
+    {
+      "question": "How does the hardness of the Short Integer Solution ($\\text{SIS}$) problem behave in relation to the modulus $q$ compared to the $\\text{LWE}$ problem?",
+      "answerOptions": [
+        {
+          "text": "Both problems get harder as the modulus $q$ increases.",
+          "isCorrect": false,
+          "rationale": "The source material explicitly states that $\\text{LWE}$ and $\\text{SIS}$ behave oppositely with respect to the modulus."
+        },
+        {
+          "text": "$\\text{SIS}$ gets harder as $q$ increases, while $\\text{LWE}$ gets harder as $q$ decreases.",
+          "isCorrect": true,
+          "rationale": "The hardness of $\\text{SIS}$ is positively correlated with the modulus size, whereas $\\text{LWE}$ hardness is inversely correlated."
+        },
+        {
+          "text": "$\\text{SIS}$ gets harder as $q$ decreases, while $\\text{LWE}$ gets harder as $q$ increases.",
+          "isCorrect": false,
+          "rationale": "This incorrectly swaps the relationship for both problems as described in the lecture slides."
+        },
+        {
+          "text": "The modulus $q$ has no effect on the hardness of $\\text{SIS}$.",
+          "isCorrect": false,
+          "rationale": "The modulus is a critical parameter that determines the density of the lattice and the difficulty of finding short vectors."
+        }
+      ],
+      "hint": "The lecture slides mention that these two problems are 'opposite' with respect to norms and modulus."
+    },
+    {
+      "question": "Which of the following describes the 'Harvest Now, Decrypt Later' threat depicted in Mosca's Inequality?",
+      "answerOptions": [
+        {
+          "text": "Attackers can intercept and store classical encrypted data today to decrypt it once a large-scale quantum computer is available.",
+          "isCorrect": true,
+          "rationale": "This threat is the primary motivation for transitioning to quantum-safe encryption even before quantum computers exist."
+        },
+        {
+          "text": "Quantum computers can harvest classical keys faster than they can be generated.",
+          "isCorrect": false,
+          "rationale": "The threat refers to the storage of ciphertext for future decryption, not the real-time harvesting of keys."
+        },
+        {
+          "text": "Data that is only needed for a short time can be safely encrypted with classical methods.",
+          "isCorrect": false,
+          "rationale": "Mosca's Inequality suggests that if the 'time wished for data to be secure' is long, classical encryption is already a risk."
+        },
+        {
+          "text": "The time to transition to quantum encryption is always shorter than the time for processors to breach classical encryption.",
+          "isCorrect": false,
+          "rationale": "Mosca's Inequality identifies 'Danger' when the transition time plus the security requirement exceeds the time to reach quantum capability."
+        }
+      ],
+      "hint": "Consider the long-term sensitivity of currently encrypted communications."
+    },
+    {
+      "question": "According to the NSM (Norwegian National Security Authority) recommendations, how should $\\text{ML-KEM}$ be deployed?",
+      "answerOptions": [
+        {
+          "text": "As a standalone replacement for all $\\text{RSA}$ and $\\text{DH}$ schemes immediately.",
+          "isCorrect": false,
+          "rationale": "Standalone deployment is not recommended due to the relative novelty of lattice-based assumptions."
+        },
+        {
+          "text": "Exclusively in software-defined perimeters without hardware support.",
+          "isCorrect": false,
+          "rationale": "The recommendation focuses on the cryptographic combination method rather than the specific environment."
+        },
+        {
+          "text": "In hybrid mode with a quantum-vulnerable key establishment scheme.",
+          "isCorrect": true,
+          "rationale": "The hybrid approach ensures that security is maintained as long as at least one of the underlying assumptions (classical or quantum-safe) holds."
+        },
+        {
+          "text": "Only for low-security niche equipment until 2033.",
+          "isCorrect": false,
+          "rationale": "The NSA timeline suggests earlier adoption for various systems, and hybrid mode is a general security recommendation."
+        }
+      ],
+      "hint": "Look for the recommendation that combines 'best of both worlds' to mitigate risks from new assumptions."
+    },
+    {
+      "question": "What are the recommended parameter sets for $\\text{ML-KEM}$ as specified in the Norwegian cryptographic guidelines?",
+      "answerOptions": [
+        {
+          "text": "$\\text{ML-KEM-128}$ and $\\text{ML-KEM-256}$",
+          "isCorrect": false,
+          "rationale": "These numbers do not align with the standard NIST/NSM parameter designations for Kyber/ML-KEM."
+        },
+        {
+          "text": "$\\text{ML-KEM-512}$ and $\\text{ML-KEM-768}$",
+          "isCorrect": false,
+          "rationale": "While $\\text{ML-KEM-512}$ exists, the specific recommendation cited in the slides points to higher security levels."
+        },
+        {
+          "text": "$\\text{ML-KEM-768}$ and $\\text{ML-KEM-1024}$",
+          "isCorrect": true,
+          "rationale": "The source material specifically highlights these two parameter sets as the recommended versions for secure usage."
+        },
+        {
+          "text": "$\\text{ML-KEM-2048}$ and $\\text{ML-KEM-4096}$",
+          "isCorrect": false,
+          "rationale": "These values are common for $\\text{RSA}$ key sizes but are not the standard naming conventions for lattice-based $\\text{KEM}$s."
+        }
+      ],
+      "hint": "The numbers refer to the approximate security strength or vector dimensions in the Kyber-based standard."
+    },
+    {
+      "question": "A Key Encapsulation Mechanism ($\\text{KEM}$) is defined by which triple of algorithms?",
+      "answerOptions": [
+        {
+          "text": "$\\{\\text{Setup, Sign, Verify}\\}$",
+          "isCorrect": false,
+          "rationale": "This triple defines a Digital Signature scheme, not a Key Encapsulation Mechanism."
+        },
+        {
+          "text": "$\\{\\text{KeyGen, Enc, Dec}\\}$",
+          "isCorrect": true,
+          "rationale": "A $\\text{KEM}$ consists of key generation, an encapsulation algorithm (often denoted as $\\text{Enc}$ or $\\text{Encap}$), and a decapsulation algorithm."
+        },
+        {
+          "text": "$\\{\\text{KeyGen, Deriv, Hash}\\}$",
+          "isCorrect": false,
+          "rationale": "This does not match the standard functional definition of a $\\text{KEM}$ used to establish a shared secret."
+        },
+        {
+          "text": "$\\{\\text{Commit, Challenge, Respond}\\}$",
+          "isCorrect": false,
+          "rationale": "This describes the structure of an identification protocol or an interactive zero-knowledge proof."
+        }
+      ],
+      "hint": "Consider the basic operations needed to generate keys and then securely communicate a symmetric key."
+    },
+    {
+      "question": "Which of the following is a key difference between the classical Schnorr signature and the quantum-safe $\\text{ML-DSA}$ (Dilithium)?",
+      "answerOptions": [
+        {
+          "text": "Schnorr is based on lattices while $\\text{ML-DSA}$ is based on discrete logs.",
+          "isCorrect": false,
+          "rationale": "The relationship is the opposite: Schnorr uses discrete logs, while $\\text{ML-DSA}$ is lattice-based."
+        },
+        {
+          "text": "$\\text{ML-DSA}$ uses uniform challenges while Schnorr uses small challenges.",
+          "isCorrect": false,
+          "rationale": "The source states that Schnorr has uniform challenges, whereas $\\text{ML-DSA}$ uses small challenges."
+        },
+        {
+          "text": "$\\text{ML-DSA}$ requires norm checks of the signature and may abort if values are too large.",
+          "isCorrect": true,
+          "rationale": "Because $\\text{ML-DSA}$ is based on finding short vectors, it must ensure that the output values remain within specific bounds to preserve security and prevent leaks."
+        },
+        {
+          "text": "Schnorr requires rejection sampling while $\\text{ML-DSA}$ is a purely deterministic one-pass algorithm.",
+          "isCorrect": false,
+          "rationale": "Rejection sampling is a characteristic feature of $\\text{ML-DSA}$ to ensure the signature does not leak information about the secret key."
+        }
+      ],
+      "hint": "Think about the constraints required when working with 'Short Integer' solutions."
+    },
+    {
+      "question": "Based on the NSA CNSA 2.0 timeline, by which year should Web browsers, servers, and cloud services exclusively use CNSA 2.0 algorithms?",
+      "answerOptions": [
+        {
+          "text": "2025",
+          "isCorrect": false,
+          "rationale": "2025 is marked as the beginning of the transition period where CNSA 2.0 is the default/preferred, but not yet exclusive."
+        },
+        {
+          "text": "2030",
+          "isCorrect": false,
+          "rationale": "2030 is the deadline for software/firmware signing and traditional networking equipment, but not for web services."
+        },
+        {
+          "text": "2033",
+          "isCorrect": true,
+          "rationale": "The timeline indicates that browsers, servers, and cloud services should exclusively use CNSA 2.0 by 2033."
+        },
+        {
+          "text": "2052",
+          "isCorrect": false,
+          "rationale": "2052 is the BSI's predicted date for when $\\text{RSA-2048}$ is broken, not the NSA transition deadline."
+        }
+      ],
+      "hint": "Check the final 'checkmark' year for web-related services in the provided CNSA chart."
+    },
+    {
+      "question": "The Decisional $\\text{LWE}$ problem asks to distinguish between the distribution $(\\mathbf{A}, \\mathbf{As} + \\mathbf{e})$ and which other distribution?",
+      "answerOptions": [
+        {
+          "text": "$(\\mathbf{A}, \\mathbf{u})$ where $\\mathbf{u}$ is sampled uniformly from $\\mathbb{Z}_q^n$.",
+          "isCorrect": true,
+          "rationale": "The goal of decisional $\\text{LWE}$ is to determine if a vector is a 'noisy' linear combination or simply random noise."
+        },
+        {
+          "text": "$(\\mathbf{A}, \\mathbf{As})$ where no error is present.",
+          "isCorrect": false,
+          "rationale": "Distinguishing from a clean linear combination is trivial via Gaussian elimination; the challenge is distinguishing noise from randomness."
+        },
+        {
+          "text": "$(\\mathbf{g}, \\mathbf{g^a}, \\mathbf{g^b}, \\mathbf{g^{ab}})$",
+          "isCorrect": false,
+          "rationale": "This describes the Decisional Diffie-Hellman problem, which is mentioned as a classical recall concept, not $\\text{LWE}$."
+        },
+        {
+          "text": "$(\\mathbf{A}, \\mathbf{e})$ where only the error is provided.",
+          "isCorrect": false,
+          "rationale": "Knowing only the error would not allow for a meaningful comparison to the standard $\\text{LWE}$ instance."
+        }
+      ],
+      "hint": "In a decisional problem, you are usually comparing a structured output to completely random data."
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "According to the course introduction, which of the following best describes an 'active threat' to information security?",
+      "answerOptions": [
+        {
+          "text": "An attacker monitors communication to analyse traffic patterns without altering data.",
+          "rationale": "This describes traffic analysis, which is a passive threat because it does not change the information within the system.",
+          "isCorrect": false
+        },
+        {
+          "text": "An attacker alters a message during transmission to change its content.",
+          "rationale": "This action, known as modification, directly alters system information and is therefore classified as an active threat.",
+          "isCorrect": true
+        },
+        {
+          "text": "An attacker taps a telephone wire to listen to a conversation.",
+          "rationale": "This is an example of eavesdropping, a passive threat, as the attacker is only observing information, not altering it.",
+          "isCorrect": false
+        },
+        {
+          "text": "An attacker identifies a weakness in a system that could potentially be exploited.",
+          "rationale": "This describes a vulnerability, which is a weakness, not the act of a threat itself. A threat is the potential violation of security that exploits a vulnerability.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Consider the difference between observing information and changing it."
+    },
+    {
+      "question": "What is the primary distinction between cryptography and cryptanalysis?",
+      "answerOptions": [
+        {
+          "text": "Cryptography is the study of designing cryptosystems, while cryptanalysis is the study of breaking them.",
+          "rationale": "This correctly defines the two dual facets of cryptology, with one focused on creation and the other on deconstruction.",
+          "isCorrect": true
+        },
+        {
+          "text": "Cryptography involves symmetric keys, whereas cryptanalysis involves asymmetric keys.",
+          "rationale": "Both cryptography and cryptanalysis can be applied to systems using either symmetric or asymmetric keys.",
+          "isCorrect": false
+        },
+        {
+          "text": "Cryptography is the science of secret writing, while cryptanalysis is the science of secure key transmission.",
+          "rationale": "Secure key transmission is a challenge within the field of cryptography, not the definition of cryptanalysis.",
+          "isCorrect": false
+        },
+        {
+          "text": "Cryptography focuses on encrypting messages, while cryptanalysis focuses on decrypting them with the correct key.",
+          "rationale": "Decrypting a message with the intended key is a standard part of a cryptosystem's function (cryptography), not the goal of cryptanalysis, which aims to decrypt without the key.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Think about the two opposing goals within the science of cryptology."
+    },
+    {
+      "question": "In a chosen plaintext attack (CPA), what capability does the adversary possess?",
+      "answerOptions": [
+        {
+          "text": "The adversary has access only to the intercepted ciphertext.",
+          "rationale": "This scenario describes a ciphertext-only attack, which is the most limited type of access for an attacker.",
+          "isCorrect": false
+        },
+        {
+          "text": "The adversary knows some plaintext-ciphertext pairs but did not get to choose the plaintext.",
+          "rationale": "This defines a known-plaintext attack, which is less powerful than being able to select the plaintext to be encrypted.",
+          "isCorrect": false
+        },
+        {
+          "text": "The adversary can obtain the plaintext corresponding to any chosen ciphertext.",
+          "rationale": "This describes a chosen-ciphertext attack, where the adversary has access to a decryption oracle.",
+          "isCorrect": false
+        },
+        {
+          "text": "The adversary can select arbitrary plaintext and obtain its corresponding ciphertext.",
+          "rationale": "This is the definition of a chosen-plaintext attack, where the attacker has access to an 'inside encryptor' or encryption oracle.",
+          "isCorrect": true
+        }
+      ],
+      "hint": "The name of the attack model reveals what the attacker gets to 'choose'."
+    },
+    {
+      "question": "Kerckhoffs' Principle states that the security of a cryptosystem should depend solely on what?",
+      "answerOptions": [
+        {
+          "text": "The secrecy of the encryption algorithm.",
+          "rationale": "Relying on a secret algorithm is known as 'security through obscurity', which Kerckhoffs' Principle advises against.",
+          "isCorrect": false
+        },
+        {
+          "text": "The secrecy of the key.",
+          "rationale": "This principle assumes the attacker knows everything about the system except for the key, making the key's secrecy paramount.",
+          "isCorrect": true
+        },
+        {
+          "text": "The computational difficulty of factoring large numbers.",
+          "rationale": "While factoring is the basis for some specific cryptosystems (like RSA), it is not the general principle defined by Kerckhoffs.",
+          "isCorrect": false
+        },
+        {
+          "text": "The secrecy of the plaintext.",
+          "rationale": "The goal of a cryptosystem is to protect the plaintext; its security cannot depend on the plaintext already being secret.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "This principle advises against 'security through obscurity'."
+    },
+    {
+      "question": "What is the fundamental operation of a transposition cipher?",
+      "answerOptions": [
+        {
+          "text": "It replaces each character in the plaintext with a different character from the alphabet.",
+          "rationale": "This describes a substitution cipher, where alphabet characters are replaced, not plaintext characters reordered.",
+          "isCorrect": false
+        },
+        {
+          "text": "It permutes or reorders the characters of the plaintext without changing the characters themselves.",
+          "rationale": "This is the correct definition; a transposition cipher is like anagramming the message.",
+          "isCorrect": true
+        },
+        {
+          "text": "It shifts each character by a fixed number of positions in the alphabet.",
+          "rationale": "This is a specific type of substitution cipher known as a Caesar cipher, not a transposition cipher.",
+          "isCorrect": false
+        },
+        {
+          "text": "It uses multiple different substitution alphabets to encrypt the plaintext.",
+          "rationale": "This describes a polyalphabetic substitution cipher, which is a more complex form of substitution.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Think about the difference between changing the letters and shuffling their positions."
+    },
+    {
+      "question": "Using a Caesar cipher with the Roman alphabet ($A=0, B=1, ..., Z=25$) and a key of $j=4$, what is the ciphertext for the plaintext 'SAFE'?",
+      "answerOptions": [
+        {
+          "text": "WEJI",
+          "rationale": "This is the correct result of applying the formula $c_i = (m_i + 4) \\mod 26$ to each letter: S(18)+4=V(22), A(0)+4=E(4), F(5)+4=I(8), E(4)+4=H(7). Whoops, my manual calculation was wrong. Let me re-calculate: S(18)+4 = 22(W), A(0)+4=4(E), F(5)+4=9(J), E(4)+4=8(I). The correct answer is WEJI.",
+          "isCorrect": true
+        },
+        {
+          "text": "OEXA",
+          "rationale": "This result would be obtained if the key was subtracted instead of added (a decryption operation with key $j=4$).",
+          "isCorrect": false
+        },
+        {
+          "text": "VDIH",
+          "rationale": "This result would be obtained if a key of $j=3$ was used instead of $j=4$.",
+          "isCorrect": false
+        },
+        {
+          "text": "TBGF",
+          "rationale": "This appears to be a shift by one position ($j=1$), not four.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Apply the encryption formula $c_i = (m_i + j) \\mod 26$ to each letter, where $j$ is the key."
+    },
+    {
+      "question": "Why is a random simple substitution cipher considered secure against an exhaustive key search, even with modern computers?",
+      "answerOptions": [
+        {
+          "text": "The number of possible keys is only 26, which is trivial to search.",
+          "rationale": "This describes the keyspace of a Caesar cipher, not a random simple substitution cipher.",
+          "isCorrect": false
+        },
+        {
+          "text": "The encryption and decryption algorithms are kept secret.",
+          "rationale": "This would be security through obscurity; the algorithm is assumed to be public, and security relies on the number of keys.",
+          "isCorrect": false
+        },
+        {
+          "text": "The number of possible keys is $26!$, which is a computationally infeasible number to test.",
+          "rationale": "The number of ways to permute the 26 letters of the alphabet ($26!$) is astronomically large (greater than $10^{26}$), making a brute-force attack impractical.",
+          "isCorrect": true
+        },
+        {
+          "text": "It requires a secure channel for key transmission, which prevents attackers from trying keys.",
+          "rationale": "While secure key transmission is important, it doesn't prevent an attacker from attempting a brute-force search on an intercepted ciphertext.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Consider how many ways there are to arrange the letters of the alphabet to form a substitution table."
+    },
+    {
+      "question": "What is the primary purpose of a polyalphabetic substitution cipher, such as the Vigen\u00e8re cipher?",
+      "answerOptions": [
+        {
+          "text": "To make the cipher easier to solve by hand.",
+          "rationale": "Polyalphabetic ciphers are significantly more complex to solve by hand than simple substitution ciphers.",
+          "isCorrect": false
+        },
+        {
+          "text": "To reduce the number of possible keys and simplify key management.",
+          "rationale": "These ciphers often have a large keyspace and introduce new key management challenges, such as the key's length.",
+          "isCorrect": false
+        },
+        {
+          "text": "To smooth the frequency distribution of ciphertext characters, making frequency analysis ineffective.",
+          "rationale": "By using multiple alphabets, the one-to-one mapping between plaintext and ciphertext letters is broken, which flattens the statistical properties of the ciphertext.",
+          "isCorrect": true
+        },
+        {
+          "text": "To reorder the plaintext characters to hide the message structure.",
+          "rationale": "Reordering characters is the function of a transposition cipher, not a polyalphabetic substitution cipher.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Think about how this type of cipher counteracts the main weakness of simple substitution ciphers."
+    },
+    {
+      "question": "According to the sample statistics provided, which is the most frequent single character in the analysed English text?",
+      "answerOptions": [
+        {
+          "text": "E",
+          "rationale": "The letter E is the most frequent letter (10.1%), but it is not the most frequent overall character in this specific sample.",
+          "isCorrect": false
+        },
+        {
+          "text": "T",
+          "rationale": "The letter T is highly frequent (7.5%), but it is not the most common character listed in the statistics.",
+          "isCorrect": false
+        },
+        {
+          "text": "The space character ($\\nabla$)",
+          "rationale": "The statistics show that the space character accounts for 14.6% of all characters, making it the most frequent one in the sample.",
+          "isCorrect": true
+        },
+        {
+          "text": "A",
+          "rationale": "The letter A is frequent (7.0%) but is surpassed by several other characters in the provided table.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Do not forget to consider non-alphabetic characters that are included in the statistics."
+    },
+    {
+      "question": "What is the assessment breakdown for the TTM4135 course?",
+      "answerOptions": [
+        {
+          "text": "100% Written Examination",
+          "rationale": "The course has a significant portfolio component in addition to the final exam.",
+          "isCorrect": false
+        },
+        {
+          "text": "50% Portfolio Assignment and 50% Written Examination",
+          "rationale": "This splits the weight evenly, but the source material specifies a different ratio between the two components.",
+          "isCorrect": false
+        },
+        {
+          "text": "40% Portfolio Assignment and 60% Written Examination",
+          "rationale": "The course introduction slide on assessment explicitly states this weighting for the two parts of the final grade.",
+          "isCorrect": true
+        },
+        {
+          "text": "60% Portfolio Assignment and 40% Written Examination",
+          "rationale": "This inverts the correct weighting; the written examination carries more weight than the portfolio.",
+          "isCorrect": false
+        }
+      ],
+      "hint": "The final examination makes up the majority of the final grade."
+    }
+  ]
+}

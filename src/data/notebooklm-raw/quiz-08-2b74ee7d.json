@@ -1,0 +1,723 @@
+{
+  "title": "RSA Quiz",
+  "questions": [
+    {
+      "question": "Which of the following is a primary advantage of Public Key Cryptography (PKC) compared to symmetric-key cryptography?",
+      "answerOptions": [
+        {
+          "text": "It provides faster encryption and decryption speeds for large datasets.",
+          "isCorrect": false,
+          "rationale": "PKC is typically much more computationally expensive and slower than symmetric-key algorithms."
+        },
+        {
+          "text": "It eliminates the need for any keys to be shared or stored.",
+          "isCorrect": false,
+          "rationale": "PKC still requires keys, though the management of those keys is simplified compared to symmetric schemes."
+        },
+        {
+          "text": "Keys can be agreed upon over an untrusted network without confidential transport.",
+          "isCorrect": true,
+          "rationale": "A main advantage of PKC is simplified key management, as public keys do not require a secure channel for distribution."
+        },
+        {
+          "text": "It requires the sender and receiver to share a single secret key beforehand.",
+          "isCorrect": false,
+          "rationale": "This describes symmetric-key cryptography, whereas PKC uses asymmetric key pairs."
+        }
+      ],
+      "hint": "Consider the challenges associated with key distribution in insecure environments."
+    },
+    {
+      "question": "What defines a function $f$ as a 'one-way function' in cryptography?",
+      "answerOptions": [
+        {
+          "text": "It is easy to compute $f(x)$ from $x$, but hard to compute $x$ from $f(x)$.",
+          "isCorrect": true,
+          "rationale": "One-way functions are characterised by the computational asymmetry between performing the function and finding its inverse."
+        },
+        {
+          "text": "The function can only be computed in one specific direction of a data stream.",
+          "isCorrect": false,
+          "rationale": "One-wayness refers to the mathematical difficulty of inversion, not the direction of data flow."
+        },
+        {
+          "text": "The function produces the same output for every possible input value.",
+          "isCorrect": false,
+          "rationale": "This describes a constant function, which would not be useful for distinguishing unique inputs in cryptography."
+        },
+        {
+          "text": "It is a function that has no possible inverse in any mathematical context.",
+          "isCorrect": false,
+          "rationale": "Inverses exist theoretically; the 'one-way' label refers to the computational hardness of finding that inverse."
+        }
+      ],
+      "hint": "Focus on the computational effort required to reverse the process."
+    },
+    {
+      "question": "In the context of RSA, what serves as the 'trapdoor' for the one-way function of modular squaring?",
+      "answerOptions": [
+        {
+          "text": "The public exponent $e$.",
+          "isCorrect": false,
+          "rationale": "The public exponent is known to everyone and does not provide the secret information needed to invert the function."
+        },
+        {
+          "text": "The factorisation of the modulus $n$ into primes $p$ and $q$.",
+          "isCorrect": true,
+          "rationale": "Knowledge of the prime factors $p$ and $q$ provides the 'trapdoor' necessary to efficiently compute square roots modulo $n$."
+        },
+        {
+          "text": "The hashing of the message $M$.",
+          "isCorrect": false,
+          "rationale": "Hashing is a different type of one-way function used for integrity, not the secret trapdoor for RSA modular operations."
+        },
+        {
+          "text": "The bit-length of the modulus $n$.",
+          "isCorrect": false,
+          "rationale": "The length is public information and does not assist in the inversion of the one-way function."
+        }
+      ],
+      "hint": "Identify the secret information that makes an otherwise hard problem easy to solve."
+    },
+    {
+      "question": "Which of these is a candidate for a one-way function mentioned in the source material?",
+      "answerOptions": [
+        {
+          "text": "Addition of large integers.",
+          "isCorrect": false,
+          "rationale": "Subtraction (the inverse of addition) is computationally easy and does not provide cryptographic security."
+        },
+        {
+          "text": "Multiplication of large primes.",
+          "isCorrect": true,
+          "rationale": "While multiplying primes is easy, integer factorisation (finding the primes from the product) is believed to be computationally hard."
+        },
+        {
+          "text": "Converting text to ASCII values.",
+          "isCorrect": false,
+          "rationale": "Encoding is a reversible process that is not designed to be computationally hard to invert."
+        },
+        {
+          "text": "Linear shift operations.",
+          "isCorrect": false,
+          "rationale": "Shifting bits is a basic operation that is easily reversed by shifting in the opposite direction."
+        }
+      ],
+      "hint": "Look for an operation that is easy to do but extremely difficult to undo."
+    },
+    {
+      "question": "Which set of values constitutes the public key in the RSA scheme?",
+      "answerOptions": [
+        {
+          "text": "$p$ and $q$.",
+          "isCorrect": false,
+          "rationale": "These are the secret prime factors and must remain private to maintain the security of the system."
+        },
+        {
+          "text": "$d$ and $n$.",
+          "isCorrect": false,
+          "rationale": "$d$ is the private decryption exponent and should never be made public."
+        },
+        {
+          "text": "$n$ and $e$.",
+          "isCorrect": true,
+          "rationale": "The modulus $n$ and the public exponent $e$ are the components required by anyone wishing to encrypt a message for the owner."
+        },
+        {
+          "text": "$e$ and $\\phi(n)$.",
+          "isCorrect": false,
+          "rationale": "$\\phi(n)$ is a secret value derived from $p$ and $q$ used to calculate the private key."
+        }
+      ],
+      "hint": "Identify the parameters needed by a sender to perform encryption."
+    },
+    {
+      "question": "What is the requirement for choosing the public exponent $e$ in RSA key generation?",
+      "answerOptions": [
+        {
+          "text": "$e$ must be a prime number larger than $n$.",
+          "isCorrect": false,
+          "rationale": "The exponent $e$ must be smaller than $\\phi(n)$ for modular arithmetic to work correctly."
+        },
+        {
+          "text": "$gcd(e, \\phi(n)) = 1$.",
+          "isCorrect": true,
+          "rationale": "This condition ensures that $e$ has a modular multiplicative inverse $d$ modulo $\\phi(n)$."
+        },
+        {
+          "text": "$e$ must be an even number.",
+          "isCorrect": false,
+          "rationale": "Since $\\phi(n) = (p-1)(q-1)$ is even, an even $e$ could not be coprime to it."
+        },
+        {
+          "text": "$e$ must be equal to $p \\times q$.",
+          "isCorrect": false,
+          "rationale": "$e$ must be coprime to the totient, and $p \\times q$ is the modulus $n$ itself."
+        }
+      ],
+      "hint": "Recall the mathematical property required to ensure an inverse exists in modular arithmetic."
+    },
+    {
+      "question": "If a ciphertext $C$ is received, how is the original message $M$ recovered using the private key $d$?",
+      "answerOptions": [
+        {
+          "text": "$M = C \\times d \\pmod{n}$.",
+          "isCorrect": false,
+          "rationale": "RSA relies on modular exponentiation, not simple modular multiplication, for security."
+        },
+        {
+          "text": "$M = C^d \\pmod{n}$.",
+          "isCorrect": true,
+          "rationale": "Decryption is performed by raising the ciphertext to the power of the private exponent $d$ modulo the modulus $n$."
+        },
+        {
+          "text": "$M = \u221aC \\pmod{n}$.",
+          "isCorrect": false,
+          "rationale": "Taking square roots is a specific trapdoor function but is not the standard decryption formula for RSA."
+        },
+        {
+          "text": "$M = d^C \\pmod{n}$.",
+          "isCorrect": false,
+          "rationale": "The ciphertext must be the base of the exponentiation, not the exponent itself."
+        }
+      ],
+      "hint": "Think about the inverse operation of the RSA encryption formula $C = M^e \\pmod{n}$."
+    },
+    {
+      "question": "In hybrid encryption, why is RSA typically used to encrypt a symmetric key rather than the message itself?",
+      "answerOptions": [
+        {
+          "text": "RSA is incapable of encrypting long strings of text.",
+          "isCorrect": false,
+          "rationale": "RSA can encrypt data, but it is limited by the size of the modulus $n$."
+        },
+        {
+          "text": "Symmetric keys are more secure than RSA keys.",
+          "isCorrect": false,
+          "rationale": "Security depends on the key length and algorithm; the choice is primarily based on performance."
+        },
+        {
+          "text": "RSA is computationally expensive and much slower than symmetric-key algorithms.",
+          "isCorrect": true,
+          "rationale": "Because RSA is slower, it is used for the small task of key exchange, while faster symmetric algorithms like AES handle the bulk data."
+        },
+        {
+          "text": "Symmetric algorithms do not require a modulus.",
+          "isCorrect": false,
+          "rationale": "While true, this is a mathematical difference and not the primary operational reason for using hybrid systems."
+        }
+      ],
+      "hint": "Consider the relative performance and efficiency of asymmetric versus symmetric ciphers."
+    },
+    {
+      "question": "What is the value of $\\phi(n)$ for a modulus $n = pq$, where $p$ and $q$ are distinct primes?",
+      "answerOptions": [
+        {
+          "text": "$\\phi(n) = p + q$.",
+          "isCorrect": false,
+          "rationale": "The totient function for a product of two primes is not the sum of those primes."
+        },
+        {
+          "text": "$\\phi(n) = (p-1)(q-1)$.",
+          "isCorrect": true,
+          "rationale": "For the product of two primes, the number of integers less than $n$ that are coprime to $n$ is calculated as $(p-1)(q-1)$."
+        },
+        {
+          "text": "$\\phi(n) = pq - 1$.",
+          "isCorrect": false,
+          "rationale": "This would only be true if $n$ were a prime number itself."
+        },
+        {
+          "text": "$\\phi(n) = \\frac{p}{q}$.",
+          "isCorrect": false,
+          "rationale": "The totient function involves counts of coprime integers and is always an integer result."
+        }
+      ],
+      "hint": "Recall Euler's totient function properties for composite numbers."
+    },
+    {
+      "question": "Which theorem is used in the first case of the RSA correctness proof where $gcd(M, n) = 1$?",
+      "answerOptions": [
+        {
+          "text": "Pythagoras' Theorem.",
+          "isCorrect": false,
+          "rationale": "This theorem relates to right-angled triangles and has no application in RSA proofs."
+        },
+        {
+          "text": "Euler's Theorem.",
+          "isCorrect": true,
+          "rationale": "Euler's theorem states that if $gcd(M, n) = 1$, then $M^{\\phi(n)} \\equiv 1 \\pmod{n}$, which is central to proving RSA works."
+        },
+        {
+          "text": "The Binomial Theorem.",
+          "isCorrect": false,
+          "rationale": "While used in algebra, it is not the primary theorem for the modular arithmetic logic in RSA."
+        },
+        {
+          "text": "Prime Number Theorem.",
+          "isCorrect": false,
+          "rationale": "This theorem describes the distribution of primes but does not provide a formula for modular congruence."
+        }
+      ],
+      "hint": "This theorem relates powers of integers to modular units."
+    },
+    {
+      "question": "What is a commonly recommended bit-length for the primes $p$ and $q$ in modern RSA implementations?",
+      "answerOptions": [
+        {
+          "text": "Exactly 128 bits.",
+          "isCorrect": false,
+          "rationale": "128 bits is far too small and would result in a modulus that could be easily factored by modern computers."
+        },
+        {
+          "text": "At least 1024 bits.",
+          "isCorrect": true,
+          "rationale": "The source material recommends that primes be at least 1024 bits long to ensure the modulus is at least 2048 bits."
+        },
+        {
+          "text": "Between 10 and 20 bits.",
+          "isCorrect": false,
+          "rationale": "Small primes are only useful for educational numerical examples, not for real security."
+        },
+        {
+          "text": "Exactly 64 bits.",
+          "isCorrect": false,
+          "rationale": "A 64-bit length is insecure for modern cryptographic standards."
+        }
+      ],
+      "hint": "The length must be sufficient to make brute-force factorisation infeasible."
+    },
+    {
+      "question": "Which primality test is mentioned in the source for checking if a randomly selected odd number $r$ is prime?",
+      "answerOptions": [
+        {
+          "text": "The Sieve of Eratosthenes.",
+          "isCorrect": false,
+          "rationale": "This is a method for finding all primes up to a limit, but it is inefficient for testing very large individual numbers."
+        },
+        {
+          "text": "Miller\u2013Rabin.",
+          "isCorrect": true,
+          "rationale": "Miller\u2013Rabin is a fast probabilistic primality test suitable for the large numbers used in RSA."
+        },
+        {
+          "text": "Trial Division.",
+          "isCorrect": false,
+          "rationale": "Trial division is computationally impossible for numbers as large as 1024 bits."
+        },
+        {
+          "text": "Euclidean Algorithm.",
+          "isCorrect": false,
+          "rationale": "The Euclidean algorithm is used to find the greatest common divisor, not to check for primality."
+        }
+      ],
+      "hint": "This is a fast, probabilistic method used during key generation."
+    },
+    {
+      "question": "According to the Prime Number Theorem, what is the approximate proportion of prime numbers up to a size $x$?",
+      "answerOptions": [
+        {
+          "text": "One in every $x$ numbers.",
+          "isCorrect": false,
+          "rationale": "This would imply primes are extremely rare, which is not the case for small $x$."
+        },
+        {
+          "text": "$ln(x)$.",
+          "isCorrect": true,
+          "rationale": "The prime number theorem states that the density of primes around $x$ is approximately $1 / ln(x)$."
+        },
+        {
+          "text": "$x^2$.",
+          "isCorrect": false,
+          "rationale": "Proportions must be less than or equal to 1; $x^2$ grows much faster than the count of primes."
+        },
+        {
+          "text": "Exactly half of all numbers.",
+          "isCorrect": false,
+          "rationale": "Primes become less frequent as numbers get larger, and most numbers are not prime."
+        }
+      ],
+      "hint": "The answer involves the natural logarithm of the number's size."
+    },
+    {
+      "question": "What is a potential disadvantage of using a very small public exponent like $e = 3$?",
+      "answerOptions": [
+        {
+          "text": "It makes encryption too slow for the sender.",
+          "isCorrect": false,
+          "rationale": "A small $e$ actually makes encryption much faster."
+        },
+        {
+          "text": "It requires $p$ and $q$ to be even numbers.",
+          "isCorrect": false,
+          "rationale": "$p$ and $q$ must be primes, and only 2 is an even prime, which is not used in RSA."
+        },
+        {
+          "text": "It may lead to security vulnerabilities when encrypting small, unpadded messages.",
+          "isCorrect": true,
+          "rationale": "Small exponents can be vulnerable to attacks like H\u00e5stad's attack if multiple recipients receive the same message without padding."
+        },
+        {
+          "text": "It makes the private key $d$ impossible to calculate.",
+          "isCorrect": false,
+          "rationale": "$d$ can always be calculated as long as $gcd(e, \\phi(n)) = 1$."
+        }
+      ],
+      "hint": "Consider the impact on the mathematical difficulty of reversing the exponentiation."
+    },
+    {
+      "question": "Which common value for $e$ is suggested to balance efficiency and security?",
+      "answerOptions": [
+        {
+          "text": "$2^{16} + 1$.",
+          "isCorrect": true,
+          "rationale": "This value (65537) is prime and has only two bits set to 1, making it efficient for exponentiation while avoiding small exponent attacks."
+        },
+        {
+          "text": "$1024$.",
+          "isCorrect": false,
+          "rationale": "1024 is an even number and cannot be coprime to $\\phi(n)$."
+        },
+        {
+          "text": "$3$.",
+          "isCorrect": false,
+          "rationale": "While efficient, $e=3$ is often avoided due to security risks with unpadded messages."
+        },
+        {
+          "text": "$\\sqrt{n}$.",
+          "isCorrect": false,
+          "rationale": "The public exponent should be a small, fixed constant, not a large value derived from the modulus."
+        }
+      ],
+      "hint": "It is a Fermat prime often represented as 65537."
+    },
+    {
+      "question": "The 'square-and-multiply' algorithm is used to compute which operation efficiently?",
+      "answerOptions": [
+        {
+          "text": "The modular inverse of $e$.",
+          "isCorrect": false,
+          "rationale": "The Extended Euclidean Algorithm is used to find modular inverses, not square-and-multiply."
+        },
+        {
+          "text": "Modular exponentiation.",
+          "isCorrect": true,
+          "rationale": "This algorithm reduces the number of multiplications required to compute $M^e \\pmod{n}$ by using the binary representation of $e$."
+        },
+        {
+          "text": "Integer factorisation of $n$.",
+          "isCorrect": false,
+          "rationale": "Factorisation is the 'hard' problem that RSA relies on; square-and-multiply is a 'fast' operation."
+        },
+        {
+          "text": "Generating large random primes.",
+          "isCorrect": false,
+          "rationale": "Prime generation uses randomisation and primality tests like Miller-Rabin."
+        }
+      ],
+      "hint": "This operation is the core step in both RSA encryption and decryption."
+    },
+    {
+      "question": "By what factor can the Chinese Remainder Theorem (CRT) speed up RSA decryption?",
+      "answerOptions": [
+        {
+          "text": "It makes it 100 times faster.",
+          "isCorrect": false,
+          "rationale": "The speedup is significant but not of such a high magnitude."
+        },
+        {
+          "text": "Up to 4 times faster (or 8 times if parallelised).",
+          "isCorrect": true,
+          "rationale": "CRT decryption involves smaller exponents and moduli, reducing the complexity of the modular exponentiations."
+        },
+        {
+          "text": "It does not speed up decryption; it only increases security.",
+          "isCorrect": false,
+          "rationale": "CRT is specifically an optimization technique used to improve performance."
+        },
+        {
+          "text": "Exactly 2 times faster.",
+          "isCorrect": false,
+          "rationale": "Because the complexity increases cubically with input length, halving the length provides more than a 2x speedup."
+        }
+      ],
+      "hint": "Think about how reducing the bit-length of operands affects the complexity of exponentiation."
+    },
+    {
+      "question": "Why must padding be used when encrypting messages with RSA?",
+      "answerOptions": [
+        {
+          "text": "To ensure the message is shorter than the modulus.",
+          "isCorrect": false,
+          "rationale": "Messages must already be smaller than the modulus; padding actually makes them slightly larger."
+        },
+        {
+          "text": "To prevent attacks such as dictionary attacks or guessing the plaintext.",
+          "isCorrect": true,
+          "rationale": "Padding adds randomness and redundancy, ensuring that encrypting the same message twice results in different ciphertexts."
+        },
+        {
+          "text": "To convert the message from numbers back into text.",
+          "isCorrect": false,
+          "rationale": "Padding occurs before encryption, turning a message into a specific format for the algorithm."
+        },
+        {
+          "text": "To make the prime factors $p$ and $q$ harder to find.",
+          "isCorrect": false,
+          "rationale": "Padding protects the message content, but it does not affect the mathematical difficulty of factoring the modulus."
+        }
+      ],
+      "hint": "Consider the danger of deterministic encryption where the same input always yields the same output."
+    },
+    {
+      "question": "What happens in H\u00e5stad\u2019s attack?",
+      "answerOptions": [
+        {
+          "text": "The adversary uses timing information to guess the private key.",
+          "isCorrect": false,
+          "rationale": "This describes a timing side-channel attack, not H\u00e5stad's attack."
+        },
+        {
+          "text": "The adversary solves for $M^e$ using the CRT across multiple recipients and takes an $e$-th root.",
+          "isCorrect": true,
+          "rationale": "If the same message is sent to $e$ recipients with the same small exponent, the message can be recovered without factoring."
+        },
+        {
+          "text": "The adversary forces a hardware fault to leak bits of $d$.",
+          "isCorrect": false,
+          "rationale": "This describes fault analysis, which is a hardware-level side-channel attack."
+        },
+        {
+          "text": "The adversary factors $n$ using a quantum computer.",
+          "isCorrect": false,
+          "rationale": "H\u00e5stad's attack is a classical mathematical vulnerability related to small exponents and repeated messages."
+        }
+      ],
+      "hint": "This attack exploits the use of the same small exponent for multiple recipients of the same message."
+    },
+    {
+      "question": "Which padding scheme is mentioned as a way to include randomness and redundancy before encryption?",
+      "answerOptions": [
+        {
+          "text": "AES-CBC.",
+          "isCorrect": false,
+          "rationale": "AES-CBC is a symmetric encryption mode, not an RSA padding scheme."
+        },
+        {
+          "text": "Optimal Asymmetric Encryption Padding (OAEP).",
+          "isCorrect": true,
+          "rationale": "OAEP uses hash functions to provide a secure encoding for messages before they are processed by the RSA function."
+        },
+        {
+          "text": "Miller\u2013Rabin Padding.",
+          "isCorrect": false,
+          "rationale": "Miller-Rabin is a primality test, not a padding scheme."
+        },
+        {
+          "text": "PKCS #7.",
+          "isCorrect": false,
+          "rationale": "While PKCS #7 defines formats, PKCS #1 is the standard specifically cited for RSA encryption blocks."
+        }
+      ],
+      "hint": "It is often used with hash functions G and H."
+    },
+    {
+      "question": "Miller\u2019s Algorithm demonstrates that finding the private key $d$ is equivalent in difficulty to which problem?",
+      "answerOptions": [
+        {
+          "text": "Finding the discrete logarithm.",
+          "isCorrect": false,
+          "rationale": "Discrete logs are the basis for other systems like Diffie-Hellman, not the core of the RSA problem."
+        },
+        {
+          "text": "Factorising the modulus $n$.",
+          "isCorrect": true,
+          "rationale": "The theorem states that determining $d$ from $e$ and $n$ is as hard as factoring $n$."
+        },
+        {
+          "text": "Solving the travelling salesman problem.",
+          "isCorrect": false,
+          "rationale": "This is a famous optimization problem unrelated to integer factorisation."
+        },
+        {
+          "text": "Generating truly random numbers.",
+          "isCorrect": false,
+          "rationale": "While random numbers are needed, the equivalence is specifically with the factorisation problem."
+        }
+      ],
+      "hint": "Think about the underlying mathematical challenge that RSA's security rests upon."
+    },
+    {
+      "question": "Which side-channel attack exploits the fact that a step in square-and-multiply takes longer when an exponent bit $e_i = 1$?",
+      "answerOptions": [
+        {
+          "text": "Power analysis.",
+          "isCorrect": false,
+          "rationale": "Power analysis looks at the energy consumption profile, not the duration of the execution."
+        },
+        {
+          "text": "Timing attack.",
+          "isCorrect": true,
+          "rationale": "Timing attacks use the variation in execution time to deduce information about the secret exponent bits."
+        },
+        {
+          "text": "Fault analysis.",
+          "isCorrect": false,
+          "rationale": "Fault analysis requires introducing errors into the computation to see how the result changes."
+        },
+        {
+          "text": "Dictionary attack.",
+          "isCorrect": false,
+          "rationale": "Dictionary attacks are a form of brute force against potential plaintexts, not a side-channel attack."
+        }
+      ],
+      "hint": "This attack relies on measuring how long a private key operation takes to complete."
+    },
+    {
+      "question": "Which countermeasure involves performing a 'dummy' multiplication when an exponent bit is zero?",
+      "answerOptions": [
+        {
+          "text": "Using a larger modulus.",
+          "isCorrect": false,
+          "rationale": "A larger modulus improves security against factorisation but doesn't necessarily prevent timing variations."
+        },
+        {
+          "text": "Computing in constant time.",
+          "isCorrect": true,
+          "rationale": "By ensuring every bit of the exponent requires the same amount of computation time, an adversary cannot distinguish bits via timing."
+        },
+        {
+          "text": "Using a smaller $e$.",
+          "isCorrect": false,
+          "rationale": "A smaller $e$ might speed up public operations but does not protect the private key $d$ from side-channels."
+        },
+        {
+          "text": "Increasing the number of hash functions.",
+          "isCorrect": false,
+          "rationale": "Hash functions are used in padding (OAEP) but don't address hardware timing leaks."
+        }
+      ],
+      "hint": "The goal is to make the execution time uniform regardless of the secret key's value."
+    },
+    {
+      "question": "In the square-and-multiply algorithm, what is done at every step regardless of the bit value $e_i$?",
+      "answerOptions": [
+        {
+          "text": "A modular multiplication.",
+          "isCorrect": false,
+          "rationale": "Multiplication only occurs if the specific bit $e_i$ is equal to 1."
+        },
+        {
+          "text": "A modular squaring.",
+          "isCorrect": true,
+          "rationale": "The algorithm always squares the current value $z$ in every iteration of the loop."
+        },
+        {
+          "text": "A modular inverse calculation.",
+          "isCorrect": false,
+          "rationale": "Inverses are calculated once during key generation, not during every step of exponentiation."
+        },
+        {
+          "text": "A primality test.",
+          "isCorrect": false,
+          "rationale": "Primality testing happens once during key generation to select $p$ and $q$."
+        }
+      ],
+      "hint": "This operation happens at the start of every loop iteration."
+    },
+    {
+      "question": "The Montgomery ladder is a technique primarily used to mitigate which type of threat?",
+      "answerOptions": [
+        {
+          "text": "Integer factorisation.",
+          "isCorrect": false,
+          "rationale": "Factorisation is a mathematical problem; Montgomery ladder is an implementation technique."
+        },
+        {
+          "text": "Fault attacks while maintaining constant time.",
+          "isCorrect": true,
+          "rationale": "It makes every operation depend on the key, which helps avoid certain fault attacks and ensures timing remains constant."
+        },
+        {
+          "text": "Quantum computing attacks.",
+          "isCorrect": false,
+          "rationale": "Montgomery ladders are classical techniques and do not protect against Shor's algorithm."
+        },
+        {
+          "text": "Brute-force decryption.",
+          "isCorrect": false,
+          "rationale": "Brute-force is prevented by large key sizes, not by the specific method of modular exponentiation."
+        }
+      ],
+      "hint": "Think about side-channel countermeasures that handle more than just timing."
+    },
+    {
+      "question": "True or False: The RSA patent is currently active and requires licensing for use.",
+      "answerOptions": [
+        {
+          "text": "True",
+          "isCorrect": false,
+          "rationale": "The RSA patent was significant historically but is no longer in effect."
+        },
+        {
+          "text": "False",
+          "isCorrect": true,
+          "rationale": "The source material explicitly states that the RSA patent expired in the year 2000."
+        }
+      ],
+      "hint": "Look for a specific date mentioned in the introduction to RSA."
+    },
+    {
+      "question": "What happens if an adversary successfully factorises the modulus $n$?",
+      "answerOptions": [
+        {
+          "text": "They can encrypt new messages but not decrypt old ones.",
+          "isCorrect": false,
+          "rationale": "Encryption is already public; the danger is that factorisation reveals the secret decryption key."
+        },
+        {
+          "text": "They can easily recover the private key $d$ and reveal all messages.",
+          "isCorrect": true,
+          "rationale": "Knowing $p$ and $q$ allows the calculation of $\\phi(n)$ and subsequently the private exponent $d$."
+        },
+        {
+          "text": "They can only sign messages but not read them.",
+          "isCorrect": false,
+          "rationale": "Recovering the private key allows the adversary to both decrypt messages and forge signatures."
+        },
+        {
+          "text": "Nothing, because $d$ is kept in a separate secure directory.",
+          "isCorrect": false,
+          "rationale": "$d$ is mathematically derived from the factors; it doesn't matter where the original $d$ is stored."
+        }
+      ],
+      "hint": "Recall how $d$ is calculated during the key generation process."
+    },
+    {
+      "question": "Which of the following describes 'Fault analysis' in the context of side-channels?",
+      "answerOptions": [
+        {
+          "text": "Recording the electromagnetic radiation of a processor.",
+          "isCorrect": false,
+          "rationale": "This is a different type of side-channel (EM leakage) not detailed in the provided list."
+        },
+        {
+          "text": "Measuring the effect of interfering with private key operations.",
+          "isCorrect": true,
+          "rationale": "Fault analysis involves causing errors (e.g., via power spikes or lasers) to observe how the device fails and leak key info."
+        },
+        {
+          "text": "Analyzing the software code for logic bugs.",
+          "isCorrect": false,
+          "rationale": "Fault analysis refers to physical hardware interference during execution, not static code analysis."
+        },
+        {
+          "text": "Checking if the prime numbers $p$ and $q$ were chosen correctly.",
+          "isCorrect": false,
+          "rationale": "This is part of key generation validation, not an implementation side-channel attack."
+        }
+      ],
+      "hint": "This attack involves intentionally causing the hardware to malfunction."
+    }
+  ]
+}

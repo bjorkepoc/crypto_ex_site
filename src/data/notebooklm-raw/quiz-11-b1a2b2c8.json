@@ -1,0 +1,265 @@
+{
+  "title": "Database Quiz",
+  "questions": [
+    {
+      "question": "Which individual is credited with defining the relational data model in the late 1960s, later winning an ACM Turing Award for this work?",
+      "answerOptions": [
+        {
+          "text": "Ted Codd",
+          "isCorrect": true,
+          "rationale": "He formulated the theoretical basis for relational databases while working at IBM Research."
+        },
+        {
+          "text": "Michael Stonebraker",
+          "isCorrect": false,
+          "rationale": "While a pioneer in the field, he is primarily known for starting the Ingres prototype at UC Berkeley."
+        },
+        {
+          "text": "Theodoros Chondrogiannis",
+          "isCorrect": false,
+          "rationale": "This individual is the lecturer of the course, not the historical founder of the relational model."
+        },
+        {
+          "text": "Larry Ellison",
+          "isCorrect": false,
+          "rationale": "He was a co-founder of Oracle, which released the first commercial relational database, but he did not define the original model."
+        }
+      ],
+      "hint": "Consider the IBM researcher whose work shifted databases from hierarchical models to the relational model."
+    },
+    {
+      "question": "In the SQL language, which component is specifically responsible for defining the schema, integrity constraints, and physical storage structure of relations?",
+      "answerOptions": [
+        {
+          "text": "Data Definition Language (DDL)",
+          "isCorrect": true,
+          "rationale": "The DDL allows for the specification of information about relations, including schemas and types."
+        },
+        {
+          "text": "Data Manipulation Language (DML)",
+          "isCorrect": false,
+          "rationale": "This component is used for querying, inserting, deleting, and modifying tuples within existing tables."
+        },
+        {
+          "text": "Transaction Control",
+          "isCorrect": false,
+          "rationale": "This part of SQL handles the beginning and ending of database transactions rather than structure definition."
+        },
+        {
+          "text": "Authorization Language",
+          "isCorrect": false,
+          "rationale": "This specifically handles access rights to relations and views rather than the physical storage or schema."
+        }
+      ],
+      "hint": "Distinguish between the language used to define the database 'skeleton' and the language used to manage the data within it."
+    },
+    {
+      "question": "When defining a numeric attribute as $numeric(p, d)$, what does the parameter $p$ represent?",
+      "answerOptions": [
+        {
+          "text": "The total number of digits in the number",
+          "isCorrect": true,
+          "rationale": "In fixed-point notation, $p$ denotes the precision, or the total count of significant digits."
+        },
+        {
+          "text": "The number of digits to the right of the decimal point",
+          "isCorrect": false,
+          "rationale": "This property is actually represented by the parameter $d$."
+        },
+        {
+          "text": "The maximum power of 10 the number can reach",
+          "isCorrect": false,
+          "rationale": "The precision $p$ limits the total digits, not the exponent as seen in floating-point types."
+        },
+        {
+          "text": "The number of bytes used for storage",
+          "isCorrect": false,
+          "rationale": "The storage size is determined by the implementation and the specified precision, but $p$ specifically refers to digit count."
+        }
+      ],
+      "hint": "Think of the 'precision' and 'scale' definitions for fixed-point numbers."
+    },
+    {
+      "question": "What happens to existing tuples in a relation when a new attribute $A$ is added using the $ALTER\\ TABLE$ command?",
+      "answerOptions": [
+        {
+          "text": "They are assigned $NULL$ as the value for the new attribute",
+          "isCorrect": true,
+          "rationale": "Since the existing rows did not have data for this new column, SQL defaults their values to $NULL$."
+        },
+        {
+          "text": "The command is rejected if the table is not empty",
+          "isCorrect": false,
+          "rationale": "SQL allows schema modifications on populated tables; it simply handles the missing data for existing rows."
+        },
+        {
+          "text": "They are assigned a default value of 0 or an empty string",
+          "isCorrect": false,
+          "rationale": "While defaults can be specified, the standard behavior for an $ALTER\\ TABLE\\ ADD$ command is to use $NULL$."
+        },
+        {
+          "text": "The existing tuples are deleted to maintain integrity",
+          "isCorrect": false,
+          "rationale": "Deleting data during a schema expansion would be destructive and is not how SQL functions."
+        }
+      ],
+      "hint": "Consider how SQL handles missing information for a column that was not present when the rows were originally created."
+    },
+    {
+      "question": "Which operation in relational algebra corresponds directly to the SQL $SELECT$ clause when it lists specific attributes?",
+      "answerOptions": [
+        {
+          "text": "Projection",
+          "isCorrect": true,
+          "rationale": "Both the $SELECT$ clause and the projection operation serve to filter columns from a relation."
+        },
+        {
+          "text": "Selection",
+          "isCorrect": false,
+          "rationale": "Selection is used to filter rows based on a predicate, which corresponds to the $WHERE$ clause in SQL."
+        },
+        {
+          "text": "Cross Product",
+          "isCorrect": false,
+          "rationale": "Cross product combines two relations, which is the primary role of the $FROM$ clause when listing multiple tables."
+        },
+        {
+          "text": "Join",
+          "isCorrect": false,
+          "rationale": "A join is a combination of cross product and selection, whereas the $SELECT$ clause specifically targets attribute retrieval."
+        }
+      ],
+      "hint": "Think about whether the clause filters horizontal rows or vertical columns."
+    },
+    {
+      "question": "In an SQL $LIKE$ string comparison, which character is used to match exactly one character?",
+      "answerOptions": [
+        {
+          "text": "Underscore ($\\_$)",
+          "isCorrect": true,
+          "rationale": "The underscore acts as a wildcard for a single character position."
+        },
+        {
+          "text": "Percent ($\\%$)",
+          "isCorrect": false,
+          "rationale": "The percent sign is used to match any substring of any length, including an empty string."
+        },
+        {
+          "text": "Asterisk ($*$)",
+          "isCorrect": false,
+          "rationale": "While common in file systems or other languages, SQL uses specific symbols like $\\%$ and $\\_$ for pattern matching."
+        },
+        {
+          "text": "Question mark ($?$)",
+          "isCorrect": false,
+          "rationale": "This is a common wildcard in other contexts, but SQL uses the underscore for single-character matches."
+        }
+      ],
+      "hint": "Recall the two special characters used for pattern matching in SQL strings."
+    },
+    {
+      "question": "When using set operations like $UNION$, $INTERSECT$, or $EXCEPT$, how does SQL handle duplicate tuples by default?",
+      "answerOptions": [
+        {
+          "text": "It automatically removes duplicates",
+          "isCorrect": true,
+          "rationale": "Unlike the standard $SELECT$ statement, set operations in SQL automatically perform duplicate elimination."
+        },
+        {
+          "text": "It retains all duplicates from both sets",
+          "isCorrect": false,
+          "rationale": "This only happens if the $ALL$ keyword is specifically appended to the set operator (e.g., $UNION\\ ALL$)."
+        },
+        {
+          "text": "It flags duplicates as errors and aborts the query",
+          "isCorrect": false,
+          "rationale": "Set operations are designed to handle overlapping data gracefully by treating results as mathematical sets."
+        },
+        {
+          "text": "It only removes duplicates if the $DISTINCT$ keyword is used",
+          "isCorrect": false,
+          "rationale": "In set operations, $DISTINCT$ is the default behavior and does not need to be explicitly stated."
+        }
+      ],
+      "hint": "Contrast the default duplicate behavior of a standard query with that of a set-based query."
+    },
+    {
+      "question": "Based on the logic of three-valued logic in SQL, what is the result of the expression $(unknown\\ or\\ true)$?",
+      "answerOptions": [
+        {
+          "text": "$true$",
+          "isCorrect": true,
+          "rationale": "In an $OR$ operation, if one operand is $true$, the result is $true$ regardless of whether the other is known or unknown."
+        },
+        {
+          "text": "$false$",
+          "isCorrect": false,
+          "rationale": "For an $OR$ operation to be $false$, both operands would need to be $false$."
+        },
+        {
+          "text": "$unknown$",
+          "isCorrect": false,
+          "rationale": "The result is only $unknown$ if the outcome depends on the missing value, which it doesn't when one side is already $true$."
+        },
+        {
+          "text": "$null$",
+          "isCorrect": false,
+          "rationale": "$NULL$ is a data state, but logical expressions evaluate to boolean values or the $unknown$ truth value."
+        }
+      ],
+      "hint": "Consider the definition of an 'OR' gate: does it need both inputs to be certain to produce a 'True' output?"
+    },
+    {
+      "question": "In the sequence of SQL operations, when is the $HAVING$ clause predicate applied?",
+      "answerOptions": [
+        {
+          "text": "After the formation of groups by the $GROUP\\ BY$ clause",
+          "isCorrect": true,
+          "rationale": "The $HAVING$ clause is used to filter groups based on aggregate properties after rows have been grouped."
+        },
+        {
+          "text": "Before the $WHERE$ clause filters the rows",
+          "isCorrect": false,
+          "rationale": "The $WHERE$ clause is applied much earlier in the process to filter individual tuples before any grouping occurs."
+        },
+        {
+          "text": "Simultaneously with the $FROM$ clause evaluation",
+          "isCorrect": false,
+          "rationale": "The $FROM$ clause must establish the base relation before any predicates like $HAVING$ can be tested."
+        },
+        {
+          "text": "Immediately before the sorting of the $ORDER\\ BY$ clause",
+          "isCorrect": false,
+          "rationale": "While it happens before sorting, its primary relationship is with the grouping stage, not the final display ordering."
+        }
+      ],
+      "hint": "Think about whether this clause filters individual rows or entire collections of rows."
+    },
+    {
+      "question": "How do aggregate functions like $avg$ or $sum$ typically treat $NULL$ values in a column?",
+      "answerOptions": [
+        {
+          "text": "They ignore $NULL$ values entirely",
+          "isCorrect": true,
+          "rationale": "Aggregate functions perform their calculations only on the non-null values present in the multiset."
+        },
+        {
+          "text": "They cause the entire function to return $NULL$",
+          "isCorrect": false,
+          "rationale": "Unlike arithmetic expressions ($1 + NULL$), aggregates are designed to work around missing data in a set."
+        },
+        {
+          "text": "They treat $NULL$ as a 0 value",
+          "isCorrect": false,
+          "rationale": "Treating $NULL$ as 0 would incorrectly skew averages; therefore, they are omitted from the count and sum."
+        },
+        {
+          "text": "They throw a runtime error if a $NULL$ is encountered",
+          "isCorrect": false,
+          "rationale": "SQL is designed to handle missing data gracefully through the use of nulls in aggregate processing."
+        }
+      ],
+      "hint": "Think about whether a missing salary should be counted as 'zero salary' or just 'ignored data' when calculating a departmental average."
+    }
+  ]
+}

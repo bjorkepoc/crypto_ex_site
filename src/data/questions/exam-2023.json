@@ -1,0 +1,609 @@
+[
+  {
+    "id": "exam2023-mcq01",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2023 Q1" },
+    "difficulty": 2,
+    "text": "$2^{-1} \\bmod 251$ is equal to:",
+    "options": [
+      { "key": "a", "text": "$1$" },
+      { "key": "b", "text": "$126$" },
+      { "key": "c", "text": "$250$" },
+      { "key": "d", "text": "$0.5$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "We need $2x \\equiv 1 \\pmod{251}$. Since $251$ is odd and prime, $\\gcd(2, 251) = 1$ and the inverse exists. Compute: $2 \\times 126 = 252 = 251 + 1 \\equiv 1 \\pmod{251}$. So $2^{-1} \\equiv 126 \\pmod{251}$."
+  },
+  {
+    "id": "exam2023-mcq02",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2023 Q2" },
+    "difficulty": 2,
+    "text": "In $\\mathbb{Z}^*_7$, the multiplicative group of non-zero integers modulo 7:",
+    "options": [
+      { "key": "a", "text": "$2$ is a generator" },
+      { "key": "b", "text": "$3$ is a generator" },
+      { "key": "c", "text": "$4$ is a generator" },
+      { "key": "d", "text": "There is no generator" }
+    ],
+    "correctAnswer": "b",
+    "solution": "$\\mathbb{Z}^*_7$ has order $\\varphi(7) = 6 = 2 \\times 3$. To check if $g$ is a generator, verify $g^{6/2} \\not\\equiv 1$ and $g^{6/3} \\not\\equiv 1 \\pmod{7}$.\n\nFor $g = 3$: $3^3 = 27 \\equiv 6 \\not\\equiv 1$ and $3^2 = 9 \\equiv 2 \\not\\equiv 1 \\pmod{7}$. So $3$ is a generator.\n\nFor $g = 2$: $2^3 = 8 \\equiv 1 \\pmod{7}$, so $2$ has order $3$ and is not a generator.\n\nFor $g = 4$: $4^3 = 64 \\equiv 1 \\pmod{7}$, so $4$ is not a generator either."
+  },
+  {
+    "id": "exam2023-mcq03",
+    "type": "mcq",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Exam 2023 Q3" },
+    "difficulty": 2,
+    "text": "Consider the following historical ciphers used to encrypt English plaintext with a 26-letter alphabet. Which of the following is expected to have the most smooth (uniform) single character frequencies in its ciphertext?",
+    "options": [
+      { "key": "a", "text": "Caesar cipher" },
+      { "key": "b", "text": "Random simple substitution" },
+      { "key": "c", "text": "Vigenère cipher with period 5" },
+      { "key": "d", "text": "Vigenère cipher with period 10" }
+    ],
+    "correctAnswer": "d",
+    "solution": "The Caesar cipher and random simple substitution are both monoalphabetic -- they preserve single-character frequency distributions (just relabelling letters). The Vigenère cipher is polyalphabetic: each position in the key period uses a different shift, smoothing out frequencies. A longer period means more different shifts are mixed together, producing a more uniform distribution. Period 10 smooths more than period 5, making (d) the most uniform."
+  },
+  {
+    "id": "exam2023-mcq04",
+    "type": "mcq",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Exam 2023 Q4" },
+    "difficulty": 1,
+    "text": "Suppose $C = E(P, K)$ denotes encryption of plaintext $P$ with key $K$ to obtain ciphertext $C$. In a *known plaintext attack*, which of the following is available to an attacker?",
+    "options": [
+      { "key": "a", "text": "Some previous valid plaintext-ciphertext pair $(P, C)$" },
+      { "key": "b", "text": "The key $K$" },
+      { "key": "c", "text": "The ciphertext corresponding to the encryption of a plaintext $P$ chosen by the attacker" },
+      { "key": "d", "text": "The plaintext corresponding to the decryption of a ciphertext $C$ chosen by the attacker" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In a known plaintext attack (KPA), the attacker has access to some plaintext-ciphertext pairs $(P, C)$ but did not choose the plaintexts. Option (b) would mean the system is already broken. Option (c) describes a chosen plaintext attack (CPA). Option (d) describes a chosen ciphertext attack (CCA)."
+  },
+  {
+    "id": "exam2023-mcq05",
+    "type": "mcq",
+    "topics": ["encryption-modes", "hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2023 Q5" },
+    "difficulty": 2,
+    "text": "Which of the following features of the one time pad is shared by a block cipher in counter (CTR) mode?",
+    "options": [
+      { "key": "a", "text": "The key must be as long as the plaintext" },
+      { "key": "b", "text": "A change in one ciphertext bit results in one changed bit in the decrypted plaintext" },
+      { "key": "c", "text": "Perfect secrecy is achieved" },
+      { "key": "d", "text": "The key must be perfectly random" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Both OTP and CTR mode produce ciphertext by XORing plaintext with a keystream: $C = P \\oplus K$. In both cases, flipping one bit in $C$ flips exactly one bit in the decrypted $P$, because XOR is bitwise. CTR mode does not achieve perfect secrecy (the keystream is pseudorandom, not truly random), the key is short (not as long as the plaintext), and the key need not be perfectly random (it just needs to be computationally secure)."
+  },
+  {
+    "id": "exam2023-mcq06",
+    "type": "mcq",
+    "topics": ["hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2023 Q6" },
+    "difficulty": 1,
+    "text": "Which of the following statements about binary synchronous stream ciphers is true?",
+    "options": [
+      { "key": "a", "text": "Each bit in the keystream of the receiver is different from the corresponding bit in the keystream of the sender" },
+      { "key": "b", "text": "The keystream depends on the plaintext" },
+      { "key": "c", "text": "The encryption operation is the same as the decryption operation" },
+      { "key": "d", "text": "The modulo 2 sum (XOR) of the keystream and the ciphertext must be the all zero string" }
+    ],
+    "correctAnswer": "c",
+    "solution": "In a binary synchronous stream cipher, encryption is $C = P \\oplus K$ and decryption is $P = C \\oplus K$. Both operations are XOR with the same keystream, so encryption and decryption are identical operations. (a) is false because sender and receiver must use the *same* keystream. (b) is false because in a *synchronous* stream cipher the keystream is independent of the plaintext. (d) is false because $K \\oplus C = K \\oplus (P \\oplus K) = P$, which is the plaintext, not zero."
+  },
+  {
+    "id": "exam2023-mcq07",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2023 Q7" },
+    "difficulty": 1,
+    "text": "Which of the following is *not* a valid description of the Advanced Encryption Standard (AES)?",
+    "options": [
+      { "key": "a", "text": "A product cipher" },
+      { "key": "b", "text": "An iterated block cipher" },
+      { "key": "c", "text": "A Feistel cipher" },
+      { "key": "d", "text": "A substitution-permutation network" }
+    ],
+    "correctAnswer": "c",
+    "solution": "AES is a substitution-permutation network (SPN), not a Feistel cipher. In a Feistel cipher, only half the block is transformed in each round (like DES). AES transforms the entire block each round using SubBytes, ShiftRows, MixColumns, and AddRoundKey. AES is also a product cipher (combines substitution and permutation) and an iterated block cipher (repeats rounds)."
+  },
+  {
+    "id": "exam2023-mcq08",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2023 Q8" },
+    "difficulty": 1,
+    "text": "Which of the following is a valid block size for the Advanced Encryption Standard (AES)?",
+    "options": [
+      { "key": "a", "text": "128 bits" },
+      { "key": "b", "text": "512 bits" },
+      { "key": "c", "text": "1024 bits" },
+      { "key": "d", "text": "2048 bits" }
+    ],
+    "correctAnswer": "a",
+    "solution": "AES has a fixed block size of 128 bits. While AES supports different key sizes (128, 192, 256 bits), the block size is always 128 bits. The other options (512, 1024, 2048) are not valid AES block sizes."
+  },
+  {
+    "id": "exam2023-mcq09",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Exam 2023 Q9" },
+    "difficulty": 1,
+    "text": "In the simplest mode of operation for block ciphers, ECB, blocks are encrypted independently. Why do we usually prefer to use a different mode?",
+    "options": [
+      { "key": "a", "text": "To ensure that identical plaintext blocks encrypt to different ciphertext blocks" },
+      { "key": "b", "text": "To reduce computational effort" },
+      { "key": "c", "text": "To allow parallel encryption" },
+      { "key": "d", "text": "To increase the difficulty of brute force key search" }
+    ],
+    "correctAnswer": "a",
+    "solution": "ECB mode encrypts each block independently with the same key, so identical plaintext blocks always produce identical ciphertext blocks. This leaks patterns in the plaintext (the famous ECB penguin example). Other modes like CBC and CTR ensure that identical plaintext blocks produce different ciphertext blocks. ECB already allows parallel encryption, so (c) is not a reason to switch. The mode does not affect brute force key search difficulty."
+  },
+  {
+    "id": "exam2023-mcq10",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Exam 2023 Q10" },
+    "difficulty": 3,
+    "text": "Suppose that you have a message of 150 bits to encrypt and you choose to use the AES block cipher. Which of the following modes of operation will require the least number of sent bits in the encrypted message?",
+    "options": [
+      { "key": "a", "text": "ECB mode" },
+      { "key": "b", "text": "Counter mode with a nonce of 64 bits" },
+      { "key": "c", "text": "CBC mode" },
+      { "key": "d", "text": "GCM mode" }
+    ],
+    "correctAnswer": "b",
+    "solution": "AES has a 128-bit block size.\n\n- **ECB**: Requires padding to full blocks. 150 bits needs 2 blocks = 256 bits sent.\n- **CTR with 64-bit nonce**: Produces a keystream XORed with plaintext, so ciphertext is 150 bits + 64-bit nonce = 214 bits total. No padding needed.\n- **CBC**: Requires an IV (128 bits) + padded ciphertext (256 bits) = 384 bits.\n- **GCM**: Requires nonce (typically 96 bits) + ciphertext (150 bits, no padding) + authentication tag (128 bits) = 374 bits.\n\nCTR mode with a 64-bit nonce requires the fewest bits at 214."
+  },
+  {
+    "id": "exam2023-mcq11",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Exam 2023 Q11" },
+    "difficulty": 2,
+    "text": "A cryptographic hash function $h$ often needs to have the property of collision resistance. To ensure that finding collisions is of the same order of difficulty as brute force key search on a symmetric cipher with a key of 256 bits, the output size of $h$ should be of size approximately:",
+    "options": [
+      { "key": "a", "text": "128 bits" },
+      { "key": "b", "text": "184 bits" },
+      { "key": "c", "text": "256 bits" },
+      { "key": "d", "text": "512 bits" }
+    ],
+    "correctAnswer": "d",
+    "solution": "Due to the birthday paradox, finding a collision in a hash with $n$-bit output requires about $2^{n/2}$ operations. To match $2^{256}$ (brute force on a 256-bit key), we need $2^{n/2} = 2^{256}$, so $n = 512$ bits. This is why SHA-512 provides 256-bit collision resistance."
+  },
+  {
+    "id": "exam2023-mcq12",
+    "type": "mcq",
+    "topics": ["encryption-modes", "hashes-macs"],
+    "source": { "type": "exam", "label": "Exam 2023 Q12" },
+    "difficulty": 1,
+    "text": "The GCM mode of operation for block ciphers provides which of the following security services?",
+    "options": [
+      { "key": "a", "text": "Integrity, but not confidentiality" },
+      { "key": "b", "text": "Both integrity and confidentiality" },
+      { "key": "c", "text": "Non-repudiation, but not confidentiality" },
+      { "key": "d", "text": "Both non-repudiation and confidentiality" }
+    ],
+    "correctAnswer": "b",
+    "solution": "GCM (Galois/Counter Mode) is an authenticated encryption mode that provides both confidentiality (via CTR-mode encryption) and integrity (via a GHASH-based authentication tag). It does not provide non-repudiation because it uses symmetric keys -- both parties share the key and either could have produced the tag. Non-repudiation requires asymmetric cryptography (digital signatures)."
+  },
+  {
+    "id": "exam2023-mcq13",
+    "type": "mcq",
+    "topics": ["number-theory-pk"],
+    "source": { "type": "exam", "label": "Exam 2023 Q13" },
+    "difficulty": 2,
+    "text": "When the Miller-Rabin test is used to test the primality of an integer $n$, it is possible that a non-trivial square root of $1$ modulo $n$ is discovered. When this happens:",
+    "options": [
+      { "key": "a", "text": "We know that $n$ is prime" },
+      { "key": "b", "text": "We know that $n$ is composite" },
+      { "key": "c", "text": "The test has failed and must be run again" },
+      { "key": "d", "text": "The result is not yet decided so the test must continue" }
+    ],
+    "correctAnswer": "b",
+    "solution": "A nontrivial square root of $1 \\pmod{n}$ is a value $a$ where $a^2 \\equiv 1 \\pmod{n}$ but $a \\not\\equiv \\pm 1 \\pmod{n}$. Primes cannot have nontrivial square roots of 1 (by a theorem from number theory). Therefore, finding one immediately proves $n$ is composite. Moreover, $\\gcd(a-1, n)$ yields a nontrivial factor of $n$."
+  },
+  {
+    "id": "exam2023-mcq14",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2023 Q14" },
+    "difficulty": 2,
+    "text": "Suppose $n = 55$. Then, by Euler's Theorem:",
+    "options": [
+      { "key": "a", "text": "$3^{10} \\bmod n = 1$" },
+      { "key": "b", "text": "$3^{30} \\bmod n = 1$" },
+      { "key": "c", "text": "$3^{40} \\bmod n = 1$" },
+      { "key": "d", "text": "$3^{50} \\bmod n = 1$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Euler's Theorem states that $a^{\\varphi(n)} \\equiv 1 \\pmod{n}$ when $\\gcd(a, n) = 1$.\n\n$n = 55 = 5 \\times 11$, so $\\varphi(55) = (5-1)(11-1) = 40$.\n\nSince $\\gcd(3, 55) = 1$, we have $3^{40} \\equiv 1 \\pmod{55}$.\n\nNote that $3^{10}$ and $3^{30}$ are not guaranteed to be $1$ (they would only be $1$ if the order of $3$ divides $10$ or $30$). And $3^{50} = 3^{40} \\cdot 3^{10} = 3^{10} \\pmod{55}$, which is not necessarily $1$."
+  },
+  {
+    "id": "exam2023-mcq15",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto"],
+    "source": { "type": "exam", "label": "Exam 2023 Q15" },
+    "difficulty": 2,
+    "text": "Suppose that a cryptographic system uses both elliptic curve cryptography and AES. If AES is implemented with 192-bit keys, to achieve a similar level of security, the elliptic curve group chosen should have size at least $2^n$ where $n$ has:",
+    "options": [
+      { "key": "a", "text": "128 bits" },
+      { "key": "b", "text": "192 bits" },
+      { "key": "c", "text": "384 bits" },
+      { "key": "d", "text": "512 bits" }
+    ],
+    "correctAnswer": "c",
+    "solution": "The best known attack on elliptic curve discrete logarithm is Pollard's rho, which requires $O(\\sqrt{|G|})$ operations where $|G|$ is the group size. For a group of size $2^n$, the attack costs $2^{n/2}$. To match 192-bit symmetric security ($2^{192}$ brute force), we need $2^{n/2} = 2^{192}$, so $n = 384$ bits."
+  },
+  {
+    "id": "exam2023-mcq16",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Exam 2023 Q16" },
+    "difficulty": 2,
+    "text": "The RSA encryption scheme computes $C = M^e \\bmod n$ (where message $M$ is suitably pre-processed). Decryption with private key $d$ correctly recovers $M$ from $C$ because:",
+    "options": [
+      { "key": "a", "text": "$M^{e+d} \\bmod n = M$" },
+      { "key": "b", "text": "$M^{e+d} \\bmod \\varphi(n) = M$" },
+      { "key": "c", "text": "$M^{ed} \\bmod n = M$" },
+      { "key": "d", "text": "$M^{ed} \\bmod \\varphi(n) = M$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "RSA decryption computes $C^d \\bmod n = (M^e)^d \\bmod n = M^{ed} \\bmod n$. Since $ed \\equiv 1 \\pmod{\\varphi(n)}$, by Euler's theorem $M^{ed} \\equiv M \\pmod{n}$. The key relationship is multiplicative ($ed$), not additive ($e+d$), and the computation is modulo $n$, not modulo $\\varphi(n)$."
+  },
+  {
+    "id": "exam2023-mcq17",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Exam 2023 Q17" },
+    "difficulty": 2,
+    "text": "The RSA encryption scheme uses a public exponent $e$ and a private exponent $d$, together with a modulus $n$. It is common to fix $e$ to be the value $e = 2^{16} + 1$. To make decryption efficient we could instead choose $d = 2^{16} + 1$, but this is never done because:",
+    "options": [
+      { "key": "a", "text": "The Chinese Remainder Theorem could not be used" },
+      { "key": "b", "text": "The decryption process would fail" },
+      { "key": "c", "text": "The encryption process would take exponential time as a function of the length of $n$" },
+      { "key": "d", "text": "$d$ must be kept secret for security reasons" }
+    ],
+    "correctAnswer": "d",
+    "solution": "If $d$ is fixed to a small, known value like $2^{16} + 1$, then anyone who knows $d$ (which would be public knowledge if it's a fixed constant) can decrypt any ciphertext. The private exponent $d$ must remain secret for the security of RSA. With a small fixed $d$, the system provides no confidentiality. Note that making $e$ small and public is fine because $e$ is the public exponent used for encryption/verification."
+  },
+  {
+    "id": "exam2023-mcq18",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Exam 2023 Q18" },
+    "difficulty": 1,
+    "text": "OAEP is a coding algorithm often used together with RSA encryption. Using OAEP helps to:",
+    "options": [
+      { "key": "a", "text": "Prevent dictionary attacks" },
+      { "key": "b", "text": "Allow longer messages to be encrypted" },
+      { "key": "c", "text": "Speed up encryption" },
+      { "key": "d", "text": "Speed up decryption" }
+    ],
+    "correctAnswer": "a",
+    "solution": "OAEP (Optimal Asymmetric Encryption Padding) adds randomness to the message before RSA encryption. Without padding, RSA is deterministic: the same plaintext always produces the same ciphertext, enabling dictionary attacks (precomputing encryptions of likely messages). OAEP makes encryption probabilistic, preventing such attacks. It does not increase message size capacity, nor does it speed up encryption or decryption."
+  },
+  {
+    "id": "exam2023-mcq19",
+    "type": "mcq",
+    "topics": ["discrete-log-crypto", "key-establishment"],
+    "source": { "type": "exam", "label": "Exam 2023 Q19" },
+    "difficulty": 2,
+    "text": "The basic Diffie-Hellman key exchange protocol can run in $\\mathbb{Z}^*_p$ or in an elliptic curve group (ECDH) with group generator $G$. For ECDH, we normally write the group operation as addition so that Alice sends $A = aG$ to Bob, and Bob sends $B = bG$ to Alice. Then, to generate the shared secret, Bob computes:",
+    "options": [
+      { "key": "a", "text": "$aA + bG$" },
+      { "key": "b", "text": "$aB + bG$" },
+      { "key": "c", "text": "$aB$" },
+      { "key": "d", "text": "$bA$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "Bob knows his secret $b$ and received $A = aG$ from Alice. The shared secret is $abG$. Bob computes this as $bA = b(aG) = abG$.\n\nAlice similarly computes $aB = a(bG) = abG$.\n\nBob does not know $a$, so options involving $a$ are impossible for Bob. Option (d) $bA = b(aG) = abG$ is the correct computation."
+  },
+  {
+    "id": "exam2023-mcq20",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exam", "label": "Exam 2023 Q20" },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for digital signatures:",
+    "options": [
+      { "key": "a", "text": "The public key of the signer is used for signature verification" },
+      { "key": "b", "text": "The public key of the verifier is used for signature verification" },
+      { "key": "c", "text": "The private key of the signer is used for signature verification" },
+      { "key": "d", "text": "The private key of the verifier is used for signature verification" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In digital signatures, the signer creates the signature using their **private key**, and anyone can verify it using the signer's **public key**. This provides authenticity and non-repudiation."
+  },
+  {
+    "id": "exam2023-mcq21",
+    "type": "mcq",
+    "topics": ["digital-signatures"],
+    "source": { "type": "exam", "label": "Exam 2023 Q21" },
+    "difficulty": 2,
+    "text": "RSA signatures use a composite modulus $n$ while DSA signatures use a prime modulus $p$ and an element $g$ of order $q$, where $q$ divides $p - 1$. When $n$ and $p$ are of the same length:",
+    "options": [
+      { "key": "a", "text": "RSA signatures are shorter than DSA signatures" },
+      { "key": "b", "text": "DSA signatures are shorter than RSA signatures" },
+      { "key": "c", "text": "RSA signatures are the same size as DSA signatures" },
+      { "key": "d", "text": "RSA signatures can be longer, shorter, or equal in length to DSA signatures" }
+    ],
+    "correctAnswer": "b",
+    "solution": "An RSA signature is the same size as the modulus $n$ (e.g., 2048 bits). A DSA signature consists of two values $(r, s)$ each of size $|q|$ bits. Typically $q$ is 256 bits, so the DSA signature is about $2 \\times 256 = 512$ bits, much shorter than the 2048-bit RSA signature for the same security level."
+  },
+  {
+    "id": "exam2023-mcq22",
+    "type": "mcq",
+    "topics": ["digital-signatures", "discrete-log-crypto"],
+    "source": { "type": "exam", "label": "Exam 2023 Q22" },
+    "difficulty": 1,
+    "text": "TLS is today commonly implemented with signatures on elliptic curves, known as ECDSA signatures. Which of the following statements about ECDSA signatures is true?",
+    "options": [
+      { "key": "a", "text": "They are secure against quantum computers" },
+      { "key": "b", "text": "They are half the size of DSA signatures for the same security level" },
+      { "key": "c", "text": "Both the public and private keys are elliptic curve points" },
+      { "key": "d", "text": "They usually employ one of a standardised set of elliptic curves" }
+    ],
+    "correctAnswer": "d",
+    "solution": "ECDSA implementations use standardised curves such as P-256, P-384, or Curve25519. (a) is false -- ECDSA is vulnerable to quantum attacks via Shor's algorithm. (b) is false -- ECDSA and DSA signatures are similar in size for the same security level; ECDSA's advantage is shorter keys, not shorter signatures. (c) is false -- the private key is a scalar (integer), not a curve point; only the public key is a point."
+  },
+  {
+    "id": "exam2023-mcq23",
+    "type": "mcq",
+    "topics": ["key-establishment"],
+    "source": { "type": "exam", "label": "Exam 2023 Q23" },
+    "difficulty": 1,
+    "text": "A valuable security property for key establishment protocols is *forward secrecy*. A protocol with this property ensures that:",
+    "options": [
+      { "key": "a", "text": "An attacker with access to the current session key cannot obtain previous session keys" },
+      { "key": "b", "text": "An attacker with access to previous session keys cannot obtain long-term keys" },
+      { "key": "c", "text": "An attacker with access to long-term keys cannot obtain previous session keys" },
+      { "key": "d", "text": "An attacker with access to previous session keys cannot obtain the current session key" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Forward secrecy (also called perfect forward secrecy) means that compromise of the long-term keys (e.g., a server's private key) does not allow an attacker to decrypt past session traffic. Each session uses ephemeral keys (typically via Diffie-Hellman) that are discarded after use, so even knowing the long-term key cannot recover previous session keys."
+  },
+  {
+    "id": "exam2023-mcq24",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2023 Q24" },
+    "difficulty": 1,
+    "text": "An X.509 digital certificate is issued by a certification authority $C$ for a subject $A$. Which of the following *must* be included in the certificate?",
+    "options": [
+      { "key": "a", "text": "The private key of $A$" },
+      { "key": "b", "text": "The private key of $C$" },
+      { "key": "c", "text": "A signature of $A$" },
+      { "key": "d", "text": "A signature of $C$" }
+    ],
+    "correctAnswer": "d",
+    "solution": "An X.509 certificate binds a subject's identity to their public key. The CA $C$ signs the certificate with its private key, and this signature is included in the certificate so that anyone trusting $C$ can verify the binding. Private keys are never included in certificates. The subject $A$ does not sign the certificate -- the CA does."
+  },
+  {
+    "id": "exam2023-mcq25",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2023 Q25" },
+    "difficulty": 2,
+    "text": "Two possible variants of the handshake protocol in TLS 1.2 are based on (i) RSA encryption and (ii) elliptic curve Diffie-Hellman (ECDH). An advantage of using the ECDH variant is:",
+    "options": [
+      { "key": "a", "text": "The TLS *server key exchange* message is shorter for the same security level" },
+      { "key": "b", "text": "The handshake protocol is secure against quantum computers" },
+      { "key": "c", "text": "Forward secrecy for the session is provided" },
+      { "key": "d", "text": "No server certificate is needed" }
+    ],
+    "correctAnswer": "c",
+    "solution": "The ECDH(E) variant uses ephemeral Diffie-Hellman key exchange, which provides forward secrecy: if the server's long-term key is later compromised, past sessions remain secure. RSA key transport does not provide forward secrecy because the session key is encrypted with the server's static public key. (a) is incorrect because ECDH requires a server key exchange message while RSA key transport does not. (b) is false -- ECDH is vulnerable to quantum attacks. (d) is false -- a server certificate is still needed."
+  },
+  {
+    "id": "exam2023-mcq26",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2023 Q26" },
+    "difficulty": 2,
+    "text": "One valid TLS 1.2 ciphersuite is denoted as `TLS_RSA_WITH_AES_128_CBC_SHA256`. When this ciphersuite is chosen, integrity of application data is provided by:",
+    "options": [
+      { "key": "a", "text": "An HMAC tag with SHA-256 as the underlying hash function" },
+      { "key": "b", "text": "A CBC-based tag with AES as the underlying encryption function" },
+      { "key": "c", "text": "Signing each application message with an RSA signature" },
+      { "key": "d", "text": "Appending a hash of each packet, using SHA-256, before encryption with AES" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In TLS 1.2 with MAC-then-encrypt, the `SHA256` at the end of the ciphersuite name specifies the hash function used in the HMAC construction. The record protocol computes HMAC-SHA-256 over the plaintext for integrity, then encrypts with AES-128-CBC. RSA is only used for key exchange, not per-message integrity."
+  },
+  {
+    "id": "exam2023-mcq27",
+    "type": "mcq",
+    "topics": ["tls13-ipsec"],
+    "source": { "type": "exam", "label": "Exam 2023 Q27" },
+    "difficulty": 2,
+    "text": "TLS 1.3 aims to establish secure connections faster than TLS 1.2. One difference between the protocols which contributes to this is that in TLS 1.3:",
+    "options": [
+      { "key": "a", "text": "Clients are not required to verify server certificates" },
+      { "key": "b", "text": "Servers can initiate the handshake protocol and use a ciphersuite of their choice" },
+      { "key": "c", "text": "Clients can send their keyshare field before the ciphersuite is agreed" },
+      { "key": "d", "text": "Some handshake messages are sent encrypted" }
+    ],
+    "correctAnswer": "c",
+    "solution": "In TLS 1.3, the client sends key shares (for one or more groups) in the ClientHello message, before the server has selected a ciphersuite. This allows the handshake to complete in just 1 round-trip (1-RTT) instead of the 2-RTT required in TLS 1.2. The server selects from the offered key shares and responds with its own, enabling immediate key derivation. While (d) is also true of TLS 1.3, it doesn't directly contribute to speed -- it's a security improvement."
+  },
+  {
+    "id": "exam2023-mcq28",
+    "type": "mcq",
+    "topics": ["tls13-ipsec"],
+    "source": { "type": "exam", "label": "Exam 2023 Q28" },
+    "difficulty": 1,
+    "text": "One common way to apply the IPSec protocol uses a *gateway-to-gateway* architecture. Which of the following statements about this architecture is true?",
+    "options": [
+      { "key": "a", "text": "It is typically used to provide secure remote access from a single host" },
+      { "key": "b", "text": "It is typically used for secure remote management of a single server" },
+      { "key": "c", "text": "It provides security for data throughout its transit (end-to-end)" },
+      { "key": "d", "text": "It is typically used with IPSec in tunnel mode" }
+    ],
+    "correctAnswer": "d",
+    "solution": "Gateway-to-gateway IPSec connects two network gateways (e.g., routers at two office sites) to create a secure VPN tunnel between networks. This uses tunnel mode, which encapsulates the entire original IP packet inside a new IP packet with IPSec protection. It does not provide end-to-end security (only gateway-to-gateway). Single host remote access would be host-to-gateway architecture."
+  },
+  {
+    "id": "exam2023-mcq29",
+    "type": "mcq",
+    "topics": ["email-messaging-security"],
+    "source": { "type": "exam", "label": "Exam 2023 Q29" },
+    "difficulty": 2,
+    "text": "Security of email can be improved by using a client system such as Pretty Good Privacy (PGP) or a node-to-node system such as opportunistic TLS (StartTLS). An advantage of using PGP over using StartTLS is that:",
+    "options": [
+      { "key": "a", "text": "Network entities need not be trusted to maintain email content confidentiality" },
+      { "key": "b", "text": "Confidentiality of email header information is always provided" },
+      { "key": "c", "text": "Forward secrecy of email content is always provided" },
+      { "key": "d", "text": "Email clients require no special configuration" }
+    ],
+    "correctAnswer": "a",
+    "solution": "PGP provides end-to-end encryption: the email is encrypted on the sender's device and only decrypted on the recipient's device. Intermediate mail servers never see the plaintext, so they need not be trusted. With StartTLS, encryption is only between mail servers (hop-by-hop), so each server sees the plaintext and must be trusted. PGP does not encrypt headers (b is false), does not inherently provide forward secrecy (c is false), and requires client configuration (d is false)."
+  },
+  {
+    "id": "exam2023-mcq30",
+    "type": "mcq",
+    "topics": ["email-messaging-security"],
+    "source": { "type": "exam", "label": "Exam 2023 Q30" },
+    "difficulty": 2,
+    "text": "The secure messaging system, Signal, achieves the property of *post-compromise security*, also known as *self healing*. The cryptographic mechanism used to achieve this is:",
+    "options": [
+      { "key": "a", "text": "Authenticated encryption of message contents" },
+      { "key": "b", "text": "Pre-computed Diffie-Hellman keys" },
+      { "key": "c", "text": "Continuous key exchange with the Diffie-Hellman ratchet" },
+      { "key": "d", "text": "The symmetric ratchet using hashing" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Post-compromise security (self-healing) means that even if an attacker compromises the current state, the system recovers security after new key exchanges occur. Signal achieves this through the **Diffie-Hellman ratchet**: each message exchange includes new ephemeral DH public keys, creating fresh shared secrets that an attacker (who compromised a previous state) cannot compute. The symmetric ratchet (hashing) only provides forward secrecy, not post-compromise security, since an attacker with the current state can compute all future hash-derived keys."
+  },
+  {
+    "id": "exam2023-w-1",
+    "type": "written",
+    "topics": ["classical-encryption", "hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2023 W1" },
+    "difficulty": 3,
+    "text": "Frequency analysis is effective in cryptanalysis of historical ciphers. Consider the following three ciphers when used to encrypt plaintext from a natural language such as English:\n- The $3 \\times 3$ Hill cipher, with encryption $C = KP$ where $K$ is an invertible $3 \\times 3$ matrix\n- Random simple substitution cipher, which permutes the alphabet\n- Simple transposition, which permutes blocks of plaintext characters (blocks of at least 10 characters)",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "For each of these three ciphers, describe how similar or different we can expect the distribution of trigrams in the ciphertext to be to the trigram distribution in the plaintext. You may decide whether to count trigrams overlapping or non-overlapping.",
+        "solution": "**Hill Cipher ($3 \\times 3$):** The Hill cipher is a simple substitution on trigrams (with non-overlapping counting). Each plaintext trigram maps to a unique ciphertext trigram via the matrix multiplication. Therefore the frequency distribution of non-overlapping ciphertext trigrams will be identical to the plaintext trigram distribution, just with different labels. With overlapping counts, the distribution will be flatter because the most prominent trigrams will not always be encrypted the same way (only every 3rd position aligns with the block boundary).\n\n**Random Simple Substitution:** Each individual character is mapped to a unique other character. Common plaintext trigrams like THE become a fixed ciphertext trigram (e.g., XQR). The trigram frequency distribution is preserved exactly, for both overlapping and non-overlapping counting, since each character is independently substituted.\n\n**Simple Transposition:** The transposition moves the 3 letters of each trigram into different positions within a block of 10+ characters. Common trigrams like THE get broken apart and dispersed across the block, creating many different ciphertext trigrams. The trigram frequency distribution becomes much smoother (more uniform) compared to the plaintext."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "For the case of the $3 \\times 3$ Hill cipher, how could you use the trigram frequency distribution to help in a ciphertext-only attack?",
+        "solution": "The most common plaintext trigrams (THE, AND, ING, etc.) can be matched to the most common ciphertext trigrams. If we correctly guess that the most frequent ciphertext trigram corresponds to THE, the second to AND, etc., we get plaintext-ciphertext trigram pairs.\n\nWith three correct trigram pairs, we can form $3 \\times 3$ matrices $P$ (plaintext) and $C$ (ciphertext) and solve:\n$$K = CP^{-1}$$\nprovided $P$ is invertible. If $P$ is not invertible or the guess is wrong (decrypted text looks like nonsense), try other candidate trigrams from the frequency list.\n\nThis is feasible because English trigram frequencies are highly non-uniform, making the most common trigrams good candidates for matching."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2023-w-2",
+    "type": "written",
+    "topics": ["block-ciphers", "encryption-modes"],
+    "source": { "type": "exam", "label": "Exam 2023 W2" },
+    "difficulty": 2,
+    "text": "A standardised deterministic random bit generator (DRBG) uses a block cipher $E$ in CTR mode. The output block at instance $t$ is:\n$$O_t = E(S_t, K)$$\nwhere $S_t$ is the current state and $K$ the current key. Both $S_0$ and $K$ are defined in an initialisation process while $S_{t+1}$ is defined by incrementing state $S_t$ (adding 1 as an integer).",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "If $E$ is a good block cipher, why is it reasonable to assume that the output from $O_t$ and $O_{t+1}$ are completely different?",
+        "solution": "A good block cipher has the **avalanche property**: changing even one bit of the input causes approximately half the output bits to change, and the output appears random. Since $S_{t+1} = S_t + 1$, the inputs differ by at least one bit. With a good block cipher, this small input change produces an output $O_{t+1}$ that looks completely independent of $O_t$. More generally, a good block cipher is indistinguishable from a random permutation, so $E(S_t, K)$ and $E(S_{t+1}, K)$ for distinct inputs will appear as independent random values."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Suppose that the system is compromised at instance $t$, so that both $S_t$ and $K$ become known to the attacker. Explain, with reasoning, which output blocks the attacker can then obtain.",
+        "solution": "**All output blocks** (both past and future) can be recovered.\n\n- **Future outputs:** The attacker knows $K$ and $S_t$, so they can compute $S_{t+1} = S_t + 1$, $S_{t+2} = S_t + 2$, etc., and therefore $O_{t+1} = E(S_{t+1}, K)$, $O_{t+2} = E(S_{t+2}, K)$, and so on.\n\n- **Past outputs:** The attacker can also compute $S_{t-1} = S_t - 1$, $S_{t-2} = S_t - 2$, etc., and recover $O_{t-1} = E(S_{t-1}, K)$, $O_{t-2} = E(S_{t-2}, K)$, etc.\n\nSince incrementing the state is easily reversed (just subtract), and the key $K$ is constant, the attacker can reconstruct the entire output sequence."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Suppose now that after every 100 output blocks, a standard one-way hash function $h$ is run to update the key to a new value: $K' = h(K)$. How does this change your answer to part (b)?",
+        "solution": "With key updating via $K' = h(K)$ every 100 blocks:\n\n- **Forward direction:** The attacker can still compute all future outputs. Knowing $K$, they can compute $K' = h(K)$, $K'' = h(K')$, etc., and generate all future output blocks.\n\n- **Backward direction:** The attacker can recover past outputs within the current set of 100 blocks (by decrementing the state). However, they **cannot** recover outputs from before the last key update, because that would require finding the previous key $K_{\\text{prev}}$ such that $h(K_{\\text{prev}}) = K$. Since $h$ is a one-way function, this is computationally infeasible.\n\nSo the key update limits backward exposure to at most 100 blocks, providing a form of forward secrecy for older outputs."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2023-w-3",
+    "type": "written",
+    "topics": ["public-key-rsa", "number-theory-pk"],
+    "source": { "type": "exam", "label": "Exam 2023 W3" },
+    "difficulty": 3,
+    "text": "A company generates an RSA public key $(e, n)$ with private exponent $d$. To increase security, $d$ is split into $d_1$ and $d_2$ where $d_1$ is random in $1 < d_1 < n$ and $d = (d_1 + d_2) \\bmod \\varphi(n)$. Manager 1 gets $d_1$, Manager 2 gets $d_2$, and $d$ is deleted. To decrypt $C$, they compute $M_1 = C^{d_1} \\bmod n$ and $M_2 = C^{d_2} \\bmod n$, then $M = M_1 M_2 \\bmod n$.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Show that correctly encrypted messages will be correctly decrypted by the above method.",
+        "solution": "$$M_1 M_2 \\bmod n = C^{d_1} \\cdot C^{d_2} \\bmod n$$\n$$= C^{d_1 + d_2} \\bmod n$$\n$$= C^d \\bmod n$$\n$$= M \\bmod n$$\n\nThe third line follows because $d_1 + d_2 \\equiv d \\pmod{\\varphi(n)}$, so by Euler's theorem, $C^{d_1+d_2} \\equiv C^d \\pmod{n}$. The last line is standard RSA decryption: $C^d = (M^e)^d = M^{ed} \\equiv M \\pmod{n}$."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Discuss whether an attacker gains any advantage by learning just one of the two parts $d_1$ and $d_2$.",
+        "solution": "Knowing just one of $d_1$ or $d_2$ provides essentially **no advantage**. The value $d_1$ is chosen randomly modulo $n$, and $d_2$ is determined from $d_1$ and $d$. This is similar to a one-time pad: knowing one share leaves all values possible for the other, given that $d$ is unknown.\n\nMore precisely, for any $d_1$ value, the corresponding $d_2 = d - d_1 \\bmod \\varphi(n)$ could be any value in the range, since $d$ is unknown to the attacker. The attacker cannot recover $d$ from a single share without knowing $\\varphi(n)$, and knowing $\\varphi(n)$ is equivalent to factoring $n$ (which would break RSA anyway).\n\nNote: the best attack on RSA is factoring $n$, not brute-force key search, so all of $d$, $d_1$, and $d_2$ are expected to have similar size."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Can the Chinese Remainder Theorem be used to speed up decryption for each of the managers?",
+        "solution": "**No.** The CRT speedup for RSA requires knowledge of the factors $p$ and $q$ of $n$ (to compute modular exponentiations modulo $p$ and $q$ separately). Knowing $p$ and $q$ is equivalent to knowing $\\varphi(n)$, which would allow recovering $d$ from either $d_1$ or $d_2$.\n\nThe whole point of the scheme is that neither manager should be able to decrypt alone. If either manager could use CRT, they would need to know $p$ and $q$, which means they could compute $d$ and decrypt independently. This defeats the purpose of splitting the key.\n\nTherefore, CRT cannot be used without undermining the security of the two-manager setup."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2023-w-4",
+    "type": "written",
+    "topics": ["tls", "tls13-ipsec"],
+    "source": { "type": "exam", "label": "Exam 2023 W4" },
+    "difficulty": 2,
+    "text": "Two common types of long-term certified public key in use by servers running TLS are (i) RSA keys and (ii) ECDSA keys.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "Suppose a server runs TLS 1.2 and supports ciphersuites using RSA key transport as well as signed Diffie-Hellman. Compare the advantages of using an RSA key versus an ECDSA key at the server.",
+        "solution": "**RSA key advantages:**\n- An ECDSA key cannot be used with RSA key transport ciphersuites, since the client needs the server's RSA public key to encrypt the pre-master secret. A single RSA key can serve both RSA key transport and RSA-signed Diffie-Hellman ciphersuites.\n- RSA key transport is computationally very efficient for the client due to the small public exponent (typically $e = 65537$).\n\n**ECDSA key advantages:**\n- ECDSA public keys are much shorter than RSA public keys (e.g., 256 bits vs. 2048 bits), reducing certificate size and bandwidth.\n- ECDSA signatures are shorter than RSA signatures (about 512 bits vs. 2048 bits for equivalent security).\n- Signing with ECDSA is generally faster than with RSA.\n\n**Trade-off:** A server with only an ECDSA key can only use signed Diffie-Hellman ciphersuites (not RSA key transport). A server with only an RSA key can use both types but has larger certificates and signatures."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "Why are ECDSA keys more suitable to use in TLS 1.3 than in TLS 1.2?",
+        "solution": "TLS 1.3 **removed RSA key transport** entirely -- all key exchange must use ephemeral (EC)DH. This means there is no longer any ciphersuite that requires an RSA public key for encryption.\n\nSince all TLS 1.3 connections use Diffie-Hellman key exchange (and specifically require support for elliptic curve Diffie-Hellman), servers already need elliptic curve implementations. Using ECDSA signatures is a natural fit because:\n1. The server doesn't need an RSA key for key transport (since it's removed).\n2. EC cryptography is already required for key exchange, so using ECDSA for signatures minimises the number of different cryptographic assumptions.\n3. ECDSA keys and signatures are shorter, improving handshake performance.\n\nIn TLS 1.2, RSA keys had the advantage of dual use (encryption + signatures), but this advantage disappears in TLS 1.3."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2023-w-5",
+    "type": "written",
+    "topics": ["email-messaging-security", "key-establishment"],
+    "source": { "type": "exam", "label": "Exam 2023 W5" },
+    "difficulty": 3,
+    "text": "Forward secrecy is often achieved in key establishment protocols by using the Diffie-Hellman protocol. However, many network protocols (email, messaging) cannot guarantee the interaction needed for ephemeral Diffie-Hellman because recipients may not be online.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "The Signal protocol makes use of pre-distributed keys in order to start the Diffie-Hellman exchange. To what extent does this solution provide forward secrecy equivalent to use of interactive Diffie-Hellman?",
+        "solution": "Signal uses **pre-keys** (one-time and signed pre-keys) uploaded to a server. When Alice wants to message Bob who is offline, she fetches Bob's pre-keys and performs a Diffie-Hellman exchange without Bob being online.\n\nThe pre-distributed keys are not truly ephemeral -- they are available for around 2 weeks and may be stored on the server. This is a **downgrade** from interactive ephemeral Diffie-Hellman where keys exist only for the duration of the key exchange.\n\nHowever, **some degree of forward secrecy is still provided**: once the pre-distributed keys are replaced (rotated) and deleted, they are no longer available to an attacker who later compromises the server or Bob's device. Past sessions that used deleted pre-keys remain secure.\n\nSo Signal's approach provides forward secrecy with a larger window of vulnerability than true ephemeral DH -- the pre-keys persist longer than ephemeral keys, but eventually they are replaced and deleted."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "Another technique used by Signal is to update the current message key by hashing it, when consecutive messages are sent in the same direction. If the current message key becomes compromised, how many messages could the attacker recover?",
+        "solution": "If the current message key $K_t$ is compromised, the attacker can recover:\n\n**Forward (future messages in the same chain):** All subsequent messages in the same direction, because the attacker can compute $K_{t+1} = h(K_t)$, $K_{t+2} = h(K_{t+1})$, etc. The hash chain only goes forward, so every future key in this chain is derivable.\n\n**Backward (past messages):** **No past messages** can be recovered. Computing $K_{t-1}$ from $K_t$ would require inverting the hash function $h$, which is computationally infeasible due to the one-wayness of $h$.\n\n**Recovery:** The forward exposure continues until a new Diffie-Hellman ratchet step occurs (when a message is sent in the opposite direction). At that point, a fresh DH exchange produces a new root key that the attacker cannot derive, and the attacker loses the ability to compute future message keys.\n\nSo the attacker recovers: the current message plus all subsequent messages in the same direction until the DH ratchet advances."
+      }
+    ],
+    "totalPoints": 6
+  }
+]

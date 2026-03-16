@@ -4,6 +4,7 @@ const translations = {
   // Navbar
   "nav.dashboard": { en: "Dashboard", no: "Dashboard" },
   "nav.exam": { en: "Exam", no: "Eksamen" },
+  "nav.exercises": { en: "Exercises", no: "Oppgaver" },
   "nav.progress": { en: "Progress", no: "Fremgang" },
 
   // Dashboard
@@ -94,6 +95,26 @@ const translations = {
   "progress.not_practiced": { en: "Not practiced yet", no: "Ikke øvd ennå" },
   "progress.exam_history": { en: "Exam history", no: "Eksamenshistorikk" },
   "progress.not_completed": { en: "Not completed", no: "Ikke fullført" },
+  "progress.wipe_topic": { en: "Reset", no: "Nullstill" },
+  "progress.wipe_topic_confirm": {
+    en: "Reset all progress for this topic?",
+    no: "Nullstille all fremgang for dette temaet?",
+  },
+  "progress.wipe": { en: "Wipe all progress", no: "Slett all fremgang" },
+  "progress.wipe_confirm": {
+    en: "Are you sure? This will permanently delete all your practice history, exam sessions, and topic stats.",
+    no: "Er du sikker? Dette sletter permanent all øvingshistorikk, eksamensøkter og temastatistikk.",
+  },
+
+  // Exercises
+  "exercises.title": { en: "Exercise Sets", no: "Oppgavesett" },
+  "exercises.no_sets": { en: "No exercise sets available yet.", no: "Ingen oppgavesett tilgjengelig ennå." },
+  "exercises.count": { en: "{0} exercises", no: "{0} oppgaver" },
+  "exercises.back": { en: "← Exercises", no: "← Oppgaver" },
+  "exercises.set_not_found": { en: "Exercise set not found.", no: "Oppgavesett ikke funnet." },
+  "exercises.exercise_of": { en: "Exercise {0} of {1}", no: "Oppgave {0} av {1}" },
+  "exercises.show_solution": { en: "Show solution", no: "Vis løsning" },
+  "exercises.hide_solution": { en: "Hide solution", no: "Skjul løsning" },
 
   // Preferences
   "prefs.theme": { en: "Theme", no: "Tema" },

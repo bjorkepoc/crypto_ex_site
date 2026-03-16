@@ -43,46 +43,46 @@
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
-/* Mild theme — warm muted palette */
+/* Mild theme — warm mid-tone palette, between light and dark */
 [data-theme="mild"] {
-  --bg-page: #f5f0eb;
-  --bg-card: #faf7f4;
-  --bg-card-hover: #f0ebe5;
-  --bg-input: #faf7f4;
-  --bg-nav: #faf7f4;
-  --bg-badge-blue: #dce8f5;
-  --bg-badge-green: #dceee2;
-  --bg-badge-yellow: #f5ecd0;
-  --bg-accent: #6b7f5e;
-  --bg-accent-hover: #5a6d4e;
-  --bg-selected: #edf2e8;
-  --bg-muted: #ede8e2;
-  --bg-bar: #ede8e2;
+  --bg-page: #2e2a25;
+  --bg-card: #3a3530;
+  --bg-card-hover: #45403a;
+  --bg-input: #3a3530;
+  --bg-nav: #332e2a;
+  --bg-badge-blue: #2a3444;
+  --bg-badge-green: #253828;
+  --bg-badge-yellow: #3a3420;
+  --bg-accent: #8fa67e;
+  --bg-accent-hover: #7d9470;
+  --bg-selected: #3d4435;
+  --bg-muted: #3a3530;
+  --bg-bar: #45403a;
 
-  --border-default: #d6cec5;
-  --border-subtle: #e8e0d8;
+  --border-default: #504a42;
+  --border-subtle: #45403a;
   --border-accent: #8fa67e;
 
-  --text-primary: #2c2520;
-  --text-secondary: #4a413a;
-  --text-muted: #7a6e63;
-  --text-faint: #a09488;
-  --text-accent: #5a6d4e;
-  --text-on-accent: #ffffff;
-  --text-badge-blue: #3b5a8a;
-  --text-badge-green: #3a6b4a;
-  --text-badge-yellow: #7a5f20;
+  --text-primary: #e8e0d8;
+  --text-secondary: #c5bab0;
+  --text-muted: #9a8e82;
+  --text-faint: #756a60;
+  --text-accent: #a8c098;
+  --text-on-accent: #1a1816;
+  --text-badge-blue: #8ab4e0;
+  --text-badge-green: #80c898;
+  --text-badge-yellow: #d4c080;
 
-  --text-success: #4a8a5a;
-  --text-warning: #9a7a2a;
-  --text-error: #b04040;
-  --bg-success: #eef5f0;
-  --bg-error: #f8efef;
-  --bg-warning: #f7f2e6;
-  --border-success: #a0cca8;
-  --border-error: #dca8a8;
+  --text-success: #80c898;
+  --text-warning: #d4c080;
+  --text-error: #d48080;
+  --bg-success: #253828;
+  --bg-error: #382525;
+  --bg-warning: #38341e;
+  --border-success: #4a6a4a;
+  --border-error: #6a3a3a;
 
-  --shadow-sm: 0 1px 3px 0 rgb(80 60 40 / 0.06);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.2);
 }
 
 /* Dark theme */

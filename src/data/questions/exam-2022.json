@@ -1,0 +1,395 @@
+[
+  {
+    "id": "exam2022-mcq01",
+    "type": "mcq",
+    "topics": ["number-theory-basics"],
+    "source": { "type": "exam", "label": "Exam 2022 Q1" },
+    "difficulty": 2,
+    "text": "Suppose that $3^{-1} \\bmod n = 17$. Then a possible value of $n$ is:",
+    "options": [
+      { "key": "a", "text": "$n = 18$" },
+      { "key": "b", "text": "$n = 35$" },
+      { "key": "c", "text": "$n = 50$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "We need $3 \\times 17 \\equiv 1 \\pmod{n}$. Compute $3 \\times 17 = 51$.\n\n- $51 \\bmod 50 = 1$ -- works!\n- $51 \\bmod 35 = 16$ -- no\n- $51 \\bmod 18 = 15$ -- no\n\nSo $n = 50$."
+  },
+  {
+    "id": "exam2022-mcq02",
+    "type": "mcq",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Exam 2022 Q2" },
+    "difficulty": 1,
+    "text": "Figure A (showing random-looking colours) is the result of an encryption using visual cryptography. You know that figure A is the output of a program. You do not have access to the encryption or decryption keys, but the keys are encoded into the program and you can run it on as many inputs as you like. You try to find out what the unencrypted figure looked like. You are performing:",
+    "options": [
+      { "key": "a", "text": "A chosen ciphertext attack" },
+      { "key": "b", "text": "A chosen plaintext attack" },
+      { "key": "c", "text": "A ciphertext only attack" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Access to the program allows the attacker to choose the plaintext (input) and see the corresponding ciphertext (output). This is the definition of a chosen plaintext attack (CPA). A ciphertext-only attack would mean only seeing ciphertexts. A chosen ciphertext attack would mean choosing ciphertexts and seeing the decrypted plaintexts."
+  },
+  {
+    "id": "exam2022-mcq03",
+    "type": "mcq",
+    "topics": ["hill-stream-otp"],
+    "source": { "type": "exam", "label": "Exam 2022 Q3" },
+    "difficulty": 2,
+    "text": "A ciphertext is encrypted with the Hill cipher using trigrams ($d = 3$). We decide to mount a brute force attack. How many attempts do we need at most to find the key?",
+    "options": [
+      { "key": "a", "text": "$26^3$" },
+      { "key": "b", "text": "$26^2$" },
+      { "key": "c", "text": "$26^9$" }
+    ],
+    "correctAnswer": "c",
+    "solution": "The key for a $3 \\times 3$ Hill cipher is a $3 \\times 3$ matrix over $\\mathbb{Z}_{26}$, with $9$ entries. Each entry can take up to $26$ values, giving an upper bound of $26^9$ possible keys. Not all of these correspond to invertible matrices, but $26^9$ is the upper bound for brute force."
+  },
+  {
+    "id": "exam2022-mcq04",
+    "type": "mcq",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2022 Q4" },
+    "difficulty": 2,
+    "text": "Suppose that you have access to two 128-bit keys, $K_1$ and $K_2$, shared with another party. You want to use the AES block cipher to provide data confidentiality for many data blocks. Which of the following options would be most secure?",
+    "options": [
+      { "key": "a", "text": "Use AES-128 double encryption: for each block first encrypt with $K_1$ and then encrypt the output with $K_2$" },
+      { "key": "b", "text": "Combine $K_1$ with $K_2$ by string concatenation to form $K_3$ and then encrypt all blocks with AES-256 using $K_3$" },
+      { "key": "c", "text": "Alternate AES-128 block encryption with $K_1$ and $K_2$: encrypt block 1 using $K_1$, block 2 using $K_2$, block 3 using $K_1$, and so on" }
+    ],
+    "correctAnswer": "b",
+    "solution": "AES-256 is by far the strongest since there is no known attack using less than around $2^{256}$ operations. Double encryption with two 128-bit keys can be attacked with meet-in-the-middle, reducing effective security to about $2^{129}$. Alternating keys requires only breaking AES-128 twice, with effort not more than $2^{129}$ operations."
+  },
+  {
+    "id": "exam2022-mcq05",
+    "type": "mcq",
+    "topics": ["encryption-modes"],
+    "source": { "type": "exam", "label": "Exam 2022 Q5" },
+    "difficulty": 3,
+    "text": "An active attacker observes a ciphertext of 10 blocks encrypted with a block cipher using some mode of operation. The attacker also knows the exact plaintext. The attacker wants to change the ciphertext to ensure that a specific bit in the fifth block will be flipped after decryption. Which mode makes this task hard for the attacker?",
+    "options": [
+      { "key": "a", "text": "ECB mode" },
+      { "key": "b", "text": "CBC mode" },
+      { "key": "c", "text": "CTR mode" }
+    ],
+    "correctAnswer": "a",
+    "solution": "In **CBC mode**, flipping a bit in ciphertext block $C_4$ causes the same bit to flip in decrypted block $P_5$ (due to the XOR with the previous ciphertext block). In **CTR mode**, flipping a bit in ciphertext directly flips the corresponding bit in the decrypted plaintext. In **ECB mode**, there is no obvious way to control how changes to a ciphertext block affect the decrypted block at a specific bit position -- the block cipher decryption scrambles the change unpredictably."
+  },
+  {
+    "id": "exam2022-mcq06",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Exam 2022 Q6" },
+    "difficulty": 1,
+    "text": "Why do we use salting when we store a password in a database?",
+    "options": [
+      { "key": "a", "text": "To make online password guessing harder" },
+      { "key": "b", "text": "To make dictionary attacks impossible, if the database is leaked" },
+      { "key": "c", "text": "Because passwords should never be stored in plaintext" }
+    ],
+    "correctAnswer": "b",
+    "solution": "Salting adds a unique random value to each password before hashing. If the database is leaked, an attacker cannot use a pre-computed dictionary of common password hashes because each password has a different salt. Online guessing is not affected by how the hashed password is stored (that's rate limiting). While (c) is true, it explains why we hash, not why we salt."
+  },
+  {
+    "id": "exam2022-mcq07",
+    "type": "mcq",
+    "topics": ["number-theory-pk"],
+    "source": { "type": "exam", "label": "Exam 2022 Q7" },
+    "difficulty": 2,
+    "text": "$8911$ is a Carmichael number. There are several methods to test numbers for primality. What is most likely to happen when we use them on $8911$?",
+    "options": [
+      { "key": "a", "text": "The Miller-Rabin test outputs that $8911$ is a prime, but the Fermat test disagrees" },
+      { "key": "b", "text": "The Fermat test outputs that $8911$ is a prime, but the Miller-Rabin test disagrees" },
+      { "key": "c", "text": "The Miller-Rabin test and the Fermat test both output that $8911$ is not a prime" }
+    ],
+    "correctAnswer": "b",
+    "solution": "A Carmichael number satisfies $a^{n-1} \\equiv 1 \\pmod{n}$ for all $a$ coprime to $n$, so the Fermat test will declare it prime in most cases. However, the Miller-Rabin test checks additional conditions (square roots of 1) that Carmichael numbers typically fail. Miller-Rabin never does worse than Fermat, so if Miller-Rabin says \"prime\", Fermat would too. Since $8911$ is composite, Miller-Rabin will most likely detect this while Fermat will not."
+  },
+  {
+    "id": "exam2022-mcq08",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Exam 2022 Q8" },
+    "difficulty": 1,
+    "text": "RSA encryption of a message $M$ makes use of a public exponent $e$, a private exponent $d$ and a modulus $n$. To ensure that encryption and decryption work properly it must be true that:",
+    "options": [
+      { "key": "a", "text": "$\\gcd(M, d) = 1$" },
+      { "key": "b", "text": "$\\gcd(\\varphi(n), d) = 1$" },
+      { "key": "c", "text": "$\\gcd(M, \\varphi(n)) = 1$" }
+    ],
+    "correctAnswer": "b",
+    "solution": "The private exponent $d$ is the modular inverse of $e$ modulo $\\varphi(n)$, so $d$ must be invertible modulo $\\varphi(n)$, requiring $\\gcd(\\varphi(n), d) = 1$. The message $M$ can be any value between $0$ and $n-1$; there is no requirement on $\\gcd(M, d)$ or $\\gcd(M, \\varphi(n))$."
+  },
+  {
+    "id": "exam2022-mcq09",
+    "type": "mcq",
+    "topics": ["public-key-rsa"],
+    "source": { "type": "exam", "label": "Exam 2022 Q9" },
+    "difficulty": 1,
+    "text": "OAEP is a coding algorithm often used together with RSA encryption. Using OAEP helps to:",
+    "options": [
+      { "key": "a", "text": "Prevent attacks based on deterministic encryption" },
+      { "key": "b", "text": "Allow longer messages to be encrypted" },
+      { "key": "c", "text": "Speed up decryption" }
+    ],
+    "correctAnswer": "a",
+    "solution": "OAEP (Optimal Asymmetric Encryption Padding) encodes the input message including a random field, making encryption randomised. Without OAEP, RSA is deterministic: the same plaintext always produces the same ciphertext, enabling dictionary attacks and other attacks based on this predictability."
+  },
+  {
+    "id": "exam2022-mcq10",
+    "type": "mcq",
+    "topics": ["quantum-safe", "discrete-log-crypto"],
+    "source": { "type": "exam", "label": "Exam 2022 Q10" },
+    "difficulty": 2,
+    "text": "Breaking an elliptic curve-based Diffie-Hellman instantiation with curve group size $p$ of length 256 bits is around as hard as breaking 128-bit AES -- this is currently considered secure. Why are we investing so much into developing new cryptographic algorithms if we can just increase the group size $p$ to 512 bits?",
+    "options": [
+      { "key": "a", "text": "We would have to keep doubling the group size every other year, as Moore's law dictates computers keep speeding up" },
+      { "key": "b", "text": "Elliptic curve operations are always linear in the length of $p$, so doubling the group size only has a small effect on brute force key search" },
+      { "key": "c", "text": "Because our adversaries will have access to a quantum computer in the future, and with those you can break ECDH efficiently" }
+    ],
+    "correctAnswer": "c",
+    "solution": "Shor's algorithm allows a quantum computer to efficiently solve the discrete logarithm problem on elliptic curves, regardless of the group size. Simply increasing the group size provides no meaningful protection against a quantum adversary. This is why post-quantum cryptography (lattice-based, code-based, etc.) is being developed as a replacement for algorithms relying on the elliptic curve discrete log problem."
+  },
+  {
+    "id": "exam2022-mcq11",
+    "type": "mcq",
+    "topics": ["hashes-macs"],
+    "source": { "type": "exam", "label": "Exam 2022 Q11" },
+    "difficulty": 2,
+    "text": "You are designing an IoT system which will turn your house's central heating on and off based on the outside temperature. Since it's IoT, everything except the server is battery-powered. The temperature is not a secret, but you want to be sure the correct value is received. What do you use to protect the values sent from the thermometer to your server?",
+    "options": [
+      { "key": "a", "text": "HMAC" },
+      { "key": "b", "text": "ECDSA" },
+      { "key": "c", "text": "ChaCha" }
+    ],
+    "correctAnswer": "a",
+    "solution": "ChaCha is an encryption cipher -- it provides confidentiality but not integrity, so it doesn't meet the requirement. ECDSA could provide integrity via digital signatures, but it's computationally expensive for battery-powered IoT devices. HMAC is a much more efficient way to provide data integrity using symmetric keys, making it the best choice for resource-constrained IoT."
+  },
+  {
+    "id": "exam2022-mcq12",
+    "type": "mcq",
+    "topics": ["tls", "key-establishment"],
+    "source": { "type": "exam", "label": "Exam 2022 Q12" },
+    "difficulty": 2,
+    "text": "Which of the following protocol features is shared by both the Kerberos protocol and the TLS 1.2 handshake protocol?",
+    "options": [
+      { "key": "a", "text": "Forward secrecy is always provided" },
+      { "key": "b", "text": "Knowledge of one session key does not compromise other session keys" },
+      { "key": "c", "text": "Clients need to check the validity of the communication partner's long-term key" }
+    ],
+    "correctAnswer": "b",
+    "solution": "In both Kerberos and TLS 1.2, session keys are generated independently of each other, so knowing one session key does not reveal other session keys. Kerberos uses symmetric long-term keys shared with the server (clients don't check validity via certificates), so (c) is false. Kerberos does not provide forward secrecy, and TLS 1.2 only provides it with certain ciphersuites (DHE/ECDHE), so (a) is false."
+  },
+  {
+    "id": "exam2022-mcq13",
+    "type": "mcq",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2022 Q13" },
+    "difficulty": 1,
+    "text": "Two possible variants of the handshake protocol in TLS 1.2 are based on (i) RSA encryption and (ii) elliptic curve Diffie-Hellman (ECDH). The advantage of using the ECDH variant is:",
+    "options": [
+      { "key": "a", "text": "The TLS *server key exchange* message is shorter" },
+      { "key": "b", "text": "The handshake protocol is secure against quantum computers" },
+      { "key": "c", "text": "Forward secrecy for the session is provided" }
+    ],
+    "correctAnswer": "c",
+    "solution": "ECDHE uses ephemeral Diffie-Hellman key exchange, providing forward secrecy: if the server's long-term key is later compromised, past sessions remain secure. RSA key transport does not provide forward secrecy. The server key exchange message is actually empty in the RSA variant (shorter, not longer), so (a) is wrong. ECDH is vulnerable to quantum attacks via Shor's algorithm, so (b) is false."
+  },
+  {
+    "id": "exam2022-mcq14",
+    "type": "mcq",
+    "topics": ["tls13-ipsec"],
+    "source": { "type": "exam", "label": "Exam 2022 Q14" },
+    "difficulty": 2,
+    "text": "Why does TLS 1.3 remove support for non-AEAD cipher suites?",
+    "options": [
+      { "key": "a", "text": "Because renegotiating the cipher suite used during a TLS connection is an attack vector" },
+      { "key": "b", "text": "This reduces the amount of handshake messages since AEAD ciphersuites are more suitable for 0-RTT" },
+      { "key": "c", "text": "Because non-authenticated information in the header fields is a security risk" }
+    ],
+    "correctAnswer": "c",
+    "solution": "In TLS 1.2 with non-AEAD ciphersuites (e.g., CBC+HMAC), header fields like content type, version, and length are not authenticated, creating vulnerabilities. In TLS 1.3, AEAD modes (like AES-GCM, ChaCha20-Poly1305) authenticate both the ciphertext and additional data (the full header), protecting against tampering. Ciphersuites are still negotiated in TLS 1.3 handshakes, and the number of handshake messages is independent of AEAD usage."
+  },
+  {
+    "id": "exam2022-mcq15",
+    "type": "mcq",
+    "topics": ["email-messaging-security"],
+    "source": { "type": "exam", "label": "Exam 2022 Q15" },
+    "difficulty": 2,
+    "text": "The Double Ratchet from the Signal protocol consists of two ratcheting mechanisms. Why is one ratchet based on Diffie-Hellman not sufficient?",
+    "options": [
+      { "key": "a", "text": "With one ratchet we can't obtain forward secrecy when there are consecutive messages from the same party" },
+      { "key": "b", "text": "We need two ratchets to obtain both authentication (through signatures) and secrecy (through encryption)" },
+      { "key": "c", "text": "With one ratchet we can't support group operations in as well as in elliptic curve groups" }
+    ],
+    "correctAnswer": "a",
+    "solution": "There is no new Diffie-Hellman share available when two consecutive messages are sent in the same direction (since DH requires a response from the other party). Without the symmetric ratchet (hash chain), the same DH-derived key would be used for all consecutive same-direction messages, losing forward secrecy. The symmetric ratchet evolves the key via hashing for each message, ensuring forward secrecy even without a DH exchange."
+  },
+  {
+    "id": "exam2022-w-1",
+    "type": "written",
+    "topics": ["classical-encryption"],
+    "source": { "type": "exam", "label": "Exam 2022 W1" },
+    "difficulty": 2,
+    "text": "The Autokey cipher is a classical cipher. We start by encrypting as with the Vigenère cipher, but instead of repeating the keyword, we use the plaintext as the key:\n$$c_i = \\begin{cases} p_i + k_i \\bmod 26 & \\text{for } 0 \\leq i < 20 \\\\ p_i + p_{i-20} \\bmod 26 & \\text{for } i \\geq 20 \\end{cases}$$\nwhere $k_0, \\ldots, k_{19}$ is the key.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "What is the key space for the Vigenère cipher? What is the key space for the Autokey cipher?",
+        "solution": "Both ciphers use a key of 20 characters from a 26-letter alphabet, so the key space for both is $26^{20}$."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Do you consider this cipher to be more or less secure than the Vigenère cipher?",
+        "solution": "The Autokey cipher is **more secure** than the Vigenère cipher. The Vigenère cipher has a repeating key of period 20, making it vulnerable to Kasiski examination and frequency analysis on each position modulo 20. Essentially you solve 20 independent Caesar ciphers. The Autokey cipher eliminates this periodicity because after the first 20 characters, the key becomes the plaintext itself, which is not periodic."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "What would your attack strategy be, using well-known techniques such as those from the practical assignment?",
+        "solution": "Since the periodicity from Vigenère is gone, standard frequency analysis on fixed positions won't work. One approach:\n\n1. **Crib dragging:** Guess a common word likely in the plaintext (THE, LIKE, etc.) and try it at every position.\n2. If the resulting decrypted characters at that position look like English, use them as key material for positions 20 characters later.\n3. Continue extending: each recovered plaintext character at position $i$ becomes the key for position $i + 20$.\n4. If the extension also produces plausible English, the guess is likely correct.\n\nThis process benefits from automation, since changing a guess at position $i$ cascades to positions $i + 20$, $i + 40$, etc."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2022-w-2",
+    "type": "written",
+    "topics": ["block-ciphers"],
+    "source": { "type": "exam", "label": "Exam 2022 W2" },
+    "difficulty": 2,
+    "text": "Consider a Feistel cipher with a 128-bit block size, a 128-bit key, and 16 rounds. Each round uses:\n$$L_i = R_{i-1}, \\quad R_i = L_{i-1} \\oplus f(R_{i-1}, K_i)$$",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Explain, with justification, what should be the length in bits of outputs from the function $f$.",
+        "solution": "The output of $f$ should be **64 bits** (half the block length). This is because $f(R_{i-1}, K_i)$ is XORed with $L_{i-1}$, which is half of the 128-bit block (64 bits). The lengths must match for the XOR operation."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "What are the possible values of the length in bits of each round key $K_i$? Suggest a reasonable choice for a practical block cipher.",
+        "solution": "The round keys $K_i$ are determined by the key schedule, and any integer bit-length is technically possible. Since there are 128 bits of randomness in the master key and 16 rounds, it doesn't make sense for round keys to be shorter than $128/16 = 8$ bits.\n\nA reasonable choice would be in the range of **48-64 bits** per round key -- smaller than the full 128-bit master key but larger than half a block. This is consistent with DES's approach (56-bit key generating 48-bit round keys for a 64-bit block cipher)."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Suppose $f$ is chosen to ignore its first input, so $f(R_{i-1}, K_i) = f(K_i)$. Explain why the cipher is now easy to break.",
+        "solution": "With this choice, each round just XORs a constant (depending only on the key) into the left or right half. Tracing through the rounds:\n$$L_4 = R_3 = L_2 \\oplus f(K_3) = R_1 \\oplus f(K_3) = L_0 \\oplus f(K_1) \\oplus f(K_3)$$\n\nAfter all 16 rounds, the output is $(L_0 \\oplus C_L, R_0 \\oplus C_R)$ for some fixed constants $C_L$ and $C_R$ that depend only on the key. This is just an XOR with a constant, which is trivially broken with a single known plaintext-ciphertext pair: $C_L = L_0 \\oplus L_{16}$ and $C_R = R_0 \\oplus R_{16}$."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2022-w-3",
+    "type": "written",
+    "topics": ["number-theory-pk", "public-key-rsa"],
+    "source": { "type": "exam", "label": "Exam 2022 W3" },
+    "difficulty": 2,
+    "text": "Suppose $m$ is an integer of 100 bits in length (so $2^{99} \\leq m < 2^{100}$). For some algorithm, we need to compute $x^e \\bmod m$ for some value $x$ of less than 100 bits.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "If $m$ is a prime number, explain why we can always assume that $e$ is of no more than 100 bits when making the computation.",
+        "solution": "By Fermat's Little Theorem, for prime $m$ and $\\gcd(x, m) = 1$:\n$$x^e \\bmod m = x^{e \\bmod (m-1)} \\bmod m$$\n\nSince $m$ is a 100-bit prime, $m - 1$ is also at most 100 bits. Reducing $e$ modulo $m - 1$ gives a value of at most 100 bits, regardless of how large $e$ originally was."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "If the square-and-multiply algorithm is used, what is the maximum number of multiplications needed? (Assume squaring costs the same as multiplication.)",
+        "solution": "With $e$ reduced to at most 100 bits, the square-and-multiply algorithm processes each bit of $e$:\n\n- **Squarings:** One per bit position (except the leading bit), giving at most $99$ squarings.\n- **Multiplications:** One per '1' bit in $e$. In the worst case (all bits set), there are $99$ multiplications (excluding the initial value from the leading bit).\n\nTotal: $99 + 99 = \\mathbf{198}$ multiplications maximum."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Suppose $m = pq$ where $p$ and $q$ are primes of 50 bits each. If the CRT is applied, two exponentiations are computed. Show that the maximum number of multiplications is almost the same as above. Why is CRT still useful?",
+        "solution": "With CRT, we compute $x^e \\bmod p$ and $x^e \\bmod q$ separately, where $p$ and $q$ are 50-bit primes. The exponents are reduced modulo $p-1$ and $q-1$, giving 50-bit exponents. Each exponentiation requires at most $49 + 49 = 98$ multiplications.\n\nTotal: $2 \\times 98 = 196$ multiplications, plus a small cost for CRT reconstruction. This is close to 198.\n\n**Why CRT is still useful:** Although the number of multiplications is similar, each multiplication is performed with a modulus half the size (50 bits vs. 100 bits). Modular multiplication cost scales roughly as $O(n^2)$ where $n$ is the bit length, so half-size modular multiplications are about $4\\times$ cheaper. This gives an overall speedup of roughly $4\\times / 2 \\approx 2\\times$."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2022-w-4",
+    "type": "written",
+    "topics": ["digital-signatures", "tls"],
+    "source": { "type": "exam", "label": "Exam 2022 W4" },
+    "difficulty": 2,
+    "text": "During the fall of 2021, many European countries used \"corona certificates\". National authorities would sign the phrase \"Person X, born Y has been vaccinated on date Z\" using a government private key. This text plus the signature was turned into a QR-code verified using that government's public key.\n\nEva works as a bouncer scanning QR-codes using the Norwegian scanning app, pre-loaded with Norwegian health authority public keys.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Isak has a corona certificate from the Oslo municipality. Eva scans the code and confirms it is valid. What steps does her phone perform to verify this?",
+        "solution": "The QR-code contains the message $m$ and signature $\\sigma$. The public key belonging to the Oslo municipality is already loaded into Eva's phone. The phone computes $\\text{Verify}(m, \\sigma, \\text{key})$ and shows a green screen if the result is true (the signature is valid for the given message and public key)."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Even has a corona certificate from Germany. Eva scans the code and confirms it is valid. What steps does her phone perform?",
+        "solution": "The phone observes the signature is signed with a key it doesn't have locally. It must obtain the German health authority's public key through the certificate chain:\n\n1. The phone contacts FHI (Norwegian health authority) or the EU authority to get the German key.\n2. The certificate chain is verified: the German key is signed by a higher authority, up to the EU root certificate.\n3. The EU root certificate's key must be trusted (e.g., hardcoded into the app or provided by FHI).\n4. Only after verifying the entire chain can the phone use the German key to verify Even's signature."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "In October 2021 the Polish government's private keys were leaked. William buys a fake certificate that registers as valid. A week later, Eva's phone denies it. How could her phone know it was fake?",
+        "solution": "The phone uses a **certificate revocation list (CRL)** or a similar mechanism (e.g., OCSP). After the Polish key compromise was discovered:\n\n1. The compromised key was added to a revocation list.\n2. The scanning app periodically downloads updated revocation lists (from FHI, the EU authority, or the Polish authority).\n3. When Eva scans William's certificate, the app checks the signing key against the revocation list and finds it has been revoked.\n4. The certificate is rejected even though the signature is mathematically valid.\n\nNote: certificate expiration alone is unlikely to explain this within one week, as certificates typically have longer validity periods."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2022-w-5",
+    "type": "written",
+    "topics": ["tls"],
+    "source": { "type": "exam", "label": "Exam 2022 W5" },
+    "difficulty": 2,
+    "text": "The TLS 1.2 handshake protocol allows a client and server to agree upon various parameters.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "How could a client force the server to accept the weakest ciphersuite that the server supports?",
+        "solution": "Since the server selects the best ciphersuite from the client's proposal, the client could send only the weakest ciphersuite that it knows the server supports. By offering only one option, the server is forced to accept it (or refuse the connection entirely)."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "What will happen if the client and server do not share a ciphersuite that they both support?",
+        "solution": "The client is allowed to make a new proposal, but if they ultimately do not support any shared ciphersuite, no secure connection can be established. The server will send a handshake failure alert and the connection will be terminated."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "What prevents an active attacker from forcing a client and server to use an older version of TLS, when there is a newer one they both support?",
+        "solution": "The client starts by offering its best version of TLS. The version number is included in all handshake messages. If an active attacker modifies the client's proposal to downgrade the version, this will be detected by the **Finished messages**: these contain an HMAC over the entire handshake transcript. Since the attacker's modifications change the transcript, the Finished message verification will fail and both parties will abort.\n\nAdditionally, the TLS Fallback Signaling Cipher Suite Value (SCSV) mechanism prevents the POODLE-style attack where an attacker interrupts connections to force automatic version fallback."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2022-w-6",
+    "type": "written",
+    "topics": ["email-messaging-security", "key-establishment"],
+    "source": { "type": "exam", "label": "Exam 2022 W6" },
+    "difficulty": 3,
+    "text": "The Extended Triple Diffie-Hellman protocol (X3DH) is Signal's protocol for initialising a conversation. When creating an account, you upload a public identity key ($IK$) and a public pre-key ($SPK$) to the server. $IK$ is static long-term, while $SPK$ is replaced every week or so.\n\nWhen Bob wants to talk to Alice, he gets $IK_A$ and $SPK_A$ from the server, generates ephemeral keypair $EK_B$, and computes a shared secret $SK$ based on four keys: public keys $IK_A$ and $SPK_A$, and private keys corresponding to $IK_B$ and $EK_B$.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "What security property/properties does Bob achieve by computing a new $EK_B$ every time, given that he already uses his identity key $IK_B$?",
+        "solution": "Generating a fresh ephemeral key $EK_B$ for each conversation provides:\n\n1. **Replay attack mitigation:** Even if an attacker replays Bob's initial message, the $EK_B$ will be different each time, so the derived $SK$ will differ. The server/Alice can detect the replay.\n\n2. **Forward secrecy:** Bob can delete the private key corresponding to $EK_B$ after the session is established (as the Signal ratchet will negotiate new keys for follow-up messages). If Bob's device is later compromised, the attacker cannot recover $SK$ for past conversations because the ephemeral private key is gone."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "Adversary Charlie takes over the Signal servers. Charlie replaces $IK_A$ with $IK_C$ and $SPK_A$ with $SPK_C$ before Bob starts his conversation. What effect does this have? How can Bob verify he is talking to Alice?",
+        "solution": "Since Signal allows anyone to create an account without proof of identity, Charlie replacing Alice's keys is equivalent to impersonating Alice. Bob will unknowingly establish a session with Charlie's keys and send messages that Charlie can decrypt.\n\nThis is a fundamental limitation: there was no verification of Alice's identity when she originally registered. **Essentially nothing has changed** from the protocol's perspective -- the trust model never guaranteed Alice's identity.\n\nTo verify he is talking to the real Alice, Bob should:\n- **Safety number verification:** Both Bob and Alice compare \"safety numbers\" (a hash of their identity keys) through a trusted, authenticated out-of-band channel (e.g., meeting in person, a phone call, or scanning each other's QR codes in the app).\n- If the safety numbers match, Bob knows the keys have not been replaced."
+      }
+    ],
+    "totalPoints": 6
+  }
+]

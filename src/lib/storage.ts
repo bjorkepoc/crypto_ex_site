@@ -107,6 +107,20 @@ export function saveExamSession(session: ExamSession): void {
   saveProgress(progress);
 }
 
+export function wipeAllProgress(): void {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(STORAGE_KEY);
+}
+
+export function wipeTopicProgress(topicId: TopicId): void {
+  const progress = loadProgress();
+  progress.topicStats[topicId] = defaultTopicStats(topicId);
+  progress.practiceHistory = progress.practiceHistory.filter(
+    (a) => a.topicId !== topicId
+  );
+  saveProgress(progress);
+}
+
 export function getExamSession(sessionId: string): ExamSession | null {
   const progress = loadProgress();
   return progress.examSessions.find((s) => s.id === sessionId) ?? null;

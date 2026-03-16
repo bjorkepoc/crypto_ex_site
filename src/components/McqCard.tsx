@@ -1,12 +1,34 @@
 "use client";
 
-import { McqQuestion } from "@/types";
+import { McqQuestion, McqOption } from "@/types";
 import MathText from "./MathText";
 import SourceBadge from "./SourceBadge";
 import SolutionPanel from "./SolutionPanel";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+
+/** Simple seeded PRNG for deterministic shuffle per question */
+function seededRandom(seed: string): () => number {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) {
+    h = (Math.imul(31, h) + seed.charCodeAt(i)) | 0;
+  }
+  return () => {
+    h = (Math.imul(h ^ (h >>> 16), 0x45d9f3b) + 0x1234567) | 0;
+    return ((h >>> 0) % 10000) / 10000;
+  };
+}
+
+function shuffleOptions(options: McqOption[], questionId: string): McqOption[] {
+  const rng = seededRandom(questionId);
+  const shuffled = [...options];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 interface McqCardProps {
   question: McqQuestion;
@@ -32,6 +54,12 @@ export default function McqCard({
 
   const selected = externalSelected !== undefined ? externalSelected : internalSelected;
   const showResult = externalShowResult !== undefined ? externalShowResult : internalShowResult;
+
+  const displayOptions = useMemo(
+    () => shuffleOptions(question.options, question.id),
+    [question.options, question.id],
+  );
+  const displayLabels = ["a", "b", "c", "d"];
 
   function handleSelect(key: string) {
     if (showResult && !disabled) return;
@@ -61,7 +89,7 @@ export default function McqCard({
         <MathText text={question.text} />
       </div>
       <div className="mb-4 space-y-2">
-        {question.options.map((opt) => {
+        {displayOptions.map((opt, idx) => {
           let optionClass =
             "flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-sm transition-colors";
           if (showResult) {
@@ -86,7 +114,7 @@ export default function McqCard({
               disabled={showResult || disabled}
             >
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-semibold uppercase">
-                {opt.key}
+                {displayLabels[idx]}
               </span>
               <MathText text={opt.text} />
             </button>

@@ -1,21 +1,38 @@
 "use client";
 
 import { topics } from "@/data/topics";
-import { loadProgress } from "@/lib/storage";
+import { loadProgress, wipeAllProgress, wipeTopicProgress } from "@/lib/storage";
 import { useHydrated } from "@/lib/useHydrated";
 import { usePrefs } from "@/lib/preferences";
 import { t, topicNames } from "@/lib/i18n";
 import ProgressBar from "@/components/ProgressBar";
 import Link from "next/link";
+import { TopicId } from "@/types";
+import { useState } from "react";
 
 export default function ProgressPage() {
   const hydrated = useHydrated();
   const { prefs } = usePrefs();
   const lang = prefs.lang;
+  const [wipeTick, setWipeTick] = useState(0);
 
   if (!hydrated) return null;
 
+  // wipeTick triggers re-render after wipe to reload fresh progress
+  void wipeTick;
   const progress = loadProgress();
+
+  function handleWipeTopic(topicId: TopicId) {
+    if (!window.confirm(t("progress.wipe_topic_confirm", lang))) return;
+    wipeTopicProgress(topicId);
+    setWipeTick((n) => n + 1);
+  }
+
+  function handleWipe() {
+    if (!window.confirm(t("progress.wipe_confirm", lang))) return;
+    wipeAllProgress();
+    setWipeTick((n) => n + 1);
+  }
 
   const topicStats = topics
     .map((tp) => ({
@@ -90,8 +107,16 @@ export default function ProgressPage() {
                     >
                       {name}
                     </Link>
-                    <span className="text-xs text-th-text-faint">
-                      {stats.mcqCorrect}/{stats.mcqAttempted}
+                    <span className="flex items-center gap-2">
+                      <span className="text-xs text-th-text-faint">
+                        {stats.mcqCorrect}/{stats.mcqAttempted}
+                      </span>
+                      <button
+                        onClick={() => handleWipeTopic(topic.id)}
+                        className="rounded px-1.5 py-0.5 text-[10px] text-th-text-faint transition-colors hover:bg-th-error-bg hover:text-th-error"
+                      >
+                        {t("progress.wipe_topic", lang)}
+                      </button>
                     </span>
                   </div>
                   <ProgressBar
@@ -167,6 +192,15 @@ export default function ProgressPage() {
           </div>
         </div>
       )}
+
+      <div className="mt-10 border-t border-th-border pt-6">
+        <button
+          onClick={handleWipe}
+          className="rounded-lg border border-th-error-border bg-th-error-bg px-4 py-2 text-sm font-medium text-th-error transition-colors hover:opacity-80"
+        >
+          {t("progress.wipe", lang)}
+        </button>
+      </div>
     </div>
   );
 }

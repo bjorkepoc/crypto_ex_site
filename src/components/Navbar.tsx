@@ -18,6 +18,7 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: t("nav.dashboard", lang) },
+    { href: "/exercises", label: t("nav.exercises", lang) },
     { href: "/exam", label: t("nav.exam", lang) },
     { href: "/progress", label: t("nav.progress", lang) },
   ];
@@ -35,7 +36,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  pathname === link.href
+                  pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
                     ? "text-th-text-accent"
                     : "text-th-text-muted hover:text-th-text"
                 }`}

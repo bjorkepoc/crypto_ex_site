@@ -1,6 +1,8 @@
 import { Question, TopicId, McqQuestion, WrittenQuestion } from "@/types";
 import exam2025 from "./questions/exam-2025.json";
 import exam2024 from "./questions/exam-2024.json";
+import exam2023 from "./questions/exam-2023.json";
+import exam2022 from "./questions/exam-2022.json";
 import lecture09 from "./questions/lecture-09.json";
 import lecture10 from "./questions/lecture-10.json";
 import nlmBatch from "./questions/notebooklm-batch.json";
@@ -9,6 +11,8 @@ import nlmBatch from "./questions/notebooklm-batch.json";
 const allQuestions: Question[] = [
   ...exam2025 as unknown as Question[],
   ...exam2024 as unknown as Question[],
+  ...exam2023 as unknown as Question[],
+  ...exam2022 as unknown as Question[],
   ...lecture09 as unknown as Question[],
   ...lecture10 as unknown as Question[],
   ...nlmBatch as unknown as Question[],

@@ -66,6 +66,21 @@ export interface WrittenQuestion {
 
 export type Question = McqQuestion | WrittenQuestion;
 
+// Exercise types
+export interface ExerciseItem {
+  id: string;
+  text: string; // supports KaTeX via $...$
+  solution: string; // markdown with KaTeX
+}
+
+export interface ExerciseSet {
+  id: string; // e.g. "E-1"
+  title: { en: string; no: string };
+  description?: { en: string; no: string };
+  topics: TopicId[];
+  exercises: ExerciseItem[];
+}
+
 // Exam session types
 export interface ExamSession {
   id: string;

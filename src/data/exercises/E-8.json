@@ -1,65 +1,160 @@
 [
   {
     "id": "E-8",
-    "title": { "en": "Worksheet 8: TLS, IPsec & Secure Messaging", "no": "Oppgavesett 8: TLS, IPsec & sikker meldingsutveksling" },
-    "description": { "en": "TLS ciphersuites, padding oracle, IPsec, PGP, Signal protocol", "no": "TLS-chiffersuiter, padding-orakel, IPsec, PGP, Signal-protokollen" },
-    "topics": ["tls", "tls13-ipsec", "email-messaging-security"],
+    "title": {
+      "en": "Worksheet 8: TLS, IPsec & Secure Messaging",
+      "no": "Oppgavesett 8: TLS, IPsec & sikker meldingsutveksling"
+    },
+    "description": {
+      "en": "TLS ciphersuites, padding oracle, IPsec, PGP, Signal protocol",
+      "no": "TLS-chiffersuiter, padding-orakel, IPsec, PGP, Signal-protokollen"
+    },
+    "topics": [
+      "tls",
+      "tls13-ipsec",
+      "email-messaging-security"
+    ],
     "exercises": [
       {
         "id": "E-8-1",
         "text": "Review the definitions of the following concepts:\n\n(a) TLS ciphersuites\n\n(b) TLS Record protocol\n\n(c) TLS Handshake protocol\n\n(d) 0-RTT protocols\n\n(e) Host-to-host, gateway-to-gateway and host-to-gateway IPsec architectures\n\n(f) IPsec transport mode and tunnel mode\n\n(g) Domain Keys Identified Mail (DKIM)\n\n(h) OpenPGP\n\n(i) Signal protocol",
-        "solution": "See lecture slides for definitions."
+        "solution": "See lecture slides for definitions.",
+        "topics": [
+          "tls",
+          "tls13-ipsec",
+          "email-messaging-security"
+        ],
+        "lectures": [
+          "L-13",
+          "L-14",
+          "L-15"
+        ]
       },
       {
         "id": "E-8-2",
         "text": "Consider the following ciphersuite specifications for TLS. What do each of them mean? Comment on the security of each regarding: choice of algorithms, key length, and forward secrecy.\n\n(a) TLS_RSA_WITH_RC4_128_MD5\n\n(b) TLS_RSA_WITH_NULL_SHA\n\n(c) TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA\n\n(d) TLS_DHE_DSA_WITH_AES_256_CBC_SHA256\n\n(e) TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n\n(f) TLS_CHACHA20_POLY1305_SHA256",
-        "solution": "The codes before WITH specify public-key algorithms for key exchange in the Handshake protocol; codes after WITH specify algorithms for encryption and authentication in the Record protocol.\n\n**(a) TLS_RSA_WITH_RC4_128_MD5:** RSA key exchange (master secret encrypted with server's RSA public key). No forward secrecy. RC4 with 128-bit key for encryption (no longer recommended due to attacks). MD5 for HMAC (not recommended, though no known attacks on MD5 in HMAC).\n\n**(b) TLS_RSA_WITH_NULL_SHA:** RSA key exchange as in (a). No encryption at all, which is a major weakness. SHA-1 for HMAC. SHA-1 is broken for collisions, though no known attacks on SHA-1 in HMAC.\n\n**(c) TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA:** Ephemeral Diffie-Hellman key exchange (provides forward secrecy), RSA for authentication. Triple-DES in CBC mode (168-bit key, but only 64-bit block length, not recommended). SHA-1 for HMAC.\n\n**(d) TLS_DHE_DSA_WITH_AES_256_CBC_SHA256:** Ephemeral DH with DSA signatures (provides forward secrecy), operating in $\\mathbb{Z}_p^*$. AES-256-CBC for encryption (adequate key length). SHA-256 for HMAC. Note: SHA-512 would better match the 256-bit encryption key strength.\n\n**(e) TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:** Ephemeral elliptic curve DH with ECDSA (provides forward secrecy). AES-128 in GCM mode (authenticated encryption, so no separate MAC). SHA-256 for the PRF deriving session keys. Strong overall choice.\n\n**(f) TLS_CHACHA20_POLY1305_SHA256:** TLS 1.3 ciphersuite (handshake algorithms not specified in the name; ECDHE is always used, providing forward secrecy). ChaCha20/Poly1305 authenticated encryption. SHA-256 for the key derivation function. Strong modern choice."
+        "solution": "The codes before WITH specify public-key algorithms for key exchange in the Handshake protocol; codes after WITH specify algorithms for encryption and authentication in the Record protocol.\n\n**(a) TLS_RSA_WITH_RC4_128_MD5:** RSA key exchange (master secret encrypted with server's RSA public key). No forward secrecy. RC4 with 128-bit key for encryption (no longer recommended due to attacks). MD5 for HMAC (not recommended, though no known attacks on MD5 in HMAC).\n\n**(b) TLS_RSA_WITH_NULL_SHA:** RSA key exchange as in (a). No encryption at all, which is a major weakness. SHA-1 for HMAC. SHA-1 is broken for collisions, though no known attacks on SHA-1 in HMAC.\n\n**(c) TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA:** Ephemeral Diffie-Hellman key exchange (provides forward secrecy), RSA for authentication. Triple-DES in CBC mode (168-bit key, but only 64-bit block length, not recommended). SHA-1 for HMAC.\n\n**(d) TLS_DHE_DSA_WITH_AES_256_CBC_SHA256:** Ephemeral DH with DSA signatures (provides forward secrecy), operating in $\\mathbb{Z}_p^*$. AES-256-CBC for encryption (adequate key length). SHA-256 for HMAC. Note: SHA-512 would better match the 256-bit encryption key strength.\n\n**(e) TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:** Ephemeral elliptic curve DH with ECDSA (provides forward secrecy). AES-128 in GCM mode (authenticated encryption, so no separate MAC). SHA-256 for the PRF deriving session keys. Strong overall choice.\n\n**(f) TLS_CHACHA20_POLY1305_SHA256:** TLS 1.3 ciphersuite (handshake algorithms not specified in the name; ECDHE is always used, providing forward secrecy). ChaCha20/Poly1305 authenticated encryption. SHA-256 for the key derivation function. Strong modern choice.",
+        "topics": [
+          "tls",
+          "tls13-ipsec"
+        ],
+        "lectures": [
+          "L-13",
+          "L-14"
+        ]
       },
       {
         "id": "E-8-3",
         "text": "Consider man-in-the-middle (MITM) scenarios with TLS in which a root certificate is added to the client machine.\n\n(a) What are scenarios in which such a MITM may be regarded as legitimate?\n\n(b) How might a root certificate get added to a machine in practice?\n\n(c) In what sense are these scenarios always bad for security, no matter how they are implemented?",
-        "solution": "(a) In a corporate environment, a company may regard it as legitimate to decrypt all company traffic at a network gateway for reasons such as checking for incoming malware and outgoing company secrets. Another scenario is companies providing a service (such as advertising) who believe this justifies decrypting and altering client traffic.\n\n(b) In a corporate environment the company may insist on a standard operating environment for all company computers, setting up root certificates to include a corporate gateway certificate. Then the corporate gateway can issue certificates for any entity that will be accepted by the client browser. Pre-loaded operating systems can also have additional root certificates added beyond those in a standard browser.\n\n(c) These scenarios break the end-to-end security of the TLS connection. The client and server now need to trust that the intermediate server is secure and will treat their data securely."
+        "solution": "(a) In a corporate environment, a company may regard it as legitimate to decrypt all company traffic at a network gateway for reasons such as checking for incoming malware and outgoing company secrets. Another scenario is companies providing a service (such as advertising) who believe this justifies decrypting and altering client traffic.\n\n(b) In a corporate environment the company may insist on a standard operating environment for all company computers, setting up root certificates to include a corporate gateway certificate. Then the corporate gateway can issue certificates for any entity that will be accepted by the client browser. Pre-loaded operating systems can also have additional root certificates added beyond those in a standard browser.\n\n(c) These scenarios break the end-to-end security of the TLS connection. The client and server now need to trust that the intermediate server is secure and will treat their data securely.",
+        "topics": [
+          "tls"
+        ],
+        "lectures": [
+          "L-13"
+        ]
       },
       {
         "id": "E-8-4",
         "text": "This question illustrates padding oracle attacks on TLS. TLS uses padding on plaintexts with CBC mode encryption for block ciphers (like AES). Padding works by adding at least one byte. The padding is the representation of the number of padding bytes preceded by that same value repeated. Thus possible padding is \"00\" or \"01 01\" or \"02 02 02\", etc. Assume the receiver always outputs an explicit padding error.\n\n(a) How will this padding be checked and correctly removed by the receiver?\n\n(b) What happens if the last byte of block $C_{n-1}$ of an $n$-block CBC ciphertext is altered? In what circumstances will the padding in the decryption of the last block $C_n$ be correct? (Write an equation for one byte of padding.)\n\n(c) Use the above observation to show how a padding oracle attack works to find one byte of the plaintext. How many attempts are required?\n\n(d) How can this attack be extended to obtain all bytes in $P_n = D(C_n, K)$?",
-        "solution": "(a) The receiver reads and removes the last byte and interprets it as an integer $x$. The receiver then removes $x$ further bytes. For secure TLS operation, the receiver must also check that all removed bytes indicate the same value $x$.\n\n(b) A change in the last byte of $C_{n-1}$ results in a random recovered $P_{n-1}$ and the same change (bits flipped) in the last byte of $P_n$. Let $D(C_n, K) = X_0 \\| X_1 \\| \\ldots \\| X_{15}$ (for AES with 16-byte output) and $C_{n-1} = C_{n-1,0} \\| C_{n-1,1} \\| \\ldots \\| C_{n-1,15}$. The padding is accepted if:\n\n$C_{n-1,15} \\oplus X_{15} = \\texttt{00}$\n\nsince in CBC mode $P_n = D(C_n, K) \\oplus C_{n-1}$.\n\n(c) The attacker tries different values for $C_{n-1,15}$ until the padding is accepted. When accepted, the attacker can deduce $C_{n-1,15} = X_{15}$. This requires at most 255 trials, or 128 on average.\n\n(d) Once $X_{15}$ is known, find $X_{14}$ by setting $C_{n-1,15} = X_{15} \\oplus \\texttt{01}$ and varying $C_{n-1,14}$ until padding is accepted. This occurs when:\n\n$C_{n-1,14} \\oplus X_{14} \\| C_{n-1,15} \\oplus X_{15} = \\texttt{01} \\| \\texttt{01}$\n\n$X_{14}$ is found after another ~128 trials. Continue for the next byte looking for padding $\\texttt{02} \\| \\texttt{02} \\| \\texttt{02}$, and so on, recovering the entire block."
+        "solution": "(a) The receiver reads and removes the last byte and interprets it as an integer $x$. The receiver then removes $x$ further bytes. For secure TLS operation, the receiver must also check that all removed bytes indicate the same value $x$.\n\n(b) A change in the last byte of $C_{n-1}$ results in a random recovered $P_{n-1}$ and the same change (bits flipped) in the last byte of $P_n$. Let $D(C_n, K) = X_0 \\| X_1 \\| \\ldots \\| X_{15}$ (for AES with 16-byte output) and $C_{n-1} = C_{n-1,0} \\| C_{n-1,1} \\| \\ldots \\| C_{n-1,15}$. The padding is accepted if:\n\n$C_{n-1,15} \\oplus X_{15} = \\texttt{00}$\n\nsince in CBC mode $P_n = D(C_n, K) \\oplus C_{n-1}$.\n\n(c) The attacker tries different values for $C_{n-1,15}$ until the padding is accepted. When accepted, the attacker can deduce $C_{n-1,15} = X_{15}$. This requires at most 255 trials, or 128 on average.\n\n(d) Once $X_{15}$ is known, find $X_{14}$ by setting $C_{n-1,15} = X_{15} \\oplus \\texttt{01}$ and varying $C_{n-1,14}$ until padding is accepted. This occurs when:\n\n$C_{n-1,14} \\oplus X_{14} \\| C_{n-1,15} \\oplus X_{15} = \\texttt{01} \\| \\texttt{01}$\n\n$X_{14}$ is found after another ~128 trials. Continue for the next byte looking for padding $\\texttt{02} \\| \\texttt{02} \\| \\texttt{02}$, and so on, recovering the entire block.",
+        "topics": [
+          "tls"
+        ],
+        "lectures": [
+          "L-13"
+        ]
       },
       {
         "id": "E-8-5",
         "text": "Compare the handshake protocols in TLS 1.2 and TLS 1.3. The client is not permitted to send application data before it receives the finished message from the server.\n\n(a) How much longer must the client wait before sending application data in TLS 1.2 compared with TLS 1.3?\n\n(b) What attacks are possible in TLS 1.2 if the client could send application data in Phase 3 after its own finished message?",
-        "solution": "(a) In TLS 1.2, the client cannot send application data until after two complete round trips (not until part of its third message flow). In TLS 1.3, the client can send application data after one round trip (in its second message flow). So the client waits about half the time in TLS 1.3 compared to TLS 1.2.\n\n(b) The client already has session keys after sending its finished message in TLS 1.2, so it could protect application data. However, at that point all server communication has been in plaintext and the client has no assurance that server messages have not been replayed or constructed by an attacker. In particular, the attacker may have changed the chosen ciphersuite and version number to be less secure than the client preferred."
+        "solution": "(a) In TLS 1.2, the client cannot send application data until after two complete round trips (not until part of its third message flow). In TLS 1.3, the client can send application data after one round trip (in its second message flow). So the client waits about half the time in TLS 1.3 compared to TLS 1.2.\n\n(b) The client already has session keys after sending its finished message in TLS 1.2, so it could protect application data. However, at that point all server communication has been in plaintext and the client has no assurance that server messages have not been replayed or constructed by an attacker. In particular, the attacker may have changed the chosen ciphersuite and version number to be less secure than the client preferred.",
+        "topics": [
+          "tls",
+          "tls13-ipsec"
+        ],
+        "lectures": [
+          "L-13",
+          "L-14"
+        ]
       },
       {
         "id": "E-8-6",
         "text": "Compare IPsec in host-to-gateway architecture with TLS. Discuss which is most suitable in each case:\n\n(a) You have two applications on your server which you want to secure with independent keys and different security services.\n\n(b) You want to secure a server with a number of applications and you may want to add new applications in the future without changing the security settings.",
-        "solution": "(a) IPsec in host-to-gateway architecture only provides security from the host to the gateway, not end-to-end to the application server, so it is not suitable. With TLS, the two applications can be set up with different certificates and ciphersuites, providing independent security.\n\n(b) IPsec in host-to-gateway architecture provides exactly what is needed: the same security for all IP traffic across the host-to-gateway connection, so any new applications are automatically protected. However, end-to-end security is not provided. With TLS, you would need to set up the protocol and certificates for each new application when it is added."
+        "solution": "(a) IPsec in host-to-gateway architecture only provides security from the host to the gateway, not end-to-end to the application server, so it is not suitable. With TLS, the two applications can be set up with different certificates and ciphersuites, providing independent security.\n\n(b) IPsec in host-to-gateway architecture provides exactly what is needed: the same security for all IP traffic across the host-to-gateway connection, so any new applications are automatically protected. However, end-to-end security is not provided. With TLS, you would need to set up the protocol and certificates for each new application when it is added.",
+        "topics": [
+          "tls",
+          "tls13-ipsec"
+        ],
+        "lectures": [
+          "L-13",
+          "L-14"
+        ]
       },
       {
         "id": "E-8-7",
         "text": "Three possible ways to combine encryption and MACs are:\n\n- Encrypt first, apply the MAC to the ciphertext (Encrypt-then-MAC);\n- Apply the MAC first, encrypt plaintext and MAC together (MAC-then-Encrypt);\n- Apply the MAC and encrypt the plaintext separately (Encrypt-and-MAC).\n\nWhich is used in the TLS Record Protocol (up to version 1.2) and which in the ESP protocol of IPsec? Why is the third option not suitable in general?",
-        "solution": "**IPsec ESP** uses Encrypt-then-MAC: the data plus ESP trailer are encrypted first, then the ESP header is added and the whole is authenticated. This is today regarded as the correct order.\n\n**TLS Record Protocol** (up to 1.2) uses MAC-then-Encrypt: the MAC is computed on all data, then the payload and MAC are encrypted together. This order does not always provide the desired security even when both algorithms are individually secure.\n\n**Encrypt-and-MAC** (the third option) is generally not suitable because a MAC is not designed to provide confidentiality. Although we may not see an obvious way to extract plaintext information from the MAC, there is no guarantee it does not leak information about the plaintext."
+        "solution": "**IPsec ESP** uses Encrypt-then-MAC: the data plus ESP trailer are encrypted first, then the ESP header is added and the whole is authenticated. This is today regarded as the correct order.\n\n**TLS Record Protocol** (up to 1.2) uses MAC-then-Encrypt: the MAC is computed on all data, then the payload and MAC are encrypted together. This order does not always provide the desired security even when both algorithms are individually secure.\n\n**Encrypt-and-MAC** (the third option) is generally not suitable because a MAC is not designed to provide confidentiality. Although we may not see an obvious way to extract plaintext information from the MAC, there is no guarantee it does not leak information about the plaintext.",
+        "topics": [
+          "tls",
+          "tls13-ipsec"
+        ],
+        "lectures": [
+          "L-13",
+          "L-14"
+        ]
       },
       {
         "id": "E-8-8",
         "text": "Explain why the lack of interaction in email delivery prevents the possibility of achieving forward secrecy for secure email. Is there a way that forward secrecy could be approximated for email?",
-        "solution": "Email uses the store-and-forward principle. The recipient is not assumed to be online when the email is sent, and before receiving the encrypted message we cannot assume interaction between endpoints. Since there is no interaction, it must be possible to decrypt the message with only the long-term key. When the long-term key is later compromised, any captured encrypted mail is decryptable.\n\nWays to approximate forward secrecy:\n\n1. **Link encryption:** TLS is often used for mail in transit. Since TLS provides forward secrecy, an eavesdropper on those links is protected. This does not help if the attacker controls a link.\n\n2. **Regular key updates:** Update the public/private key pair regularly (e.g., daily), possibly incorporating the date into the public key. This does not protect today's traffic if the daily key is compromised before update, and means old messages cannot be decrypted.\n\n3. **Key evolution on receipt:** If the long-term key is updated every time a message is received so it can no longer decrypt that message, the impossibility argument breaks down. Some recent protocols achieve this, but they are not very efficient.\n\nNote: instant messaging (e.g., Signal) allows interaction, enabling true forward secrecy."
+        "solution": "Email uses the store-and-forward principle. The recipient is not assumed to be online when the email is sent, and before receiving the encrypted message we cannot assume interaction between endpoints. Since there is no interaction, it must be possible to decrypt the message with only the long-term key. When the long-term key is later compromised, any captured encrypted mail is decryptable.\n\nWays to approximate forward secrecy:\n\n1. **Link encryption:** TLS is often used for mail in transit. Since TLS provides forward secrecy, an eavesdropper on those links is protected. This does not help if the attacker controls a link.\n\n2. **Regular key updates:** Update the public/private key pair regularly (e.g., daily), possibly incorporating the date into the public key. This does not protect today's traffic if the daily key is compromised before update, and means old messages cannot be decrypted.\n\n3. **Key evolution on receipt:** If the long-term key is updated every time a message is received so it can no longer decrypt that message, the impossibility argument breaks down. Some recent protocols achieve this, but they are not very efficient.\n\nNote: instant messaging (e.g., Signal) allows interaction, enabling true forward secrecy.",
+        "topics": [
+          "email-messaging-security"
+        ],
+        "lectures": [
+          "L-15"
+        ]
       },
       {
         "id": "E-8-9",
         "text": "In hybrid encryption, such as used in PGP, is it better to have the public key encryption or the symmetric key encryption be the stronger of the two?",
-        "solution": "Breaking the long-term public decryption key leads to breaking all symmetric keys (due to the lack of forward secrecy). However, breaking one symmetric key only breaks one session. Therefore, we should ensure that the (believed) strength of the public key encryption is at least as good as the symmetric key encryption."
+        "solution": "Breaking the long-term public decryption key leads to breaking all symmetric keys (due to the lack of forward secrecy). However, breaking one symmetric key only breaks one session. Therefore, we should ensure that the (believed) strength of the public key encryption is at least as good as the symmetric key encryption.",
+        "topics": [
+          "email-messaging-security"
+        ],
+        "lectures": [
+          "L-15"
+        ]
       },
       {
         "id": "E-8-10",
         "text": "End-to-end security and link security are two ways of providing network security. What are some of the advantages and disadvantages of each? What protocols or configurations are available to provide each type of security in:\n\n(a) Email\n\n(b) IPsec",
-        "solution": "**End-to-end security:** Endpoints control their own security level and generate their own keys. No need to trust third parties. However, header/metadata needed for routing cannot be encrypted end-to-end since network nodes must read it. Metadata leakage can be very useful for an attacker.\n\n**Link security:** Header data can be protected since nodes carry traffic between many sources and destinations. Network operators may have better capability and resources than endpoint users to set up security properly.\n\n**(a) Email:**\n- End-to-end: PGP/OpenPGP\n- Domain-to-domain: DKIM\n- Link-by-link: STARTTLS\n\n**(b) IPsec:**\n- End-to-end: Host-to-host architecture\n- Link/partial: Gateway-to-gateway architecture (commonly used)"
+        "solution": "**End-to-end security:** Endpoints control their own security level and generate their own keys. No need to trust third parties. However, header/metadata needed for routing cannot be encrypted end-to-end since network nodes must read it. Metadata leakage can be very useful for an attacker.\n\n**Link security:** Header data can be protected since nodes carry traffic between many sources and destinations. Network operators may have better capability and resources than endpoint users to set up security properly.\n\n**(a) Email:**\n- End-to-end: PGP/OpenPGP\n- Domain-to-domain: DKIM\n- Link-by-link: STARTTLS\n\n**(b) IPsec:**\n- End-to-end: Host-to-host architecture\n- Link/partial: Gateway-to-gateway architecture (commonly used)",
+        "topics": [
+          "tls13-ipsec",
+          "email-messaging-security"
+        ],
+        "lectures": [
+          "L-14",
+          "L-15"
+        ]
       },
       {
         "id": "E-8-11",
         "text": "The messaging protocol Signal uses pre-computed Diffie-Hellman keys to protect the first message in any conversation. Client $A$ pre-computes many $t_i = g^{x_i}$ values stored on the Signal server. When client $B$ starts a new conversation with $A$:\n\n- $B$ receives an unused pre-computed key $t_i = g^{x_i}$, which is then deleted from the server;\n- $B$ chooses an ephemeral DH private key $x_B$;\n- $B$ computes a message key $k$ as a hash of $g^{x_i x_B}$;\n- $B$ sends the first message protected by $k$ and also sends $g^{x_B}$;\n- $A$ receives the message, uses $x_i$ to recompute $k$, recovers the message, and deletes $x_i$;\n- For the next message, $A$ computes a new ephemeral DH value combined with $g^{x_B}$ for the next key.\n\nSignal has a fallback mechanism to reuse the last available pre-computed key for many conversations until replenished (suggested weekly or monthly).\n\nDiscuss how this process influences forward secrecy for the first message. Should pre-computed values be classed as long-term or ephemeral keys?",
-        "solution": "The pre-computed keys do not fit the definition of either long-term keys (which should last throughout the protocol's use) or ephemeral keys (which should exist only when used to set up one key).\n\nIf we define the pre-computed keys as **long-term**, then forward secrecy should allow an attacker who obtains these keys to compute $k$ for the first message. (Later messages are protected by DH ratcheting and use different keys.) If we define them as **ephemeral**, then we can say forward secrecy is provided.\n\nThis shows that defining forward secrecy requires precision about key lifetime and must consider the risk of medium-term keys that last much longer than typical ephemeral keys.\n\n**Fallback key issue:** If an attacker exhausts the pre-computed keys by starting many fake conversations with $A$, the fallback key is reused for all subsequent first messages. Forward secrecy is effectively lost during the window until pre-computed keys are replenished."
+        "solution": "The pre-computed keys do not fit the definition of either long-term keys (which should last throughout the protocol's use) or ephemeral keys (which should exist only when used to set up one key).\n\nIf we define the pre-computed keys as **long-term**, then forward secrecy should allow an attacker who obtains these keys to compute $k$ for the first message. (Later messages are protected by DH ratcheting and use different keys.) If we define them as **ephemeral**, then we can say forward secrecy is provided.\n\nThis shows that defining forward secrecy requires precision about key lifetime and must consider the risk of medium-term keys that last much longer than typical ephemeral keys.\n\n**Fallback key issue:** If an attacker exhausts the pre-computed keys by starting many fake conversations with $A$, the fallback key is reused for all subsequent first messages. Forward secrecy is effectively lost during the window until pre-computed keys are replenished.",
+        "topics": [
+          "email-messaging-security"
+        ],
+        "lectures": [
+          "L-15"
+        ]
       }
+    ],
+    "lectures": [
+      "L-13",
+      "L-14",
+      "L-15"
     ]
   }
 ]

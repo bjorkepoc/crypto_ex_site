@@ -1,50 +1,109 @@
 [
   {
     "id": "E-1",
-    "title": { "en": "Worksheet 1: Intro & Basic Number Theory", "no": "Oppgavesett 1: Intro & grunnleggende tallteori" },
-    "description": { "en": "Exercises covering security definitions, Euclid's algorithm, modular arithmetic, finite fields, and Boolean logic.", "no": "Oppgaver om sikkerhetsdefinisjoner, Euklids algoritme, modulær aritmetikk, endelige kropper og boolsk logikk." },
-    "topics": ["number-theory-basics"],
+    "title": {
+      "en": "Worksheet 1: Intro & Basic Number Theory",
+      "no": "Oppgavesett 1: Intro & grunnleggende tallteori"
+    },
+    "description": {
+      "en": "Exercises covering security definitions, Euclid's algorithm, modular arithmetic, finite fields, and Boolean logic.",
+      "no": "Oppgaver om sikkerhetsdefinisjoner, Euklids algoritme, modulær aritmetikk, endelige kropper og boolsk logikk."
+    },
+    "topics": [
+      "number-theory-basics"
+    ],
     "exercises": [
       {
         "id": "E-1-1",
         "text": "Review the definitions of the following terms:\n\n(a) confidentiality\n(b) integrity\n(c) availability\n(d) entity authentication\n(e) data origin authentication\n(f) non-repudiation\n(g) group generator\n(h) finite field",
-        "solution": "The definitions of all these terms may be found in the lecture slides."
+        "solution": "The definitions of all these terms may be found in the lecture slides.",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       },
       {
         "id": "E-1-2",
         "text": "Determine the following using Euclid's algorithm:\n\n(a) $\\gcd(23, 29)$\n(b) $\\gcd(893, 703)$\n(c) $\\gcd(1045, 77)$",
-        "solution": "(a)\n$29 = 1 \\times 23 + 6$\n$23 = 3 \\times 6 + 5$\n$6 = 1 \\times 5 + 1$\n$5 = 5 \\times 1$\n$\\Rightarrow \\gcd(23, 29) = 1$\n\n(b)\n$893 = 1 \\times 703 + 190$\n$703 = 3 \\times 190 + 133$\n$190 = 1 \\times 133 + 57$\n$133 = 2 \\times 57 + 19$\n$57 = 3 \\times 19$\n$\\Rightarrow \\gcd(893, 703) = 19$\n\n(c)\n$1045 = 13 \\times 77 + 44$\n$77 = 1 \\times 44 + 33$\n$44 = 1 \\times 33 + 11$\n$33 = 3 \\times 11$\n$\\Rightarrow \\gcd(1045, 77) = 11$"
+        "solution": "(a)\n$29 = 1 \\times 23 + 6$\n$23 = 3 \\times 6 + 5$\n$6 = 1 \\times 5 + 1$\n$5 = 5 \\times 1$\n$\\Rightarrow \\gcd(23, 29) = 1$\n\n(b)\n$893 = 1 \\times 703 + 190$\n$703 = 3 \\times 190 + 133$\n$190 = 1 \\times 133 + 57$\n$133 = 2 \\times 57 + 19$\n$57 = 3 \\times 19$\n$\\Rightarrow \\gcd(893, 703) = 19$\n\n(c)\n$1045 = 13 \\times 77 + 44$\n$77 = 1 \\times 44 + 33$\n$44 = 1 \\times 33 + 11$\n$33 = 3 \\times 11$\n$\\Rightarrow \\gcd(1045, 77) = 11$",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       },
       {
         "id": "E-1-3",
         "text": "Without using a calculator, compute the values of $a \\bmod b$ and write each $a$ value as $a = bq + r$ where $0 \\leq r < b$:\n\n(a) $35 \\bmod 31$\n(b) $3 \\bmod 1000$\n(c) $65 \\bmod 21$\n(d) $236 \\bmod 5$\n(e) $123 \\bmod 3$",
-        "solution": "(a) $4$; $35 = 31 \\times 1 + 4$\n\n(b) $3$; $3 = 1000 \\times 0 + 3$\n\n(c) $2$; $65 = 3 \\times 21 + 2$\n\n(d) $1$; $236 = 5 \\times 47 + 1$\n\n(e) $0$; $123 = 41 \\times 3 + 0$"
+        "solution": "(a) $4$; $35 = 31 \\times 1 + 4$\n\n(b) $3$; $3 = 1000 \\times 0 + 3$\n\n(c) $2$; $65 = 3 \\times 21 + 2$\n\n(d) $1$; $236 = 5 \\times 47 + 1$\n\n(e) $0$; $123 = 41 \\times 3 + 0$",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       },
       {
         "id": "E-1-4",
         "text": "Use the Euclidean algorithm to find which of the following inverses exist. For those that do exist, use back substitution to find the inverse.\n\n(a) $3^{-1} \\bmod 31$\n(b) $21^{-1} \\bmod 91$\n(c) $39^{-1} \\bmod 195$\n(d) $41^{-1} \\bmod 195$",
-        "solution": "(a)\n$31 = 10 \\times 3 + 1$\n$3 = 3 \\times 1$\nTherefore $\\gcd(31, 3) = 1$ so $3^{-1} \\bmod 31$ exists.\nBack substitution: $1 = 31 - 10 \\times 3$\nTherefore $1 \\equiv -10 \\times 3 \\pmod{31}$, so $3^{-1} \\bmod 31 = -10 \\bmod 31 = 21$.\n\n(b)\n$91 = 4 \\times 21 + 7$\n$21 = 3 \\times 7$\nTherefore $\\gcd(91, 21) = 7$, so $21^{-1} \\bmod 91$ does not exist.\n\n(c)\n$195 = 5 \\times 39$\nTherefore $\\gcd(195, 39) = 39$, so $39^{-1} \\bmod 195$ does not exist.\n\n(d)\n$195 = 4 \\times 41 + 31$\n$41 = 1 \\times 31 + 10$\n$31 = 3 \\times 10 + 1$\n$10 = 10 \\times 1$\nTherefore $\\gcd(195, 41) = 1$ so $41^{-1} \\bmod 195$ exists.\nBack substitution:\n$1 = 31 - 3 \\times 10$\n$= 31 - 3 \\times (41 - 1 \\times 31) = 4 \\times 31 - 3 \\times 41$\n$= 4 \\times (195 - 4 \\times 41) - 3 \\times 41 = 4 \\times 195 - 19 \\times 41$\nTherefore $1 \\equiv -19 \\times 41 \\pmod{195}$, so $41^{-1} \\bmod 195 = -19 \\bmod 195 = 176$."
+        "solution": "(a)\n$31 = 10 \\times 3 + 1$\n$3 = 3 \\times 1$\nTherefore $\\gcd(31, 3) = 1$ so $3^{-1} \\bmod 31$ exists.\nBack substitution: $1 = 31 - 10 \\times 3$\nTherefore $1 \\equiv -10 \\times 3 \\pmod{31}$, so $3^{-1} \\bmod 31 = -10 \\bmod 31 = 21$.\n\n(b)\n$91 = 4 \\times 21 + 7$\n$21 = 3 \\times 7$\nTherefore $\\gcd(91, 21) = 7$, so $21^{-1} \\bmod 91$ does not exist.\n\n(c)\n$195 = 5 \\times 39$\nTherefore $\\gcd(195, 39) = 39$, so $39^{-1} \\bmod 195$ does not exist.\n\n(d)\n$195 = 4 \\times 41 + 31$\n$41 = 1 \\times 31 + 10$\n$31 = 3 \\times 10 + 1$\n$10 = 10 \\times 1$\nTherefore $\\gcd(195, 41) = 1$ so $41^{-1} \\bmod 195$ exists.\nBack substitution:\n$1 = 31 - 3 \\times 10$\n$= 31 - 3 \\times (41 - 1 \\times 31) = 4 \\times 31 - 3 \\times 41$\n$= 4 \\times (195 - 4 \\times 41) - 3 \\times 41 = 4 \\times 195 - 19 \\times 41$\nTherefore $1 \\equiv -19 \\times 41 \\pmod{195}$, so $41^{-1} \\bmod 195 = -19 \\bmod 195 = 176$.",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       },
       {
         "id": "E-1-5",
         "text": "Demonstrate that $\\mathbb{Z}_5$ is a field by writing out the addition and multiplication tables. (What do you need to check?)",
-        "solution": "Note that the multiplication table only applies to $\\mathbb{Z}_5 \\setminus \\{0\\}$.\n\nAddition table:\n$\\begin{array}{c|ccccc} + & 0 & 1 & 2 & 3 & 4 \\\\ \\hline 0 & 0 & 1 & 2 & 3 & 4 \\\\ 1 & 1 & 2 & 3 & 4 & 0 \\\\ 2 & 2 & 3 & 4 & 0 & 1 \\\\ 3 & 3 & 4 & 0 & 1 & 2 \\\\ 4 & 4 & 0 & 1 & 2 & 3 \\end{array}$\n\nMultiplication table:\n$\\begin{array}{c|cccc} \\cdot & 1 & 2 & 3 & 4 \\\\ \\hline 1 & 1 & 2 & 3 & 4 \\\\ 2 & 2 & 4 & 1 & 3 \\\\ 3 & 3 & 1 & 4 & 2 \\\\ 4 & 4 & 3 & 2 & 1 \\end{array}$\n\nWe need to check that the tables form groups under both operations. Particularly we check the closure property (only group elements appear in the table) and the inverse property (each row contains the identity element). We should also verify the distributive law holds: $a(b+c) = ab + ac$. This always holds for modular arithmetic."
+        "solution": "Note that the multiplication table only applies to $\\mathbb{Z}_5 \\setminus \\{0\\}$.\n\nAddition table:\n$\\begin{array}{c|ccccc} + & 0 & 1 & 2 & 3 & 4 \\\\ \\hline 0 & 0 & 1 & 2 & 3 & 4 \\\\ 1 & 1 & 2 & 3 & 4 & 0 \\\\ 2 & 2 & 3 & 4 & 0 & 1 \\\\ 3 & 3 & 4 & 0 & 1 & 2 \\\\ 4 & 4 & 0 & 1 & 2 & 3 \\end{array}$\n\nMultiplication table:\n$\\begin{array}{c|cccc} \\cdot & 1 & 2 & 3 & 4 \\\\ \\hline 1 & 1 & 2 & 3 & 4 \\\\ 2 & 2 & 4 & 1 & 3 \\\\ 3 & 3 & 1 & 4 & 2 \\\\ 4 & 4 & 3 & 2 & 1 \\end{array}$\n\nWe need to check that the tables form groups under both operations. Particularly we check the closure property (only group elements appear in the table) and the inverse property (each row contains the identity element). We should also verify the distributive law holds: $a(b+c) = ab + ac$. This always holds for modular arithmetic.",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       },
       {
         "id": "E-1-6",
         "text": "(a) How many elements are there in $\\mathbb{Z}_{11}^*$? Find a generator for this group.\n\n(b) How many elements are there in $\\mathbb{Z}_{12}^*$? Does this group have a generator?",
-        "solution": "(a) Since $11$ is prime, $\\mathbb{Z}_{11}^*$ is a group and all numbers less than $11$ are in the group. There are therefore $10$ elements.\n\nWe can find a generator by trial and error. We only need to check that $g^2 \\bmod 11 \\neq 1$ and $g^5 \\bmod 11 \\neq 1$ to verify that $g$ is a generator.\n\nTry $g = 2$: $g^2 \\bmod 11 = 4$ and $g^5 \\bmod 11 = 32 \\bmod 11 \\neq 1$, so $g = 2$ is indeed a generator. Its powers are: $2, 4, 8, 5, 10, 9, 7, 3, 6, 1$.\n\n(b) If we write out the numbers less than $12$ and remove all those which are not coprime to $12$, we are left with $\\{1, 5, 7, 11\\}$. Thus $\\mathbb{Z}_{12}^*$ has $4$ elements. (The order of $\\mathbb{Z}_{12}^*$ is $\\phi(12) = 4$.)\n\nWe can check that for each of these $4$ elements, its square is $1$. Therefore there is no generator for this group."
+        "solution": "(a) Since $11$ is prime, $\\mathbb{Z}_{11}^*$ is a group and all numbers less than $11$ are in the group. There are therefore $10$ elements.\n\nWe can find a generator by trial and error. We only need to check that $g^2 \\bmod 11 \\neq 1$ and $g^5 \\bmod 11 \\neq 1$ to verify that $g$ is a generator.\n\nTry $g = 2$: $g^2 \\bmod 11 = 4$ and $g^5 \\bmod 11 = 32 \\bmod 11 \\neq 1$, so $g = 2$ is indeed a generator. Its powers are: $2, 4, 8, 5, 10, 9, 7, 3, 6, 1$.\n\n(b) If we write out the numbers less than $12$ and remove all those which are not coprime to $12$, we are left with $\\{1, 5, 7, 11\\}$. Thus $\\mathbb{Z}_{12}^*$ has $4$ elements. (The order of $\\mathbb{Z}_{12}^*$ is $\\phi(12) = 4$.)\n\nWe can check that for each of these $4$ elements, its square is $1$. Therefore there is no generator for this group.",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       },
       {
         "id": "E-1-7",
         "text": "Suppose that we try to define $GF(2^8)$ in a different way by defining multiplication of two strings to be multiplication modulo $2^8$. Show that this would not satisfy the requirements to be a field.",
-        "solution": "Using multiplication modulo $n$ will never make a multiplicative group when $n$ is an even number greater than $2$. This is because the even values in the group (excluding $0$) will not be coprime to $n$ and therefore will not have inverses."
+        "solution": "Using multiplication modulo $n$ will never make a multiplicative group when $n$ is an even number greater than $2$. This is because the even values in the group (excluding $0$) will not be coprime to $n$ and therefore will not have inverses.",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       },
       {
         "id": "E-1-8",
         "text": "Write the XOR operation ($\\oplus$) as a Boolean truth table. Then show, using their truth tables, that $z = x_1 \\lor x_2$ defines the same Boolean function as $z = x_1 \\oplus x_2 \\oplus (x_1 \\land x_2)$.",
-        "solution": "$\\begin{array}{cc|c|c|c|c} x_1 & x_2 & z = x_1 \\lor x_2 & a = x_1 \\oplus x_2 & b = x_1 \\land x_2 & z = a \\oplus b \\\\ \\hline 1 & 1 & 1 & 0 & 1 & 1 \\\\ 1 & 0 & 1 & 1 & 0 & 1 \\\\ 0 & 1 & 1 & 1 & 0 & 1 \\\\ 0 & 0 & 0 & 0 & 0 & 0 \\end{array}$\n\nThe column with $a$ shows the XOR truth table. The third column shows the truth table for $\\lor$. The final column shows the second derivation for $z$. Since columns 3 and 6 are identical, $x_1 \\lor x_2 = x_1 \\oplus x_2 \\oplus (x_1 \\land x_2)$."
+        "solution": "$\\begin{array}{cc|c|c|c|c} x_1 & x_2 & z = x_1 \\lor x_2 & a = x_1 \\oplus x_2 & b = x_1 \\land x_2 & z = a \\oplus b \\\\ \\hline 1 & 1 & 1 & 0 & 1 & 1 \\\\ 1 & 0 & 1 & 1 & 0 & 1 \\\\ 0 & 1 & 1 & 1 & 0 & 1 \\\\ 0 & 0 & 0 & 0 & 0 & 0 \\end{array}$\n\nThe column with $a$ shows the XOR truth table. The third column shows the truth table for $\\lor$. The final column shows the second derivation for $z$. Since columns 3 and 6 are identical, $x_1 \\lor x_2 = x_1 \\oplus x_2 \\oplus (x_1 \\land x_2)$.",
+        "topics": [
+          "number-theory-basics"
+        ],
+        "lectures": [
+          "L-1"
+        ]
       }
+    ],
+    "lectures": [
+      "L-1"
     ]
   }
 ]

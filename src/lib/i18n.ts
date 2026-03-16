@@ -110,6 +110,8 @@ const translations = {
   "exercises.title": { en: "Exercise Sets", no: "Oppgavesett" },
   "exercises.no_sets": { en: "No exercise sets available yet.", no: "Ingen oppgavesett tilgjengelig ennå." },
   "exercises.count": { en: "{0} exercises", no: "{0} oppgaver" },
+  "exercises.themes": { en: "Themes", no: "Tema" },
+  "exercises.lectures": { en: "Lectures", no: "Forelesninger" },
   "exercises.back": { en: "← Exercises", no: "← Oppgaver" },
   "exercises.set_not_found": { en: "Exercise set not found.", no: "Oppgavesett ikke funnet." },
   "exercises.exercise_of": { en: "Exercise {0} of {1}", no: "Oppgave {0} av {1}" },

@@ -71,13 +71,16 @@ export interface ExerciseItem {
   id: string;
   text: string; // supports KaTeX via $...$
   solution: string; // markdown with KaTeX
+  topics?: TopicId[]; // optional per-task themes
+  lectures?: string[]; // optional per-task lecture refs
 }
 
 export interface ExerciseSet {
   id: string; // e.g. "E-1"
   title: { en: string; no: string };
   description?: { en: string; no: string };
-  topics: TopicId[];
+  topics: TopicId[]; // themes
+  lectures?: string[]; // e.g. ["L-1", "L-2"], optional explicit refs
   exercises: ExerciseItem[];
 }
 

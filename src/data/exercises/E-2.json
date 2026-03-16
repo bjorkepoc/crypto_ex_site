@@ -1,60 +1,135 @@
 [
   {
     "id": "E-2",
-    "title": { "en": "Worksheet 2: Classical Ciphers & the One-Time Pad", "no": "Oppgavesett 2: Klassiske siffer & engangsblokken" },
-    "description": { "en": "Exercises on classical encryption schemes including Caesar, Vigenère, Hill cipher, perfect secrecy, visual encryption, and stream ciphers.", "no": "Oppgaver om klassiske krypteringsmetoder inkludert Caesar, Vigenère, Hill-siffer, perfekt hemmelighold, visuell kryptering og strømsiffer." },
-    "topics": ["classical-encryption", "hill-stream-otp"],
+    "title": {
+      "en": "Worksheet 2: Classical Ciphers & the One-Time Pad",
+      "no": "Oppgavesett 2: Klassiske siffer & engangsblokken"
+    },
+    "description": {
+      "en": "Exercises on classical encryption schemes including Caesar, Vigenère, Hill cipher, perfect secrecy, visual encryption, and stream ciphers.",
+      "no": "Oppgaver om klassiske krypteringsmetoder inkludert Caesar, Vigenère, Hill-siffer, perfekt hemmelighold, visuell kryptering og strømsiffer."
+    },
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp"
+    ],
     "exercises": [
       {
         "id": "E-2-1",
         "text": "Review the definitions of the following concepts:\n\n(a) symmetric and asymmetric ciphers\n(b) ciphertext only attack, known plaintext attack, chosen plaintext attack, and chosen ciphertext attack\n(c) Kerckhoffs' principle\n(d) transposition and substitution\n(e) synchronous stream cipher\n(f) one-time pad",
-        "solution": "See lecture slides for definitions."
+        "solution": "See lecture slides for definitions.",
+        "topics": [
+          "classical-encryption",
+          "hill-stream-otp"
+        ],
+        "lectures": [
+          "L-2",
+          "L-3"
+        ]
       },
       {
         "id": "E-2-2",
         "text": "Consider the following ciphers defined over an alphabet of 26 characters:\n\n1. the Caesar cipher;\n2. the Vigenère cipher with a 10-character key;\n3. the simple substitution cipher.\n\nHow many keys are there in each of these ciphers? How long would it take to try every possible key for each cipher in the following situations:\n\n(a) on an individual computer checking $10000$ keys per second;\n(b) on an array of dedicated chips checking $10^{10}$ keys per second.",
-        "solution": "1. For the Caesar cipher, there are $26$ keys. This would take no more than $0.0026$ s on the individual computer and a million times less on the array.\n\n2. The Vigenère cipher has $26^d$ keys where $d$ is the number of alphabets. For $d = 10$ this is about $1.4 \\times 10^{14}$ keys. This would take around $448$ years for the desktop computer, but around $4$ hours for the array of chips.\n\n3. For the simple (random) substitution there are $26! \\approx 4 \\times 10^{26}$ possible keys. Even the dedicated array of chips requires around $1.27$ billion years to do the searching. As we know, this does not mean that it is a secure cipher."
+        "solution": "1. For the Caesar cipher, there are $26$ keys. This would take no more than $0.0026$ s on the individual computer and a million times less on the array.\n\n2. The Vigenère cipher has $26^d$ keys where $d$ is the number of alphabets. For $d = 10$ this is about $1.4 \\times 10^{14}$ keys. This would take around $448$ years for the desktop computer, but around $4$ hours for the array of chips.\n\n3. For the simple (random) substitution there are $26! \\approx 4 \\times 10^{26}$ possible keys. Even the dedicated array of chips requires around $1.27$ billion years to do the searching. As we know, this does not mean that it is a secure cipher.",
+        "topics": [
+          "classical-encryption"
+        ],
+        "lectures": [
+          "L-2"
+        ]
       },
       {
         "id": "E-2-3",
         "text": "(a) The ciphertext $C = \\text{TLNJG}$ was formed using the operation $c = (7p + 11) \\bmod 27$ where $p$ and $c$ denote the numerical equivalent of a plaintext and a ciphertext character. Use this information to decrypt the message.\n\n(b) Briefly explain how to conduct a ciphertext-only attack on a ciphertext formed from an affine cipher of the form $c_i = a p_i + b \\bmod n$ where $p_i, c_i$ are the plaintext and ciphertext characters respectively and $a, b$ are fixed constants.",
-        "solution": "(a) Here we assume that the alphabet is encoded as: $A = 0, B = 1, \\ldots$. Since $c \\equiv 7p + 11 \\pmod{27}$ we have $p \\equiv 7^{-1}(c - 11) \\equiv 4c + 10$.\n\n$T = 19 \\rightarrow 5 = F$\n$L = 11 \\rightarrow 0 = A$\n$N = 13 \\rightarrow 8 = I$\n$J = 9 \\rightarrow 19 = T$\n$G = 6 \\rightarrow 7 = H$\n\nThe plaintext is FAITH.\n\n(b) This cipher is a substitution cipher — each plaintext character is always substituted with the same ciphertext character. Therefore the plaintext and ciphertext statistics can be matched to identify probable matches between plaintext and ciphertext characters. With two matches $(p_1, c_1)$ and $(p_2, c_2)$ we have two equations in two unknowns which can be solved to retrieve $a$ and $b$.\n\nIf $c_1 = a p_1 + b \\bmod n$ and $c_2 = a p_2 + b \\bmod n$ then $a = (c_1 - c_2)(p_1 - p_2)^{-1} \\bmod n$ and $b = c_1 - a p_1 \\bmod n$. If $p_1 - p_2$ is not invertible, other pairs need to be tried."
+        "solution": "(a) Here we assume that the alphabet is encoded as: $A = 0, B = 1, \\ldots$. Since $c \\equiv 7p + 11 \\pmod{27}$ we have $p \\equiv 7^{-1}(c - 11) \\equiv 4c + 10$.\n\n$T = 19 \\rightarrow 5 = F$\n$L = 11 \\rightarrow 0 = A$\n$N = 13 \\rightarrow 8 = I$\n$J = 9 \\rightarrow 19 = T$\n$G = 6 \\rightarrow 7 = H$\n\nThe plaintext is FAITH.\n\n(b) This cipher is a substitution cipher — each plaintext character is always substituted with the same ciphertext character. Therefore the plaintext and ciphertext statistics can be matched to identify probable matches between plaintext and ciphertext characters. With two matches $(p_1, c_1)$ and $(p_2, c_2)$ we have two equations in two unknowns which can be solved to retrieve $a$ and $b$.\n\nIf $c_1 = a p_1 + b \\bmod n$ and $c_2 = a p_2 + b \\bmod n$ then $a = (c_1 - c_2)(p_1 - p_2)^{-1} \\bmod n$ and $b = c_1 - a p_1 \\bmod n$. If $p_1 - p_2$ is not invertible, other pairs need to be tried.",
+        "topics": [
+          "classical-encryption"
+        ],
+        "lectures": [
+          "L-2"
+        ]
       },
       {
         "id": "E-2-4",
         "text": "The following ciphertext is encrypted with the Vigenère cipher. Use the Vigenère Analysis option on CrypTool to decrypt it. [See original PDF for the full ciphertext, or use the CrypTool Legacy website: https://legacy.cryptool.org/en/cto]\n\nwEye Fr Hmzz iz wwmO RaK dCh OOoBsth DDm wqDAEIg IkD AwN fDltrz vnp zws Svs rrt? GKPlp kt rKO sqh IlA GaIBtv Svs phAmxzrmwtpU CuylAmwOizj wmI vnp kph JJ oFktv LPrBrHi PJdmB IlwI tA vwsS Jfr kxw LJwqu Is g., vnp stvDvpE hKiJ OhqutfU NunmJkwOe W.? ...",
-        "solution": "Using CrypTool's Vigenère Analysis, the decrypted plaintext is an excerpt from Franz Kafka's \"The Trial\":\n\nSIDE TO SIDE IN THIS WAY AND STOPPED HIM KNOWING WHO WAS FRIEND AND WHO WAS FOE? COULD HE NOT SEE THE LAWYER WAS DELIBERATELY HUMILIATING HIM AND HAD NO OTHER PURPOSE TODAY THAN TO SHOW OFF HIS POWER TO K., AND PERHAPS EVEN THEREBY SUBJUGATE K.? BUT IF BLOCK WAS INCAPABLE OF SEEING THAT, OR IF HE SO FEARED THE LAWYER THAT NO SUCH INSIGHT WOULD EVEN BE OF ANY USE TO HIM, HOW WAS IT THAT HE WAS EITHER SO SLY OR SO BOLD AS TO LIE TO THE LAWYER AND CONCEAL FROM HIM THE FACT THAT HE HAD OTHER LAWYERS WORKING ON HIS BEHALF? AND HOW DID HE DARE TO ATTACK K., WHO COULD BETRAY HIS SECRET ANY TIME HE LIKED? BUT HE DARED EVEN MORE THAN THIS, HE WENT TO THE LAWYER'S BED AND BEGAN THERE TO MAKE COMPLAINTS ABOUT K. \"DR. HULD, SIR,\" HE SAID, \"DID YOU HEAR THE WAY THIS MAN SPOKE TO ME? ...\" \"DON'T LET ANYONE BOTHER YOU,\" SAID THE LAWYER, \"AND DO WHAT SEEMS TO YOU TO BE RIGHT.\" \"I WILL,\" SAID BLOCK, AS IF SPEAKING TO HIMSELF TO GIVE HIMSELF COURAGE, AND WITH A QUICK GLANCE TO THE SIDE HE KNEELED DOWN CLOSE BESIDE THE BED. \"I'M KNEELING NOW DR. HULD, SIR,\" HE SAID. BUT THE LAWYER REMAINED SILENT."
+        "solution": "Using CrypTool's Vigenère Analysis, the decrypted plaintext is an excerpt from Franz Kafka's \"The Trial\":\n\nSIDE TO SIDE IN THIS WAY AND STOPPED HIM KNOWING WHO WAS FRIEND AND WHO WAS FOE? COULD HE NOT SEE THE LAWYER WAS DELIBERATELY HUMILIATING HIM AND HAD NO OTHER PURPOSE TODAY THAN TO SHOW OFF HIS POWER TO K., AND PERHAPS EVEN THEREBY SUBJUGATE K.? BUT IF BLOCK WAS INCAPABLE OF SEEING THAT, OR IF HE SO FEARED THE LAWYER THAT NO SUCH INSIGHT WOULD EVEN BE OF ANY USE TO HIM, HOW WAS IT THAT HE WAS EITHER SO SLY OR SO BOLD AS TO LIE TO THE LAWYER AND CONCEAL FROM HIM THE FACT THAT HE HAD OTHER LAWYERS WORKING ON HIS BEHALF? AND HOW DID HE DARE TO ATTACK K., WHO COULD BETRAY HIS SECRET ANY TIME HE LIKED? BUT HE DARED EVEN MORE THAN THIS, HE WENT TO THE LAWYER'S BED AND BEGAN THERE TO MAKE COMPLAINTS ABOUT K. \"DR. HULD, SIR,\" HE SAID, \"DID YOU HEAR THE WAY THIS MAN SPOKE TO ME? ...\" \"DON'T LET ANYONE BOTHER YOU,\" SAID THE LAWYER, \"AND DO WHAT SEEMS TO YOU TO BE RIGHT.\" \"I WILL,\" SAID BLOCK, AS IF SPEAKING TO HIMSELF TO GIVE HIMSELF COURAGE, AND WITH A QUICK GLANCE TO THE SIDE HE KNEELED DOWN CLOSE BESIDE THE BED. \"I'M KNEELING NOW DR. HULD, SIR,\" HE SAID. BUT THE LAWYER REMAINED SILENT.",
+        "topics": [
+          "classical-encryption"
+        ],
+        "lectures": [
+          "L-2"
+        ]
       },
       {
         "id": "E-2-5",
         "text": "The three graphs below show, in random order, the histogram distributions of ciphertext letters of the same English text from three different classical encryption algorithms:\n\n1. simple random substitution;\n2. transposition with a block length of 6;\n3. Vigenère cipher with a key length of 6.\n\nDecide which one corresponds to each encryption algorithm and explain how you know this.\n\n[See original PDF for the histogram figures.]",
-        "solution": "The first histogram shows a distribution consistent with English letter frequencies (E, N, T, I, O, A are the most common). This corresponds to the transposition cipher, which leaves the distribution of alphabet characters unchanged.\n\nThe second histogram shows a much more even distribution of ciphertext characters than the other two (note the scale). This is consistent with a polyalphabetic substitution which smooths out frequency differences. This histogram corresponds to the Vigenère cipher.\n\nThe third histogram has similar frequency values to the first, but these values are permuted around the alphabet. Even though T is a high-frequency English letter, other letters like Q and F have low frequency. This is consistent with a simple substitution cipher."
+        "solution": "The first histogram shows a distribution consistent with English letter frequencies (E, N, T, I, O, A are the most common). This corresponds to the transposition cipher, which leaves the distribution of alphabet characters unchanged.\n\nThe second histogram shows a much more even distribution of ciphertext characters than the other two (note the scale). This is consistent with a polyalphabetic substitution which smooths out frequency differences. This histogram corresponds to the Vigenère cipher.\n\nThe third histogram has similar frequency values to the first, but these values are permuted around the alphabet. Even though T is a high-frequency English letter, other letters like Q and F have low frequency. This is consistent with a simple substitution cipher.",
+        "topics": [
+          "classical-encryption"
+        ],
+        "lectures": [
+          "L-2"
+        ]
       },
       {
         "id": "E-2-6",
         "text": "Suppose that the encryption key for a Hill cipher is $K = \\begin{pmatrix} 6 & 7 \\\\ 11 & 10 \\end{pmatrix}$. Assume that the alphabet is encoded as $A = 0, B = 1, \\ldots, Z = 25$.\n\n(a) Determine $K^{-1} \\bmod 26$.\n(b) Encrypt the plaintext WELL. Do this \"by hand\" and then check your answer using the Hill implementation in CrypTool.\n(c) Decrypt the ciphertext GKHT. Again, check your answer with CrypTool.",
-        "solution": "(a) $K^{-1} = (6 \\times 10 - 11 \\times 7)^{-1} \\times \\begin{pmatrix} 10 & -7 \\\\ -11 & 6 \\end{pmatrix} = 9^{-1} \\times \\begin{pmatrix} 10 & -7 \\\\ -11 & 6 \\end{pmatrix} \\bmod 26$.\n\nNow $9^{-1} \\bmod 26 = 3$ (since $9 \\times 3 \\bmod 26 = 1$).\n\nTherefore $K^{-1} = 3 \\times \\begin{pmatrix} 10 & -7 \\\\ -11 & 6 \\end{pmatrix} \\bmod 26 = \\begin{pmatrix} 30 & -21 \\\\ -33 & 18 \\end{pmatrix} \\bmod 26 = \\begin{pmatrix} 4 & 5 \\\\ 19 & 18 \\end{pmatrix}$.\n\n(b) $C = KP \\bmod 26 = \\begin{pmatrix} 6 & 7 \\\\ 11 & 10 \\end{pmatrix} \\begin{pmatrix} 22 & 4 \\\\ 11 & 11 \\end{pmatrix} \\bmod 26 \\equiv \\begin{pmatrix} 4 & 22 \\\\ 13 & 23 \\end{pmatrix} \\rightarrow \\text{EWNX}$\n\n(c) $P \\equiv K^{-1}C \\bmod 26 \\equiv \\begin{pmatrix} 4 & 5 \\\\ 19 & 18 \\end{pmatrix} \\begin{pmatrix} 6 & 10 \\\\ 7 & 19 \\end{pmatrix} \\bmod 26 \\equiv \\begin{pmatrix} 22 & 8 \\\\ 19 & 7 \\end{pmatrix} \\rightarrow \\text{WITH}$"
+        "solution": "(a) $K^{-1} = (6 \\times 10 - 11 \\times 7)^{-1} \\times \\begin{pmatrix} 10 & -7 \\\\ -11 & 6 \\end{pmatrix} = 9^{-1} \\times \\begin{pmatrix} 10 & -7 \\\\ -11 & 6 \\end{pmatrix} \\bmod 26$.\n\nNow $9^{-1} \\bmod 26 = 3$ (since $9 \\times 3 \\bmod 26 = 1$).\n\nTherefore $K^{-1} = 3 \\times \\begin{pmatrix} 10 & -7 \\\\ -11 & 6 \\end{pmatrix} \\bmod 26 = \\begin{pmatrix} 30 & -21 \\\\ -33 & 18 \\end{pmatrix} \\bmod 26 = \\begin{pmatrix} 4 & 5 \\\\ 19 & 18 \\end{pmatrix}$.\n\n(b) $C = KP \\bmod 26 = \\begin{pmatrix} 6 & 7 \\\\ 11 & 10 \\end{pmatrix} \\begin{pmatrix} 22 & 4 \\\\ 11 & 11 \\end{pmatrix} \\bmod 26 \\equiv \\begin{pmatrix} 4 & 22 \\\\ 13 & 23 \\end{pmatrix} \\rightarrow \\text{EWNX}$\n\n(c) $P \\equiv K^{-1}C \\bmod 26 \\equiv \\begin{pmatrix} 4 & 5 \\\\ 19 & 18 \\end{pmatrix} \\begin{pmatrix} 6 & 10 \\\\ 7 & 19 \\end{pmatrix} \\bmod 26 \\equiv \\begin{pmatrix} 22 & 8 \\\\ 19 & 7 \\end{pmatrix} \\rightarrow \\text{WITH}$",
+        "topics": [
+          "hill-stream-otp"
+        ],
+        "lectures": [
+          "L-3"
+        ]
       },
       {
         "id": "E-2-7",
         "text": "The ciphertext below is formed using a Hill cipher with a $2 \\times 2$ encryption matrix. Assume that the alphabet is encoded as $A = 0, B = 1, \\ldots, Z = 25$.\n\nBLGGPGBZLDKEXDPRKPEEXIKEGBWKGQVSNCBZIKJBCTBZVACAXUULLA\n\nIt is known that the plaintext begins with the characters NOWIST.\n\n(a) Use this information to find the encryption key, a matrix $K$.\n(b) Use $K$ to decrypt the whole plaintext using CrypTool.",
-        "solution": "All arithmetic is computed modulo $26$.\n\n(a) We can write the known plaintext and ciphertext as column vectors:\n$P = \\begin{pmatrix} 13 & 22 & 18 \\\\ 14 & 8 & 19 \\end{pmatrix}, \\quad C = \\begin{pmatrix} 1 & 15 & 6 \\\\ 11 & 6 & 6 \\end{pmatrix}$\n\nWe use $K = C P^{-1}$ to solve for $K$. Using the first two pairs:\n$K = \\begin{pmatrix} 1 & 6 \\\\ 11 & 6 \\end{pmatrix} \\begin{pmatrix} 13 & 22 \\\\ 14 & 8 \\end{pmatrix}^{-1}$\n\nThis cannot be solved since the determinant of $\\begin{pmatrix} 13 & 22 \\\\ 14 & 8 \\end{pmatrix}$ is divisible by $2$ and has no inverse mod $26$.\n\nUsing the first and third pairs instead:\n$K = \\begin{pmatrix} 1 & 15 \\\\ 11 & 6 \\end{pmatrix} \\begin{pmatrix} 13 & 18 \\\\ 14 & 19 \\end{pmatrix}^{-1} = \\begin{pmatrix} 1 & 15 \\\\ 11 & 6 \\end{pmatrix} \\begin{pmatrix} 17 & 14 \\\\ 8 & 13 \\end{pmatrix} = \\begin{pmatrix} 7 & 1 \\\\ 1 & 24 \\end{pmatrix}$\n\n(b) Using the Hill cipher tool in CrypTool with the key matrix, the plaintext is:\nNOWISTHETIMEFORALLGOODMENTOCOMETOTHEAIDOFTHEIRCOUNTRYZ\n\nNote: the extra Z is padding so that an even number of plaintext characters can be used."
+        "solution": "All arithmetic is computed modulo $26$.\n\n(a) We can write the known plaintext and ciphertext as column vectors:\n$P = \\begin{pmatrix} 13 & 22 & 18 \\\\ 14 & 8 & 19 \\end{pmatrix}, \\quad C = \\begin{pmatrix} 1 & 15 & 6 \\\\ 11 & 6 & 6 \\end{pmatrix}$\n\nWe use $K = C P^{-1}$ to solve for $K$. Using the first two pairs:\n$K = \\begin{pmatrix} 1 & 6 \\\\ 11 & 6 \\end{pmatrix} \\begin{pmatrix} 13 & 22 \\\\ 14 & 8 \\end{pmatrix}^{-1}$\n\nThis cannot be solved since the determinant of $\\begin{pmatrix} 13 & 22 \\\\ 14 & 8 \\end{pmatrix}$ is divisible by $2$ and has no inverse mod $26$.\n\nUsing the first and third pairs instead:\n$K = \\begin{pmatrix} 1 & 15 \\\\ 11 & 6 \\end{pmatrix} \\begin{pmatrix} 13 & 18 \\\\ 14 & 19 \\end{pmatrix}^{-1} = \\begin{pmatrix} 1 & 15 \\\\ 11 & 6 \\end{pmatrix} \\begin{pmatrix} 17 & 14 \\\\ 8 & 13 \\end{pmatrix} = \\begin{pmatrix} 7 & 1 \\\\ 1 & 24 \\end{pmatrix}$\n\n(b) Using the Hill cipher tool in CrypTool with the key matrix, the plaintext is:\nNOWISTHETIMEFORALLGOODMENTOCOMETOTHEAIDOFTHEIRCOUNTRYZ\n\nNote: the extra Z is padding so that an even number of plaintext characters can be used.",
+        "topics": [
+          "hill-stream-otp"
+        ],
+        "lectures": [
+          "L-3"
+        ]
       },
       {
         "id": "E-2-8",
         "text": "Consider a message set with just three possible plaintexts $M_1$, $M_2$ and $M_3$. Their probabilities are $\\Pr(M_1) = \\Pr(M_2) = 1/4$ and $\\Pr(M_3) = 1/2$. Assume that messages and keys are chosen independently of each other and keys are chosen with equal probability.\n\n(a) Suppose there are 4 possible ciphertexts $C_1, C_2, C_3, C_4$. Two ciphers are defined by the following tables which show how each plaintext message $M_i$ is encrypted using each key $K_j$. Which of these ciphers provides perfect secrecy? Justify your answer.\n\nCipher 1:\n$\\begin{array}{c|ccc} & M_1 & M_2 & M_3 \\\\ \\hline K_1 & C_1 & C_2 & C_3 \\\\ K_2 & C_2 & C_3 & C_4 \\\\ K_3 & C_3 & C_4 & C_1 \\\\ K_4 & C_4 & C_1 & C_2 \\end{array}$\n\nCipher 2:\n$\\begin{array}{c|ccc} & M_1 & M_2 & M_3 \\\\ \\hline K_1 & C_1 & C_2 & C_3 \\\\ K_2 & C_2 & C_3 & C_4 \\\\ K_3 & C_3 & C_4 & C_1 \\\\ K_4 & C_1 & C_4 & C_2 \\end{array}$\n\n(b) Draw a similar encryption table for a cipher with perfect secrecy that uses only 3 ciphertexts.",
-        "solution": "(a) Cipher 2 (right table) cannot provide perfect secrecy. Consider ciphertext $C_1$. If this is seen by the adversary then the message sent cannot be $M_2$ since $M_2$ does not result in $C_1$ for any key. Therefore $\\Pr(M_2 | C_1) = 0$ but $\\Pr(M_2) = 1/4$. So $\\Pr(M_2 | C_1) \\neq \\Pr(M_2)$ and the definition of perfect secrecy fails.\n\nCipher 1 (left table) does provide perfect secrecy. Given any ciphertext, each message is possible, and since the keys are all equally likely, $\\Pr(M_i | C_j) = \\Pr(M_i)$. For example, consider $C_4$: it can occur if $M_1$ and $K_4$ are chosen (probability $1/16$), or $M_2$ and $K_3$ (probability $1/16$), or $M_3$ and $K_2$ (probability $1/8$). Therefore $\\Pr(M_3 | C_4) = 1/2 = \\Pr(M_3)$ and $\\Pr(M_1 | C_4) = \\Pr(M_2 | C_4) = 1/4 = \\Pr(M_1) = \\Pr(M_2)$.\n\n(b) Using the one-time pad modulo 3 (treating keys, ciphertexts and plaintexts as symbols 1, 2, 3):\n\n$\\begin{array}{c|ccc} & M_1 & M_2 & M_3 \\\\ \\hline K_1 & C_2 & C_3 & C_1 \\\\ K_2 & C_3 & C_1 & C_2 \\\\ K_3 & C_1 & C_2 & C_3 \\end{array}$\n\nThis gives a cipher with perfect secrecy."
+        "solution": "(a) Cipher 2 (right table) cannot provide perfect secrecy. Consider ciphertext $C_1$. If this is seen by the adversary then the message sent cannot be $M_2$ since $M_2$ does not result in $C_1$ for any key. Therefore $\\Pr(M_2 | C_1) = 0$ but $\\Pr(M_2) = 1/4$. So $\\Pr(M_2 | C_1) \\neq \\Pr(M_2)$ and the definition of perfect secrecy fails.\n\nCipher 1 (left table) does provide perfect secrecy. Given any ciphertext, each message is possible, and since the keys are all equally likely, $\\Pr(M_i | C_j) = \\Pr(M_i)$. For example, consider $C_4$: it can occur if $M_1$ and $K_4$ are chosen (probability $1/16$), or $M_2$ and $K_3$ (probability $1/16$), or $M_3$ and $K_2$ (probability $1/8$). Therefore $\\Pr(M_3 | C_4) = 1/2 = \\Pr(M_3)$ and $\\Pr(M_1 | C_4) = \\Pr(M_2 | C_4) = 1/4 = \\Pr(M_1) = \\Pr(M_2)$.\n\n(b) Using the one-time pad modulo 3 (treating keys, ciphertexts and plaintexts as symbols 1, 2, 3):\n\n$\\begin{array}{c|ccc} & M_1 & M_2 & M_3 \\\\ \\hline K_1 & C_2 & C_3 & C_1 \\\\ K_2 & C_3 & C_1 & C_2 \\\\ K_3 & C_1 & C_2 & C_3 \\end{array}$\n\nThis gives a cipher with perfect secrecy.",
+        "topics": [
+          "hill-stream-otp"
+        ],
+        "lectures": [
+          "L-3"
+        ]
       },
       {
         "id": "E-2-9",
         "text": "Consider the visual encryption algorithm outlined in the lecture slides. It should be clear that the first share, $S_1$, does not reveal any information about the image, since it is just a random set of pixels. Explain why $S_2$ (on its own) also does not reveal any information, even though it depends on the image.",
-        "solution": "$S_2$ is determined by both the image $I$ and the random image $S_1$. Similar to a ciphertext encrypted with a one-time pad, $S_2$ on its own could hide any image depending on the random choices made for $S_1$. Each pixel of $S_2$ has either of the two patterns shown on the slide with equal probability."
+        "solution": "$S_2$ is determined by both the image $I$ and the random image $S_1$. Similar to a ciphertext encrypted with a one-time pad, $S_2$ on its own could hide any image depending on the random choices made for $S_1$. Each pixel of $S_2$ has either of the two patterns shown on the slide with equal probability.",
+        "topics": [
+          "hill-stream-otp"
+        ],
+        "lectures": [
+          "L-3"
+        ]
       },
       {
         "id": "E-2-10",
         "text": "Show that a known plaintext attack and a chosen plaintext attack on a binary synchronous stream cipher are the same. More precisely, show that an attacker who can obtain the ciphertext chunk $C$ for a known plaintext chunk $P$ can also find the ciphertext $C'$ for any chosen plaintext $P'$ of the same length as $P$.",
-        "solution": "Suppose that $KS$ is the keystream used to encrypt $P$. Then $C = KS \\oplus P$ (where $\\oplus$ denotes exclusive-OR applied bitwise). An attacker knowing $P$ and $C$ can obtain $KS = C \\oplus P$. Thus for any other plaintext $P'$, the attacker knows that the ciphertext for $P'$ would have been $C' = KS \\oplus P'$."
+        "solution": "Suppose that $KS$ is the keystream used to encrypt $P$. Then $C = KS \\oplus P$ (where $\\oplus$ denotes exclusive-OR applied bitwise). An attacker knowing $P$ and $C$ can obtain $KS = C \\oplus P$. Thus for any other plaintext $P'$, the attacker knows that the ciphertext for $P'$ would have been $C' = KS \\oplus P'$.",
+        "topics": [
+          "hill-stream-otp"
+        ],
+        "lectures": [
+          "L-3"
+        ]
       }
+    ],
+    "lectures": [
+      "L-2",
+      "L-3"
     ]
   }
 ]

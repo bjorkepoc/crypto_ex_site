@@ -31,6 +31,14 @@ export default function ExerciseSetPage() {
   }
 
   const exercise = set.exercises[currentIndex];
+  const exerciseThemes =
+    exercise.topics && exercise.topics.length > 0
+      ? exercise.topics
+      : set.topics;
+  const lectureRefs =
+    exercise.lectures && exercise.lectures.length > 0
+      ? exercise.lectures
+      : set.lectures ?? [];
   const isRevealed = revealed.has(exercise.id);
 
   function toggleSolution() {
@@ -58,14 +66,42 @@ export default function ExerciseSetPage() {
         <span className="text-sm font-medium text-th-text-secondary">
           {set.title[lang]}
         </span>
-        {set.topics.map((topicId) => (
-          <span
-            key={topicId}
-            className="rounded-full bg-th-muted px-2 py-0.5 text-[10px] text-th-text-muted"
-          >
-            {topicNames[topicId]?.[lang] ?? topicId}
-          </span>
-        ))}
+      </div>
+
+      <div className="mb-4 space-y-2">
+        <div>
+          <div className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-th-text-faint">
+            {t("exercises.themes", lang)}
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {set.topics.map((topicId) => (
+              <span
+                key={topicId}
+                className="rounded-full bg-th-muted px-2 py-0.5 text-[10px] text-th-text-muted"
+              >
+                {topicNames[topicId]?.[lang] ?? topicId}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {set.lectures && set.lectures.length > 0 && (
+          <div>
+            <div className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-th-text-faint">
+              {t("exercises.lectures", lang)}
+            </div>
+            <div className="flex flex-wrap gap-1">
+              {set.lectures.map((lecture) => (
+                <span
+                  key={lecture}
+                  className="rounded-full bg-th-selected px-2 py-0.5 text-[10px] text-th-text-accent"
+                >
+                  {lecture}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="mb-4 flex items-center justify-between">
@@ -93,6 +129,34 @@ export default function ExerciseSetPage() {
       </div>
 
       <div className="rounded-lg border border-th-border bg-th-card p-5">
+        {exerciseThemes.length > 0 && (
+          <div className="mb-2 flex flex-wrap items-center gap-1">
+            <span className="text-xs text-th-text-faint">{t("exercises.themes", lang)}:</span>
+            {exerciseThemes.map((topicId) => (
+              <span
+                key={`${exercise.id}-${topicId}`}
+                className="rounded-full bg-th-muted px-2 py-0.5 text-[10px] text-th-text-muted"
+              >
+                {topicNames[topicId]?.[lang] ?? topicId}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {lectureRefs.length > 0 && (
+          <div className="mb-3 flex flex-wrap items-center gap-1">
+            <span className="text-xs text-th-text-faint">{t("exercises.lectures", lang)}:</span>
+            {lectureRefs.map((lecture) => (
+              <span
+                key={`${exercise.id}-${lecture}`}
+                className="rounded-full bg-th-selected px-2 py-0.5 text-[10px] text-th-text-accent"
+              >
+                {lecture}
+              </span>
+            ))}
+          </div>
+        )}
+
         <div className="mb-4 text-th-text">
           <MathText text={exercise.text} />
         </div>

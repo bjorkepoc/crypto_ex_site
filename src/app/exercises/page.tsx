@@ -34,16 +34,39 @@ export default function ExercisesPage() {
                   {set.description[lang]}
                 </p>
               )}
-              <div className="mb-2 flex flex-wrap gap-1">
-                {set.topics.map((topicId) => (
-                  <span
-                    key={topicId}
-                    className="rounded-full bg-th-muted px-2 py-0.5 text-[10px] text-th-text-muted"
-                  >
-                    {topicNames[topicId]?.[lang] ?? topicId}
-                  </span>
-                ))}
+              <div className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-th-text-faint">
+                {t("exercises.themes", lang)}
               </div>
+              <div className="mb-2 flex flex-wrap gap-1">
+                {set.topics.map((topicId) => {
+                  const name = topicNames[topicId]?.[lang] ?? topicId;
+                  return (
+                    <span
+                      key={topicId}
+                      className="rounded-full bg-th-muted px-2 py-0.5 text-[10px] text-th-text-muted"
+                    >
+                      {name}
+                    </span>
+                  );
+                })}
+              </div>
+              {set.lectures && set.lectures.length > 0 && (
+                <>
+                  <div className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-th-text-faint">
+                    {t("exercises.lectures", lang)}
+                  </div>
+                  <div className="mb-2 flex flex-wrap gap-1">
+                    {set.lectures.map((lecture) => (
+                      <span
+                        key={lecture}
+                        className="rounded-full bg-th-selected px-2 py-0.5 text-[10px] text-th-text-accent"
+                      >
+                        {lecture}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
               <span className="text-xs text-th-text-muted">
                 {t("exercises.count", lang, set.exercises.length)}
               </span>

@@ -9,63 +9,138 @@
       "en": "Exercises on hash functions, birthday attacks, HMAC, GCM mode, Euler's totient, Chinese Remainder Theorem, discrete logarithms, and primality testing.",
       "no": "Oppgaver om hashfunksjoner, bursdagsangrep, HMAC, GCM-modus, Eulers totientfunksjon, kinesisk restteorem, diskrete logaritmer og primalitetstesting."
     },
-    "topics": ["hashes-macs", "number-theory-pk"],
+    "topics": [
+      "hashes-macs",
+      "number-theory-pk"
+    ],
     "exercises": [
       {
         "id": "E-4-1",
         "text": "Review the definitions of the following concepts:\n\n(a) collision resistance, second preimage resistance and one-wayness;\n\n(b) birthday paradox;\n\n(c) HMAC;\n\n(d) GCM mode;\n\n(e) big O notation;\n\n(f) Fermat test;\n\n(g) Miller-Rabin test;\n\n(h) factorization and discrete logarithm problems.",
-        "solution": "See lecture slides for definitions."
+        "solution": "See lecture slides for definitions.",
+        "topics": [
+          "hashes-macs",
+          "number-theory-pk"
+        ],
+        "lectures": [
+          "L-6",
+          "L-7"
+        ]
       },
       {
         "id": "E-4-2",
         "text": "(a) Suppose that 10 items are chosen randomly (with replacement) from a set of 30 items. Find the probability that there is no collision (or, in other words, all the items are different). (Hint: consider the experiment one item at a time and multiply the probability that there is no collision each time.)\n\n(b) Explain why SHA-256 can be said to match the security of AES with 128-bit keys.",
-        "solution": "(a) The probability of no collision is the product of the probabilities of no collision each time a new element is collected. For 10 elements this is:\n\n$\\frac{30}{30} \\cdot \\frac{29}{30} \\cdot \\frac{28}{30} \\cdot \\ldots \\cdot \\frac{21}{30} = 0.19$\n\nTherefore the probability of at least one collision is $1 - 0.19 = 0.81$.\n\n(b) Due to the birthday paradox around $2^{128}$ computations are required to obtain a collision in SHA-256. This is roughly the same amount of computation required for a brute-force attack on 128-bit key AES."
+        "solution": "(a) The probability of no collision is the product of the probabilities of no collision each time a new element is collected. For 10 elements this is:\n\n$\\frac{30}{30} \\cdot \\frac{29}{30} \\cdot \\frac{28}{30} \\cdot \\ldots \\cdot \\frac{21}{30} = 0.19$\n\nTherefore the probability of at least one collision is $1 - 0.19 = 0.81$.\n\n(b) Due to the birthday paradox around $2^{128}$ computations are required to obtain a collision in SHA-256. This is roughly the same amount of computation required for a brute-force attack on 128-bit key AES.",
+        "topics": [
+          "hashes-macs"
+        ],
+        "lectures": [
+          "L-6"
+        ]
       },
       {
         "id": "E-4-3",
         "text": "A rough, but simple, estimate for the probability $p(n)$ of obtaining one or more collisions when choosing $n$ items (with replacement) from a set of $H$ items is:\n\n$p(n) \\approx \\frac{n^2}{2H}$\n\nUse this formula to estimate the probability of finding a collision in SHA-256 after $2^{128}$ trials, after $2^{100}$ trials, and after $2^{80}$ trials.",
-        "solution": "Since SHA-256 has a 256-bit output we have $H = 2^{256}$.\n\n- When $n = 2^{128}$ we get $p(n) = \\frac{2^{256}}{2^{257}} = 0.5$.\n\n- When $n = 2^{100}$ we get $p(n) = \\frac{2^{200}}{2^{257}} = 2^{-57}$.\n\n- When $n = 2^{80}$ we get $p(n) = \\frac{2^{160}}{2^{257}} = 2^{-97}$.\n\nWe see that even after $2^{100}$ trials, which is way beyond normal attackers, the success probability is tiny."
+        "solution": "Since SHA-256 has a 256-bit output we have $H = 2^{256}$.\n\n- When $n = 2^{128}$ we get $p(n) = \\frac{2^{256}}{2^{257}} = 0.5$.\n\n- When $n = 2^{100}$ we get $p(n) = \\frac{2^{200}}{2^{257}} = 2^{-57}$.\n\n- When $n = 2^{80}$ we get $p(n) = \\frac{2^{160}}{2^{257}} = 2^{-97}$.\n\nWe see that even after $2^{100}$ trials, which is way beyond normal attackers, the success probability is tiny.",
+        "topics": [
+          "hashes-macs"
+        ],
+        "lectures": [
+          "L-6"
+        ]
       },
       {
         "id": "E-4-4",
         "text": "When does the addition of the padding and length field in the SHA-2 family of hash functions result in an extra block to be processed?\n\nConsider, for example, a SHA-2 variant with 1024-bit blocks (such as SHA-512) and a message $m$ of between $(l-1) \\times 1024$ bits and $l \\times 1024$ bits. The message, after adding padding and the length field, is either $l$ blocks or $l+1$ blocks. Exactly how long can the message be before $l+1$ blocks will be used?",
-        "solution": "Suppose $m$ has length $(l-1) \\times 1024 + r$ bits. At least 1 bit of padding is added and 128 bits are needed for the length field. So if $r \\leq 1024 - 129 = 895$ then no extra block is added to the pre-processed data."
+        "solution": "Suppose $m$ has length $(l-1) \\times 1024 + r$ bits. At least 1 bit of padding is added and 128 bits are needed for the length field. So if $r \\leq 1024 - 129 = 895$ then no extra block is added to the pre-processed data.",
+        "topics": [
+          "hashes-macs"
+        ],
+        "lectures": [
+          "L-6"
+        ]
       },
       {
         "id": "E-4-5",
         "text": "Suppose that HMAC is implemented using a hash function $H$, where $H$ is an iterated hash function with compression function $h$.\n\n(a) How many additional applications of the compression function $h$ are required to compute the MAC of a message $m$, in comparison with computing only $H(m)$?\n\n(b) If a MAC tag is to be computed for many different messages but the same key, how can pre-computation be used to reduce this overhead?",
-        "solution": "(a) The computation of $I = H((K \\oplus \\text{ipad}) \\| m)$ requires one extra application of $h$ to compute, compared with computing simply $H(m)$. The computation of $H((K \\oplus \\text{opad}) \\| I)$ requires only two or three applications of $h$, depending on whether the padding adds one extra block. For all the SHA variants the output size of $I$ is much smaller than the block size, so in the standardized versions there are only two extra applications of $h$. So there are in total 3 extra applications of $h$ to compute $\\text{HMAC}(m)$ compared to computing $H(m)$. For large messages this is a very small overhead.\n\n(b) We can compute $h(K \\oplus \\text{opad})$ and $h(K \\oplus \\text{ipad})$ in advance since they are independent of the message. This saves two of the three overhead computations of $h$, and can be useful if HMAC is applied to many short messages."
+        "solution": "(a) The computation of $I = H((K \\oplus \\text{ipad}) \\| m)$ requires one extra application of $h$ to compute, compared with computing simply $H(m)$. The computation of $H((K \\oplus \\text{opad}) \\| I)$ requires only two or three applications of $h$, depending on whether the padding adds one extra block. For all the SHA variants the output size of $I$ is much smaller than the block size, so in the standardized versions there are only two extra applications of $h$. So there are in total 3 extra applications of $h$ to compute $\\text{HMAC}(m)$ compared to computing $H(m)$. For large messages this is a very small overhead.\n\n(b) We can compute $h(K \\oplus \\text{opad})$ and $h(K \\oplus \\text{ipad})$ in advance since they are independent of the message. This saves two of the three overhead computations of $h$, and can be useful if HMAC is applied to many short messages.",
+        "topics": [
+          "hashes-macs"
+        ],
+        "lectures": [
+          "L-6"
+        ]
       },
       {
         "id": "E-4-6",
         "text": "Consider the following simplification of HMAC, defined from any Merkle-Damgard hash function $H$:\n\n$\\text{HMAC}'(m, K) = H(K \\| m)$\n\nShow that this variant allows an attacker to forge a new valid MAC tag given any valid message/tag pair $(m, T)$ by extending $m$ to a new message $m'$ and finding a valid tag $T'$ for $m'$.",
-        "solution": "Assume $\\text{HMAC}'(m, K) = T$ is known by the attacker where $m$ has $n$-bit blocks $m_1 \\| m_2 \\| \\ldots \\| m_\\ell$. If we write $h_i = h(m_i, h_{i-1})$ as the intermediate outputs of $h$, the final value of the tag is $\\text{HMAC}'(m, K) = h(\\text{pad}, h_\\ell)$. The attacker can, for example, choose an extra block $m_{\\ell+1}$, compute the new correct padding block $\\text{pad}'$, and then compute the new correct MAC tag:\n\n$T' = h(\\text{pad}', h(m_{\\ell+1}, T))$\n\nwhich is a valid tag for the message:\n\n$m' = m \\| \\text{pad} \\| m_{\\ell+1}$"
+        "solution": "Assume $\\text{HMAC}'(m, K) = T$ is known by the attacker where $m$ has $n$-bit blocks $m_1 \\| m_2 \\| \\ldots \\| m_\\ell$. If we write $h_i = h(m_i, h_{i-1})$ as the intermediate outputs of $h$, the final value of the tag is $\\text{HMAC}'(m, K) = h(\\text{pad}, h_\\ell)$. The attacker can, for example, choose an extra block $m_{\\ell+1}$, compute the new correct padding block $\\text{pad}'$, and then compute the new correct MAC tag:\n\n$T' = h(\\text{pad}', h(m_{\\ell+1}, T))$\n\nwhich is a valid tag for the message:\n\n$m' = m \\| \\text{pad} \\| m_{\\ell+1}$",
+        "topics": [
+          "hashes-macs"
+        ],
+        "lectures": [
+          "L-6"
+        ]
       },
       {
         "id": "E-4-7",
         "text": "If possible, solve the following equations for $x$ using the Chinese Remainder Theorem (CRT). If they do not have a solution, then explain why.\n\n(a) $x \\equiv 5 \\pmod{7}$ and $x \\equiv 7 \\pmod{10}$.\n\n(b) $x \\equiv 3 \\pmod{7}$ and $x \\equiv 7 \\pmod{14}$.\n\n(c) $x \\equiv 2 \\pmod{6}$ and $x \\equiv 3 \\pmod{11}$.\n\n(d) $x \\equiv 8 \\pmod{9}$ and $x \\equiv 11 \\pmod{15}$.",
-        "solution": "(a) Since $\\gcd(7, 10) = 1$ a solution must exist. Using the CRT we have:\n\n$x = (10^{-1} \\bmod 7 \\cdot 10 \\cdot 5) + (7^{-1} \\bmod 10 \\cdot 7 \\cdot 7) \\bmod 70$\n$= (5 \\cdot 50) + (3 \\cdot 49) \\bmod 70$\n$= 250 + 147 \\bmod 70$\n$= 47$\n\n(b) Since $\\gcd(7, 14) = 7$, CRT cannot be applied. In fact, $x \\equiv 7 \\pmod{14}$ implies $x \\equiv 0 \\not\\equiv 3 \\pmod{7}$. Therefore no solution exists.\n\n(c) Since $\\gcd(6, 11) = 1$ a solution must exist. Using the CRT we have:\n\n$x = (11^{-1} \\bmod 6 \\cdot 11 \\cdot 2) + (6^{-1} \\bmod 11 \\cdot 6 \\cdot 3) \\bmod 66$\n$= (5 \\cdot 22) + (2 \\cdot 18) \\bmod 66$\n$= 110 + 36 \\bmod 66$\n$= 14$\n\n(d) If the answer exists, it must exist $\\bmod 45$, since 45 is the least common multiple of 9 and 15. We then get the following candidates:\n\n$x \\equiv 8 \\equiv 17 \\equiv 26 \\equiv 35 \\equiv 44 \\pmod{9}$\n$x \\equiv 11 \\equiv 26 \\equiv 41 \\pmod{15}$\n\nFrom these candidates we can conclude that $x \\equiv 26 \\pmod{45}$."
+        "solution": "(a) Since $\\gcd(7, 10) = 1$ a solution must exist. Using the CRT we have:\n\n$x = (10^{-1} \\bmod 7 \\cdot 10 \\cdot 5) + (7^{-1} \\bmod 10 \\cdot 7 \\cdot 7) \\bmod 70$\n$= (5 \\cdot 50) + (3 \\cdot 49) \\bmod 70$\n$= 250 + 147 \\bmod 70$\n$= 47$\n\n(b) Since $\\gcd(7, 14) = 7$, CRT cannot be applied. In fact, $x \\equiv 7 \\pmod{14}$ implies $x \\equiv 0 \\not\\equiv 3 \\pmod{7}$. Therefore no solution exists.\n\n(c) Since $\\gcd(6, 11) = 1$ a solution must exist. Using the CRT we have:\n\n$x = (11^{-1} \\bmod 6 \\cdot 11 \\cdot 2) + (6^{-1} \\bmod 11 \\cdot 6 \\cdot 3) \\bmod 66$\n$= (5 \\cdot 22) + (2 \\cdot 18) \\bmod 66$\n$= 110 + 36 \\bmod 66$\n$= 14$\n\n(d) If the answer exists, it must exist $\\bmod 45$, since 45 is the least common multiple of 9 and 15. We then get the following candidates:\n\n$x \\equiv 8 \\equiv 17 \\equiv 26 \\equiv 35 \\equiv 44 \\pmod{9}$\n$x \\equiv 11 \\equiv 26 \\equiv 41 \\pmod{15}$\n\nFrom these candidates we can conclude that $x \\equiv 26 \\pmod{45}$.",
+        "topics": [
+          "number-theory-pk"
+        ],
+        "lectures": [
+          "L-7"
+        ]
       },
       {
         "id": "E-4-8",
         "text": "Find $\\phi(n)$ for all integers between 20 and 25 inclusive.",
-        "solution": "$\\phi(20) = \\phi(2^2 \\cdot 5) = (2^2 - 2^1)(5^1 - 5^0) = 2 \\cdot 4 = 8$\n\n$\\phi(21) = \\phi(3 \\cdot 7) = (3^1 - 3^0)(7^1 - 7^0) = 2 \\cdot 6 = 12$\n\n$\\phi(22) = \\phi(2 \\cdot 11) = (2^1 - 2^0)(11^1 - 11^0) = 1 \\cdot 10 = 10$\n\n$\\phi(23) = 23^1 - 23^0 = 22$\n\n$\\phi(24) = \\phi(2^3 \\cdot 3) = (2^3 - 2^2)(3^1 - 3^0) = 4 \\cdot 2 = 8$\n\n$\\phi(25) = \\phi(5^2) = 5^2 - 5^1 = 20$"
+        "solution": "$\\phi(20) = \\phi(2^2 \\cdot 5) = (2^2 - 2^1)(5^1 - 5^0) = 2 \\cdot 4 = 8$\n\n$\\phi(21) = \\phi(3 \\cdot 7) = (3^1 - 3^0)(7^1 - 7^0) = 2 \\cdot 6 = 12$\n\n$\\phi(22) = \\phi(2 \\cdot 11) = (2^1 - 2^0)(11^1 - 11^0) = 1 \\cdot 10 = 10$\n\n$\\phi(23) = 23^1 - 23^0 = 22$\n\n$\\phi(24) = \\phi(2^3 \\cdot 3) = (2^3 - 2^2)(3^1 - 3^0) = 4 \\cdot 2 = 8$\n\n$\\phi(25) = \\phi(5^2) = 5^2 - 5^1 = 20$",
+        "topics": [
+          "number-theory-pk"
+        ],
+        "lectures": [
+          "L-7"
+        ]
       },
       {
         "id": "E-4-9",
         "text": "Find the discrete logarithm of the number 3 with regard to base 2, for the following moduli:\n\n(a) modulus $p = 5$;\n\n(b) modulus $p = 11$;\n\n(c) modulus $p = 29$.",
-        "solution": "We need to find the value $x$ with $2^x \\equiv 3 \\pmod{p}$ for the different values of $p$.\n\n(a) Powers of 2 modulo 5 are: $2, 4, 3, 1$. So $x = 3$.\n\n(b) Powers of 2 modulo 11 are: $2, 4, 8, 5, 10, 9, 7, 3, 6, 1$. So $x = 8$.\n\n(c) Powers of 2 modulo 29 are: $2, 4, 8, 16, 3, \\ldots$ So $x = 5$."
+        "solution": "We need to find the value $x$ with $2^x \\equiv 3 \\pmod{p}$ for the different values of $p$.\n\n(a) Powers of 2 modulo 5 are: $2, 4, 3, 1$. So $x = 3$.\n\n(b) Powers of 2 modulo 11 are: $2, 4, 8, 5, 10, 9, 7, 3, 6, 1$. So $x = 8$.\n\n(c) Powers of 2 modulo 29 are: $2, 4, 8, 16, 3, \\ldots$ So $x = 5$.",
+        "topics": [
+          "number-theory-pk"
+        ],
+        "lectures": [
+          "L-7"
+        ]
       },
       {
         "id": "E-4-10",
         "text": "Use the Fermat test to check whether the following numbers are prime or not. Run the test at most 4 times.\n\n(a) 979;\n\n(b) 983.",
-        "solution": "(a) $2^{978} \\pmod{979} = 223$. Therefore 979 cannot be prime and there is no point in looking further. The test outputs composite.\n\n(b) We choose a few bases $b$ and check whether $b^{982} \\bmod 983 = 1$. For example:\n\n$2^{982} \\bmod 983 = 1$\n$3^{982} \\bmod 983 = 1$\n$11^{982} \\bmod 983 = 1$\n$17^{982} \\bmod 983 = 1$\n\nWe can be (somewhat) confident that 983 is prime, and the test outputs probable prime. Note that the bases chosen here are not random, but in practice randomly sampled bases are usually applied."
+        "solution": "(a) $2^{978} \\pmod{979} = 223$. Therefore 979 cannot be prime and there is no point in looking further. The test outputs composite.\n\n(b) We choose a few bases $b$ and check whether $b^{982} \\bmod 983 = 1$. For example:\n\n$2^{982} \\bmod 983 = 1$\n$3^{982} \\bmod 983 = 1$\n$11^{982} \\bmod 983 = 1$\n$17^{982} \\bmod 983 = 1$\n\nWe can be (somewhat) confident that 983 is prime, and the test outputs probable prime. Note that the bases chosen here are not random, but in practice randomly sampled bases are usually applied.",
+        "topics": [
+          "number-theory-pk"
+        ],
+        "lectures": [
+          "L-7"
+        ]
       },
       {
         "id": "E-4-11",
         "text": "(a) Show that the Carmichael number $n = 1105$ passes the Fermat test for base $a = 2$ and $a = 3$.\n\n(b) Now try the Miller-Rabin test for the same two bases and show that $n$ is composite.\n\n(c) Hence find a square root of 1 $\\bmod n$ and use this to find a factor of $n$.",
-        "solution": "(a) Check that $a^{1104} \\bmod 1105 = 1$ for $a = 2$ and $a = 3$.\n\n(b) $1104 = 2^4 \\cdot 69$. Therefore we compute:\n\n$2^{69} \\bmod 1105 = 967$\n$967^2 \\bmod 1105 = 259$\n$259^2 \\bmod 1105 = 781$\n$781^2 \\bmod 1105 = 1$\n\nHere we stop since we got to 1 and the test outputs composite, which shows that 1105 is definitely composite.\n\n(c) In the last equation we found that 781 is a square root of 1 modulo 1105. Therefore $\\gcd(780, 1105)$ is a factor of 1105. Running the Euclidean algorithm gives:\n\n$1105 = 1 \\cdot 780 + 325$\n$780 = 325 \\cdot 2 + 130$\n$325 = 130 \\cdot 2 + 65$\n$130 = 2 \\cdot 65$\n\nSo $\\gcd(780, 1105) = 65$ and we find $1105 = 65 \\cdot 17$."
+        "solution": "(a) Check that $a^{1104} \\bmod 1105 = 1$ for $a = 2$ and $a = 3$.\n\n(b) $1104 = 2^4 \\cdot 69$. Therefore we compute:\n\n$2^{69} \\bmod 1105 = 967$\n$967^2 \\bmod 1105 = 259$\n$259^2 \\bmod 1105 = 781$\n$781^2 \\bmod 1105 = 1$\n\nHere we stop since we got to 1 and the test outputs composite, which shows that 1105 is definitely composite.\n\n(c) In the last equation we found that 781 is a square root of 1 modulo 1105. Therefore $\\gcd(780, 1105)$ is a factor of 1105. Running the Euclidean algorithm gives:\n\n$1105 = 1 \\cdot 780 + 325$\n$780 = 325 \\cdot 2 + 130$\n$325 = 130 \\cdot 2 + 65$\n$130 = 2 \\cdot 65$\n\nSo $\\gcd(780, 1105) = 65$ and we find $1105 = 65 \\cdot 17$.",
+        "topics": [
+          "number-theory-pk"
+        ],
+        "lectures": [
+          "L-7"
+        ]
       }
+    ],
+    "lectures": [
+      "L-6",
+      "L-7"
     ]
   }
 ]

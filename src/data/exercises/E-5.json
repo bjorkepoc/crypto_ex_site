@@ -1,60 +1,135 @@
 [
   {
     "id": "E-5",
-    "title": { "en": "Worksheet 5: RSA", "no": "Oppgavesett 5: RSA" },
-    "description": { "en": "RSA encryption, CRT, Miller's algorithm, Diffie-Hellman, ElGamal", "no": "RSA-kryptering, CRT, Millers algoritme, Diffie-Hellman, ElGamal" },
-    "topics": ["public-key-rsa"],
+    "title": {
+      "en": "Worksheet 5: RSA",
+      "no": "Oppgavesett 5: RSA"
+    },
+    "description": {
+      "en": "RSA encryption, CRT, Miller's algorithm, Diffie-Hellman, ElGamal",
+      "no": "RSA-kryptering, CRT, Millers algoritme, Diffie-Hellman, ElGamal"
+    },
+    "topics": [
+      "public-key-rsa",
+      "discrete-log-crypto"
+    ],
     "exercises": [
       {
         "id": "E-5-1",
         "text": "Review the definitions of the following concepts:\n\n(a) trapdoor one-way function;\n\n(b) RSA equations;\n\n(c) prime number theorem;\n\n(d) square-and-multiply algorithm;\n\n(e) H\\u00e5stad's attack;\n\n(f) Miller's theorem;\n\n(g) discrete logarithm problem;\n\n(h) generator of $\\mathbb{Z}_p^*$;\n\n(i) Diffie\\u2013Hellman key exchange.",
-        "solution": "See lecture slides for definitions."
+        "solution": "See lecture slides for definitions.",
+        "topics": [
+          "public-key-rsa",
+          "discrete-log-crypto"
+        ],
+        "lectures": [
+          "L-8",
+          "L-9"
+        ]
       },
       {
         "id": "E-5-2",
         "text": "Suppose that an RSA public key is chosen with primes $p = 13$ and $q = 17$. Suppose that the public key is $e = 5$.\n\n(a) Find the value of $d$.\n\n(b) Find the encryption of $m_1 = 4$ and $m_2 = 13$.\n\n(c) Decrypt the ciphertexts and verify that the correct value is recovered.",
-        "solution": "(a) The modulus is $n = pq = 221$. Then $d = e^{-1} \\bmod \\phi(n) = 5^{-1} \\bmod (12 \\cdot 16) = 5^{-1} \\bmod 192$. Using the Euclidean algorithm we find that $5^{-1} \\bmod 192 = 77$.\n\n(b) For the message $m_1 = 4$ the ciphertext is $c_1 = m_1^e \\bmod n = 4^5 \\bmod 221 = 140$.\n\nFor the message $m_2 = 13$ the ciphertext is $c_2 = m_2^e \\bmod n = 13^5 \\bmod 221 = 13$. Notice that this illustrates that it is quite possible for messages to be sent to themselves in RSA. This will happen with negligible probability in practice.\n\n(c) To decrypt we compute $m_1 = c_1^d \\bmod n = 140^{77} \\bmod 221 = 4$. Similarly $m_2 = c_2^d \\bmod n = 13^{77} \\bmod 221 = 13$."
+        "solution": "(a) The modulus is $n = pq = 221$. Then $d = e^{-1} \\bmod \\phi(n) = 5^{-1} \\bmod (12 \\cdot 16) = 5^{-1} \\bmod 192$. Using the Euclidean algorithm we find that $5^{-1} \\bmod 192 = 77$.\n\n(b) For the message $m_1 = 4$ the ciphertext is $c_1 = m_1^e \\bmod n = 4^5 \\bmod 221 = 140$.\n\nFor the message $m_2 = 13$ the ciphertext is $c_2 = m_2^e \\bmod n = 13^5 \\bmod 221 = 13$. Notice that this illustrates that it is quite possible for messages to be sent to themselves in RSA. This will happen with negligible probability in practice.\n\n(c) To decrypt we compute $m_1 = c_1^d \\bmod n = 140^{77} \\bmod 221 = 4$. Similarly $m_2 = c_2^d \\bmod n = 13^{77} \\bmod 221 = 13$.",
+        "topics": [
+          "public-key-rsa"
+        ],
+        "lectures": [
+          "L-8"
+        ]
       },
       {
         "id": "E-5-3",
         "text": "Suppose that RSA encryption uses a modulus $n$ of 3000 bits. Assuming that the square-and-multiply method is used for exponentiation, compare the computational cost of encryption, measured in the number of squarings and the number of multiplications, in the following cases:\n\n(a) $e = 3$\n\n(b) $e = 2^{16} + 1$\n\n(c) $e$ is chosen randomly between $0$ and $n$.\n\nHow much computation is required for decryption in each case?",
-        "solution": "Regard the exponent $e$ as a binary string. If there are $s$ bits in the exponent and $t$ of these are '1' bits, the square-and-multiply method uses $s - 1$ squarings and $t - 1$ multiplications.\n\n| Case | Squarings | Multiplications |\n|---|---|---|\n| $e = 3$ | 1 | 1 |\n| $e = 2^{16} + 1$ | 16 | 1 |\n| $e$ random | 2999 | 1499 |\n\nThe last row is an average estimate. Note that $e$ will usually have around 3000 bits if chosen randomly.\n\nThe decryption computation depends on the value of $d$. In all cases this can be regarded as being randomly chosen in the range $0 < d < \\phi(n)$. Note that $\\phi(n)$ also has approximately 3000 bits. Therefore the decryption computation will always take similar computation to the last row in the table."
+        "solution": "Regard the exponent $e$ as a binary string. If there are $s$ bits in the exponent and $t$ of these are '1' bits, the square-and-multiply method uses $s - 1$ squarings and $t - 1$ multiplications.\n\n| Case | Squarings | Multiplications |\n|---|---|---|\n| $e = 3$ | 1 | 1 |\n| $e = 2^{16} + 1$ | 16 | 1 |\n| $e$ random | 2999 | 1499 |\n\nThe last row is an average estimate. Note that $e$ will usually have around 3000 bits if chosen randomly.\n\nThe decryption computation depends on the value of $d$. In all cases this can be regarded as being randomly chosen in the range $0 < d < \\phi(n)$. Note that $\\phi(n)$ also has approximately 3000 bits. Therefore the decryption computation will always take similar computation to the last row in the table.",
+        "topics": [
+          "public-key-rsa"
+        ],
+        "lectures": [
+          "L-8"
+        ]
       },
       {
         "id": "E-5-4",
         "text": "Suppose that the same message $m$ has been encrypted for three recipients with different RSA moduli: $205$, $319$ and $391$. Each recipient uses public exponent $e = 3$. Suppose also that no random padding has been added. The three ciphertexts found are: $180$, $43$ and $218$ respectively.\n\nDemonstrate H\\u00e5stad's CRT attack by finding the value of $m$ without making use of the factorization of the moduli.",
-        "solution": "We have three modular equations:\n\n$m^3 \\equiv 180 \\pmod{205}$\n\n$m^3 \\equiv 43 \\pmod{319}$\n\n$m^3 \\equiv 218 \\pmod{391}$\n\nThese can be solved using the Chinese Remainder Theorem. Let:\n\n$y_1 = (319 \\cdot 391)^{-1} \\bmod 205 = 129$\n\n$y_2 = (205 \\cdot 391)^{-1} \\bmod 319 = 115$\n\n$y_3 = (205 \\cdot 319)^{-1} \\bmod 391 = 4$\n\nThen $m^3 = 180 \\cdot (319 \\cdot 391 \\cdot y_1) + 43 \\cdot (205 \\cdot 391 \\cdot y_2) + 218 \\cdot (205 \\cdot 319 \\cdot y_3) \\bmod 25569445 = 1000$.\n\nFinally the message can be found by extracting the ordinary cube root to obtain $m = 10$."
+        "solution": "We have three modular equations:\n\n$m^3 \\equiv 180 \\pmod{205}$\n\n$m^3 \\equiv 43 \\pmod{319}$\n\n$m^3 \\equiv 218 \\pmod{391}$\n\nThese can be solved using the Chinese Remainder Theorem. Let:\n\n$y_1 = (319 \\cdot 391)^{-1} \\bmod 205 = 129$\n\n$y_2 = (205 \\cdot 391)^{-1} \\bmod 319 = 115$\n\n$y_3 = (205 \\cdot 319)^{-1} \\bmod 391 = 4$\n\nThen $m^3 = 180 \\cdot (319 \\cdot 391 \\cdot y_1) + 43 \\cdot (205 \\cdot 391 \\cdot y_2) + 218 \\cdot (205 \\cdot 319 \\cdot y_3) \\bmod 25569445 = 1000$.\n\nFinally the message can be found by extracting the ordinary cube root to obtain $m = 10$.",
+        "topics": [
+          "public-key-rsa"
+        ],
+        "lectures": [
+          "L-8"
+        ]
       },
       {
         "id": "E-5-5",
         "text": "Consider RSA with values $p = 23$, $q = 31$, $n = 713$ and $d = 233$. Suppose the received ciphertext is $c = 266$. Examine the faster decryption method using the CRT, using these values:\n\n(a) Compute $m_p = c^{d \\bmod (p-1)} \\bmod p$.\n\n(b) Similarly compute $m_q$.\n\n(c) Combine these results using the CRT to decrypt the ciphertext.",
-        "solution": "$d \\bmod (p - 1) = 233 \\bmod 22 = 13$\n\n$d \\bmod (q - 1) = 233 \\bmod 30 = 23$\n\n(a) $m \\bmod p = c^{d \\bmod (p-1)} \\bmod p = 266^{13} \\bmod 23 = 13^{13} \\bmod 23 = 8$.\n\n(b) $m \\bmod q = c^{d \\bmod (q-1)} \\bmod q = 266^{23} \\bmod 31 = 18^{23} \\bmod 31 = 7$.\n\n(c) $m = 8 \\cdot 31 \\cdot r_1 + 7 \\cdot 23 \\cdot r_2 \\bmod 713$.\n\nHere $r_1 = 31^{-1} \\bmod 23 = 8^{-1} \\bmod 23 = 3$ and $r_2 = 23^{-1} \\bmod 31 = 27$.\n\n$m = 8 \\cdot 31 \\cdot 3 + 7 \\cdot 23 \\cdot 27 \\bmod 713 = 744 + 4347 \\bmod 713 = 31 + 69 = 100$."
+        "solution": "$d \\bmod (p - 1) = 233 \\bmod 22 = 13$\n\n$d \\bmod (q - 1) = 233 \\bmod 30 = 23$\n\n(a) $m \\bmod p = c^{d \\bmod (p-1)} \\bmod p = 266^{13} \\bmod 23 = 13^{13} \\bmod 23 = 8$.\n\n(b) $m \\bmod q = c^{d \\bmod (q-1)} \\bmod q = 266^{23} \\bmod 31 = 18^{23} \\bmod 31 = 7$.\n\n(c) $m = 8 \\cdot 31 \\cdot r_1 + 7 \\cdot 23 \\cdot r_2 \\bmod 713$.\n\nHere $r_1 = 31^{-1} \\bmod 23 = 8^{-1} \\bmod 23 = 3$ and $r_2 = 23^{-1} \\bmod 31 = 27$.\n\n$m = 8 \\cdot 31 \\cdot 3 + 7 \\cdot 23 \\cdot 27 \\bmod 713 = 744 + 4347 \\bmod 713 = 31 + 69 = 100$.",
+        "topics": [
+          "public-key-rsa"
+        ],
+        "lectures": [
+          "L-8"
+        ]
       },
       {
         "id": "E-5-6",
         "text": "Suppose that an attacker obtains an RSA private key $d = 233$ and also has the public key $e = 17$ and $n = 713$. Apply Miller's algorithm to factorize $n$.",
-        "solution": "First write $ed - 1 = 2^v \\cdot u$ for $u$ odd. Since $ed - 1 = 3960 = 2^3 \\cdot 495$ we have $v = 3$ and $u = 495$.\n\nChoose $a = 2$ and compute $2^u \\bmod n = 1$. Unfortunately we do not get a non-trivial square root this time since all later squares of this must also be $1$.\n\nChoose $a = 3$ and compute $3^u \\bmod n = 185$. We are lucky and this is not $\\pm 1$ so we can find a non-trivial square root of $1$ by squaring.\n\n$185^2 \\bmod n = 1$ so $a = 185$ is a non-trivial square root of $1$.\n\nTherefore we can find a factor of $n$ by computing $\\gcd(a - 1, n) = \\gcd(184, 713) = 23$. The other factor is then $713/23 = 31$. Therefore we have factorized the modulus: $713 = 23 \\cdot 31$."
+        "solution": "First write $ed - 1 = 2^v \\cdot u$ for $u$ odd. Since $ed - 1 = 3960 = 2^3 \\cdot 495$ we have $v = 3$ and $u = 495$.\n\nChoose $a = 2$ and compute $2^u \\bmod n = 1$. Unfortunately we do not get a non-trivial square root this time since all later squares of this must also be $1$.\n\nChoose $a = 3$ and compute $3^u \\bmod n = 185$. We are lucky and this is not $\\pm 1$ so we can find a non-trivial square root of $1$ by squaring.\n\n$185^2 \\bmod n = 1$ so $a = 185$ is a non-trivial square root of $1$.\n\nTherefore we can find a factor of $n$ by computing $\\gcd(a - 1, n) = \\gcd(184, 713) = 23$. The other factor is then $713/23 = 31$. Therefore we have factorized the modulus: $713 = 23 \\cdot 31$.",
+        "topics": [
+          "public-key-rsa"
+        ],
+        "lectures": [
+          "L-8"
+        ]
       },
       {
         "id": "E-5-7",
         "text": "In this question we show that $f(x) = x^2 \\bmod n$ is a trapdoor one-way function, when $n = pq$ and $p \\bmod 4 = q \\bmod 4 = 3$ and $p$ and $q$ are different primes. We do this in three steps.\n\n(a) Explain why we know that $(p + 1)/4$ is an integer, and explain why we know that if $x$ has a square root in $\\mathbb{Z}_p^*$ then $x^{(p+1)/4} \\bmod p$ is a square root of $x$ in $\\mathbb{Z}_p^*$.\n\n(b) Use the part above to show that if $p$ and $q$ are known, then a square root modulo $n$ can be efficiently computed (assume we have an efficient exponentiation function). Thus $p$ and $q$ are a trapdoor to invert $f$.\n\n(c) Now suppose that there exists an algorithm $A$ that finds integers $x, y, z$ such that $x \\equiv y^2 \\equiv z^2 \\pmod{n}$ with $z \\not\\equiv y \\pmod{n}$ and $z \\not\\equiv -y \\pmod{n}$, then this can be used to factorize $n$. Hence deduce that inverting $f$ is as hard as factorizing $n$, and that $f$ is one-way.",
-        "solution": "(a) Since $p \\bmod 4 = 3$, we have $p = 4k + 3$ for some integer $k$, so $(p + 1)/4 = k + 1$ which is an integer. Now note that only half of the integers $\\{1, 2, \\ldots, p-1\\}$ are squares modulo $p$. Since $x \\equiv y^2 \\pmod{p}$ for some $y$:\n\n$(x^{(p+1)/4})^2 \\bmod p = x^{(p+1)/2} \\bmod p = x^{(p-1)/2} \\cdot x \\bmod p = y^{p-1} \\cdot x \\bmod p = x$\n\nwhere the last step uses Fermat's theorem.\n\n(b) Given any $x$ which is a square modulo $n$, the above algorithm can be used separately for both $p$ and $q$. So we can efficiently obtain $a$ and $b$ so that $a^2 \\bmod p = x \\bmod p$ and $b^2 \\bmod q = x \\bmod q$. Now we can use the Chinese Remainder Theorem to solve:\n\n$y \\equiv a \\pmod{p}$\n\n$y \\equiv b \\pmod{q}$\n\nThus $y^2 \\bmod p = x \\bmod p$ and $y^2 \\bmod q = x \\bmod q$. In other words $y^2 - x$ is a multiple of both $p$ and $q$ so is a multiple of $n = pq$. Thus $y^2 \\bmod n = x \\bmod n$, meaning $y$ is a square root.\n\n(c) Since $x \\equiv y^2 \\pmod{n}$ and $x \\equiv z^2 \\pmod{n}$ we have $y^2 - z^2 \\equiv 0 \\pmod{n}$, so $(y - z)(y + z)$ is a multiple of $n$. If $(y - z)$ or $(y + z)$ is a multiple of $n$ then we have either $z \\equiv y \\pmod{n}$ or $z \\equiv -y \\pmod{n}$. If neither $(y - z)$ nor $(y + z)$ is a multiple of $n$ then one must be a multiple of $p$ and the other must be a multiple of $q$ so that $\\gcd(y - z, n) > 1$ will efficiently compute a factor of $n$."
+        "solution": "(a) Since $p \\bmod 4 = 3$, we have $p = 4k + 3$ for some integer $k$, so $(p + 1)/4 = k + 1$ which is an integer. Now note that only half of the integers $\\{1, 2, \\ldots, p-1\\}$ are squares modulo $p$. Since $x \\equiv y^2 \\pmod{p}$ for some $y$:\n\n$(x^{(p+1)/4})^2 \\bmod p = x^{(p+1)/2} \\bmod p = x^{(p-1)/2} \\cdot x \\bmod p = y^{p-1} \\cdot x \\bmod p = x$\n\nwhere the last step uses Fermat's theorem.\n\n(b) Given any $x$ which is a square modulo $n$, the above algorithm can be used separately for both $p$ and $q$. So we can efficiently obtain $a$ and $b$ so that $a^2 \\bmod p = x \\bmod p$ and $b^2 \\bmod q = x \\bmod q$. Now we can use the Chinese Remainder Theorem to solve:\n\n$y \\equiv a \\pmod{p}$\n\n$y \\equiv b \\pmod{q}$\n\nThus $y^2 \\bmod p = x \\bmod p$ and $y^2 \\bmod q = x \\bmod q$. In other words $y^2 - x$ is a multiple of both $p$ and $q$ so is a multiple of $n = pq$. Thus $y^2 \\bmod n = x \\bmod n$, meaning $y$ is a square root.\n\n(c) Since $x \\equiv y^2 \\pmod{n}$ and $x \\equiv z^2 \\pmod{n}$ we have $y^2 - z^2 \\equiv 0 \\pmod{n}$, so $(y - z)(y + z)$ is a multiple of $n$. If $(y - z)$ or $(y + z)$ is a multiple of $n$ then we have either $z \\equiv y \\pmod{n}$ or $z \\equiv -y \\pmod{n}$. If neither $(y - z)$ nor $(y + z)$ is a multiple of $n$ then one must be a multiple of $p$ and the other must be a multiple of $q$ so that $\\gcd(y - z, n) > 1$ will efficiently compute a factor of $n$.",
+        "topics": [
+          "public-key-rsa"
+        ],
+        "lectures": [
+          "L-8"
+        ]
       },
       {
         "id": "E-5-8",
         "text": "It is common in the ElGamal encryption algorithm for users to share the modulus $p$ and generator $g$. Why is it not possible for users to share the same modulus $n$ in the RSA cryptosystem?",
-        "solution": "At one level we can simply say that users generate their own moduli. If user Alice tries to use Bob's modulus $n$ then Alice will not be able to factorize $n$ and will be unable to generate a valid $(e, d)$ pair. Thus it just won't work.\n\nMore interesting is the case that a trusted party could generate $n$ and many valid $(e, d)$ pairs and distribute them to different parties. This works, but it is totally insecure. We know from Miller's algorithm that knowledge of any valid $(e, d)$ pair is sufficient to factorize $n$. Therefore Alice could use her own $(e_A, d_A)$ pair to obtain the factors of $n$ and can then obtain Bob's private $d_B$ value from the public $e_B$ and $n$ values."
+        "solution": "At one level we can simply say that users generate their own moduli. If user Alice tries to use Bob's modulus $n$ then Alice will not be able to factorize $n$ and will be unable to generate a valid $(e, d)$ pair. Thus it just won't work.\n\nMore interesting is the case that a trusted party could generate $n$ and many valid $(e, d)$ pairs and distribute them to different parties. This works, but it is totally insecure. We know from Miller's algorithm that knowledge of any valid $(e, d)$ pair is sufficient to factorize $n$. Therefore Alice could use her own $(e_A, d_A)$ pair to obtain the factors of $n$ and can then obtain Bob's private $d_B$ value from the public $e_B$ and $n$ values.",
+        "topics": [
+          "public-key-rsa"
+        ],
+        "lectures": [
+          "L-8"
+        ]
       },
       {
         "id": "E-5-9",
         "text": "The Diffie\\u2013Hellman protocol can be defined, but is not necessarily secure, in any group.\n\n(a) Define Diffie\\u2013Hellman in the additive group modulo $p$ for some prime $p$, instead of the multiplicative group where it is usually defined. Would this be secure for sufficiently large values of $p$?\n\n(b) Write down the equations for Diffie\\u2013Hellman on elliptic curves (ECDH) using the notation from the lecture slides. Show that for this to be secure the elliptic curve discrete log problem must not be an easy problem.",
-        "solution": "(a) We define a generator $g$ for the additive group $\\mathbb{Z}_p$; any non-zero integer will in fact generate $\\mathbb{Z}_p$. The key exchange would proceed as follows:\n\n- Alice sends $ag$ to Bob.\n- Bob sends $bg$ to Alice.\n- Bob computes $b(ag) = abg$.\n- Alice computes $a(bg) = abg$.\n\nComputing $b$ from $bg$ is a simple matter of inverting $g$ in $\\mathbb{Z}_p$, that is $b = (bg)g^{-1}$. The Euclidean algorithm is sub-linear in $p$ (it is in fact $O(\\log(p))$), it has the same asymptotic runtime as a square-and-multiply exponentiation algorithm. Thus, it takes the same effort to use the scheme as to break it, and it provides no security at all.\n\n(b) Suppose that the point $G$ is a generator for the elliptic curve group. Then:\n\n- Alice sends $[a]G$ to Bob.\n- Bob sends $[b]G$ to Alice.\n- Bob computes $[b]([a]G) = [ba]G$.\n- Alice computes $[a]([b]G) = [ba]G$.\n\nIf an attacker can compute discrete logs on the elliptic curve then they can find $a$ from $[a]G$ and compute $[a]([b]G) = [ba]G$ in the same way as Alice."
+        "solution": "(a) We define a generator $g$ for the additive group $\\mathbb{Z}_p$; any non-zero integer will in fact generate $\\mathbb{Z}_p$. The key exchange would proceed as follows:\n\n- Alice sends $ag$ to Bob.\n- Bob sends $bg$ to Alice.\n- Bob computes $b(ag) = abg$.\n- Alice computes $a(bg) = abg$.\n\nComputing $b$ from $bg$ is a simple matter of inverting $g$ in $\\mathbb{Z}_p$, that is $b = (bg)g^{-1}$. The Euclidean algorithm is sub-linear in $p$ (it is in fact $O(\\log(p))$), it has the same asymptotic runtime as a square-and-multiply exponentiation algorithm. Thus, it takes the same effort to use the scheme as to break it, and it provides no security at all.\n\n(b) Suppose that the point $G$ is a generator for the elliptic curve group. Then:\n\n- Alice sends $[a]G$ to Bob.\n- Bob sends $[b]G$ to Alice.\n- Bob computes $[b]([a]G) = [ba]G$.\n- Alice computes $[a]([b]G) = [ba]G$.\n\nIf an attacker can compute discrete logs on the elliptic curve then they can find $a$ from $[a]G$ and compute $[a]([b]G) = [ba]G$ in the same way as Alice.",
+        "topics": [
+          "discrete-log-crypto"
+        ],
+        "lectures": [
+          "L-9"
+        ]
       },
       {
         "id": "E-5-10",
         "text": "In the ElGamal cryptosystem Alice and Bob have public keys $g^{x_A}$ and $g^{x_B}$ respectively, with corresponding private keys $x_A$ and $x_B$. When Alice wants to send a message confidentially to Bob she chooses an ephemeral private key $a$ and constructs a new shared secret $g^{ax_B}$.\n\nConsider the following variant of the ElGamal cryptosystem. Instead of choosing a new random value $a$, Alice simply computes the static Diffie\\u2013Hellman value $X = (y_B)^{x_A} \\bmod p$ and sends $c = mX \\bmod p$ to Bob as the ciphertext.\n\n(a) How does Bob decrypt?\n\n(b) What could be the advantages of such a scheme as compared with normal ElGamal encryption?\n\n(c) Show that this scheme is, unfortunately, completely insecure against a known plaintext attack.",
-        "solution": "(a) The recipient needs to compute $X = (y_A)^{x_B} \\bmod p$ and then $m = cX^{-1}$.\n\n(b) One advantage is that the new cryptosystem is computationally cheaper since only one exponentiation is required. Furthermore, ciphertexts are shorter than in ElGamal encryption.\n\n(c) Knowing one ciphertext and corresponding plaintext message allows an attacker to obtain $X$ and therefore all plaintexts. This is enough to say that the cryptosystem should be avoided, but another disadvantage is that the recipient needs to know the public key of the sender."
+        "solution": "(a) The recipient needs to compute $X = (y_A)^{x_B} \\bmod p$ and then $m = cX^{-1}$.\n\n(b) One advantage is that the new cryptosystem is computationally cheaper since only one exponentiation is required. Furthermore, ciphertexts are shorter than in ElGamal encryption.\n\n(c) Knowing one ciphertext and corresponding plaintext message allows an attacker to obtain $X$ and therefore all plaintexts. This is enough to say that the cryptosystem should be avoided, but another disadvantage is that the recipient needs to know the public key of the sender.",
+        "topics": [
+          "discrete-log-crypto"
+        ],
+        "lectures": [
+          "L-9"
+        ]
       }
+    ],
+    "lectures": [
+      "L-8",
+      "L-9"
     ]
   }
 ]

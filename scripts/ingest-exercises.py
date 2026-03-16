@@ -3,7 +3,7 @@
 Ingest extracted exercise/solution text into CryptoEx JSON format.
 
 Usage:
-  python scripts/ingest-exercises.py --exercises E-1.txt --solutions S-1.txt --id E-1 --title-en "Exercise Set 1" --title-no "Oppgavesett 1" -o src/data/exercises/E-1.json
+  python scripts/ingest-exercises.py --exercises E-1.txt --solutions S-1.txt --id E-1 --title-en "Exercise Set 1" --title-no "Oppgavesett 1" --topics "tls,tls13-ipsec" -o src/data/exercises/E-1.json
 
 Input format (E-n.txt):
   Each exercise is separated by a blank line. The first non-blank line of each
@@ -47,8 +47,18 @@ def main() -> None:
     parser.add_argument("--id", required=True, help="Exercise set ID (e.g. E-1)")
     parser.add_argument("--title-en", required=True, help="English title")
     parser.add_argument("--title-no", required=True, help="Norwegian title")
+    parser.add_argument(
+        "--topics",
+        required=True,
+        help='Comma-separated topic IDs, e.g. "tls,tls13-ipsec"',
+    )
     parser.add_argument("--desc-en", default="", help="English description (optional)")
     parser.add_argument("--desc-no", default="", help="Norwegian description (optional)")
+    parser.add_argument(
+        "--lectures",
+        default="",
+        help='Comma-separated lecture refs, e.g. "L-1,L-2" (optional)',
+    )
     parser.add_argument("-o", "--output", required=True, help="Output JSON file path")
     args = parser.parse_args()
 
@@ -66,20 +76,29 @@ def main() -> None:
         )
 
     count = min(len(ex_blocks), len(sol_blocks))
+    topics = [x.strip() for x in args.topics.split(",") if x.strip()]
+    lectures = [x.strip() for x in args.lectures.split(",") if x.strip()]
     items = []
     for i in range(count):
-        items.append({
+        item = {
             "id": f"{args.id}-{i + 1}",
             "text": ex_blocks[i],
             "solution": sol_blocks[i],
-        })
+            "topics": topics,
+        }
+        if lectures:
+            item["lectures"] = lectures
+        items.append(item)
 
     exercise_set = {
         "id": args.id,
         "title": {"en": args.title_en, "no": args.title_no},
+        "topics": topics,
     }
     if args.desc_en or args.desc_no:
         exercise_set["description"] = {"en": args.desc_en, "no": args.desc_no}
+    if lectures:
+        exercise_set["lectures"] = lectures
     exercise_set["exercises"] = items
 
     output_path = Path(args.output)

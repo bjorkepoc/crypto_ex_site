@@ -1,6 +1,6 @@
 "use client";
 
-import MathText from "./MathText";
+import AlphaListText from "./AlphaListText";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
 
@@ -25,7 +25,7 @@ export default function SolutionPanel({ solution, correct }: SolutionPanelProps)
       <div className="text-sm leading-relaxed text-th-text-secondary">
         {solution.split("\n\n").map((paragraph, i) => (
           <div key={i} className={i > 0 ? "mt-3" : ""}>
-            <MathText text={paragraph} />
+            <AlphaListText text={paragraph} />
           </div>
         ))}
       </div>

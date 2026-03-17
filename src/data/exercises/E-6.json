@@ -31,7 +31,7 @@
       },
       {
         "id": "E-6-2",
-        "text": "Let $p = 43$. Verify that $g = 3$ is a generator of $\\mathbb{Z}_p^*$. Suppose that Alice and Bob execute the Diffie\\u2013Hellman key exchange protocol with Alice's input being $a = 5$ and Bob's input $b = 13$. Show that both Alice and Bob will compute the same shared secret.",
+        "text": "Let $p = 43$. Verify that $g = 3$ is a generator of $\\mathbb{Z}_p^*$. Suppose that Alice and Bob execute the Diffie–Hellman key exchange protocol with Alice's input being $a = 5$ and Bob's input $b = 13$. Show that both Alice and Bob will compute the same shared secret.",
         "solution": "We first factorize $p - 1$ as $42 = 2 \\cdot 3 \\cdot 7$. To check that $g$ is a generator we need to verify that $g^{21} \\bmod 43 \\neq 1$, $g^{14} \\bmod 43 \\neq 1$ and $g^{6} \\bmod 43 \\neq 1$. Since $3^{21} \\bmod 43 = 42$, $3^{14} \\bmod 43 = 36$ and $3^{6} \\bmod 43 = 41$ it follows that $3$ is indeed a generator.\n\n- Alice sends $g^a \\bmod p = 3^5 \\bmod 43 = 28$.\n- Bob sends $g^b \\bmod p = 3^{13} \\bmod 43 = 12$.\n- Bob computes $(g^a)^b \\bmod p = 28^{13} \\bmod 43 = 34$.\n- Alice computes $(g^b)^a \\bmod p = 12^5 \\bmod 43 = 34$.",
         "topics": [
           "discrete-log-crypto"

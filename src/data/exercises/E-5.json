@@ -16,7 +16,7 @@
     "exercises": [
       {
         "id": "E-5-1",
-        "text": "Review the definitions of the following concepts:\n\n(a) trapdoor one-way function;\n\n(b) RSA equations;\n\n(c) prime number theorem;\n\n(d) square-and-multiply algorithm;\n\n(e) H\\u00e5stad's attack;\n\n(f) Miller's theorem;\n\n(g) discrete logarithm problem;\n\n(h) generator of $\\mathbb{Z}_p^*$;\n\n(i) Diffie\\u2013Hellman key exchange.",
+        "text": "Review the definitions of the following concepts:\n\n(a) trapdoor one-way function;\n\n(b) RSA equations;\n\n(c) prime number theorem;\n\n(d) square-and-multiply algorithm;\n\n(e) Håstad's attack;\n\n(f) Miller's theorem;\n\n(g) discrete logarithm problem;\n\n(h) generator of $\\mathbb{Z}_p^*$;\n\n(i) Diffie–Hellman key exchange.",
         "solution": "See lecture slides for definitions.",
         "topics": [
           "public-key-rsa",
@@ -51,7 +51,7 @@
       },
       {
         "id": "E-5-4",
-        "text": "Suppose that the same message $m$ has been encrypted for three recipients with different RSA moduli: $205$, $319$ and $391$. Each recipient uses public exponent $e = 3$. Suppose also that no random padding has been added. The three ciphertexts found are: $180$, $43$ and $218$ respectively.\n\nDemonstrate H\\u00e5stad's CRT attack by finding the value of $m$ without making use of the factorization of the moduli.",
+        "text": "Suppose that the same message $m$ has been encrypted for three recipients with different RSA moduli: $205$, $319$ and $391$. Each recipient uses public exponent $e = 3$. Suppose also that no random padding has been added. The three ciphertexts found are: $180$, $43$ and $218$ respectively.\n\nDemonstrate Håstad's CRT attack by finding the value of $m$ without making use of the factorization of the moduli.",
         "solution": "We have three modular equations:\n\n$m^3 \\equiv 180 \\pmod{205}$\n\n$m^3 \\equiv 43 \\pmod{319}$\n\n$m^3 \\equiv 218 \\pmod{391}$\n\nThese can be solved using the Chinese Remainder Theorem. Let:\n\n$y_1 = (319 \\cdot 391)^{-1} \\bmod 205 = 129$\n\n$y_2 = (205 \\cdot 391)^{-1} \\bmod 319 = 115$\n\n$y_3 = (205 \\cdot 319)^{-1} \\bmod 391 = 4$\n\nThen $m^3 = 180 \\cdot (319 \\cdot 391 \\cdot y_1) + 43 \\cdot (205 \\cdot 391 \\cdot y_2) + 218 \\cdot (205 \\cdot 319 \\cdot y_3) \\bmod 25569445 = 1000$.\n\nFinally the message can be found by extracting the ordinary cube root to obtain $m = 10$.",
         "topics": [
           "public-key-rsa"
@@ -106,7 +106,7 @@
       },
       {
         "id": "E-5-9",
-        "text": "The Diffie\\u2013Hellman protocol can be defined, but is not necessarily secure, in any group.\n\n(a) Define Diffie\\u2013Hellman in the additive group modulo $p$ for some prime $p$, instead of the multiplicative group where it is usually defined. Would this be secure for sufficiently large values of $p$?\n\n(b) Write down the equations for Diffie\\u2013Hellman on elliptic curves (ECDH) using the notation from the lecture slides. Show that for this to be secure the elliptic curve discrete log problem must not be an easy problem.",
+        "text": "The Diffie–Hellman protocol can be defined, but is not necessarily secure, in any group.\n\n(a) Define Diffie–Hellman in the additive group modulo $p$ for some prime $p$, instead of the multiplicative group where it is usually defined. Would this be secure for sufficiently large values of $p$?\n\n(b) Write down the equations for Diffie–Hellman on elliptic curves (ECDH) using the notation from the lecture slides. Show that for this to be secure the elliptic curve discrete log problem must not be an easy problem.",
         "solution": "(a) We define a generator $g$ for the additive group $\\mathbb{Z}_p$; any non-zero integer will in fact generate $\\mathbb{Z}_p$. The key exchange would proceed as follows:\n\n- Alice sends $ag$ to Bob.\n- Bob sends $bg$ to Alice.\n- Bob computes $b(ag) = abg$.\n- Alice computes $a(bg) = abg$.\n\nComputing $b$ from $bg$ is a simple matter of inverting $g$ in $\\mathbb{Z}_p$, that is $b = (bg)g^{-1}$. The Euclidean algorithm is sub-linear in $p$ (it is in fact $O(\\log(p))$), it has the same asymptotic runtime as a square-and-multiply exponentiation algorithm. Thus, it takes the same effort to use the scheme as to break it, and it provides no security at all.\n\n(b) Suppose that the point $G$ is a generator for the elliptic curve group. Then:\n\n- Alice sends $[a]G$ to Bob.\n- Bob sends $[b]G$ to Alice.\n- Bob computes $[b]([a]G) = [ba]G$.\n- Alice computes $[a]([b]G) = [ba]G$.\n\nIf an attacker can compute discrete logs on the elliptic curve then they can find $a$ from $[a]G$ and compute $[a]([b]G) = [ba]G$ in the same way as Alice.",
         "topics": [
           "discrete-log-crypto"
@@ -117,7 +117,7 @@
       },
       {
         "id": "E-5-10",
-        "text": "In the ElGamal cryptosystem Alice and Bob have public keys $g^{x_A}$ and $g^{x_B}$ respectively, with corresponding private keys $x_A$ and $x_B$. When Alice wants to send a message confidentially to Bob she chooses an ephemeral private key $a$ and constructs a new shared secret $g^{ax_B}$.\n\nConsider the following variant of the ElGamal cryptosystem. Instead of choosing a new random value $a$, Alice simply computes the static Diffie\\u2013Hellman value $X = (y_B)^{x_A} \\bmod p$ and sends $c = mX \\bmod p$ to Bob as the ciphertext.\n\n(a) How does Bob decrypt?\n\n(b) What could be the advantages of such a scheme as compared with normal ElGamal encryption?\n\n(c) Show that this scheme is, unfortunately, completely insecure against a known plaintext attack.",
+        "text": "In the ElGamal cryptosystem Alice and Bob have public keys $g^{x_A}$ and $g^{x_B}$ respectively, with corresponding private keys $x_A$ and $x_B$. When Alice wants to send a message confidentially to Bob she chooses an ephemeral private key $a$ and constructs a new shared secret $g^{ax_B}$.\n\nConsider the following variant of the ElGamal cryptosystem. Instead of choosing a new random value $a$, Alice simply computes the static Diffie–Hellman value $X = (y_B)^{x_A} \\bmod p$ and sends $c = mX \\bmod p$ to Bob as the ciphertext.\n\n(a) How does Bob decrypt?\n\n(b) What could be the advantages of such a scheme as compared with normal ElGamal encryption?\n\n(c) Show that this scheme is, unfortunately, completely insecure against a known plaintext attack.",
         "solution": "(a) The recipient needs to compute $X = (y_A)^{x_B} \\bmod p$ and then $m = cX^{-1}$.\n\n(b) One advantage is that the new cryptosystem is computationally cheaper since only one exponentiation is required. Furthermore, ciphertexts are shorter than in ElGamal encryption.\n\n(c) Knowing one ciphertext and corresponding plaintext message allows an attacker to obtain $X$ and therefore all plaintexts. This is enough to say that the cryptosystem should be avoided, but another disadvantage is that the recipient needs to know the public key of the sender.",
         "topics": [
           "discrete-log-crypto"

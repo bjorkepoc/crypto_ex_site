@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { getExerciseSetById } from "@/data/exercises";
 import { usePrefs } from "@/lib/preferences";
 import { t, topicNames } from "@/lib/i18n";
-import MathText from "@/components/MathText";
+import AlphaListText from "@/components/AlphaListText";
 import SolutionPanel from "@/components/SolutionPanel";
 import Link from "next/link";
 import { useState } from "react";
@@ -158,7 +158,7 @@ export default function ExerciseSetPage() {
         )}
 
         <div className="mb-4 text-th-text">
-          <MathText text={exercise.text} />
+          <AlphaListText text={exercise.text} />
         </div>
 
         <button

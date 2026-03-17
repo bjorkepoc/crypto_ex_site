@@ -7,8 +7,17 @@ solutions with KaTeX math, and track weak areas.
 ## Features
 
 - **Topic dashboard** — 15 topics mapped to course lectures (L-1 through L-15)
+- **Learning path** (`/learn`) — gamified lecture-by-lecture study with 4 stages
+  per lecture: Study → Practice → Quiz → Mastered. XP system, mastery stars
+  (0–3), daily streaks, and level progression (Beginner → Master)
+- **Study viewer** — curated study content per lecture (main point, themes,
+  know-cold, hard parts, objectives) parsed from `LECTURE_STUDY_GUIDE.md`
+- **"Where to study" panel** — after answering any MCQ, see which lecture
+  section(s) cover that concept with relevant snippets and direct links
 - **Practice mode** — MCQ + written questions one at a time, instant feedback
-  with worked solutions
+  with worked solutions and hints
+- **Exercise sets** — 79 exercises across 8 worksheets (E-1 through E-8) with
+  per-task topic/lecture tagging
 - **Exam simulation** — timed 3-hour exam (30 MCQ with −0.33 penalty + 5
   written with self-assessment), full review after submission
 - **Progress tracking** — per-topic accuracy bars, weakest-first sorting, exam
@@ -43,25 +52,48 @@ Open [http://localhost:4000](http://localhost:4000).
 
 ```
 src/
-├── app/                    # Next.js pages (dashboard, practice, exam, progress)
-├── components/             # McqCard, WrittenCard, SolutionPanel, Timer, etc.
+├── app/                    # Next.js pages
+│   ├── learn/              # Learning path (new)
+│   │   ├── page.tsx              # Path overview with XP, streaks, lecture map
+│   │   └── [lectureId]/
+│   │       ├── page.tsx          # Lecture hub (stage selector)
+│   │       ├── study/page.tsx    # Study content viewer
+│   │       └── practice/page.tsx # Practice MCQs (?mode=quiz for quiz)
+│   ├── practice/           # Free practice by topic
+│   ├── exercises/          # Exercise worksheets
+│   ├── exam/               # Exam simulation
+│   └── progress/           # Stats and history
+├── components/
+│   ├── learn/              # Learn-specific components (new)
+│   │   ├── LearningPath.tsx      # Vertical lecture map
+│   │   ├── LectureNode.tsx       # Lecture card with stars + stage
+│   │   ├── StudyViewer.tsx       # Accordion study sections
+│   │   ├── PracticeSession.tsx   # MCQ practice with hints + XP
+│   │   ├── StudySourcePanel.tsx  # "Where to study" question linker
+│   │   ├── StageProgress.tsx     # 4-stage stepper
+│   │   ├── StarRating.tsx        # 0-3 star display
+│   │   └── XpBar.tsx             # XP counter with level
+│   ├── McqCard.tsx, WrittenCard.tsx, SolutionPanel.tsx, Timer, etc.
 ├── data/
 │   ├── topics.ts           # 15 topic definitions
 │   ├── questions/          # JSON question banks
-│   │   ├── exam-2025.json        # 30 MCQ + 5 written (manual)
-│   │   ├── lecture-09.json       # 10 MCQ + 2 written (manual)
-│   │   ├── lecture-10.json       # 10 MCQ + 1 written (manual)
-│   │   └── notebooklm-batch.json # 286 MCQ (auto-generated)
-│   ├── notebooklm-raw/    # Raw quiz JSON from NotebookLM API
-│   └── index.ts            # Aggregator + query helpers
+│   ├── exercises/          # E-1 through E-8 worksheets
+│   ├── learn/              # Learn feature data (new)
+│   │   ├── study-guide.json      # Parsed LECTURE_STUDY_GUIDE.md
+│   │   ├── synthesis.json        # Cross-lecture synthesis content
+│   │   └── index.ts              # Query helpers
+│   └── index.ts            # Question aggregator + query helpers
 ├── lib/
-│   ├── storage.ts          # localStorage wrapper for progress
+│   ├── storage.ts          # localStorage for practice progress
+│   ├── learnStorage.ts     # localStorage for learn state (new)
 │   ├── scoring.ts          # MCQ penalty scoring
 │   ├── examGenerator.ts    # Random balanced exam builder
-│   ├── preferences.tsx     # Theme + language context (useSyncExternalStore)
+│   ├── preferences.tsx     # Theme + language context
 │   ├── i18n.ts             # Translation strings (EN/NO)
 │   └── useHydrated.ts      # SSR hydration guard
-├── types/index.ts          # Question, ExamSession, UserProgress types
+├── types/
+│   ├── index.ts            # Question, ExamSession, UserProgress types
+│   └── learn.ts            # Learn types, XP/level system (new)
 scripts/
 └── convert-nlm-quizzes.py  # NotebookLM → CryptoEx question converter
 ```

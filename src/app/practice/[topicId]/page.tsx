@@ -8,6 +8,7 @@ import { usePrefs } from "@/lib/preferences";
 import { t, topicNames } from "@/lib/i18n";
 import McqCard from "@/components/McqCard";
 import WrittenCard from "@/components/WrittenCard";
+import StudySourcePanel from "@/components/learn/StudySourcePanel";
 import { TopicId, McqQuestion, WrittenQuestion } from "@/types";
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -99,11 +100,16 @@ export default function PracticePage() {
         </div>
       </div>
       {question.type === "mcq" ? (
-        <McqCard
-          key={question.id}
-          question={question as McqQuestion}
-          onAnswer={handleMcqAnswer}
-        />
+        <div>
+          <McqCard
+            key={question.id}
+            question={question as McqQuestion}
+            onAnswer={handleMcqAnswer}
+          />
+          {answeredIds.has(question.id) && (
+            <StudySourcePanel question={question as McqQuestion} />
+          )}
+        </div>
       ) : (
         <WrittenCard
           key={question.id}

@@ -18,6 +18,7 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: t("nav.dashboard", lang) },
+    { href: "/learn", label: t("nav.learn", lang) },
     { href: "/exercises", label: t("nav.exercises", lang) },
     { href: "/exam", label: t("nav.exam", lang) },
     { href: "/progress", label: t("nav.progress", lang) },

@@ -3,6 +3,7 @@ export type Lang = "en" | "no";
 const translations = {
   // Navbar
   "nav.dashboard": { en: "Dashboard", no: "Dashboard" },
+  "nav.learn": { en: "Learn", no: "Lær" },
   "nav.exam": { en: "Exam", no: "Eksamen" },
   "nav.exercises": { en: "Exercises", no: "Oppgaver" },
   "nav.progress": { en: "Progress", no: "Fremgang" },
@@ -117,6 +118,75 @@ const translations = {
   "exercises.exercise_of": { en: "Exercise {0} of {1}", no: "Oppgave {0} av {1}" },
   "exercises.show_solution": { en: "Show solution", no: "Vis løsning" },
   "exercises.hide_solution": { en: "Hide solution", no: "Skjul løsning" },
+
+  // Learn
+  "learn.title": { en: "Learning Path", no: "Læringssti" },
+  "learn.subtitle": {
+    en: "Master cryptography lecture by lecture",
+    no: "Mestre kryptografi forelesning for forelesning",
+  },
+  "learn.study": { en: "Study", no: "Studer" },
+  "learn.practice": { en: "Practice", no: "Øv" },
+  "learn.quiz": { en: "Quiz", no: "Quiz" },
+  "learn.mastered": { en: "Mastered", no: "Mestret" },
+  "learn.questions": { en: "questions", no: "spørsmål" },
+  "learn.lectures_mastered": { en: "lectures mastered", no: "forelesninger mestret" },
+  "learn.day_streak": { en: "day streak", no: "dagers rekke" },
+  "learn.back": { en: "← Learn", no: "← Lær" },
+  "learn.back_to_lecture": { en: "← Back to lecture", no: "← Tilbake til forelesning" },
+  "learn.lecture_not_found": { en: "Lecture not found.", no: "Forelesning ikke funnet." },
+  "learn.locked_msg": {
+    en: "Complete the previous lecture to unlock this one.",
+    no: "Fullfør forrige forelesning for å låse opp denne.",
+  },
+  "learn.study_desc": {
+    en: "Review key concepts and study material",
+    no: "Gå gjennom nøkkelbegreper og studiemateriell",
+  },
+  "learn.practice_desc": {
+    en: "{0} MCQ questions with hints",
+    no: "{0} flervalgsspørsmål med hint",
+  },
+  "learn.quiz_desc": {
+    en: "10 questions, exam conditions",
+    no: "10 spørsmål, eksamensbetingelser",
+  },
+  "learn.best": { en: "Best", no: "Beste" },
+  "learn.earned": { en: "earned", no: "opptjent" },
+  "learn.main_point": { en: "Main Point", no: "Hovedpoeng" },
+  "learn.sections_read": {
+    en: "{0}/{1} sections read",
+    no: "{0}/{1} seksjoner lest",
+  },
+  "learn.all_read": { en: "All sections read!", no: "Alle seksjoner lest!" },
+  "learn.continue_practice": {
+    en: "Continue to Practice →",
+    no: "Fortsett til øving →",
+  },
+  "learn.no_content": {
+    en: "No study content available for this lecture.",
+    no: "Ingen studieinnhold tilgjengelig for denne forelesningen.",
+  },
+  "learn.no_questions": {
+    en: "No practice questions available for this lecture.",
+    no: "Ingen øvingsspørsmål tilgjengelig for denne forelesningen.",
+  },
+  "learn.question_of": { en: "Question {0} of {1}", no: "Spørsmål {0} av {1}" },
+  "learn.correct_short": { en: "correct", no: "riktig" },
+  "learn.need_hint": { en: "Need a hint?", no: "Trenger du et hint?" },
+  "learn.practice_complete": { en: "Practice Complete!", no: "Øving fullført!" },
+  "learn.correct_of": { en: "{0}/{1} correct", no: "{0}/{1} riktige" },
+  "learn.need_70": {
+    en: "Score 70%+ to unlock the quiz stage.",
+    no: "Få 70%+ for å låse opp quiz-stadiet.",
+  },
+  "learn.finish": { en: "Finish", no: "Fullfør" },
+  "learn.try_again": { en: "Try again", no: "Prøv igjen" },
+  "learn.where_to_study": {
+    en: "Where to study this",
+    no: "Hvor du finner dette i pensum",
+  },
+  "learn.go_study": { en: "Go to study material", no: "Gå til studiemateriell" },
 
   // Preferences
   "prefs.theme": { en: "Theme", no: "Tema" },

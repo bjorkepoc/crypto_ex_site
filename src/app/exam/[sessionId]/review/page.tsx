@@ -6,7 +6,12 @@ import { getQuestionById } from "@/data";
 import { useHydrated } from "@/lib/useHydrated";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
-import { scoreMcq, scoreWritten, totalExamScore } from "@/lib/scoring";
+import {
+  MCQ_CORRECT_POINTS,
+  scoreMcq,
+  scoreWritten,
+  totalExamScore,
+} from "@/lib/scoring";
 import { McqQuestion, WrittenQuestion } from "@/types";
 import McqCard from "@/components/McqCard";
 import WrittenCard from "@/components/WrittenCard";
@@ -47,7 +52,13 @@ export default function ExamReview() {
 
   const mcqResult = scoreMcq(session.mcqAnswers, correctAnswers);
   const writtenResult = scoreWritten(session.writtenScores);
-  const total = totalExamScore(mcqResult.total, writtenResult);
+  const mcqMax = mcqQuestions.length * MCQ_CORRECT_POINTS;
+  const writtenMax = writtenQuestions.reduce(
+    (sum, q) => sum + Number(q.totalPoints || 0),
+    0
+  );
+  const totalMax = mcqMax + writtenMax;
+  const total = totalExamScore(mcqResult.total, writtenResult, totalMax);
 
   function handleWrittenScore(questionId: string, score: number) {
     const current = getExamSession(sessionId);
@@ -57,7 +68,9 @@ export default function ExamReview() {
       writtenScores: { ...current.writtenScores, [questionId]: score },
     };
     const wr = scoreWritten(updated.writtenScores);
-    updated.totalScore = totalExamScore(mcqResult.total, wr).total;
+    const scored = totalExamScore(mcqResult.total, wr, totalMax);
+    updated.totalScore = scored.total;
+    updated.totalMaxScore = scored.max;
     saveExamSession(updated);
     setVersion((n) => n + 1);
   }
@@ -90,7 +103,7 @@ export default function ExamReview() {
         <div className="rounded-lg bg-th-card p-4 shadow-[var(--shadow-th-sm)]">
           <div className="text-sm text-th-text-muted">{t("review.mcq", lang)}</div>
           <div className="text-xl font-bold text-th-text">
-            {mcqResult.total.toFixed(1)}/30
+            {mcqResult.total.toFixed(1)}/{mcqMax}
           </div>
           <div className="text-xs text-th-text-faint">
             {t("review.correct_incorrect", lang, mcqResult.correct, mcqResult.incorrect, mcqResult.unanswered)}
@@ -99,7 +112,7 @@ export default function ExamReview() {
         <div className="rounded-lg bg-th-card p-4 shadow-[var(--shadow-th-sm)]">
           <div className="text-sm text-th-text-muted">{t("review.written", lang)}</div>
           <div className="text-xl font-bold text-th-text">
-            {writtenResult.toFixed(1)}/30
+            {writtenResult.toFixed(1)}/{writtenMax}
           </div>
         </div>
         <div className="rounded-lg bg-th-card p-4 shadow-[var(--shadow-th-sm)]">

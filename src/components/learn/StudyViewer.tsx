@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { LectureStudyContent, STUDY_SECTIONS } from "@/types/learn";
 import MathText from "@/components/MathText";
+import ReadProgressRing from "@/components/learn/ReadProgressRing";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
 
@@ -64,7 +65,8 @@ export default function StudyViewer({
 
       {/* Progress indicator */}
       <div className="flex items-center justify-between text-xs text-th-text-muted">
-        <span>
+        <span className="inline-flex items-center gap-2">
+          <ReadProgressRing read={readCount} total={totalSections} />
           {t("learn.sections_read", lang, readCount, totalSections)}
         </span>
         {allRead && (
@@ -105,24 +107,26 @@ export default function StudyViewer({
                   {isExpanded ? "\u25B2" : "\u25BC"}
                 </span>
               </button>
-              {isExpanded && (
-                <div className="border-t border-th-border px-4 py-3">
-                  <div className="text-sm text-th-text-secondary leading-relaxed prose-sm">
-                    {section.content.split("\n").map((line, i) => (
-                      <div key={i} className={line.startsWith("- ") ? "ml-4 mb-1" : "mb-2"}>
-                        {line.startsWith("- ") ? (
-                          <div className="flex gap-2">
-                            <span className="text-th-text-faint shrink-0">•</span>
-                            <MathText text={line.slice(2)} />
-                          </div>
-                        ) : line.trim() === "" ? null : (
-                          <MathText text={line} />
-                        )}
-                      </div>
-                    ))}
+              <div className={`accordion-panel${isExpanded ? " open" : ""}`}>
+                <div>
+                  <div className="border-t border-th-border px-4 py-3">
+                    <div className="text-sm text-th-text-secondary leading-relaxed prose-sm">
+                      {section.content.split("\n").map((line, i) => (
+                        <div key={i} className={line.startsWith("- ") ? "ml-4 mb-1" : "mb-2"}>
+                          {line.startsWith("- ") ? (
+                            <div className="flex gap-2">
+                              <span className="text-th-text-faint shrink-0">•</span>
+                              <MathText text={line.slice(2)} />
+                            </div>
+                          ) : line.trim() === "" ? null : (
+                            <MathText text={line} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           );
         })}

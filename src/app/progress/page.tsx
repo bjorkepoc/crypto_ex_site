@@ -184,7 +184,7 @@ export default function ProgressPage() {
                 </span>
                 <span className="text-sm font-medium text-th-text">
                   {s.totalScore !== undefined
-                    ? `${s.totalScore.toFixed(1)}/60`
+                    ? `${s.totalScore.toFixed(1)}/${(s.totalMaxScore ?? 60).toFixed(0)}`
                     : t("progress.not_completed", lang)}
                 </span>
               </Link>

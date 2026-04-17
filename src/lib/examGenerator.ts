@@ -1,4 +1,4 @@
-import { McqQuestion, WrittenQuestion, ExamSession } from "@/types";
+import { Question, McqQuestion, WrittenQuestion, ExamSession } from "@/types";
 import { getAllQuestions } from "@/data";
 
 function shuffle<T>(arr: T[]): T[] {
@@ -14,12 +14,13 @@ export function generateExam(options?: {
   mcqCount?: number;
   writtenCount?: number;
   durationMinutes?: number;
+  questions?: Question[];
 }): ExamSession {
   const mcqCount = options?.mcqCount ?? 30;
   const writtenCount = options?.writtenCount ?? 5;
   const durationMinutes = options?.durationMinutes ?? 180;
 
-  const questions = getAllQuestions();
+  const questions = options?.questions ?? getAllQuestions();
   const mcqs = shuffle(
     questions.filter((q): q is McqQuestion => q.type === "mcq")
   ).slice(0, mcqCount);

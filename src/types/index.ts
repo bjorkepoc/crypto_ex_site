@@ -95,6 +95,7 @@ export interface ExamSession {
   mcqAnswers: Record<string, string | null>; // questionId -> selected key or null
   writtenScores: Record<string, number>; // questionId -> self-assessed score
   totalScore?: number;
+  totalMaxScore?: number;
 }
 
 // Progress tracking

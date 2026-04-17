@@ -1,0 +1,1191 @@
+[
+  {
+    "id": "exam2018-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q1"
+    },
+    "difficulty": 2,
+    "text": "What is 8-1 mod 21?",
+    "options": [
+      {
+        "key": "a",
+        "text": "1"
+      },
+      {
+        "key": "b",
+        "text": "2"
+      },
+      {
+        "key": "c",
+        "text": "4"
+      },
+      {
+        "key": "d",
+        "text": "8"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-mcq02",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q2"
+    },
+    "difficulty": 1,
+    "text": "A generator for Z∗ 15, has order: The group Z∗ 15 has order:",
+    "options": [
+      {
+        "key": "a",
+        "text": "1"
+      },
+      {
+        "key": "b",
+        "text": "3"
+      },
+      {
+        "key": "c",
+        "text": "8"
+      },
+      {
+        "key": "d",
+        "text": "14"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq03",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q3"
+    },
+    "difficulty": 1,
+    "text": "If a plaintext comes from a natural language, such as English, for which of the following ciphers is the frequency of any particular character equal in both plaintext and ciphertext?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The Caesar cipher"
+      },
+      {
+        "key": "b",
+        "text": "The random simple substitution cipher"
+      },
+      {
+        "key": "c",
+        "text": "A transposition cipher on blocks of size 12"
+      },
+      {
+        "key": "d",
+        "text": "The Vigenére cipher with a key of length 8"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq04",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q4"
+    },
+    "difficulty": 1,
+    "text": "Which is the smallest of the following key sizes that would be acceptable to prevent exhaustive key search today?",
+    "options": [
+      {
+        "key": "a",
+        "text": "256 bits"
+      },
+      {
+        "key": "b",
+        "text": "512 bits"
+      },
+      {
+        "key": "c",
+        "text": "1024 bits"
+      },
+      {
+        "key": "d",
+        "text": "2048 bits"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-mcq05",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q5"
+    },
+    "difficulty": 1,
+    "text": "AES, the Advanced Encryption Standard, algorithm:",
+    "options": [
+      {
+        "key": "a",
+        "text": "has a 128 bit block size"
+      },
+      {
+        "key": "b",
+        "text": "has a 192 bit block size"
+      },
+      {
+        "key": "c",
+        "text": "has a 256 bit block size"
+      },
+      {
+        "key": "d",
+        "text": "allows any of the above block sizes"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-mcq06",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q6"
+    },
+    "difficulty": 1,
+    "text": "Each round of the AES algorithm:",
+    "options": [
+      {
+        "key": "a",
+        "text": "performs a substitution on a complete block"
+      },
+      {
+        "key": "b",
+        "text": "operates on multiple blocks at the same time"
+      },
+      {
+        "key": "c",
+        "text": "performs a non-linear operation"
+      },
+      {
+        "key": "d",
+        "text": "uses the same key bits"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq07",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "digital-signatures",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q7"
+    },
+    "difficulty": 2,
+    "text": "Galois counter mode (GCM) provides which of the following security services?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Integrity, but not confidentiality"
+      },
+      {
+        "key": "b",
+        "text": "Both confidentiality and integrity"
+      },
+      {
+        "key": "c",
+        "text": "Non-repudiation, but not confidentiality"
+      },
+      {
+        "key": "d",
+        "text": "Both confidentiality and non-repudiation"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq08",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q8"
+    },
+    "difficulty": 2,
+    "text": "Counter mode (CTR) is a mode of operation for block ciphers. Which of the following statements about CTR mode is false?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Messages to be encrypted must be padded to be a complete number of blocks"
+      },
+      {
+        "key": "b",
+        "text": "One bit in error in the ciphertext leads to one bit in error in the decrypted plaintext"
+      },
+      {
+        "key": "c",
+        "text": "Repeated plaintext blocks encrypt to different ciphertext blocks"
+      },
+      {
+        "key": "d",
+        "text": "Encryption of a sequence of blocks can be conducted in parallel"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-mcq09",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q9"
+    },
+    "difficulty": 1,
+    "text": "The one time pad:",
+    "options": [
+      {
+        "key": "a",
+        "text": "provides data integrity"
+      },
+      {
+        "key": "b",
+        "text": "provides perfect secrecy"
+      },
+      {
+        "key": "c",
+        "text": "produces ciphertext which is twice the length of the plaintext"
+      },
+      {
+        "key": "d",
+        "text": "requires much more computation for encryption than for decryption"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq10",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q10"
+    },
+    "difficulty": 2,
+    "text": "According to the relevant NIST standard, a secure Deterministic Random Bit Generator (DRBG) should prevent an attacker from:",
+    "options": [
+      {
+        "key": "a",
+        "text": "reliably distinguishing the output of the DBRG from a truly random string"
+      },
+      {
+        "key": "b",
+        "text": "correctly predicting the next output bit with probability at least 1/2"
+      },
+      {
+        "key": "c",
+        "text": "observing any output from the DBRG"
+      },
+      {
+        "key": "d",
+        "text": "choosing its own seed and observing the output from the DBRG"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-mcq11",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q11"
+    },
+    "difficulty": 1,
+    "text": "Which of the following pairs of equations can be solved using the Chinese Remainder Theorem?",
+    "options": [
+      {
+        "key": "a",
+        "text": "x ≡3 mod 6 and x ≡4 mod 8"
+      },
+      {
+        "key": "b",
+        "text": "x ≡3 mod 6 and x ≡4 mod 10"
+      },
+      {
+        "key": "c",
+        "text": "x ≡3 mod 7 and x ≡4 mod 12"
+      },
+      {
+        "key": "d",
+        "text": "x ≡3 mod 7 and x ≡4 mod 14"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq12",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q12"
+    },
+    "difficulty": 1,
+    "text": "By Euler’s theorem, if gcd(a, n) = 1 then it is always true that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "an-1 mod φ(n) = 1"
+      },
+      {
+        "key": "b",
+        "text": "an-1 mod n = 1"
+      },
+      {
+        "key": "c",
+        "text": "aφ(n) mod φ(n) = 1"
+      },
+      {
+        "key": "d",
+        "text": "aφ(n) mod n = 1"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-mcq13",
+    "type": "mcq",
+    "topics": [
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q13"
+    },
+    "difficulty": 1,
+    "text": "The Fermat test can be used to decide whether or not a number n is prime. The test can sometimes fail with the result that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a prime number is labelled as a composite number"
+      },
+      {
+        "key": "b",
+        "text": "a composite number is labelled as a prime number"
+      },
+      {
+        "key": "c",
+        "text": "the test halts without producing any output"
+      },
+      {
+        "key": "d",
+        "text": "the test continues computing without producing a result"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq14",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q14"
+    },
+    "difficulty": 2,
+    "text": "Suppose that a cryptographic system uses both RSA and AES. If AES is implemented with 128-bit keys, to achieve a similar level of security, RSA should use a modulus of size:",
+    "options": [
+      {
+        "key": "a",
+        "text": "1024 bits"
+      },
+      {
+        "key": "b",
+        "text": "3072 bits"
+      },
+      {
+        "key": "c",
+        "text": "7680 bits"
+      },
+      {
+        "key": "d",
+        "text": "15360 bits"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq15",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q15"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for digital signatures:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the public key of the signer is required in order to sign a message"
+      },
+      {
+        "key": "b",
+        "text": "the public key of the verifier is required in order to sign a message"
+      },
+      {
+        "key": "c",
+        "text": "the private key of the signer is required in order to sign a message"
+      },
+      {
+        "key": "d",
+        "text": "the private key of the verifier is required in order to sign a message"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq16",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q16"
+    },
+    "difficulty": 2,
+    "text": "The RSA encryption algorithm uses a public exponent e, a private exponent d, and a public modulus n. In order to speed up the decryption process, it is common to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "choose a small value for e"
+      },
+      {
+        "key": "b",
+        "text": "choose a small value for d"
+      },
+      {
+        "key": "c",
+        "text": "apply the Chinese Remainder theorem"
+      },
+      {
+        "key": "d",
+        "text": "share the same modulus between different users"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq17",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q17"
+    },
+    "difficulty": 2,
+    "text": "When the RSA encryption scheme is implemented according to current best practice, the best known attack currently available is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "make a brute force search for d"
+      },
+      {
+        "key": "b",
+        "text": "find the discrete log of the ciphertext"
+      },
+      {
+        "key": "c",
+        "text": "factorise φ(n)"
+      },
+      {
+        "key": "d",
+        "text": "factorise n"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-mcq18",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q18"
+    },
+    "difficulty": 2,
+    "text": "In the ElGamal encryption scheme, a ciphertext for message m has two parts: C1 = gk mod p and C2 = myk mod p, where y = gx is the recipient public key. In order to recover the message, the recipient must compute:",
+    "options": [
+      {
+        "key": "a",
+        "text": "C1 · (Cx 2 )-1 mod p"
+      },
+      {
+        "key": "b",
+        "text": "C2 · (Cx 1 )-1 mod p"
+      },
+      {
+        "key": "c",
+        "text": "Cx 1 · (C2)-1 mod p"
+      },
+      {
+        "key": "d",
+        "text": "Cx 2 · (C1)-1 mod p"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq19",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q19"
+    },
+    "difficulty": 2,
+    "text": "Consider the group Z∗ p with generator g. If y = gx mod p then an instance of the discrete logarithm problem is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "compute y given p, g and x"
+      },
+      {
+        "key": "b",
+        "text": "compute g given p, y and x"
+      },
+      {
+        "key": "c",
+        "text": "compute p given y, g and x"
+      },
+      {
+        "key": "d",
+        "text": "compute x given p, g and y"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-mcq20",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q20"
+    },
+    "difficulty": 3,
+    "text": "Suppose that an attacker has the ability to compute the output of a certain hash function for 2128 input values. In order to prevent the attacker from finding a collision in the hash function, the output of the hash function should be of length at least:",
+    "options": [
+      {
+        "key": "a",
+        "text": "128 bits"
+      },
+      {
+        "key": "b",
+        "text": "256 bits"
+      },
+      {
+        "key": "c",
+        "text": "384 bits"
+      },
+      {
+        "key": "d",
+        "text": "512 bits"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq21",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q21"
+    },
+    "difficulty": 1,
+    "text": "A message authentication code (MAC) takes as input a message and a key and outputs a tag. To be considered secure a MAC should have the property:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the correct tag for a new message cannot be computed without the key"
+      },
+      {
+        "key": "b",
+        "text": "the message used to compute the tag cannot be distinguished from a random message"
+      },
+      {
+        "key": "c",
+        "text": "different tags are computed if a message is repeated"
+      },
+      {
+        "key": "d",
+        "text": "any output tag cannot be distinguished from a random string"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-mcq22",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q22"
+    },
+    "difficulty": 1,
+    "text": "Which of the following algorithms is commonly used in TLS to provide authenticated encryption?",
+    "options": [
+      {
+        "key": "a",
+        "text": "AES in counter mode"
+      },
+      {
+        "key": "b",
+        "text": "SHA-256"
+      },
+      {
+        "key": "c",
+        "text": "HMAC"
+      },
+      {
+        "key": "d",
+        "text": "GCM"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-mcq23",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q23"
+    },
+    "difficulty": 1,
+    "text": "Two commonly used digital signatures schemes are RSA signatures and ECDSA. RSA is commonly used to sign digital certificates. This is because, for the same security level:",
+    "options": [
+      {
+        "key": "a",
+        "text": "RSA public key lengths are shorter"
+      },
+      {
+        "key": "b",
+        "text": "RSA signatures are shorter"
+      },
+      {
+        "key": "c",
+        "text": "RSA signature generation is faster"
+      },
+      {
+        "key": "d",
+        "text": "RSA signature verification is faster"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-mcq24",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q24"
+    },
+    "difficulty": 1,
+    "text": "An X.509 digital certificate is issued by a certification authority. In order to verify such a certificate it is necessary, in addition to the certificate itself, to have:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the subject’s private key"
+      },
+      {
+        "key": "b",
+        "text": "the subject’s public key"
+      },
+      {
+        "key": "c",
+        "text": "the certification authority’s private key"
+      },
+      {
+        "key": "d",
+        "text": "the certification authority’s public key"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-mcq25",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "digital-signatures",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q25"
+    },
+    "difficulty": 1,
+    "text": "The basic ephemeral Diffie-Hellman protocol can be strengthened by adding to each message a digital signature of the sender. The effect of this on the protocol is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "provide entity authentication"
+      },
+      {
+        "key": "b",
+        "text": "allow shorter Diffie-Hellman parameters"
+      },
+      {
+        "key": "c",
+        "text": "prevent replay attacks"
+      },
+      {
+        "key": "d",
+        "text": "prevent attacks which can find discrete logarithms"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-mcq26",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q26"
+    },
+    "difficulty": 2,
+    "text": "When assessing the security of a key establishment protocol, such as the Needham- Schroeder protocol, we assume that an attacker is not able to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "obtain session keys used in any previous runs of the protocol"
+      },
+      {
+        "key": "b",
+        "text": "obtain long-term keys of the parties in the protocol run under attack"
+      },
+      {
+        "key": "c",
+        "text": "obtain messages exchanged between honest parties in the protocol run under attack"
+      },
+      {
+        "key": "d",
+        "text": "replay messages used in previous protocol runs"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq27",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q27"
+    },
+    "difficulty": 1,
+    "text": "The purpose of the handshake protocol in TLS is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "change the cryptographic algorithms from previously used ones"
+      },
+      {
+        "key": "b",
+        "text": "signal events such as failures"
+      },
+      {
+        "key": "c",
+        "text": "setup sessions with the correct keys and algorithms"
+      },
+      {
+        "key": "d",
+        "text": "provide confidentiality and integrity for application messages"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-mcq28",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q28"
+    },
+    "difficulty": 2,
+    "text": "When TLS is used to protect web browser communications with HTTPS, a man-in-the- middle (MITM) attack is possible if an attacker is able to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "masquerade as a network node"
+      },
+      {
+        "key": "b",
+        "text": "add root certificates into the browser"
+      },
+      {
+        "key": "c",
+        "text": "obtain a valid server certificate"
+      },
+      {
+        "key": "d",
+        "text": "alter the hello messages in the TLS handshake"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq29",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security",
+      "block-ciphers",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q29"
+    },
+    "difficulty": 1,
+    "text": "PGP is a security protocol to protect emails in transit. Which of the following statements about PGP is true:",
+    "options": [
+      {
+        "key": "a",
+        "text": "it provides confidentiality of metadata such as email headers"
+      },
+      {
+        "key": "b",
+        "text": "it provides end-to-end security between the sender and recipient"
+      },
+      {
+        "key": "c",
+        "text": "it requires special processing by email servers during email transit"
+      },
+      {
+        "key": "d",
+        "text": "it uses hierarchical digital certificates as also used in HTTPS"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-mcq30",
+    "type": "mcq",
+    "topics": [
+      "tls13-ipsec",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Q30"
+    },
+    "difficulty": 1,
+    "text": "One common way to apply the IPSec protocol uses a host-to-host architecture. Which of the following statements about this architecture is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "It is often used to connect hosts on unsecured networks to resources on secured networks"
+      },
+      {
+        "key": "b",
+        "text": "A typical application is to securely connect two separate secure networks"
+      },
+      {
+        "key": "c",
+        "text": "It provides protection for data throughout its transit (end-to-end)"
+      },
+      {
+        "key": "d",
+        "text": "It is typically used with IPSec in tunnel mode"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-w-1",
+    "type": "written",
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 W1"
+    },
+    "difficulty": 3,
+    "text": "The Hill cipher is a historical cipher with the encryption equation C = KP mod n for key matrix K and column vectors C and P representing the ciphertext and plaintext respectively. Here n is the size of the alphabet in use. In this question we consider the 2x2 Hill cipher.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Explain what is meant by a chosen plaintext attack and chosen ciphertext attack on the Hill cipher.",
+        "solution": "In a chosen plaintext attack the attacker can choose a plaintext (matrix P for the Hill cipher) and see the corresponding ciphertext (matrix C for the Hill cipher. In a chosen ciphertext attack the attacker can choose a ciphertext and see the corresponding plaintext."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Explain how an attacker can use a chosen plaintext attack to obtain the key with just two chosen plaintext pairs.",
+        "solution": "The attacker can choose P = I (identity matrix) and is then given the key as C. (Also acceptable to choose any invertible P, obtain C and compute K = CP -1.)"
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Will a similar chosen ciphertext attack also work? Explain your answer.",
+        "solution": "Yes, a chosen ciphertext will also work, choosing C to be invertible and then K = CP -1"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-w-2",
+    "type": "written",
+    "topics": [
+      "encryption-modes",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 W2"
+    },
+    "difficulty": 3,
+    "text": "One mode of operation for block ciphers is cipher block chaining mode (CBC). The general equation for computing each output block is: Ct = E(Pt ⊕Ct-1, K) where C0 = IV which is sent with the ciphertext. In order to save on bandwidth, two parties A and B agree beforehand on a fixed IV to be used for every message which they exchange.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Why is this a bad idea in general?",
+        "solution": "If the IV is fixed then the encryption is deterministic. This means that the same plaintext results in the came ciphertext, allowing dictionary attacks."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Suppose that an attacker wants to check whether a captured ciphertext sent from A to B has first plaintext block equal to a particular block P1. How can this be achieved with a chosen plaintext attack?",
+        "solution": "With a chosen plaintext attack, the attacker simply asks for the encryption of any message with first block equal to P1. If the first ciphertext block output is the same as in the captured ciphertext then the captured ciphertext has first block equal to P1"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-w-3",
+    "type": "written",
+    "topics": [
+      "public-key-rsa",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 W3"
+    },
+    "difficulty": 3,
+    "text": "The RSA encryption algorithm uses a public exponent e, a private exponent d, and a public modulus n. The basic equation for encryption is c = me mod n",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "If n = 21 and d = 5 what is the value of e? What is the ciphertext if m = 3?",
+        "solution": "e = d-1 mod φ(n) = 5-1 mod φ(21) = 5-1 mod 12 = 5. c = 35 mod 21 = 54 mod 21 = 12."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "In order to make key generation more efficient, suppose that A and B use a trusted server S to generate a shared modulus n. S then chooses distinct random private keys, dA and dB, and computes corresponding eA and eB values. S securely sends the values dA and dB to A and B respectively and makes eA, eB and n public. Explain how this would allow A to find the private key, dB, of B.",
+        "solution": "From her own eA and dA values, A can factorise n using Miller’s algorithm. Then she can compute dB from eB and φ(n) in the usual way."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-w-4",
+    "type": "written",
+    "topics": [
+      "discrete-log-crypto",
+      "key-establishment",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 W4"
+    },
+    "difficulty": 3,
+    "text": "Diffie-Hellman key exchange can work in the group Z∗ p. Suppose that p = 13 and g = 2 are used.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "Show that g = 2 is a generator of Z∗",
+        "solution": "24 mod 13 = 26 mod 13 = Thus the order of g = 2 must be 12, so it is a generator."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-w-5",
+    "type": "written",
+    "topics": [
+      "number-theory-basics",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 W5"
+    },
+    "difficulty": 3,
+    "text": "There are many variants of the Elgamal signature scheme. Consider a variant where the signature on a message m is a pair (r, s) where r = gk mod p s = (km + xr) mod (p -1) for a random k. The verification equation checks whether gs = yrrm mod p.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Show that the verification equation always holds for a valid signature.",
+        "solution": "gs = gkm+xr = gkmgxr = rmyr Note that due to Fermat’s theorem, exponents which are equal modulo p -1 are equivalent."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Show that if a signer uses the same k value to sign many different messages, then an attacker can forge a signature on any message of its choice.",
+        "solution": "We will get two different s values with the same k and so same r. The same x is always used. Only unknowns are x and k. s1 = (km1 + xr) mod (p -1) s2 = (km2 + xr) mod (p -1) s1 -s2 = k(m1 -m2) mod (p -1) so k can be found. The equation is easily solved as long as (m1 -m2) has an inverse. Thus a few different m1 and m2 values may need to be tried. Then xr mod (p -1) can also be found. Thus an attacker can reuse r and compute s = (km + xr) mod (p -1) for any other m value."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-w-6",
+    "type": "written",
+    "topics": [
+      "hashes-macs",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 W6"
+    },
+    "difficulty": 3,
+    "text": "Consider the following two ciphersuite specifications for TLS: - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 - TLS_RSA_WITH_3DES_EDE_CBC_SHA.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Briefly explain the methods used for key establishment with each of these ciphersuites. Which one of these provides forward secrecy?",
+        "solution": "The first ciphersuite uses ephemeral Diffie-Hellman authenticated by ECDSA sig- natures. This provides forward secrecy since the long-term keys are used only for authentication. The second ciphersuite uses key transport with the RSA key of the server used to protect the master secret chosen by the client. It does not provide forward secrecy since if the server long-term decryption key is revealed the pre-master secret can be decrypted."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "How do the two ciphersuites differ in the way that they protect confidentiality and integrity of application data? Compare the security level of the algorithms used for this purpose.",
+        "solution": "The first ciphersuite uses GCM which provides authenticated encryption. SHA-256 is used in the key derivation. (The hash used within the GCM algorithm does not use SHA-256.) The second ciphersuite uses 3-DES for encryption and SHA-1 for HMAC construction. These are algorithms with lower security level than those used in the first ciphersuite. More specifically, 3DES has 112 bit security while AES has 128 bit security. SHA-1 has been broken and deprecated and should not be used."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

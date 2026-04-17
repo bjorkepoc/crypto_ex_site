@@ -3,12 +3,17 @@
 import { useParams } from "next/navigation";
 import { topicMap } from "@/data/topics";
 import { getQuestionsByTopic } from "@/data";
+import { filterBySource } from "@/lib/questionFilters";
 import { recordPracticeAttempt } from "@/lib/storage";
 import { usePrefs } from "@/lib/preferences";
 import { t, topicNames } from "@/lib/i18n";
 import McqCard from "@/components/McqCard";
 import WrittenCard from "@/components/WrittenCard";
 import StudySourcePanel from "@/components/learn/StudySourcePanel";
+import SourceFilterBar, {
+  type SourceFilterSet,
+  EMPTY_FILTER,
+} from "@/components/SourceFilterBar";
 import { TopicId, McqQuestion, WrittenQuestion } from "@/types";
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -20,7 +25,12 @@ export default function PracticePage() {
   const { prefs } = usePrefs();
   const lang = prefs.lang;
 
-  const questions = useMemo(() => getQuestionsByTopic(topicId), [topicId]);
+  const [sourceFilter, setSourceFilter] = useState<SourceFilterSet>(EMPTY_FILTER);
+  const allTopicQuestions = useMemo(() => getQuestionsByTopic(topicId), [topicId]);
+  const questions = useMemo(
+    () => filterBySource(allTopicQuestions, sourceFilter),
+    [allTopicQuestions, sourceFilter]
+  );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answeredIds, setAnsweredIds] = useState<Set<string>>(new Set());
 
@@ -35,19 +45,38 @@ export default function PracticePage() {
     );
   }
 
+  const topicName = topicNames[topicId]?.[lang] ?? topic.name;
+
   if (questions.length === 0) {
     return (
-      <div className="py-12 text-center text-th-text-muted">
-        {t("practice.no_questions", lang)}{" "}
-        <Link href="/" className="text-th-text-accent hover:underline">
-          {t("practice.back_link", lang)}
-        </Link>
+      <div>
+        <div className="mb-4 flex items-center gap-3">
+          <Link href="/" className="text-sm text-th-text-faint hover:text-th-text-muted">
+            {t("practice.back", lang)}
+          </Link>
+          <span className="text-xs text-th-text-faint">/</span>
+          <span className="text-sm font-medium text-th-text-secondary">{topicName}</span>
+        </div>
+        <div className="mb-4">
+          <SourceFilterBar
+            value={sourceFilter}
+            onChange={(next) => {
+              setSourceFilter(next);
+              setCurrentIndex(0);
+            }}
+          />
+        </div>
+        <div className="py-12 text-center text-th-text-muted">
+          {t("practice.no_questions", lang)}{" "}
+          <Link href="/" className="text-th-text-accent hover:underline">
+            {t("practice.back_link", lang)}
+          </Link>
+        </div>
       </div>
     );
   }
 
   const question = questions[currentIndex];
-  const topicName = topicNames[topicId]?.[lang] ?? topic.name;
 
   function handleMcqAnswer(questionId: string, correct: boolean) {
     setAnsweredIds((prev) => new Set(prev).add(questionId));
@@ -77,6 +106,9 @@ export default function PracticePage() {
         </Link>
         <span className="text-xs text-th-text-faint">/</span>
         <span className="text-sm font-medium text-th-text-secondary">{topicName}</span>
+      </div>
+      <div className="mb-4">
+        <SourceFilterBar value={sourceFilter} onChange={(next) => { setSourceFilter(next); setCurrentIndex(0); }} />
       </div>
       <div className="mb-4 flex items-center justify-between">
         <span className="text-sm text-th-text-muted">

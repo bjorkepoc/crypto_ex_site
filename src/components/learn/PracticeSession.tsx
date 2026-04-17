@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -8,6 +8,7 @@ import { McqQuestion } from "@/types";
 import { XP_VALUES } from "@/types/learn";
 import McqCard from "@/components/McqCard";
 import StudySourcePanel from "@/components/learn/StudySourcePanel";
+import XpToast from "@/components/learn/XpToast";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
 
@@ -63,6 +64,8 @@ export default function PracticeSession({
   const [showHint, setShowHint] = useState(false);
   const [hintUsed, setHintUsed] = useState<Set<string>>(new Set());
   const [finished, setFinished] = useState(false);
+  const [xpToast, setXpToast] = useState<{ amount: number; id: string } | null>(null);
+  const toastCounter = useRef(0);
 
   const question = questions[currentIdx];
   const correctCount = Object.values(answers).filter(Boolean).length;
@@ -79,6 +82,8 @@ export default function PracticeSession({
       if (xp > 0) {
         setSessionXp((prev) => prev + xp);
         onXpEarned(xp);
+        toastCounter.current += 1;
+        setXpToast({ amount: xp, id: `xp-${toastCounter.current}` });
       }
       setShowHint(false);
     },
@@ -109,18 +114,19 @@ export default function PracticeSession({
 
   if (finished) {
     const pct = questions.length > 0 ? Math.round((correctCount / questions.length) * 100) : 0;
+    const passed = pct >= 70;
     return (
-      <div className="rounded-lg border border-th-border bg-th-card p-6 text-center">
-        <h3 className="text-lg font-bold text-th-text mb-2">
+      <div className={`rounded-lg border border-th-border bg-th-card p-6 text-center${passed ? " celebration-burst" : ""}`}>
+        <h3 className="text-lg font-bold text-th-text mb-2 anim-fade-in">
           {t("learn.practice_complete", lang)}
         </h3>
-        <p className="text-3xl font-bold text-th-text-accent mb-1">{pct}%</p>
-        <p className="text-sm text-th-text-muted mb-2">
+        <p className="text-3xl font-bold text-th-text-accent mb-1 anim-fade-in-scale">{pct}%</p>
+        <p className="text-sm text-th-text-muted mb-2 anim-fade-in" style={{ animationDelay: "100ms" }}>
           {t("learn.correct_of", lang, correctCount, questions.length)}
         </p>
-        <p className="text-sm text-th-text-accent">+{sessionXp} XP</p>
+        <p className="text-sm text-th-text-accent anim-float-up">+{sessionXp} XP</p>
         {pct < 70 && (
-          <p className="text-xs text-th-text-muted mt-3">
+          <p className="text-xs text-th-text-muted mt-3 anim-fade-in" style={{ animationDelay: "200ms" }}>
             {t("learn.need_70", lang)}
           </p>
         )}
@@ -139,7 +145,10 @@ export default function PracticeSession({
         </span>
         <div className="flex items-center gap-3">
           <span className="text-th-success">{correctCount} {t("learn.correct_short", lang)}</span>
-          <span className="text-xs text-th-text-accent">+{sessionXp} XP</span>
+          <span className="relative text-xs text-th-text-accent">
+            +{sessionXp} XP
+            {xpToast && <XpToast key={xpToast.id} amount={xpToast.amount} id={xpToast.id} />}
+          </span>
         </div>
       </div>
 
@@ -153,7 +162,7 @@ export default function PracticeSession({
         </button>
       )}
       {showHint && !isAnswered && hintMarkdown && (
-        <div className="rounded-lg border border-th-border-accent bg-th-selected px-4 py-2 text-sm leading-relaxed text-th-text-secondary">
+        <div className="rounded-lg border border-th-border-accent bg-th-selected px-4 py-2 text-sm leading-relaxed text-th-text-secondary anim-fade-in">
           <ReactMarkdown
             remarkPlugins={[remarkMath]}
             rehypePlugins={[rehypeKatex]}

@@ -91,12 +91,12 @@ export default function McqCard({
       <div className="mb-4 space-y-2">
         {displayOptions.map((opt, idx) => {
           let optionClass =
-            "flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-sm transition-colors";
+            "flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-sm transition-colors press";
           if (showResult) {
             if (opt.key === question.correctAnswer) {
-              optionClass += " border-th-success-border bg-th-success-bg text-th-success";
+              optionClass += " border-th-success-border bg-th-success-bg text-th-success anim-fade-in-scale";
             } else if (opt.key === selected && opt.key !== question.correctAnswer) {
-              optionClass += " border-th-error-border bg-th-error-bg text-th-error";
+              optionClass += " border-th-error-border bg-th-error-bg text-th-error anim-shake";
             } else {
               optionClass += " border-th-border text-th-text-muted";
             }
@@ -125,7 +125,7 @@ export default function McqCard({
         <button
           onClick={handleSubmit}
           disabled={!selected}
-          className="rounded-lg bg-th-accent px-4 py-2 text-sm font-medium text-th-text-on-accent transition-colors hover:bg-th-accent-hover disabled:opacity-40"
+          className="rounded-lg bg-th-accent px-4 py-2 text-sm font-medium text-th-text-on-accent transition-colors hover:bg-th-accent-hover disabled:opacity-40 press"
         >
           {t("mcq.check", lang)}
         </button>

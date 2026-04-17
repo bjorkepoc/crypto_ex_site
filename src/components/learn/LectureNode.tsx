@@ -13,9 +13,10 @@ interface LectureNodeProps {
   lectureId: LectureId;
   progress: LectureProgress;
   index: number;
+  isCurrent?: boolean;
 }
 
-export default function LectureNode({ lectureId, progress, index }: LectureNodeProps) {
+export default function LectureNode({ lectureId, progress, index, isCurrent }: LectureNodeProps) {
   const { prefs } = usePrefs();
   const lang = prefs.lang;
   const topicId = getTopicForLecture(lectureId);
@@ -25,11 +26,12 @@ export default function LectureNode({ lectureId, progress, index }: LectureNodeP
 
   const content = (
     <div
-      className={`rounded-lg border p-4 transition-colors ${
+      className={`rounded-lg border p-4 anim-fade-in ${
         isLocked
           ? "border-th-border bg-th-card opacity-50"
-          : "border-th-border bg-th-card hover:border-th-border-accent hover:bg-th-card-hover"
+          : "border-th-border bg-th-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-sm)] hover:border-th-border-accent hover:bg-th-card-hover"
       }`}
+      style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-start gap-3 min-w-0">
@@ -40,7 +42,7 @@ export default function LectureNode({ lectureId, progress, index }: LectureNodeP
                 : progress.stage === "mastered"
                   ? "bg-th-success-bg text-th-success"
                   : "bg-th-accent text-th-text-on-accent"
-            }`}
+            }${isCurrent ? " anim-pulse-ring" : ""}`}
           >
             {isLocked ? "\uD83D\uDD12" : index + 1}
           </div>

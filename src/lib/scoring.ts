@@ -35,9 +35,10 @@ export function scoreWritten(scores: Record<string, number>): number {
 
 export function totalExamScore(
   mcqScore: number,
-  writtenScore: number
+  writtenScore: number,
+  maxScore = 60
 ): { total: number; max: number; percentage: number } {
   const total = mcqScore + writtenScore;
-  const max = 60; // 30 MCQ + 30 written
+  const max = maxScore > 0 ? maxScore : 1;
   return { total, max, percentage: (total / max) * 100 };
 }

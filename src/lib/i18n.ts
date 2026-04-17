@@ -188,6 +188,11 @@ const translations = {
   },
   "learn.go_study": { en: "Go to study material", no: "Gå til studiemateriell" },
 
+  // Source filters
+  "filter.all": { en: "All", no: "Alle" },
+  "filter.exams": { en: "Exams", no: "Eksamener" },
+  "filter.notebook": { en: "NotebookLM", no: "NotebookLM" },
+
   // Preferences
   "prefs.theme": { en: "Theme", no: "Tema" },
   "prefs.light": { en: "Light", no: "Lys" },

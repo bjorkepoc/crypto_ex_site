@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { topics } from "@/data/topics";
 import { getTopicQuestionCounts } from "@/data";
 import { loadProgress } from "@/lib/storage";
@@ -7,12 +8,17 @@ import { useHydrated } from "@/lib/useHydrated";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
 import TopicCard from "@/components/TopicCard";
+import SourceFilterBar, {
+  type SourceFilterSet,
+  EMPTY_FILTER,
+} from "@/components/SourceFilterBar";
 
 export default function Dashboard() {
   const hydrated = useHydrated();
   const { prefs } = usePrefs();
   const lang = prefs.lang;
-  const counts = getTopicQuestionCounts();
+  const [sourceFilter, setSourceFilter] = useState<SourceFilterSet>(EMPTY_FILTER);
+  const counts = getTopicQuestionCounts(sourceFilter);
 
   if (!hydrated) return null;
 
@@ -34,6 +40,9 @@ export default function Dashboard() {
           {t("dash.written_count", lang)} | {totalAttempted}{" "}
           {t("dash.attempts_total", lang)}
         </p>
+      </div>
+      <div className="mb-4">
+        <SourceFilterBar value={sourceFilter} onChange={setSourceFilter} />
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {topics.map((topic) => (

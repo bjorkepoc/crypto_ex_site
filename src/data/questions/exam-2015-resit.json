@@ -1,0 +1,874 @@
+[
+  {
+    "id": "exam2015-resit-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q1"
+    },
+    "difficulty": 1,
+    "text": "A symmetric key cipher must be secure against brute-force key search. A reasonable minimum key length for industry-standard security today is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "32 bits"
+      },
+      {
+        "key": "b",
+        "text": "128 bits"
+      },
+      {
+        "key": "c",
+        "text": "512 bits"
+      },
+      {
+        "key": "d",
+        "text": "1024 bits"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2015-resit-mcq02",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q2"
+    },
+    "difficulty": 2,
+    "text": "Following Kerckhoff’s principle, we usually assume that an attacker of an encryption scheme has access to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "unbounded computational power"
+      },
+      {
+        "key": "b",
+        "text": "the encryption and decryption keys"
+      },
+      {
+        "key": "c",
+        "text": "the description of the encryption and decryption algorithms"
+      },
+      {
+        "key": "d",
+        "text": "all of the above."
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2015-resit-mcq03",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q3"
+    },
+    "difficulty": 1,
+    "text": "Triple encryption with DES (triple DES) with three independent keys:",
+    "options": [
+      {
+        "key": "a",
+        "text": "uses three times as much computation as ordinary DES"
+      },
+      {
+        "key": "b",
+        "text": "has three times as many possible key values as ordinary DES"
+      },
+      {
+        "key": "c",
+        "text": "runs three times faster than ordinary DES"
+      },
+      {
+        "key": "d",
+        "text": "is vulnerable to brute-force key search today"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2015-resit-mcq04",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q4"
+    },
+    "difficulty": 1,
+    "text": "The AES (Advanced Encryption Standard) algorithm:",
+    "options": [
+      {
+        "key": "a",
+        "text": "is based on a Feistel cipher design"
+      },
+      {
+        "key": "b",
+        "text": "is based on a substitution-permutation network (SPN) design"
+      },
+      {
+        "key": "c",
+        "text": "was replaced by the Data Encryption Standard (DES) cipher"
+      },
+      {
+        "key": "d",
+        "text": "was replaced by the Digital Signature Standard (DSS)"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2015-resit-mcq05",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q5"
+    },
+    "difficulty": 2,
+    "text": "The inverse of 4 modulo 19 is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "1"
+      },
+      {
+        "key": "b",
+        "text": "5"
+      },
+      {
+        "key": "c",
+        "text": "10"
+      },
+      {
+        "key": "d",
+        "text": "15"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2015-resit-mcq06",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q6"
+    },
+    "difficulty": 2,
+    "text": "A mode of operation for a block cipher often introduces a random IV. This is useful for security because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "it adds to the complexity of decryption"
+      },
+      {
+        "key": "b",
+        "text": "it increases the difficulty of brute-force key search"
+      },
+      {
+        "key": "c",
+        "text": "the same ciphertext is decrypted to different messages"
+      },
+      {
+        "key": "d",
+        "text": "the same plaintext is encrypted to different ciphertexts"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2015-resit-mcq07",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q7"
+    },
+    "difficulty": 1,
+    "text": "When a message authentication code (MAC) tag is received, in order to check data integrity the recipient needs to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "decrypt the tag and check for redundancy"
+      },
+      {
+        "key": "b",
+        "text": "encrypt the tag and check for redundancy"
+      },
+      {
+        "key": "c",
+        "text": "compare the tag with the tag in the previous message"
+      },
+      {
+        "key": "d",
+        "text": "recompute the tag and compare with the received tag"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2015-resit-mcq08",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q8"
+    },
+    "difficulty": 1,
+    "text": "The one-time pad achieves perfect secrecy. This means that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "each plaintext is a perfectly random string"
+      },
+      {
+        "key": "b",
+        "text": "the only feasible attack is brute-force key search"
+      },
+      {
+        "key": "c",
+        "text": "an attacker cannot alter any bit in the ciphertext without this being detected"
+      },
+      {
+        "key": "d",
+        "text": "an attacker learns nothing about the plaintext from the ciphertext"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2015-resit-mcq09",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q9"
+    },
+    "difficulty": 1,
+    "text": "For numbers of 2048 bits in size there are known efficient algorithms which can be implemented for:",
+    "options": [
+      {
+        "key": "a",
+        "text": "factorising numbers"
+      },
+      {
+        "key": "b",
+        "text": "taking discrete logarithms"
+      },
+      {
+        "key": "c",
+        "text": "generating random prime numbers"
+      },
+      {
+        "key": "d",
+        "text": "performing exhaustive key search"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2015-resit-mcq10",
+    "type": "mcq",
+    "topics": [
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q10"
+    },
+    "difficulty": 1,
+    "text": "The Fermat test and the Miller-Rabin test are two tests for deciding whether or not a number n is prime. Which of the following statements is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "If the Miller-Rabin test outputs probable prime then the Fermat test also outputs probable prime"
+      },
+      {
+        "key": "b",
+        "text": "If the Fermat test outputs probable prime then the Miller-Rabin test also outputs probable prime"
+      },
+      {
+        "key": "c",
+        "text": "If the Miller-Rabin test outputs probable prime then n is definitely prime"
+      },
+      {
+        "key": "d",
+        "text": "If the Fermat test outputs probable prime then n is definitely prime"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2015-resit-mcq11",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q11"
+    },
+    "difficulty": 2,
+    "text": "The RSA encryption algorithm uses a public modulus n. Regarding the security of the RSA algorithm it is known that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a known plaintext attack allows an attacker to obtain the private key"
+      },
+      {
+        "key": "b",
+        "text": "finding the plaintext from any ciphertext is as hard as finding the factors of n"
+      },
+      {
+        "key": "c",
+        "text": "finding the private key from the public key is as hard as finding the factors of n"
+      },
+      {
+        "key": "d",
+        "text": "quantum computers would not help in an attack"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2015-resit-mcq12",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q12"
+    },
+    "difficulty": 2,
+    "text": "The Elgamal encryption algorithm can be broken by an attacker who is able to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "solve the discrete logarithm problem"
+      },
+      {
+        "key": "b",
+        "text": "generate large prime numbers"
+      },
+      {
+        "key": "c",
+        "text": "perform fast exponentiation"
+      },
+      {
+        "key": "d",
+        "text": "perform a chosen ciphertext attack"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2015-resit-mcq13",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "quantum-safe",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q13"
+    },
+    "difficulty": 2,
+    "text": "Public key cryptosystems based on discrete logarithms can be implemented either in elliptic curve groups or in groups of integers modulo a prime p, often written Z∗ p. An advantage of using elliptic curve groups is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the cryptosystem is still secure if quantum computers become practical"
+      },
+      {
+        "key": "b",
+        "text": "shorter public keys can be used to achieve the same security level"
+      },
+      {
+        "key": "c",
+        "text": "implementation of exponentiation algorithms is simpler"
+      },
+      {
+        "key": "d",
+        "text": "there are no patent restrictions"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2015-resit-mcq14",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q14"
+    },
+    "difficulty": 1,
+    "text": "HMAC is a construction for a message authentication code, often used in TLS. The HMAC algorithm:",
+    "options": [
+      {
+        "key": "a",
+        "text": "is vulnerable to length extension attacks"
+      },
+      {
+        "key": "b",
+        "text": "has output size equal to the input size"
+      },
+      {
+        "key": "c",
+        "text": "uses a single call to the underlying hash function"
+      },
+      {
+        "key": "d",
+        "text": "can use any iterated hash function"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2015-resit-mcq15",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q15"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used to provide digital signatures:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the public key of the signer is required in order to generate the signature"
+      },
+      {
+        "key": "b",
+        "text": "the public key of the verifier is required in order to generate the signature"
+      },
+      {
+        "key": "c",
+        "text": "the private key of the signer is required in order to generate the signature"
+      },
+      {
+        "key": "d",
+        "text": "the private key of the verifier is required in order to generate the signature"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2015-resit-mcq16",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q16"
+    },
+    "difficulty": 1,
+    "text": "A digital certificate is issued by a certification authority. It must include:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the subject’s private key and identity"
+      },
+      {
+        "key": "b",
+        "text": "the subject’s public key and identity"
+      },
+      {
+        "key": "c",
+        "text": "the certificate authority’s private key"
+      },
+      {
+        "key": "d",
+        "text": "a certificate revocation list"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2015-resit-mcq17",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q17"
+    },
+    "difficulty": 1,
+    "text": "In the Kerberos system three kinds of server are involved. A ticket granting ticket (TGT) may be issued by:",
+    "options": [
+      {
+        "key": "a",
+        "text": "authentication server"
+      },
+      {
+        "key": "b",
+        "text": "ticket-granting server"
+      },
+      {
+        "key": "c",
+        "text": "application server"
+      },
+      {
+        "key": "d",
+        "text": "any type of server"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2015-resit-mcq18",
+    "type": "mcq",
+    "topics": [
+      "tls",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q18"
+    },
+    "difficulty": 1,
+    "text": "Which of the following is not explicitly negotiated during the TLS handshake protocol?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The version of TLS to be used"
+      },
+      {
+        "key": "b",
+        "text": "The algorithms to be used for exchange of the session key"
+      },
+      {
+        "key": "c",
+        "text": "The encryption algorithm to be used in the record protocol"
+      },
+      {
+        "key": "d",
+        "text": "The security services to be provided by the record protocol"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2015-resit-mcq19",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q19"
+    },
+    "difficulty": 1,
+    "text": "The TLS sub-protocol concerned with providing confidentiality and integrity to application data is called:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the handshake protocol"
+      },
+      {
+        "key": "b",
+        "text": "the record protocol"
+      },
+      {
+        "key": "c",
+        "text": "the alert protocol"
+      },
+      {
+        "key": "d",
+        "text": "the change cipher spec protocol"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2015-resit-mcq20",
+    "type": "mcq",
+    "topics": [
+      "tls",
+      "block-ciphers",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit Q20"
+    },
+    "difficulty": 1,
+    "text": "One commonly used TLS ciphersuite is denoted as TLS_RSA_WITH_AES_128_CBC_SHA. When this ciphersuite is chosen, RSA is used:",
+    "options": [
+      {
+        "key": "a",
+        "text": "to sign the server ephemeral Diffie-Hellman value"
+      },
+      {
+        "key": "b",
+        "text": "to sign the client ephemeral Diffie-Hellman value"
+      },
+      {
+        "key": "c",
+        "text": "to encrypt the pre-master secret with the server long-term key"
+      },
+      {
+        "key": "d",
+        "text": "to encrypt the pre-master secret with the client long-term key"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2015-resit-w-1",
+    "type": "written",
+    "topics": [
+      "encryption-modes",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W1"
+    },
+    "difficulty": 1,
+    "text": "A →B : IDA, NA",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "A →B : IDA, NA",
+        "solution": "Then the same MAC is valid for M ', replacing IV by IV '."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2015-resit-w-2",
+    "type": "written",
+    "topics": [
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W2"
+    },
+    "difficulty": 3,
+    "text": "B →S : IDA, IDB, NA",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "B →S : IDA, IDB, NA",
+        "solution": "With a fixed IV there is no randomness so that each message is always encrypted the same way. In particular the first block is always encrypted the same way. An attacker can build up a dictionary using known or chosen plaintext attacks and decrypt blocks in the dictionary."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2015-resit-w-3",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W3"
+    },
+    "difficulty": 3,
+    "text": "S →B : {KAB, IDA, IDB, NA}KAS, {KAB, IDA, IDB, NA}KBS",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "S →B : {KAB, IDA, IDB, NA}KAS, {KAB, IDA, IDB, NA}KBS",
+        "solution": "Mp = C27 mod 4 mod 5 = C3 mod 5 = 3 Mq = C27 mod 10 mod 11 = C7 mod 11 = 128 mod 11 = 7 M = (3 × 11 × 11-1 mod 5) + (7 × 5 × 5-1 mod 11) = 33 + (35 × 9) mod 55 = 18."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2015-resit-w-4",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W4"
+    },
+    "difficulty": 3,
+    "text": "B →A : {KAB, IDA, IDB, NA}KAS Describe a replay attack on this protocol, showing concrete messages sent by the attacker.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "B →A : {KAB, IDA, IDB, NA}KAS Describe a replay attack on this protocol, showing concrete messages sent by the attacker.",
+        "solution": "Compute a2 mod n, a4 mod n, a8 mod n, a16 mod n, a32 mod n Now multiply a mod n, a4 mod n and a32 mod n. So there are 5 squarings and 2 multiplications required."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2015-resit-w-5",
+    "type": "written",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W5"
+    },
+    "difficulty": 3,
+    "text": "The Elgamal encryption scheme works in Z∗ p for a prime p. The public key is y = gx mod p and the private key is the exponent x. To encrypt a message m the ciphertext is the pair c = (gk mod p, myk mod p).",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Explain how an attacker who can take discrete logarithms can find the message from the ciphertext and public key.",
+        "solution": "By taking discrete logs the attacker can find k (or x). Then he can compute yk mod p from y (or gk mod p) and hence divide this out from the second part of c to obtain m."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "What are reasonable choices today for the size of p which are both secure and rea- sonably efficient? How will this change if full-scale quantum computers become available?",
+        "solution": "Reasonable choices today are at least 1024 and preferably 2048 bits. Too large a value decreases efficiency, lower than 1024 risks being broken by finding discrete logs. Realistic quantum computers will make taking discrete logs efficient (polynomial time) and there is no reasonable size which can work any longer."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2015-resit-w-6",
+    "type": "written",
+    "topics": [
+      "hashes-macs",
+      "digital-signatures",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W6"
+    },
+    "difficulty": 3,
+    "text": "When using the RSA algorithm to form a digital signature, the output is a value s = h(m)d mod n for a suitable hash function h. The message m and s are sent to the verifier.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Given a valid public exponent e, how does the verifier check the signature?",
+        "solution": "Verifier recomputes h(m) = h' for received message. Checks that se mod n = h'."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Explain how an attacker who can find a collision in h can exploit this to construct a message forgery.",
+        "solution": "Attacker finds m and m' with h(m) = h(m'). Then obtains a signature s on m, for example with a chosen message attack. Then s is a forged signature for m'."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2015-resit-w-7",
+    "type": "written",
+    "topics": [
+      "key-establishment",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W7"
+    },
+    "difficulty": 3,
+    "text": "Consider the following protocol with the goal of key establishment. Here NA is a nonce chosen by A, and KAB is the session key chosen by server S. IDA and IDB are iden- tity strings for A and B respectively. KAS and KBS are key-encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "Consider the following protocol with the goal of key establishment. Here NA is a nonce chosen by A, and KAB is the session key chosen by server S. IDA and IDB are iden- tity strings for A and B respectively. KAS and KBS are key-encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+        "solution": "Since B never uses a nonce or any other replay detection the replay must be against him. The attacker can eavesdrop an old token T ' = {K', A, B, NA}KAS and obtain the old key K' AB. Then the attacker C masquerades as B and starts a new session with the following messages. A(C) →B : A, NA B →S(C) : A, B, NA C →B : X, T ' B →A(C) : X C takes the roles of both A and S while X is just a random string which is not used by C. The exchange looks normal to B who accepts the old key K' ."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2015-resit-w-8",
+    "type": "written",
+    "topics": [
+      "tls",
+      "digital-signatures",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2015 Resit W8"
+    },
+    "difficulty": 3,
+    "text": "Consider the protocol below as an abstract version of the TLS handshake protocol. Client C and server S have negotiated a ciphersuite incorporating ephemeral Diffie-Hellman. The Diffie-Hellman group generator is g and the server certificate is CertS. The server and client choose random values x and y respectively and the server uses a signature scheme denoted SigS. S →C: CertS, gx, SigS(gx) C →S: gy",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Explain how both C and S will compute the TLS session keys.",
+        "solution": "Both S and C compute the Diffie-Hellman value gxy, S by (gy)x and C by (gx)y. gxy is the premaster secret which is used as input to a key derivation function from which the session keys are computed."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Explain why this protocol achieves forward secrecy.",
+        "solution": "The only long-term key used is the server signing key. If this is revealed after the protocol is run, it does not help an attacker to recover the Diffie-Hellman value."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

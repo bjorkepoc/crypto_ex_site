@@ -11,6 +11,7 @@ import { LectureId, ALL_LECTURE_IDS } from "@/types/learn";
 import { getTopicForLecture, getMcqCountForLecture } from "@/data/learn";
 import StageProgress from "@/components/learn/StageProgress";
 import StarRating from "@/components/learn/StarRating";
+import { LectureHubSkeleton } from "@/components/learn/LearnSkeleton";
 
 export default function LectureHubPage() {
   const hydrated = useHydrated();
@@ -19,7 +20,7 @@ export default function LectureHubPage() {
   const params = useParams();
   const lectureId = params.lectureId as LectureId;
 
-  if (!hydrated) return null;
+  if (!hydrated) return <LectureHubSkeleton />;
 
   if (!ALL_LECTURE_IDS.includes(lectureId)) {
     return (
@@ -102,8 +103,8 @@ export default function LectureHubPage() {
       )}
 
       <div className="space-y-3">
-        {stages.map((stage) => (
-          <div key={stage.key}>
+        {stages.map((stage, stageIdx) => (
+          <div key={stage.key} className="anim-fade-in" style={{ animationDelay: `${stageIdx * 100}ms` }}>
             {stage.available ? (
               <Link
                 href={stage.href}

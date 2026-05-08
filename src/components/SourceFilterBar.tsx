@@ -32,6 +32,7 @@ const filters: { id: SourceFilterId; labelKey: string }[] = [
   { id: "all", labelKey: "filter.all" },
   { id: "exam", labelKey: "filter.exams" },
   ...YEAR_IDS.map((id) => ({ id, labelKey: id.slice(5) })),
+  { id: "exercise", labelKey: "filter.exercises" },
   { id: "generated", labelKey: "filter.notebook" },
 ];
 

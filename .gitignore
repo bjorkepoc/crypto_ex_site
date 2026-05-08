@@ -38,10 +38,11 @@ yarn-error.log*
 /CLAUDE.md
 /CLAUDE.local.md
 /HANDOFF.md
+/.claude/
+/graphify-out/cache/
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts

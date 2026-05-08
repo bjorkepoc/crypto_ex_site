@@ -10,7 +10,7 @@ import { McqQuestion, WrittenQuestion } from "@/types";
 import McqCard from "@/components/McqCard";
 import WrittenCard from "@/components/WrittenCard";
 import Timer from "@/components/Timer";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 export default function ActiveExam() {
   const params = useParams();
@@ -26,6 +26,12 @@ export default function ActiveExam() {
 
   const session = hydrated ? getExamSession(sessionId) : null;
 
+  useEffect(() => {
+    if (hydrated && !getExamSession(sessionId)) {
+      router.replace("/exam");
+    }
+  }, [hydrated, router, sessionId]);
+
   const handleSubmit = useCallback(() => {
     const current = getExamSession(sessionId);
     if (!current) return;
@@ -36,7 +42,6 @@ export default function ActiveExam() {
   if (!hydrated) return null;
 
   if (!session) {
-    router.push("/exam");
     return null;
   }
 

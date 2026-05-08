@@ -54,6 +54,7 @@ export default function McqCard({
 
   const selected = externalSelected !== undefined ? externalSelected : internalSelected;
   const showResult = externalShowResult !== undefined ? externalShowResult : internalShowResult;
+  const canCheckAnswer = onAnswer !== undefined && onSelect === undefined;
 
   const displayOptions = useMemo(
     () => shuffleOptions(question.options, question.id),
@@ -121,7 +122,7 @@ export default function McqCard({
           );
         })}
       </div>
-      {!showResult && !disabled && (
+      {!showResult && !disabled && canCheckAnswer && (
         <button
           onClick={handleSubmit}
           disabled={!selected}

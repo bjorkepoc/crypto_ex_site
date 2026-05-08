@@ -6,11 +6,13 @@
     "dev": "next dev --webpack -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "tsx --test tests/exam-components.test.tsx",
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "katex": "^0.16.38",
-    "next": "16.1.6",
+    "next": "16.2.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-katex": "^3.1.0",
@@ -25,8 +27,12 @@
     "@types/react-dom": "^19",
     "@types/react-katex": "^3.0.4",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
+  },
+  "overrides": {
+    "postcss": "8.5.14"
   }
 }

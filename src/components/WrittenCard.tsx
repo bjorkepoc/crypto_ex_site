@@ -29,6 +29,7 @@ export default function WrittenCard({
 
   const isExternallyControlled = externalShow !== undefined;
   const show = isExternallyControlled ? externalShow : showSolution;
+  const canSelfAssess = onScore !== undefined && externalScore === undefined;
 
   function handleReveal() {
     setShowSolution(true);
@@ -70,7 +71,7 @@ export default function WrittenCard({
             {show && (
               <div className="mt-3">
                 <SolutionPanel solution={part.solution} />
-                {!submitted && !isExternallyControlled && (
+                {!submitted && canSelfAssess && (
                   <div className="mt-2 flex items-center gap-2">
                     <label className="text-xs text-th-text-muted">
                       {t("written.self_assessment", lang)}:
@@ -104,7 +105,7 @@ export default function WrittenCard({
           {t("written.show_solution", lang)}
         </button>
       )}
-      {show && !submitted && !isExternallyControlled && (
+      {show && !submitted && canSelfAssess && (
         <button
           onClick={handleSubmitScore}
           className="rounded-lg bg-th-accent px-4 py-2 text-sm font-medium text-th-text-on-accent transition-colors hover:bg-th-accent-hover"

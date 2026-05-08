@@ -15,7 +15,7 @@ import {
 import { McqQuestion, WrittenQuestion } from "@/types";
 import McqCard from "@/components/McqCard";
 import WrittenCard from "@/components/WrittenCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function ExamReview() {
@@ -29,10 +29,15 @@ export default function ExamReview() {
 
   const session = hydrated ? getExamSession(sessionId) : null;
 
+  useEffect(() => {
+    if (hydrated && !getExamSession(sessionId)) {
+      router.replace("/exam");
+    }
+  }, [hydrated, router, sessionId]);
+
   if (!hydrated) return null;
 
   if (!session) {
-    router.push("/exam");
     return null;
   }
 

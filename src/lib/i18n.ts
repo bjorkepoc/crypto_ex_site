@@ -191,6 +191,7 @@ const translations = {
   // Source filters
   "filter.all": { en: "All", no: "Alle" },
   "filter.exams": { en: "Exams", no: "Eksamener" },
+  "filter.exercises": { en: "Exercises", no: "Oppgaver" },
   "filter.notebook": { en: "NotebookLM", no: "NotebookLM" },
 
   // Preferences

@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { usePrefs } from "@/lib/preferences";
 import { useHydrated } from "@/lib/useHydrated";
 import { t } from "@/lib/i18n";
@@ -13,18 +13,17 @@ import { getStudyContent, getTopicForLecture } from "@/data/learn";
 import StudyViewer from "@/components/learn/StudyViewer";
 
 function useLocalSectionsRead(lectureId: LectureId, hydrated: boolean) {
-  // Initialize from storage; returns empty array on server
-  const initial = hydrated
-    ? (loadLearnState().lectureProgress[lectureId]?.studySectionsRead ?? [])
-    : [];
-  const [sectionsRead, setSectionsRead] = useState<string[]>(initial);
+  const [revision, setRevision] = useState(0);
+  const sectionsRead = useMemo(() => {
+    void revision;
+    if (!hydrated) return [];
+    return loadLearnState().lectureProgress[lectureId]?.studySectionsRead ?? [];
+  }, [hydrated, lectureId, revision]);
 
   const markRead = useCallback(
     (sectionId: string) => {
       markSectionRead(lectureId, sectionId);
-      setSectionsRead((prev) =>
-        prev.includes(sectionId) ? prev : [...prev, sectionId]
-      );
+      setRevision((n) => n + 1);
     },
     [lectureId]
   );

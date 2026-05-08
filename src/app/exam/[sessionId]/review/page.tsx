@@ -51,11 +51,13 @@ export default function ExamReview() {
     .filter(Boolean) as WrittenQuestion[];
 
   const correctAnswers: Record<string, string> = {};
+  const optionCounts: Record<string, number> = {};
   for (const q of mcqQuestions) {
     correctAnswers[q.id] = q.correctAnswer;
+    optionCounts[q.id] = q.options.length;
   }
 
-  const mcqResult = scoreMcq(session.mcqAnswers, correctAnswers);
+  const mcqResult = scoreMcq(session.mcqAnswers, correctAnswers, optionCounts);
   const writtenResult = scoreWritten(session.writtenScores);
   const mcqMax = mcqQuestions.length * MCQ_CORRECT_POINTS;
   const writtenMax = writtenQuestions.reduce(

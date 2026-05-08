@@ -6,17 +6,20 @@ Generates the missing exam datasets in project schema:
 - src/data/questions/exam-YYYY.json
 - src/data/questions/exam-YYYY-resit.json
 
-The parser is tuned to TTM4135 exam PDF layouts and supports:
+The parser is tuned to archived applied cryptography exam PDF layouts and supports:
 - MCQ question parsing from question PDFs
 - MCQ answer extraction from solution PDFs (grid and inline formats)
 - Written question/solution parsing with part splitting
 - Equal point distribution fallback in 0.5 steps
+
+Set CRYPTOEX_EXAMS_DIR to the local folder containing the archived exam PDFs.
 """
 
 from __future__ import annotations
 
 import json
 import math
+import os
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -27,7 +30,9 @@ import pypdf
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXAMS_DIR = Path(r"C:\Users\bjork\Desktop\Crypto\krypto_eksamener\exams")
+EXAMS_DIR = Path(
+    os.environ.get("CRYPTOEX_EXAMS_DIR", str(ROOT / "source-exams" / "exams"))
+).expanduser()
 OUT_DIR = ROOT / "src" / "data" / "questions"
 
 CHECK_CHARS = {"\x00", "\x08", "\x13", "\u2713", "✓"}
@@ -302,6 +307,16 @@ class ExamConfig:
 CONFIGS: List[ExamConfig] = [
     ExamConfig(
         year=2025,
+        resit=False,
+        question_pdf="2025-questions.pdf",
+        solution_pdf="2025-solutions.pdf",
+        expected_mcq=30,
+        expected_written=5,
+        written_points=6,
+        answer_mode="grid",
+    ),
+    ExamConfig(
+        year=2025,
         resit=True,
         question_pdf="2025-resit-questions.pdf",
         solution_pdf="2025-resit-solutions.pdf",
@@ -309,6 +324,16 @@ CONFIGS: List[ExamConfig] = [
         expected_written=5,
         written_points=6,
         answer_mode="grid",
+    ),
+    ExamConfig(
+        year=2021,
+        resit=False,
+        question_pdf="2021-questions.pdf",
+        solution_pdf="2021-solutions.pdf",
+        expected_mcq=15,
+        expected_written=6,
+        written_points=5,
+        answer_mode="inline",
     ),
     ExamConfig(
         year=2021,
@@ -530,17 +555,24 @@ def extract_control_mark_answer(block: str) -> Optional[str]:
     if not letters:
         return None
     # Pass 1: explicit control/check chars
+    selected: List[str] = []
     for i, lm in enumerate(letters):
         seg_end = letters[i + 1].start() if i + 1 < len(letters) else len(block)
         seg = block[lm.end() : seg_end]
         if any(ch in seg for ch in CHECK_CHARS):
-            return lm.group(1).lower()
+            selected.append(lm.group(1).lower())
+    if selected:
+        return "".join(selected)
+
     # Pass 2: legacy PDFs where selected option is rendered as 2" and others as box/star.
+    selected = []
     for i, lm in enumerate(letters):
         seg_end = letters[i + 1].start() if i + 1 < len(letters) else len(block)
         seg = block[lm.end() : seg_end]
         if re.search(r'2\s*["”]', seg) and "□" not in seg and "⇤" not in seg:
-            return lm.group(1).lower()
+            selected.append(lm.group(1).lower())
+    if selected:
+        return "".join(selected)
     return None
 
 
@@ -840,7 +872,7 @@ def validate_dataset(items: List[Dict], cfg: ExamConfig) -> None:
         )
     for q in mcq:
         keys = {o["key"] for o in q["options"]}
-        if q["correctAnswer"] not in keys:
+        if any(key not in keys for key in q["correctAnswer"]):
             raise RuntimeError(f"{cfg.file_name}: invalid correctAnswer in {q['id']}")
     for q in wr:
         total = sum(float(p["points"]) for p in q["parts"])

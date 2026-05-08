@@ -1,8 +1,8 @@
 """
-Convert NotebookLM quiz JSON files into CryptoEx question bank format.
+Convert generated quiz JSON files into CryptoEx question bank format.
 
-Usage: python scripts/convert-nlm-quizzes.py
-Output: src/data/questions/notebooklm-batch.json
+Usage: python scripts/convert-generated-quizzes.py
+Output: src/data/questions/generated-batch.json
 """
 
 import json
@@ -11,8 +11,8 @@ import hashlib
 import os
 import re
 
-INPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "data", "notebooklm-raw")
-OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "..", "src", "data", "questions", "notebooklm-batch.json")
+INPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "data", "generated-raw")
+OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "..", "src", "data", "questions", "generated-batch.json")
 
 # Topic classification keywords (lowercase)
 TOPIC_KEYWORDS: dict[str, list[str]] = {
@@ -44,7 +44,7 @@ TOPIC_KEYWORDS: dict[str, list[str]] = {
         "sha-", "sha256", "sha-256", "hmac", "hash function", "collision",
         "birthday attack", "merkle-damgård", "merkle-damgard", "mac ",
         "message authentication code", "preimage", "hash collision",
-        "digest", "sponge construction",
+        "digest", "sponge construction", "password", "salt", "salting",
     ],
     "number-theory-pk": [
         "euler's theorem", "eulers theorem", "euler's function", "fermat's theorem",
@@ -60,7 +60,8 @@ TOPIC_KEYWORDS: dict[str, list[str]] = {
     "discrete-log-crypto": [
         "diffie-hellman", "diffie hellman", "elgamal encryption", "elliptic curve",
         "ecdh", "cdh", "ddh", "discrete log", "discrete-log",
-        "generator g", "cyclic group", "point multiplication",
+        "generator g", "cyclic group", "point multiplication", "finite field",
+        "gf(",
     ],
     "digital-signatures": [
         "digital signature", "rsa signature", "schnorr", "dsa", "ecdsa",
@@ -99,6 +100,49 @@ TOPIC_KEYWORDS: dict[str, list[str]] = {
 # Keys in order for option labeling
 OPTION_KEYS = ["a", "b", "c", "d", "e", "f"]
 
+OFF_TOPIC_PATTERNS = [
+    r"\brelational data model\b",
+    r"\bsql\b",
+    r"\bcourse assessment\b",
+    r"\bassessment breakdown\b",
+    r"\bwritten examination\b",
+    r"\boverall assessment\b",
+]
+
+COURSE_CODE = "TTM" + "4135"
+INSTITUTION_NAME = "NT" + "NU"
+
+ANONYMIZED_REPLACEMENTS = [
+    (COURSE_CODE, "the course"),
+    (INSTITUTION_NAME, "the university"),
+]
+
+
+def anonymize_text(text: str) -> str:
+    """Remove person/institution identifiers from generated study content."""
+    for before, after in ANONYMIZED_REPLACEMENTS:
+        text = text.replace(before, after)
+    return text
+
+
+def keyword_matches(keyword: str, text: str) -> bool:
+    """Match topic keywords without substring hits inside unrelated words."""
+    token = keyword.strip()
+    if not token:
+        return False
+    if re.match(r"^[a-z0-9][a-z0-9+#./-]*[a-z0-9]$", token):
+        return re.search(rf"(?<![a-z0-9]){re.escape(token)}(?![a-z0-9])", text) is not None
+    return token in text
+
+
+def is_off_topic(quiz_title: str, question_text: str, options_text: str, hint: str) -> bool:
+    """Skip generated questions that came from non-cryptography course material."""
+    title = quiz_title.lower()
+    combined = f"{question_text} {options_text} {hint}".lower()
+    if "database" in title:
+        return True
+    return any(re.search(pattern, combined) for pattern in OFF_TOPIC_PATTERNS)
+
 
 def classify_topic(question_text: str, options_text: str, hint: str, quiz_title: str) -> list[str]:
     """Classify a question into one or more topics based on keyword matching."""
@@ -106,7 +150,7 @@ def classify_topic(question_text: str, options_text: str, hint: str, quiz_title:
 
     scores: dict[str, int] = {}
     for topic_id, keywords in TOPIC_KEYWORDS.items():
-        score = sum(1 for kw in keywords if kw in combined)
+        score = sum(1 for kw in keywords if keyword_matches(kw, combined))
         if score > 0:
             scores[topic_id] = score
 
@@ -162,7 +206,7 @@ def estimate_difficulty(question_text: str, options: list, hint: str) -> int:
 def make_id(quiz_idx: int, q_idx: int, text: str) -> str:
     """Generate a stable, unique question ID."""
     h = hashlib.md5(text.encode()).hexdigest()[:6]
-    return f"nlm-{quiz_idx:02d}-{q_idx:02d}-{h}"
+    return f"gen-{quiz_idx:02d}-{q_idx:02d}-{h}"
 
 
 def build_solution(options: list, hint: str) -> str:
@@ -172,7 +216,10 @@ def build_solution(options: list, hint: str) -> str:
     # Find correct answer rationale
     for opt in options:
         if opt.get("isCorrect"):
-            parts.append(f"**Correct answer:** {opt['text']}\n\n{opt['rationale']}")
+            parts.append(
+                f"**Correct answer:** {anonymize_text(opt['text'])}\n\n"
+                f"{anonymize_text(opt['rationale'])}"
+            )
             break
 
     # Add wrong answer explanations
@@ -180,10 +227,13 @@ def build_solution(options: list, hint: str) -> str:
     if wrong:
         parts.append("\n**Why other options are wrong:**")
         for opt in wrong:
-            parts.append(f"- **{opt['text']}**: {opt['rationale']}")
+            parts.append(
+                f"- **{anonymize_text(opt['text'])}**: "
+                f"{anonymize_text(opt['rationale'])}"
+            )
 
     if hint:
-        parts.append(f"\n**Hint:** {hint}")
+        parts.append(f"\n**Hint:** {anonymize_text(hint)}")
 
     return "\n".join(parts)
 
@@ -214,6 +264,9 @@ def convert():
             options = q.get("answerOptions", [])
             hint = q.get("hint", "")
             options_text = " ".join(o.get("text", "") + " " + o.get("rationale", "") for o in options)
+            if is_off_topic(quiz_title, q_text, options_text, hint):
+                skipped_topic += 1
+                continue
 
             # Classify topics
             topics = classify_topic(q_text, options_text, hint, quiz_title)
@@ -233,11 +286,11 @@ def convert():
                 "id": make_id(quiz_idx, q_idx, q_text),
                 "type": "mcq",
                 "topics": topics,
-                "source": {"type": "generated", "label": "NotebookLM"},
+                "source": {"type": "generated", "label": "Generated"},
                 "difficulty": estimate_difficulty(q_text, options, hint),
-                "text": q_text,
+                "text": anonymize_text(q_text),
                 "options": [
-                    {"key": OPTION_KEYS[i], "text": opt["text"]}
+                    {"key": OPTION_KEYS[i], "text": anonymize_text(opt["text"])}
                     for i, opt in enumerate(options)
                     if i < len(OPTION_KEYS)
                 ],

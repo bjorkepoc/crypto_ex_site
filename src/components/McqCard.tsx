@@ -6,6 +6,7 @@ import SourceBadge from "./SourceBadge";
 import SolutionPanel from "./SolutionPanel";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
+import { isMcqAnswerCorrect, normalizeMcqAnswer } from "@/lib/scoring";
 import { useState, useMemo } from "react";
 
 /** Simple seeded PRNG for deterministic shuffle per question */
@@ -61,21 +62,30 @@ export default function McqCard({
     [question.options, question.id],
   );
   const displayLabels = ["a", "b", "c", "d"];
+  const correctAnswer = normalizeMcqAnswer(question.correctAnswer);
+  const normalizedSelected = normalizeMcqAnswer(selected);
+  const isMultiAnswer = correctAnswer.length > 1;
 
   function handleSelect(key: string) {
     if (showResult && !disabled) return;
     if (disabled) return;
+    const nextSelection =
+      isMultiAnswer && selected
+        ? normalizedSelected.includes(key)
+          ? normalizeMcqAnswer(normalizedSelected.replace(key, ""))
+          : normalizeMcqAnswer(normalizedSelected + key)
+        : key;
     if (onSelect) {
-      onSelect(key);
+      onSelect(nextSelection);
       return;
     }
-    setInternalSelected(key);
+    setInternalSelected(nextSelection);
   }
 
   function handleSubmit() {
     if (!selected) return;
     setInternalShowResult(true);
-    onAnswer?.(question.id, selected === question.correctAnswer);
+    onAnswer?.(question.id, isMcqAnswerCorrect(selected, question.correctAnswer));
   }
 
   return (
@@ -91,17 +101,19 @@ export default function McqCard({
       </div>
       <div className="mb-4 space-y-2">
         {displayOptions.map((opt, idx) => {
+          const optionSelected = normalizedSelected.includes(opt.key);
+          const optionCorrect = correctAnswer.includes(opt.key);
           let optionClass =
             "flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-sm transition-colors press";
           if (showResult) {
-            if (opt.key === question.correctAnswer) {
+            if (optionCorrect) {
               optionClass += " border-th-success-border bg-th-success-bg text-th-success anim-fade-in-scale";
-            } else if (opt.key === selected && opt.key !== question.correctAnswer) {
+            } else if (optionSelected) {
               optionClass += " border-th-error-border bg-th-error-bg text-th-error anim-shake";
             } else {
               optionClass += " border-th-border text-th-text-muted";
             }
-          } else if (opt.key === selected) {
+          } else if (optionSelected) {
             optionClass += " border-th-border-accent bg-th-selected text-th-text-accent";
           } else {
             optionClass += " border-th-border text-th-text-secondary hover:border-th-border-accent hover:bg-th-card-hover";
@@ -134,7 +146,7 @@ export default function McqCard({
       {showResult && (
         <SolutionPanel
           solution={question.solution}
-          correct={selected === question.correctAnswer}
+          correct={isMcqAnswerCorrect(selected, question.correctAnswer)}
         />
       )}
     </div>

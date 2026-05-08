@@ -267,7 +267,7 @@
         {
           "text": "The output bits demonstrated an observable statistical bias.",
           "isCorrect": true,
-          "rationale": "Research, including work by NTNU's Kristian Gj\u00f8steen, showed that the output was not perfectly uniform."
+          "rationale": "Research, including work by academic researchers, showed that the output was not perfectly uniform."
         },
         {
           "text": "It was too fast, allowing for efficient brute-force attacks on the seed.",

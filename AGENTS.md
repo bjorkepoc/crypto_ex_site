@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-- Next.js app for TTM4135 cryptography exam practice.
+- Next.js app for applied cryptography exam practice.
 - Includes dashboard, practice, exam simulation, and progress pages.
 - Stack: Next.js 16.1, React 19, TypeScript 5, Tailwind CSS 4.
 
@@ -33,8 +33,8 @@
 
 ### 2. Self-Improvement Loop
 
-- Record meaningful corrections and preventable mistakes in
-  `C:\Users\bjork\devC\tasks\lessons.md`.
+- Record meaningful corrections and preventable mistakes in the workspace-level
+  lessons file outside this repo, for example `%DEV_WORKSPACE%\tasks\lessons.md`.
 - This is mandatory: add the lesson entry immediately after the mistake is
   identified, before moving on.
 - Do not mark work complete while a lesson-triggering mistake is still

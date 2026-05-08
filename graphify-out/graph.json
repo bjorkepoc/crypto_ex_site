@@ -1,59 +1,7 @@
 {
   "directed": false,
   "multigraph": false,
-  "graph": {
-    "hyperedges": [
-      {
-        "id": "course_mathematical_foundations",
-        "label": "Mathematical Foundations Arc (L1-L3)",
-        "nodes": [
-          "study_guide_L1",
-          "study_guide_L2",
-          "study_guide_L3",
-          "concept_modular_arithmetic",
-          "concept_cyclic_groups",
-          "concept_finite_fields",
-          "concept_perfect_secrecy"
-        ],
-        "relation": "form",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "LECTURE_STUDY_GUIDE.md"
-      },
-      {
-        "id": "public_key_crypto_arc",
-        "label": "Public-Key Cryptography Arc (L7-L10)",
-        "nodes": [
-          "study_guide_L7",
-          "study_guide_L8",
-          "study_guide_L9",
-          "study_guide_L10",
-          "concept_rsa",
-          "concept_diffie_hellman",
-          "concept_digital_signatures"
-        ],
-        "relation": "form",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "LECTURE_STUDY_GUIDE.md"
-      },
-      {
-        "id": "learn_feature_system",
-        "label": "Learn Feature System (Study-Practice-Quiz-XP)",
-        "nodes": [
-          "handoff_md_learn_feature",
-          "handoff_md_xp_system",
-          "handoff_md_study_viewer",
-          "handoff_md_where_to_study",
-          "handoff_md_learn_storage"
-        ],
-        "relation": "implement",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "HANDOFF.md"
-      }
-    ]
-  },
+  "graph": {},
   "nodes": [
     {
       "label": "next-env.d.ts",
@@ -61,7 +9,7 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 36
+      "community": 37
     },
     {
       "label": "next.config.ts",
@@ -69,95 +17,143 @@
       "source_file": "next.config.ts",
       "source_location": "L1",
       "id": "next_config_ts",
-      "community": 37
+      "community": 38
     },
     {
-      "label": "convert-nlm-quizzes.py",
+      "label": "convert-generated-quizzes.py",
       "file_type": "code",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
+      "source_file": "scripts\\convert-generated-quizzes.py",
       "source_location": "L1",
-      "id": "scripts_convert_nlm_quizzes_py",
-      "community": 3
+      "id": "scripts_convert_generated_quizzes_py",
+      "community": 1
+    },
+    {
+      "label": "anonymize_text()",
+      "file_type": "code",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L121",
+      "id": "convert_generated_quizzes_anonymize_text",
+      "community": 1
+    },
+    {
+      "label": "keyword_matches()",
+      "file_type": "code",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L128",
+      "id": "convert_generated_quizzes_keyword_matches",
+      "community": 1
+    },
+    {
+      "label": "is_off_topic()",
+      "file_type": "code",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L138",
+      "id": "convert_generated_quizzes_is_off_topic",
+      "community": 1
     },
     {
       "label": "classify_topic()",
       "file_type": "code",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L103",
-      "id": "convert_nlm_quizzes_classify_topic",
-      "community": 3
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L147",
+      "id": "convert_generated_quizzes_classify_topic",
+      "community": 1
     },
     {
       "label": "estimate_difficulty()",
       "file_type": "code",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L133",
-      "id": "convert_nlm_quizzes_estimate_difficulty",
-      "community": 3
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L177",
+      "id": "convert_generated_quizzes_estimate_difficulty",
+      "community": 1
     },
     {
       "label": "make_id()",
       "file_type": "code",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L162",
-      "id": "convert_nlm_quizzes_make_id",
-      "community": 3
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L206",
+      "id": "convert_generated_quizzes_make_id",
+      "community": 1
     },
     {
       "label": "build_solution()",
       "file_type": "code",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L168",
-      "id": "convert_nlm_quizzes_build_solution",
-      "community": 3
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L212",
+      "id": "convert_generated_quizzes_build_solution",
+      "community": 1
     },
     {
       "label": "convert()",
       "file_type": "code",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L191",
-      "id": "convert_nlm_quizzes_convert",
-      "community": 3
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L241",
+      "id": "convert_generated_quizzes_convert",
+      "community": 1
     },
     {
-      "label": "Convert NotebookLM quiz JSON files into CryptoEx question bank format.  Usage:",
+      "label": "Convert generated quiz JSON files into CryptoEx question bank format.  Usage: p",
       "file_type": "rationale",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
+      "source_file": "scripts\\convert-generated-quizzes.py",
       "source_location": "L1",
-      "community": 3,
-      "id": "convert_nlm_quizzes_rationale_1"
+      "id": "convert_generated_quizzes_rationale_1",
+      "community": 1
+    },
+    {
+      "label": "Remove person/institution identifiers from generated study content.",
+      "file_type": "rationale",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L122",
+      "id": "convert_generated_quizzes_rationale_122",
+      "community": 1
+    },
+    {
+      "label": "Match topic keywords without substring hits inside unrelated words.",
+      "file_type": "rationale",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L129",
+      "id": "convert_generated_quizzes_rationale_129",
+      "community": 1
+    },
+    {
+      "label": "Skip generated questions that came from non-cryptography course material.",
+      "file_type": "rationale",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L139",
+      "id": "convert_generated_quizzes_rationale_139",
+      "community": 1
     },
     {
       "label": "Classify a question into one or more topics based on keyword matching.",
       "file_type": "rationale",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L104",
-      "community": 3,
-      "id": "convert_nlm_quizzes_rationale_104"
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L148",
+      "id": "convert_generated_quizzes_rationale_148",
+      "community": 1
     },
     {
       "label": "Estimate difficulty 1-3 based on heuristics.",
       "file_type": "rationale",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L134",
-      "community": 3,
-      "id": "convert_nlm_quizzes_rationale_134"
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L178",
+      "id": "convert_generated_quizzes_rationale_178",
+      "community": 1
     },
     {
       "label": "Generate a stable, unique question ID.",
       "file_type": "rationale",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L163",
-      "community": 3,
-      "id": "convert_nlm_quizzes_rationale_163"
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L207",
+      "id": "convert_generated_quizzes_rationale_207",
+      "community": 1
     },
     {
       "label": "Build a solution text from option rationales and hint.",
       "file_type": "rationale",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L169",
-      "community": 3,
-      "id": "convert_nlm_quizzes_rationale_169"
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L213",
+      "id": "convert_generated_quizzes_rationale_213",
+      "community": 1
     },
     {
       "label": "ingest-exams.py",
@@ -171,7 +167,7 @@
       "label": "ExamConfig",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L277",
+      "source_location": "L282",
       "id": "ingest_exams_examconfig",
       "community": 0
     },
@@ -179,7 +175,7 @@
       "label": "file_name()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L289",
+      "source_location": "L294",
       "id": "ingest_exams_file_name",
       "community": 0
     },
@@ -187,7 +183,7 @@
       "label": "id_prefix()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L294",
+      "source_location": "L299",
       "id": "ingest_exams_id_prefix",
       "community": 0
     },
@@ -195,7 +191,7 @@
       "label": "label_base()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L298",
+      "source_location": "L303",
       "id": "ingest_exams_label_base",
       "community": 0
     },
@@ -203,7 +199,7 @@
       "label": "extract_pdf_text()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L417",
+      "source_location": "L442",
       "id": "ingest_exams_extract_pdf_text",
       "community": 0
     },
@@ -211,7 +207,7 @@
       "label": "normalize_text()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L431",
+      "source_location": "L456",
       "id": "ingest_exams_normalize_text",
       "community": 0
     },
@@ -219,7 +215,7 @@
       "label": "clean_inline()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L451",
+      "source_location": "L476",
       "id": "ingest_exams_clean_inline",
       "community": 0
     },
@@ -227,7 +223,7 @@
       "label": "find_section()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L459",
+      "source_location": "L484",
       "id": "ingest_exams_find_section",
       "community": 0
     },
@@ -235,7 +231,7 @@
       "label": "split_numbered_blocks()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L486",
+      "source_location": "L511",
       "id": "ingest_exams_split_numbered_blocks",
       "community": 0
     },
@@ -243,7 +239,7 @@
       "label": "parse_mcq_blocks()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L497",
+      "source_location": "L522",
       "id": "ingest_exams_parse_mcq_blocks",
       "community": 0
     },
@@ -251,7 +247,7 @@
       "label": "extract_control_mark_answer()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L528",
+      "source_location": "L553",
       "id": "ingest_exams_extract_control_mark_answer",
       "community": 0
     },
@@ -259,7 +255,7 @@
       "label": "parse_grid_answers()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L547",
+      "source_location": "L579",
       "id": "ingest_exams_parse_grid_answers",
       "community": 0
     },
@@ -267,7 +263,7 @@
       "label": "parse_inline_answers_and_explanations()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L560",
+      "source_location": "L592",
       "id": "ingest_exams_parse_inline_answers_and_explanations",
       "community": 0
     },
@@ -275,7 +271,7 @@
       "label": "parse_written_blocks()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L585",
+      "source_location": "L617",
       "id": "ingest_exams_parse_written_blocks",
       "community": 0
     },
@@ -283,7 +279,7 @@
       "label": "split_parts()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L597",
+      "source_location": "L629",
       "id": "ingest_exams_split_parts",
       "community": 0
     },
@@ -291,7 +287,7 @@
       "label": "split_solution_parts()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L613",
+      "source_location": "L645",
       "id": "ingest_exams_split_solution_parts",
       "community": 0
     },
@@ -299,7 +295,7 @@
       "label": "distribute_points()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L625",
+      "source_location": "L657",
       "id": "ingest_exams_distribute_points",
       "community": 0
     },
@@ -307,7 +303,7 @@
       "label": "classify_topics()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L636",
+      "source_location": "L668",
       "id": "ingest_exams_classify_topics",
       "community": 0
     },
@@ -315,7 +311,7 @@
       "label": "estimate_difficulty()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L652",
+      "source_location": "L684",
       "id": "ingest_exams_estimate_difficulty",
       "community": 0
     },
@@ -323,7 +319,7 @@
       "label": "fmt_points()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L670",
+      "source_location": "L702",
       "id": "ingest_exams_fmt_points",
       "community": 0
     },
@@ -331,7 +327,7 @@
       "label": "build_exam()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L676",
+      "source_location": "L708",
       "id": "ingest_exams_build_exam",
       "community": 0
     },
@@ -339,7 +335,7 @@
       "label": "validate_dataset()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L831",
+      "source_location": "L863",
       "id": "ingest_exams_validate_dataset",
       "community": 0
     },
@@ -347,7 +343,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L853",
+      "source_location": "L885",
       "id": "ingest_exams_main",
       "community": 0
     },
@@ -357,7 +353,7 @@
       "source_file": "scripts\\ingest-exercises.py",
       "source_location": "L1",
       "id": "scripts_ingest_exercises_py",
-      "community": 11
+      "community": 13
     },
     {
       "label": "parse_blocks()",
@@ -365,7 +361,7 @@
       "source_file": "scripts\\ingest-exercises.py",
       "source_location": "L27",
       "id": "ingest_exercises_parse_blocks",
-      "community": 11
+      "community": 13
     },
     {
       "label": "main()",
@@ -373,15 +369,15 @@
       "source_file": "scripts\\ingest-exercises.py",
       "source_location": "L43",
       "id": "ingest_exercises_main",
-      "community": 11
+      "community": 13
     },
     {
       "label": "Split text into blocks separated by one or more blank lines.",
       "file_type": "rationale",
       "source_file": "scripts\\ingest-exercises.py",
       "source_location": "L28",
-      "community": 11,
-      "id": "ingest_exercises_rationale_28"
+      "id": "ingest_exercises_rationale_28",
+      "community": 13
     },
     {
       "label": "layout.tsx",
@@ -389,7 +385,7 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L1",
       "id": "src_app_layout_tsx",
-      "community": 21
+      "community": 22
     },
     {
       "label": "RootLayout()",
@@ -397,7 +393,7 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L23",
       "id": "layout_rootlayout",
-      "community": 21
+      "community": 22
     },
     {
       "label": "page.tsx",
@@ -405,7 +401,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L1",
       "id": "src_app_page_tsx",
-      "community": 38
+      "community": 39
     },
     {
       "label": "page.tsx",
@@ -413,7 +409,7 @@
       "source_file": "src\\app\\exam\\page.tsx",
       "source_location": "L1",
       "id": "src_app_exam_page_tsx",
-      "community": 22
+      "community": 23
     },
     {
       "label": "handleStart()",
@@ -421,7 +417,7 @@
       "source_file": "src\\app\\exam\\page.tsx",
       "source_location": "L26",
       "id": "page_handlestart",
-      "community": 22
+      "community": 23
     },
     {
       "label": "page.tsx",
@@ -429,7 +425,7 @@
       "source_file": "src\\app\\exam\\[sessionId]\\page.tsx",
       "source_location": "L1",
       "id": "src_app_exam_sessionid_page_tsx",
-      "community": 23
+      "community": 24
     },
     {
       "label": "ActiveExam()",
@@ -437,7 +433,7 @@
       "source_file": "src\\app\\exam\\[sessionId]\\page.tsx",
       "source_location": "L15",
       "id": "page_activeexam",
-      "community": 23
+      "community": 24
     },
     {
       "label": "page.tsx",
@@ -461,7 +457,7 @@
       "source_file": "src\\app\\exercises\\page.tsx",
       "source_location": "L1",
       "id": "src_app_exercises_page_tsx",
-      "community": 39
+      "community": 40
     },
     {
       "label": "page.tsx",
@@ -493,7 +489,7 @@
       "source_file": "src\\app\\learn\\page.tsx",
       "source_location": "L1",
       "id": "src_app_learn_page_tsx",
-      "community": 40
+      "community": 41
     },
     {
       "label": "page.tsx",
@@ -501,7 +497,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\page.tsx",
       "source_location": "L1",
       "id": "src_app_learn_lectureid_page_tsx",
-      "community": 41
+      "community": 42
     },
     {
       "label": "page.tsx",
@@ -509,7 +505,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\practice\\page.tsx",
       "source_location": "L1",
       "id": "src_app_learn_lectureid_practice_page_tsx",
-      "community": 12
+      "community": 14
     },
     {
       "label": "shuffleArray()",
@@ -517,7 +513,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\practice\\page.tsx",
       "source_location": "L19",
       "id": "page_shufflearray",
-      "community": 12
+      "community": 14
     },
     {
       "label": "handleComplete()",
@@ -525,7 +521,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\practice\\page.tsx",
       "source_location": "L73",
       "id": "page_handlecomplete",
-      "community": 12
+      "community": 14
     },
     {
       "label": "handleXpEarned()",
@@ -533,7 +529,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\practice\\page.tsx",
       "source_location": "L82",
       "id": "page_handlexpearned",
-      "community": 12
+      "community": 14
     },
     {
       "label": "page.tsx",
@@ -541,7 +537,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\study\\page.tsx",
       "source_location": "L1",
       "id": "src_app_learn_lectureid_study_page_tsx",
-      "community": 15
+      "community": 16
     },
     {
       "label": "useLocalSectionsRead()",
@@ -549,7 +545,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\study\\page.tsx",
       "source_location": "L15",
       "id": "page_uselocalsectionsread",
-      "community": 15
+      "community": 16
     },
     {
       "label": "StudyPage()",
@@ -557,7 +553,7 @@
       "source_file": "src\\app\\learn\\[lectureId]\\study\\page.tsx",
       "source_location": "L34",
       "id": "page_studypage",
-      "community": 15
+      "community": 16
     },
     {
       "label": "page.tsx",
@@ -581,7 +577,7 @@
       "source_file": "src\\app\\progress\\page.tsx",
       "source_location": "L1",
       "id": "src_app_progress_page_tsx",
-      "community": 16
+      "community": 17
     },
     {
       "label": "handleWipeTopic()",
@@ -589,7 +585,7 @@
       "source_file": "src\\app\\progress\\page.tsx",
       "source_location": "L25",
       "id": "page_handlewipetopic",
-      "community": 16
+      "community": 17
     },
     {
       "label": "handleWipe()",
@@ -597,7 +593,7 @@
       "source_file": "src\\app\\progress\\page.tsx",
       "source_location": "L31",
       "id": "page_handlewipe",
-      "community": 16
+      "community": 17
     },
     {
       "label": "AlphaListText.tsx",
@@ -605,7 +601,7 @@
       "source_file": "src\\components\\AlphaListText.tsx",
       "source_location": "L1",
       "id": "src_components_alphalisttext_tsx",
-      "community": 17
+      "community": 18
     },
     {
       "label": "isSequentialAlpha()",
@@ -613,7 +609,7 @@
       "source_file": "src\\components\\AlphaListText.tsx",
       "source_location": "L15",
       "id": "alphalisttext_issequentialalpha",
-      "community": 17
+      "community": 18
     },
     {
       "label": "parseAlphaList()",
@@ -621,7 +617,7 @@
       "source_file": "src\\components\\AlphaListText.tsx",
       "source_location": "L26",
       "id": "alphalisttext_parsealphalist",
-      "community": 17
+      "community": 18
     },
     {
       "label": "MathText.tsx",
@@ -629,7 +625,7 @@
       "source_file": "src\\components\\MathText.tsx",
       "source_location": "L1",
       "id": "src_components_mathtext_tsx",
-      "community": 24
+      "community": 25
     },
     {
       "label": "MathText()",
@@ -637,7 +633,7 @@
       "source_file": "src\\components\\MathText.tsx",
       "source_location": "L8",
       "id": "mathtext_mathtext",
-      "community": 24
+      "community": 25
     },
     {
       "label": "McqCard.tsx",
@@ -645,39 +641,39 @@
       "source_file": "src\\components\\McqCard.tsx",
       "source_location": "L1",
       "id": "src_components_mcqcard_tsx",
-      "community": 9
+      "community": 10
     },
     {
       "label": "seededRandom()",
       "file_type": "code",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "id": "mcqcard_seededrandom",
-      "community": 9
+      "community": 10
     },
     {
       "label": "shuffleOptions()",
       "file_type": "code",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "mcqcard_shuffleoptions",
-      "community": 9
+      "community": 10
     },
     {
       "label": "handleSelect()",
       "file_type": "code",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L65",
+      "source_location": "L69",
       "id": "mcqcard_handleselect",
-      "community": 9
+      "community": 10
     },
     {
       "label": "handleSubmit()",
       "file_type": "code",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L75",
+      "source_location": "L85",
       "id": "mcqcard_handlesubmit",
-      "community": 9
+      "community": 10
     },
     {
       "label": "Navbar.tsx",
@@ -685,7 +681,7 @@
       "source_file": "src\\components\\Navbar.tsx",
       "source_location": "L1",
       "id": "src_components_navbar_tsx",
-      "community": 42
+      "community": 43
     },
     {
       "label": "ProgressBar.tsx",
@@ -693,7 +689,7 @@
       "source_file": "src\\components\\ProgressBar.tsx",
       "source_location": "L1",
       "id": "src_components_progressbar_tsx",
-      "community": 43
+      "community": 44
     },
     {
       "label": "SolutionPanel.tsx",
@@ -701,7 +697,7 @@
       "source_file": "src\\components\\SolutionPanel.tsx",
       "source_location": "L1",
       "id": "src_components_solutionpanel_tsx",
-      "community": 44
+      "community": 45
     },
     {
       "label": "SourceBadge.tsx",
@@ -709,7 +705,7 @@
       "source_file": "src\\components\\SourceBadge.tsx",
       "source_location": "L1",
       "id": "src_components_sourcebadge_tsx",
-      "community": 25
+      "community": 26
     },
     {
       "label": "SourceBadge()",
@@ -717,7 +713,7 @@
       "source_file": "src\\components\\SourceBadge.tsx",
       "source_location": "L9",
       "id": "sourcebadge_sourcebadge",
-      "community": 25
+      "community": 26
     },
     {
       "label": "SourceFilterBar.tsx",
@@ -725,7 +721,7 @@
       "source_file": "src\\components\\SourceFilterBar.tsx",
       "source_location": "L1",
       "id": "src_components_sourcefilterbar_tsx",
-      "community": 26
+      "community": 27
     },
     {
       "label": "SourceFilterBar()",
@@ -733,7 +729,7 @@
       "source_file": "src\\components\\SourceFilterBar.tsx",
       "source_location": "L39",
       "id": "sourcefilterbar_sourcefilterbar",
-      "community": 26
+      "community": 27
     },
     {
       "label": "ThemeInit.tsx",
@@ -741,7 +737,7 @@
       "source_file": "src\\components\\ThemeInit.tsx",
       "source_location": "L1",
       "id": "src_components_themeinit_tsx",
-      "community": 27
+      "community": 28
     },
     {
       "label": "ThemeInit()",
@@ -749,7 +745,7 @@
       "source_file": "src\\components\\ThemeInit.tsx",
       "source_location": "L6",
       "id": "themeinit_themeinit",
-      "community": 27
+      "community": 28
     },
     {
       "label": "Timer.tsx",
@@ -757,7 +753,7 @@
       "source_file": "src\\components\\Timer.tsx",
       "source_location": "L1",
       "id": "src_components_timer_tsx",
-      "community": 28
+      "community": 29
     },
     {
       "label": "Timer()",
@@ -765,7 +761,7 @@
       "source_file": "src\\components\\Timer.tsx",
       "source_location": "L11",
       "id": "timer_timer",
-      "community": 28
+      "community": 29
     },
     {
       "label": "TopicCard.tsx",
@@ -773,7 +769,7 @@
       "source_file": "src\\components\\TopicCard.tsx",
       "source_location": "L1",
       "id": "src_components_topiccard_tsx",
-      "community": 29
+      "community": 30
     },
     {
       "label": "TopicCard()",
@@ -781,7 +777,7 @@
       "source_file": "src\\components\\TopicCard.tsx",
       "source_location": "L14",
       "id": "topiccard_topiccard",
-      "community": 29
+      "community": 30
     },
     {
       "label": "WrittenCard.tsx",
@@ -789,7 +785,7 @@
       "source_file": "src\\components\\WrittenCard.tsx",
       "source_location": "L1",
       "id": "src_components_writtencard_tsx",
-      "community": 13
+      "community": 15
     },
     {
       "label": "handleReveal()",
@@ -797,7 +793,7 @@
       "source_file": "src\\components\\WrittenCard.tsx",
       "source_location": "L34",
       "id": "writtencard_handlereveal",
-      "community": 13
+      "community": 15
     },
     {
       "label": "handlePartScore()",
@@ -805,7 +801,7 @@
       "source_file": "src\\components\\WrittenCard.tsx",
       "source_location": "L38",
       "id": "writtencard_handlepartscore",
-      "community": 13
+      "community": 15
     },
     {
       "label": "handleSubmitScore()",
@@ -813,7 +809,7 @@
       "source_file": "src\\components\\WrittenCard.tsx",
       "source_location": "L42",
       "id": "writtencard_handlesubmitscore",
-      "community": 13
+      "community": 15
     },
     {
       "label": "LearningPath.tsx",
@@ -821,7 +817,7 @@
       "source_file": "src\\components\\learn\\LearningPath.tsx",
       "source_location": "L1",
       "id": "src_components_learn_learningpath_tsx",
-      "community": 45
+      "community": 46
     },
     {
       "label": "LearnSkeleton.tsx",
@@ -829,7 +825,7 @@
       "source_file": "src\\components\\learn\\LearnSkeleton.tsx",
       "source_location": "L1",
       "id": "src_components_learn_learnskeleton_tsx",
-      "community": 46
+      "community": 47
     },
     {
       "label": "LectureNode.tsx",
@@ -837,7 +833,7 @@
       "source_file": "src\\components\\learn\\LectureNode.tsx",
       "source_location": "L1",
       "id": "src_components_learn_lecturenode_tsx",
-      "community": 47
+      "community": 48
     },
     {
       "label": "PracticeSession.tsx",
@@ -845,7 +841,7 @@
       "source_file": "src\\components\\learn\\PracticeSession.tsx",
       "source_location": "L1",
       "id": "src_components_learn_practicesession_tsx",
-      "community": 18
+      "community": 19
     },
     {
       "label": "normalizeHintLine()",
@@ -853,7 +849,7 @@
       "source_file": "src\\components\\learn\\PracticeSession.tsx",
       "source_location": "L21",
       "id": "practicesession_normalizehintline",
-      "community": 18
+      "community": 19
     },
     {
       "label": "extractHintMarkdown()",
@@ -861,7 +857,7 @@
       "source_file": "src\\components\\learn\\PracticeSession.tsx",
       "source_location": "L29",
       "id": "practicesession_extracthintmarkdown",
-      "community": 18
+      "community": 19
     },
     {
       "label": "ReadProgressRing.tsx",
@@ -869,7 +865,7 @@
       "source_file": "src\\components\\learn\\ReadProgressRing.tsx",
       "source_location": "L1",
       "id": "src_components_learn_readprogressring_tsx",
-      "community": 30
+      "community": 31
     },
     {
       "label": "ReadProgressRing()",
@@ -877,7 +873,7 @@
       "source_file": "src\\components\\learn\\ReadProgressRing.tsx",
       "source_location": "L9",
       "id": "readprogressring_readprogressring",
-      "community": 30
+      "community": 31
     },
     {
       "label": "StageProgress.tsx",
@@ -885,7 +881,7 @@
       "source_file": "src\\components\\learn\\StageProgress.tsx",
       "source_location": "L1",
       "id": "src_components_learn_stageprogress_tsx",
-      "community": 48
+      "community": 49
     },
     {
       "label": "StarRating.tsx",
@@ -893,7 +889,7 @@
       "source_file": "src\\components\\learn\\StarRating.tsx",
       "source_location": "L1",
       "id": "src_components_learn_starrating_tsx",
-      "community": 31
+      "community": 32
     },
     {
       "label": "StarRating()",
@@ -901,7 +897,7 @@
       "source_file": "src\\components\\learn\\StarRating.tsx",
       "source_location": "L8",
       "id": "starrating_starrating",
-      "community": 31
+      "community": 32
     },
     {
       "label": "StudySourcePanel.tsx",
@@ -909,7 +905,7 @@
       "source_file": "src\\components\\learn\\StudySourcePanel.tsx",
       "source_location": "L1",
       "id": "src_components_learn_studysourcepanel_tsx",
-      "community": 32
+      "community": 33
     },
     {
       "label": "findRelevantSections()",
@@ -917,7 +913,7 @@
       "source_file": "src\\components\\learn\\StudySourcePanel.tsx",
       "source_location": "L19",
       "id": "studysourcepanel_findrelevantsections",
-      "community": 32
+      "community": 33
     },
     {
       "label": "StudyViewer.tsx",
@@ -925,7 +921,7 @@
       "source_file": "src\\components\\learn\\StudyViewer.tsx",
       "source_location": "L1",
       "id": "src_components_learn_studyviewer_tsx",
-      "community": 49
+      "community": 50
     },
     {
       "label": "XpBar.tsx",
@@ -933,7 +929,7 @@
       "source_file": "src\\components\\learn\\XpBar.tsx",
       "source_location": "L1",
       "id": "src_components_learn_xpbar_tsx",
-      "community": 50
+      "community": 51
     },
     {
       "label": "XpToast.tsx",
@@ -941,7 +937,7 @@
       "source_file": "src\\components\\learn\\XpToast.tsx",
       "source_location": "L1",
       "id": "src_components_learn_xptoast_tsx",
-      "community": 33
+      "community": 34
     },
     {
       "label": "XpToast()",
@@ -949,7 +945,7 @@
       "source_file": "src\\components\\learn\\XpToast.tsx",
       "source_location": "L3",
       "id": "xptoast_xptoast",
-      "community": 33
+      "community": 34
     },
     {
       "label": "exercises.ts",
@@ -1093,7 +1089,7 @@
       "source_file": "src\\data\\topics.ts",
       "source_location": "L1",
       "id": "src_data_topics_ts",
-      "community": 51
+      "community": 52
     },
     {
       "label": "index.ts",
@@ -1165,7 +1161,7 @@
       "source_file": "src\\lib\\examGenerator.ts",
       "source_location": "L1",
       "id": "src_lib_examgenerator_ts",
-      "community": 19
+      "community": 20
     },
     {
       "label": "shuffle()",
@@ -1173,7 +1169,7 @@
       "source_file": "src\\lib\\examGenerator.ts",
       "source_location": "L4",
       "id": "examgenerator_shuffle",
-      "community": 19
+      "community": 20
     },
     {
       "label": "generateExam()",
@@ -1181,7 +1177,7 @@
       "source_file": "src\\lib\\examGenerator.ts",
       "source_location": "L13",
       "id": "examgenerator_generateexam",
-      "community": 19
+      "community": 20
     },
     {
       "label": "i18n.ts",
@@ -1189,7 +1185,7 @@
       "source_file": "src\\lib\\i18n.ts",
       "source_location": "L1",
       "id": "src_lib_i18n_ts",
-      "community": 34
+      "community": 35
     },
     {
       "label": "t()",
@@ -1197,7 +1193,7 @@
       "source_file": "src\\lib\\i18n.ts",
       "source_location": "L207",
       "id": "i18n_t",
-      "community": 34
+      "community": 35
     },
     {
       "label": "learnStorage.ts",
@@ -1205,7 +1201,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L1",
       "id": "src_lib_learnstorage_ts",
-      "community": 1
+      "community": 2
     },
     {
       "label": "defaultLectureProgress()",
@@ -1213,7 +1209,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L11",
       "id": "learnstorage_defaultlectureprogress",
-      "community": 1
+      "community": 2
     },
     {
       "label": "defaultLearnState()",
@@ -1221,7 +1217,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L25",
       "id": "learnstorage_defaultlearnstate",
-      "community": 1
+      "community": 2
     },
     {
       "label": "loadLearnState()",
@@ -1229,7 +1225,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L40",
       "id": "learnstorage_loadlearnstate",
-      "community": 1
+      "community": 2
     },
     {
       "label": "saveLearnState()",
@@ -1237,7 +1233,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L58",
       "id": "learnstorage_savelearnstate",
-      "community": 1
+      "community": 2
     },
     {
       "label": "updateLectureProgress()",
@@ -1245,7 +1241,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L63",
       "id": "learnstorage_updatelectureprogress",
-      "community": 1
+      "community": 2
     },
     {
       "label": "addXp()",
@@ -1253,7 +1249,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L75",
       "id": "learnstorage_addxp",
-      "community": 1
+      "community": 2
     },
     {
       "label": "markSectionRead()",
@@ -1261,7 +1257,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L83",
       "id": "learnstorage_marksectionread",
-      "community": 1
+      "community": 2
     },
     {
       "label": "completeStudy()",
@@ -1269,7 +1265,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L95",
       "id": "learnstorage_completestudy",
-      "community": 1
+      "community": 2
     },
     {
       "label": "recordPracticeResult()",
@@ -1277,7 +1273,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L111",
       "id": "learnstorage_recordpracticeresult",
-      "community": 1
+      "community": 2
     },
     {
       "label": "recordQuizResult()",
@@ -1285,7 +1281,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L132",
       "id": "learnstorage_recordquizresult",
-      "community": 1
+      "community": 2
     },
     {
       "label": "unlockNextLecture()",
@@ -1293,7 +1289,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L175",
       "id": "learnstorage_unlocknextlecture",
-      "community": 1
+      "community": 2
     },
     {
       "label": "checkAndUpdateStreak()",
@@ -1301,7 +1297,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L185",
       "id": "learnstorage_checkandupdatestreak",
-      "community": 1
+      "community": 2
     },
     {
       "label": "wipeLearnProgress()",
@@ -1309,7 +1305,7 @@
       "source_file": "src\\lib\\learnStorage.ts",
       "source_location": "L205",
       "id": "learnstorage_wipelearnprogress",
-      "community": 1
+      "community": 2
     },
     {
       "label": "preferences.tsx",
@@ -1317,7 +1313,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L1",
       "id": "src_lib_preferences_tsx",
-      "community": 2
+      "community": 3
     },
     {
       "label": "isLang()",
@@ -1325,7 +1321,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L23",
       "id": "preferences_islang",
-      "community": 2
+      "community": 3
     },
     {
       "label": "isTheme()",
@@ -1333,7 +1329,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L27",
       "id": "preferences_istheme",
-      "community": 2
+      "community": 3
     },
     {
       "label": "normalizePrefs()",
@@ -1341,7 +1337,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L31",
       "id": "preferences_normalizeprefs",
-      "community": 2
+      "community": 3
     },
     {
       "label": "emitChange()",
@@ -1349,7 +1345,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L40",
       "id": "preferences_emitchange",
-      "community": 2
+      "community": 3
     },
     {
       "label": "subscribe()",
@@ -1357,7 +1353,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L44",
       "id": "preferences_subscribe",
-      "community": 2
+      "community": 3
     },
     {
       "label": "getSnapshot()",
@@ -1365,7 +1361,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L51",
       "id": "preferences_getsnapshot",
-      "community": 2
+      "community": 3
     },
     {
       "label": "getServerSnapshot()",
@@ -1373,7 +1369,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L78",
       "id": "preferences_getserversnapshot",
-      "community": 2
+      "community": 3
     },
     {
       "label": "setPrefs()",
@@ -1381,7 +1377,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L82",
       "id": "preferences_setprefs",
-      "community": 2
+      "community": 3
     },
     {
       "label": "applyTheme()",
@@ -1389,7 +1385,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L97",
       "id": "preferences_applytheme",
-      "community": 2
+      "community": 3
     },
     {
       "label": "PrefsProvider()",
@@ -1397,7 +1393,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L113",
       "id": "preferences_prefsprovider",
-      "community": 2
+      "community": 3
     },
     {
       "label": "usePrefs()",
@@ -1405,7 +1401,7 @@
       "source_file": "src\\lib\\preferences.tsx",
       "source_location": "L126",
       "id": "preferences_useprefs",
-      "community": 2
+      "community": 3
     },
     {
       "label": "questionFilters.ts",
@@ -1413,7 +1409,7 @@
       "source_file": "src\\lib\\questionFilters.ts",
       "source_location": "L1",
       "id": "src_lib_questionfilters_ts",
-      "community": 10
+      "community": 11
     },
     {
       "label": "filterBySource()",
@@ -1421,7 +1417,7 @@
       "source_file": "src\\lib\\questionFilters.ts",
       "source_location": "L5",
       "id": "questionfilters_filterbysource",
-      "community": 10
+      "community": 11
     },
     {
       "label": "filterByTopic()",
@@ -1429,7 +1425,7 @@
       "source_file": "src\\lib\\questionFilters.ts",
       "source_location": "L26",
       "id": "questionfilters_filterbytopic",
-      "community": 10
+      "community": 11
     },
     {
       "label": "filterByType()",
@@ -1437,7 +1433,7 @@
       "source_file": "src\\lib\\questionFilters.ts",
       "source_location": "L30",
       "id": "questionfilters_filterbytype",
-      "community": 10
+      "community": 11
     },
     {
       "label": "filterByDifficulty()",
@@ -1445,7 +1441,7 @@
       "source_file": "src\\lib\\questionFilters.ts",
       "source_location": "L37",
       "id": "questionfilters_filterbydifficulty",
-      "community": 10
+      "community": 11
     },
     {
       "label": "scoring.ts",
@@ -1453,31 +1449,55 @@
       "source_file": "src\\lib\\scoring.ts",
       "source_location": "L1",
       "id": "src_lib_scoring_ts",
-      "community": 14
+      "community": 9
+    },
+    {
+      "label": "normalizeMcqAnswer()",
+      "file_type": "code",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L5",
+      "id": "scoring_normalizemcqanswer",
+      "community": 9
+    },
+    {
+      "label": "isMcqAnswerCorrect()",
+      "file_type": "code",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L10",
+      "id": "scoring_ismcqanswercorrect",
+      "community": 9
+    },
+    {
+      "label": "mcqPenaltyForOptionCount()",
+      "file_type": "code",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L17",
+      "id": "scoring_mcqpenaltyforoptioncount",
+      "community": 9
     },
     {
       "label": "scoreMcq()",
       "file_type": "code",
       "source_file": "src\\lib\\scoring.ts",
-      "source_location": "L5",
+      "source_location": "L22",
       "id": "scoring_scoremcq",
-      "community": 14
+      "community": 9
     },
     {
       "label": "scoreWritten()",
       "file_type": "code",
       "source_file": "src\\lib\\scoring.ts",
-      "source_location": "L32",
+      "source_location": "L49",
       "id": "scoring_scorewritten",
-      "community": 14
+      "community": 9
     },
     {
       "label": "totalExamScore()",
       "file_type": "code",
       "source_file": "src\\lib\\scoring.ts",
-      "source_location": "L36",
+      "source_location": "L53",
       "id": "scoring_totalexamscore",
-      "community": 14
+      "community": 9
     },
     {
       "label": "storage.ts",
@@ -1573,7 +1593,7 @@
       "source_file": "src\\lib\\useHydrated.ts",
       "source_location": "L1",
       "id": "src_lib_usehydrated_ts",
-      "community": 20
+      "community": 21
     },
     {
       "label": "emptySubscribe()",
@@ -1581,7 +1601,7 @@
       "source_file": "src\\lib\\useHydrated.ts",
       "source_location": "L5",
       "id": "usehydrated_emptysubscribe",
-      "community": 20
+      "community": 21
     },
     {
       "label": "useHydrated()",
@@ -1589,7 +1609,7 @@
       "source_file": "src\\lib\\useHydrated.ts",
       "source_location": "L7",
       "id": "usehydrated_usehydrated",
-      "community": 20
+      "community": 21
     },
     {
       "label": "index.ts",
@@ -1597,7 +1617,7 @@
       "source_file": "src\\types\\index.ts",
       "source_location": "L1",
       "id": "src_types_index_ts",
-      "community": 52
+      "community": 53
     },
     {
       "label": "learn.ts",
@@ -1605,7 +1625,7 @@
       "source_file": "src\\types\\learn.ts",
       "source_location": "L1",
       "id": "src_types_learn_ts",
-      "community": 35
+      "community": 36
     },
     {
       "label": "getLevel()",
@@ -1613,7 +1633,7 @@
       "source_file": "src\\types\\learn.ts",
       "source_location": "L83",
       "id": "learn_getlevel",
-      "community": 35
+      "community": 36
     },
     {
       "label": "exam-components.test.tsx",
@@ -1621,915 +1641,359 @@
       "source_file": "tests\\exam-components.test.tsx",
       "source_location": "L1",
       "id": "tests_exam_components_test_tsx",
-      "community": 53
+      "community": 54
     },
     {
-      "label": "CryptoEx Project Overview",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "## Project Overview",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 54,
-      "id": "claude_md_project_overview"
+      "label": "privacy-hygiene.test.ts",
+      "file_type": "code",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L1",
+      "id": "tests_privacy_hygiene_test_ts",
+      "community": 12
     },
     {
-      "label": "Exercise Tagging Contract",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "### Exercise Tagging Contract",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 55,
-      "id": "claude_md_exercise_tagging_contract"
+      "label": "stagedTextFiles()",
+      "file_type": "code",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L15",
+      "id": "privacy_hygiene_test_stagedtextfiles",
+      "community": 12
     },
     {
-      "label": "Verification Before Done Workflow",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "### 3. Verification Before Done",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 56,
-      "id": "claude_md_verification_workflow"
+      "label": "indexContent()",
+      "file_type": "code",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L22",
+      "id": "privacy_hygiene_test_indexcontent",
+      "community": 12
     },
     {
-      "label": "Self-Improvement Loop",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "### 2. Self-Improvement Loop",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 57,
-      "id": "claude_md_self_improvement_loop"
+      "label": "fromCodes()",
+      "file_type": "code",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L26",
+      "id": "privacy_hygiene_test_fromcodes",
+      "community": 12
     },
     {
-      "label": "Context Continuity via HANDOFF.md",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "### 4. Context Continuity",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 58,
-      "id": "claude_md_context_continuity"
+      "label": "literalPattern()",
+      "file_type": "code",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L30",
+      "id": "privacy_hygiene_test_literalpattern",
+      "community": 12
     },
     {
-      "label": "topics.ts - Canonical Lecture Mapping",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "### Exercise Tagging Contract",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 59,
-      "id": "claude_md_topics_ts"
+      "label": "question-bank-hygiene.test.ts",
+      "file_type": "code",
+      "source_file": "tests\\question-bank-hygiene.test.ts",
+      "source_location": "L1",
+      "id": "tests_question_bank_hygiene_test_ts",
+      "community": 55
     },
     {
-      "label": "HANDOFF Project Context",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 1. Project Overview",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 60,
-      "id": "handoff_md_project_context"
-    },
-    {
-      "label": "Learn Feature (Phase 1)",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "### Learn feature (Phase 1 \u00e2\u20ac\u201d complete)",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 61,
-      "id": "handoff_md_learn_feature"
-    },
-    {
-      "label": "XP and Level System",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "### Learn feature (Phase 1 \u00e2\u20ac\u201d complete)",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 62,
-      "id": "handoff_md_xp_system"
-    },
-    {
-      "label": "Study Viewer Component",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "### Learn feature (Phase 1 \u00e2\u20ac\u201d complete)",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 63,
-      "id": "handoff_md_study_viewer"
-    },
-    {
-      "label": "Where to Study Panel",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "### Learn feature (Phase 1 \u00e2\u20ac\u201d complete)",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 64,
-      "id": "handoff_md_where_to_study"
-    },
-    {
-      "label": "Exercise Tagging Status",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "### Exercise tagging",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 65,
-      "id": "handoff_md_exercise_tagging"
-    },
-    {
-      "label": "Key Architectural Decisions",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 3. Key Decisions",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 66,
-      "id": "handoff_md_key_decisions"
-    },
-    {
-      "label": "Next Steps (Phase 2-3)",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 4. Next Steps (Learn feature)",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 67,
-      "id": "handoff_md_next_steps"
-    },
-    {
-      "label": "learnStorage.ts - Separate localStorage",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 3. Key Decisions",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 68,
-      "id": "handoff_md_learn_storage"
-    },
-    {
-      "label": "CryptoEx README",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "# CryptoEx \u00e2\u20ac\u201d TTM4135 Exam Practice",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 69,
-      "id": "readme_md_project"
-    },
-    {
-      "label": "Tech Stack (Next.js, Tailwind, KaTeX)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "## Tech Stack",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 70,
-      "id": "readme_md_tech_stack"
-    },
-    {
-      "label": "Project Directory Structure",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "## Project Structure",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 71,
-      "id": "readme_md_project_structure"
-    },
-    {
-      "label": "Content Statistics (344 questions)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "## Content",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 72,
-      "id": "readme_md_content_stats"
-    },
-    {
-      "label": "NotebookLM Question Generation",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "## Content",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 73,
-      "id": "readme_md_notebooklm"
-    },
-    {
-      "label": "TTM4135 Lecture Study Guide",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "# TTM4135 Lecture Study Guide",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 74,
-      "id": "study_guide_overview"
-    },
-    {
-      "label": "L1 - Basic Number Theory, Groups and Finite Fields",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 1",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 75,
-      "id": "study_guide_L1"
-    },
-    {
-      "label": "L2 - Classical Encryption Techniques",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 2",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 76,
-      "id": "study_guide_L2"
-    },
-    {
-      "label": "L3 - Hill Cipher, Stream Ciphers and OTP",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 3",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 77,
-      "id": "study_guide_L3"
-    },
-    {
-      "label": "L4 - Block Ciphers, DES and AES",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 4",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 78,
-      "id": "study_guide_L4"
-    },
-    {
-      "label": "L5 - Encryption Modes and PRNGs",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 5",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 79,
-      "id": "study_guide_L5"
-    },
-    {
-      "label": "L6 - Hashes and MACs",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 6",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 80,
-      "id": "study_guide_L6"
-    },
-    {
-      "label": "L7 - Number Theory for Public-Key Crypto",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 7",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 81,
-      "id": "study_guide_L7"
-    },
-    {
-      "label": "L8 - Public Key Cryptography and RSA",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 8",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 82,
-      "id": "study_guide_L8"
-    },
-    {
-      "label": "L9 - Discrete Log Public Key Cryptosystems",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 9",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 83,
-      "id": "study_guide_L9"
-    },
-    {
-      "label": "L10 - Digital Signatures",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 10",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 84,
-      "id": "study_guide_L10"
-    },
-    {
-      "label": "L11 - Key Establishment and Certificates",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 11",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 85,
-      "id": "study_guide_L11"
-    },
-    {
-      "label": "L12 - Quantum-Safe Cryptography",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 12",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 86,
-      "id": "study_guide_L12"
-    },
-    {
-      "label": "L13 - Transport Layer Security",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 13",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 87,
-      "id": "study_guide_L13"
-    },
-    {
-      "label": "L14 - TLS 1.3 and IP Security",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 14",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 88,
-      "id": "study_guide_L14"
-    },
-    {
-      "label": "L15 - Email Security and Secure Messaging",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 15",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 89,
-      "id": "study_guide_L15"
-    },
-    {
-      "label": "Cross-Lecture Synthesis",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Cross-Lecture Synthesis",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 90,
-      "id": "study_guide_cross_lecture_synthesis"
-    },
-    {
-      "label": "Highest-Priority Difficult Topics",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Highest-Priority Difficult Topics to Revisit",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 91,
-      "id": "study_guide_difficult_topics"
-    },
-    {
-      "label": "Modular Arithmetic and Inverses",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 1",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 92,
-      "id": "concept_modular_arithmetic"
-    },
-    {
-      "label": "Cyclic Groups and Generators",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 1",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 93,
-      "id": "concept_cyclic_groups"
-    },
-    {
-      "label": "Finite Fields GF(p) and GF(2^n)",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 1",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 94,
-      "id": "concept_finite_fields"
-    },
-    {
-      "label": "Perfect Secrecy (OTP)",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 3",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 95,
-      "id": "concept_perfect_secrecy"
-    },
-    {
-      "label": "Confusion and Diffusion",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 4",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 96,
-      "id": "concept_confusion_diffusion"
-    },
-    {
-      "label": "Nonces, IVs, and Freshness",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 5",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 97,
-      "id": "concept_nonce_iv_freshness"
-    },
-    {
-      "label": "HMAC Construction",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 6",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 98,
-      "id": "concept_hmac"
-    },
-    {
-      "label": "RSA Scheme",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 8",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 99,
-      "id": "concept_rsa"
-    },
-    {
-      "label": "Diffie-Hellman Key Exchange",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 9",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 100,
-      "id": "concept_diffie_hellman"
-    },
-    {
-      "label": "Digital Signatures",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 10",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 101,
-      "id": "concept_digital_signatures"
-    },
-    {
-      "label": "PKI and Certificates",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 11",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 102,
-      "id": "concept_pki_certificates"
-    },
-    {
-      "label": "Post-Quantum Cryptography",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 12",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 103,
-      "id": "concept_post_quantum"
-    },
-    {
-      "label": "Transport Layer Security (TLS)",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 13",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 104,
-      "id": "concept_tls"
-    },
-    {
-      "label": "Signal Ratchet Protocol",
-      "file_type": "document",
-      "source_file": "LECTURE_STUDY_GUIDE.md",
-      "source_location": "## Lecture 15",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 105,
-      "id": "concept_signal_ratchet"
-    },
-    {
-      "label": "Rationale: Task-Level Not Set-Level Tagging",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 3. Key Decisions",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 106,
-      "id": "rationale_task_level_tagging"
-    },
-    {
-      "label": "Rationale: Separate localStorage Key for Learn",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 3. Key Decisions",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 107,
-      "id": "rationale_separate_localstorage"
-    },
-    {
-      "label": "Rationale: Static JSON for Study Content",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 3. Key Decisions",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 108,
-      "id": "rationale_static_study_json"
-    },
-    {
-      "label": "Rationale: Keyword Overlap for Question-Study Linking",
-      "file_type": "document",
-      "source_file": "HANDOFF.md",
-      "source_location": "## 3. Key Decisions",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 109,
-      "id": "rationale_keyword_overlap_linking"
-    },
-    {
-      "label": "Document/File Icon",
-      "file_type": "image",
-      "source_file": "public/file.svg",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 110,
-      "id": "file_document_icon"
-    },
-    {
-      "label": "Globe Icon",
-      "file_type": "image",
-      "source_file": "public/globe.svg",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 111,
-      "id": "globe_globe_icon"
-    },
-    {
-      "label": "Next.js Logo",
-      "file_type": "image",
-      "source_file": "public/next.svg",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 112,
-      "id": "next_nextjs_logo"
-    },
-    {
-      "label": "Vercel Logo",
-      "file_type": "image",
-      "source_file": "public/vercel.svg",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 113,
-      "id": "vercel_vercel_logo"
-    },
-    {
-      "label": "Browser Window Icon",
-      "file_type": "image",
-      "source_file": "public/window.svg",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 114,
-      "id": "window_browser_window_icon"
+      "label": "scoring.test.ts",
+      "file_type": "code",
+      "source_file": "tests\\scoring.test.ts",
+      "source_location": "L1",
+      "id": "tests_scoring_test_ts",
+      "community": 56
     }
   ],
   "links": [
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L103",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L121",
       "weight": 1.0,
-      "_src": "scripts_convert_nlm_quizzes_py",
-      "_tgt": "convert_nlm_quizzes_classify_topic",
-      "source": "scripts_convert_nlm_quizzes_py",
-      "target": "convert_nlm_quizzes_classify_topic",
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_anonymize_text",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_anonymize_text",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L133",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L128",
       "weight": 1.0,
-      "_src": "scripts_convert_nlm_quizzes_py",
-      "_tgt": "convert_nlm_quizzes_estimate_difficulty",
-      "source": "scripts_convert_nlm_quizzes_py",
-      "target": "convert_nlm_quizzes_estimate_difficulty",
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_keyword_matches",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_keyword_matches",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L162",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L138",
       "weight": 1.0,
-      "_src": "scripts_convert_nlm_quizzes_py",
-      "_tgt": "convert_nlm_quizzes_make_id",
-      "source": "scripts_convert_nlm_quizzes_py",
-      "target": "convert_nlm_quizzes_make_id",
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_is_off_topic",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_is_off_topic",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L168",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L147",
       "weight": 1.0,
-      "_src": "scripts_convert_nlm_quizzes_py",
-      "_tgt": "convert_nlm_quizzes_build_solution",
-      "source": "scripts_convert_nlm_quizzes_py",
-      "target": "convert_nlm_quizzes_build_solution",
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_classify_topic",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_classify_topic",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L191",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L177",
       "weight": 1.0,
-      "_src": "scripts_convert_nlm_quizzes_py",
-      "_tgt": "convert_nlm_quizzes_convert",
-      "source": "scripts_convert_nlm_quizzes_py",
-      "target": "convert_nlm_quizzes_convert",
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_estimate_difficulty",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_estimate_difficulty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L206",
+      "weight": 1.0,
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_make_id",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_make_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_build_solution",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_build_solution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L241",
+      "weight": 1.0,
+      "_src": "scripts_convert_generated_quizzes_py",
+      "_tgt": "convert_generated_quizzes_convert",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_convert",
       "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
+      "source_file": "scripts\\convert-generated-quizzes.py",
       "source_location": "L1",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_rationale_1",
-      "_tgt": "scripts_convert_nlm_quizzes_py",
-      "source": "scripts_convert_nlm_quizzes_py",
-      "target": "convert_nlm_quizzes_rationale_1",
+      "_src": "convert_generated_quizzes_rationale_1",
+      "_tgt": "scripts_convert_generated_quizzes_py",
+      "source": "scripts_convert_generated_quizzes_py",
+      "target": "convert_generated_quizzes_rationale_1",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L219",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L220",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_convert",
-      "_tgt": "convert_nlm_quizzes_classify_topic",
-      "source": "convert_nlm_quizzes_classify_topic",
-      "target": "convert_nlm_quizzes_convert",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L104",
-      "weight": 1.0,
-      "_src": "convert_nlm_quizzes_rationale_104",
-      "_tgt": "convert_nlm_quizzes_classify_topic",
-      "source": "convert_nlm_quizzes_classify_topic",
-      "target": "convert_nlm_quizzes_rationale_104",
+      "_src": "convert_generated_quizzes_build_solution",
+      "_tgt": "convert_generated_quizzes_anonymize_text",
+      "source": "convert_generated_quizzes_anonymize_text",
+      "target": "convert_generated_quizzes_build_solution",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L237",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L291",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_convert",
-      "_tgt": "convert_nlm_quizzes_estimate_difficulty",
-      "source": "convert_nlm_quizzes_estimate_difficulty",
-      "target": "convert_nlm_quizzes_convert",
+      "_src": "convert_generated_quizzes_convert",
+      "_tgt": "convert_generated_quizzes_anonymize_text",
+      "source": "convert_generated_quizzes_anonymize_text",
+      "target": "convert_generated_quizzes_convert",
       "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L134",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L122",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_rationale_134",
-      "_tgt": "convert_nlm_quizzes_estimate_difficulty",
-      "source": "convert_nlm_quizzes_estimate_difficulty",
-      "target": "convert_nlm_quizzes_rationale_134",
+      "_src": "convert_generated_quizzes_rationale_122",
+      "_tgt": "convert_generated_quizzes_anonymize_text",
+      "source": "convert_generated_quizzes_anonymize_text",
+      "target": "convert_generated_quizzes_rationale_122",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L233",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L153",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_convert",
-      "_tgt": "convert_nlm_quizzes_make_id",
-      "source": "convert_nlm_quizzes_make_id",
-      "target": "convert_nlm_quizzes_convert",
+      "_src": "convert_generated_quizzes_classify_topic",
+      "_tgt": "convert_generated_quizzes_keyword_matches",
+      "source": "convert_generated_quizzes_keyword_matches",
+      "target": "convert_generated_quizzes_classify_topic",
       "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L163",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L129",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_rationale_163",
-      "_tgt": "convert_nlm_quizzes_make_id",
-      "source": "convert_nlm_quizzes_make_id",
-      "target": "convert_nlm_quizzes_rationale_163",
+      "_src": "convert_generated_quizzes_rationale_129",
+      "_tgt": "convert_generated_quizzes_keyword_matches",
+      "source": "convert_generated_quizzes_keyword_matches",
+      "target": "convert_generated_quizzes_rationale_129",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L245",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L267",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_convert",
-      "_tgt": "convert_nlm_quizzes_build_solution",
-      "source": "convert_nlm_quizzes_build_solution",
-      "target": "convert_nlm_quizzes_convert",
+      "_src": "convert_generated_quizzes_convert",
+      "_tgt": "convert_generated_quizzes_is_off_topic",
+      "source": "convert_generated_quizzes_is_off_topic",
+      "target": "convert_generated_quizzes_convert",
       "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
-      "source_file": "scripts\\convert-nlm-quizzes.py",
-      "source_location": "L169",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L139",
       "weight": 1.0,
-      "_src": "convert_nlm_quizzes_rationale_169",
-      "_tgt": "convert_nlm_quizzes_build_solution",
-      "source": "convert_nlm_quizzes_build_solution",
-      "target": "convert_nlm_quizzes_rationale_169",
+      "_src": "convert_generated_quizzes_rationale_139",
+      "_tgt": "convert_generated_quizzes_is_off_topic",
+      "source": "convert_generated_quizzes_is_off_topic",
+      "target": "convert_generated_quizzes_rationale_139",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L272",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_convert",
+      "_tgt": "convert_generated_quizzes_classify_topic",
+      "source": "convert_generated_quizzes_classify_topic",
+      "target": "convert_generated_quizzes_convert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_rationale_148",
+      "_tgt": "convert_generated_quizzes_classify_topic",
+      "source": "convert_generated_quizzes_classify_topic",
+      "target": "convert_generated_quizzes_rationale_148",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L290",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_convert",
+      "_tgt": "convert_generated_quizzes_estimate_difficulty",
+      "source": "convert_generated_quizzes_estimate_difficulty",
+      "target": "convert_generated_quizzes_convert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_rationale_178",
+      "_tgt": "convert_generated_quizzes_estimate_difficulty",
+      "source": "convert_generated_quizzes_estimate_difficulty",
+      "target": "convert_generated_quizzes_rationale_178",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L286",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_convert",
+      "_tgt": "convert_generated_quizzes_make_id",
+      "source": "convert_generated_quizzes_make_id",
+      "target": "convert_generated_quizzes_convert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L207",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_rationale_207",
+      "_tgt": "convert_generated_quizzes_make_id",
+      "source": "convert_generated_quizzes_make_id",
+      "target": "convert_generated_quizzes_rationale_207",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L298",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_convert",
+      "_tgt": "convert_generated_quizzes_build_solution",
+      "source": "convert_generated_quizzes_build_solution",
+      "target": "convert_generated_quizzes_convert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\convert-generated-quizzes.py",
+      "source_location": "L213",
+      "weight": 1.0,
+      "_src": "convert_generated_quizzes_rationale_213",
+      "_tgt": "convert_generated_quizzes_build_solution",
+      "source": "convert_generated_quizzes_build_solution",
+      "target": "convert_generated_quizzes_rationale_213",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L277",
+      "source_location": "L282",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_examconfig",
@@ -2541,7 +2005,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L289",
+      "source_location": "L294",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_file_name",
@@ -2553,7 +2017,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L294",
+      "source_location": "L299",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_id_prefix",
@@ -2565,7 +2029,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L298",
+      "source_location": "L303",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_label_base",
@@ -2577,7 +2041,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L417",
+      "source_location": "L442",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_extract_pdf_text",
@@ -2589,7 +2053,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L431",
+      "source_location": "L456",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_normalize_text",
@@ -2601,7 +2065,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L451",
+      "source_location": "L476",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_clean_inline",
@@ -2613,7 +2077,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L459",
+      "source_location": "L484",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_find_section",
@@ -2625,7 +2089,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L486",
+      "source_location": "L511",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_split_numbered_blocks",
@@ -2637,7 +2101,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L497",
+      "source_location": "L522",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_parse_mcq_blocks",
@@ -2649,7 +2113,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L528",
+      "source_location": "L553",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_extract_control_mark_answer",
@@ -2661,7 +2125,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L547",
+      "source_location": "L579",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_parse_grid_answers",
@@ -2673,7 +2137,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L560",
+      "source_location": "L592",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_parse_inline_answers_and_explanations",
@@ -2685,7 +2149,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L585",
+      "source_location": "L617",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_parse_written_blocks",
@@ -2697,7 +2161,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L597",
+      "source_location": "L629",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_split_parts",
@@ -2709,7 +2173,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L613",
+      "source_location": "L645",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_split_solution_parts",
@@ -2721,7 +2185,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L625",
+      "source_location": "L657",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_distribute_points",
@@ -2733,7 +2197,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L636",
+      "source_location": "L668",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_classify_topics",
@@ -2745,7 +2209,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L652",
+      "source_location": "L684",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_estimate_difficulty",
@@ -2757,7 +2221,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L670",
+      "source_location": "L702",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_fmt_points",
@@ -2769,7 +2233,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L676",
+      "source_location": "L708",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_build_exam",
@@ -2781,7 +2245,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L831",
+      "source_location": "L863",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_validate_dataset",
@@ -2793,7 +2257,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L853",
+      "source_location": "L885",
       "weight": 1.0,
       "_src": "scripts_ingest_exams_py",
       "_tgt": "ingest_exams_main",
@@ -2805,7 +2269,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L421",
+      "source_location": "L446",
       "weight": 1.0,
       "_src": "ingest_exams_extract_pdf_text",
       "_tgt": "ingest_exams_normalize_text",
@@ -2817,7 +2281,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L679",
+      "source_location": "L711",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_extract_pdf_text",
@@ -2829,7 +2293,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L510",
+      "source_location": "L535",
       "weight": 1.0,
       "_src": "ingest_exams_parse_mcq_blocks",
       "_tgt": "ingest_exams_clean_inline",
@@ -2841,7 +2305,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L581",
+      "source_location": "L613",
       "weight": 1.0,
       "_src": "ingest_exams_parse_inline_answers_and_explanations",
       "_tgt": "ingest_exams_clean_inline",
@@ -2853,7 +2317,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L600",
+      "source_location": "L632",
       "weight": 1.0,
       "_src": "ingest_exams_split_parts",
       "_tgt": "ingest_exams_clean_inline",
@@ -2865,7 +2329,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L616",
+      "source_location": "L648",
       "weight": 1.0,
       "_src": "ingest_exams_split_solution_parts",
       "_tgt": "ingest_exams_clean_inline",
@@ -2877,7 +2341,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L801",
+      "source_location": "L833",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_clean_inline",
@@ -2889,7 +2353,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L564",
+      "source_location": "L596",
       "weight": 1.0,
       "_src": "ingest_exams_parse_inline_answers_and_explanations",
       "_tgt": "ingest_exams_find_section",
@@ -2901,7 +2365,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L682",
+      "source_location": "L714",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_find_section",
@@ -2913,7 +2377,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L499",
+      "source_location": "L524",
       "weight": 1.0,
       "_src": "ingest_exams_parse_mcq_blocks",
       "_tgt": "ingest_exams_split_numbered_blocks",
@@ -2925,7 +2389,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L572",
+      "source_location": "L604",
       "weight": 1.0,
       "_src": "ingest_exams_parse_inline_answers_and_explanations",
       "_tgt": "ingest_exams_split_numbered_blocks",
@@ -2937,7 +2401,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L587",
+      "source_location": "L619",
       "weight": 1.0,
       "_src": "ingest_exams_parse_written_blocks",
       "_tgt": "ingest_exams_split_numbered_blocks",
@@ -2949,7 +2413,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L693",
+      "source_location": "L725",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_parse_mcq_blocks",
@@ -2961,7 +2425,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L554",
+      "source_location": "L586",
       "weight": 1.0,
       "_src": "ingest_exams_parse_grid_answers",
       "_tgt": "ingest_exams_extract_control_mark_answer",
@@ -2973,7 +2437,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L576",
+      "source_location": "L608",
       "weight": 1.0,
       "_src": "ingest_exams_parse_inline_answers_and_explanations",
       "_tgt": "ingest_exams_extract_control_mark_answer",
@@ -2985,7 +2449,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L720",
+      "source_location": "L752",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_parse_grid_answers",
@@ -2997,7 +2461,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L722",
+      "source_location": "L754",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_parse_inline_answers_and_explanations",
@@ -3009,7 +2473,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L752",
+      "source_location": "L784",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_parse_written_blocks",
@@ -3021,7 +2485,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L794",
+      "source_location": "L826",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_split_parts",
@@ -3033,7 +2497,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L795",
+      "source_location": "L827",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_split_solution_parts",
@@ -3045,7 +2509,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L796",
+      "source_location": "L828",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_distribute_points",
@@ -3057,7 +2521,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L775",
+      "source_location": "L807",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_classify_topics",
@@ -3069,7 +2533,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L776",
+      "source_location": "L808",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_estimate_difficulty",
@@ -3081,7 +2545,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L805",
+      "source_location": "L837",
       "weight": 1.0,
       "_src": "ingest_exams_build_exam",
       "_tgt": "ingest_exams_fmt_points",
@@ -3093,7 +2557,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L857",
+      "source_location": "L889",
       "weight": 1.0,
       "_src": "ingest_exams_main",
       "_tgt": "ingest_exams_build_exam",
@@ -3105,7 +2569,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts\\ingest-exams.py",
-      "source_location": "L858",
+      "source_location": "L890",
       "weight": 1.0,
       "_src": "ingest_exams_main",
       "_tgt": "ingest_exams_validate_dataset",
@@ -3201,7 +2665,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\app\\exam\\[sessionId]\\review\\page.tsx",
-      "source_location": "L68",
+      "source_location": "L70",
       "weight": 1.0,
       "_src": "src_app_exam_sessionid_review_page_tsx",
       "_tgt": "page_handlewrittenscore",
@@ -3417,7 +2881,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_src": "src_components_mcqcard_tsx",
       "_tgt": "mcqcard_seededrandom",
@@ -3429,7 +2893,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
       "_src": "src_components_mcqcard_tsx",
       "_tgt": "mcqcard_shuffleoptions",
@@ -3441,7 +2905,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L65",
+      "source_location": "L69",
       "weight": 1.0,
       "_src": "src_components_mcqcard_tsx",
       "_tgt": "mcqcard_handleselect",
@@ -3453,7 +2917,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L75",
+      "source_location": "L85",
       "weight": 1.0,
       "_src": "src_components_mcqcard_tsx",
       "_tgt": "mcqcard_handlesubmit",
@@ -3465,7 +2929,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\McqCard.tsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_src": "mcqcard_shuffleoptions",
       "_tgt": "mcqcard_seededrandom",
@@ -4680,6 +4144,42 @@
       "source_location": "L5",
       "weight": 1.0,
       "_src": "src_lib_scoring_ts",
+      "_tgt": "scoring_normalizemcqanswer",
+      "source": "src_lib_scoring_ts",
+      "target": "scoring_normalizemcqanswer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "src_lib_scoring_ts",
+      "_tgt": "scoring_ismcqanswercorrect",
+      "source": "src_lib_scoring_ts",
+      "target": "scoring_ismcqanswercorrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "src_lib_scoring_ts",
+      "_tgt": "scoring_mcqpenaltyforoptioncount",
+      "source": "src_lib_scoring_ts",
+      "target": "scoring_mcqpenaltyforoptioncount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "src_lib_scoring_ts",
       "_tgt": "scoring_scoremcq",
       "source": "src_lib_scoring_ts",
       "target": "scoring_scoremcq",
@@ -4689,7 +4189,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\lib\\scoring.ts",
-      "source_location": "L32",
+      "source_location": "L49",
       "weight": 1.0,
       "_src": "src_lib_scoring_ts",
       "_tgt": "scoring_scorewritten",
@@ -4701,12 +4201,48 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\lib\\scoring.ts",
-      "source_location": "L36",
+      "source_location": "L53",
       "weight": 1.0,
       "_src": "src_lib_scoring_ts",
       "_tgt": "scoring_totalexamscore",
       "source": "src_lib_scoring_ts",
       "target": "scoring_totalexamscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "scoring_ismcqanswercorrect",
+      "_tgt": "scoring_normalizemcqanswer",
+      "source": "scoring_normalizemcqanswer",
+      "target": "scoring_ismcqanswercorrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_src": "scoring_scoremcq",
+      "_tgt": "scoring_ismcqanswercorrect",
+      "source": "scoring_ismcqanswercorrect",
+      "target": "scoring_scoremcq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\scoring.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "scoring_scoremcq",
+      "_tgt": "scoring_mcqpenaltyforoptioncount",
+      "source": "scoring_mcqpenaltyforoptioncount",
+      "target": "scoring_scoremcq",
       "confidence_score": 1.0
     },
     {
@@ -5020,57 +4556,55 @@
       "source": "src_types_learn_ts",
       "target": "learn_getlevel",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "tests_privacy_hygiene_test_ts",
+      "_tgt": "privacy_hygiene_test_stagedtextfiles",
+      "source": "tests_privacy_hygiene_test_ts",
+      "target": "privacy_hygiene_test_stagedtextfiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "tests_privacy_hygiene_test_ts",
+      "_tgt": "privacy_hygiene_test_indexcontent",
+      "source": "tests_privacy_hygiene_test_ts",
+      "target": "privacy_hygiene_test_indexcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_src": "tests_privacy_hygiene_test_ts",
+      "_tgt": "privacy_hygiene_test_fromcodes",
+      "source": "tests_privacy_hygiene_test_ts",
+      "target": "privacy_hygiene_test_fromcodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\privacy-hygiene.test.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "tests_privacy_hygiene_test_ts",
+      "_tgt": "privacy_hygiene_test_literalpattern",
+      "source": "tests_privacy_hygiene_test_ts",
+      "target": "privacy_hygiene_test_literalpattern",
+      "confidence_score": 1.0
     }
   ],
-  "hyperedges": [
-    {
-      "id": "course_mathematical_foundations",
-      "label": "Mathematical Foundations Arc (L1-L3)",
-      "nodes": [
-        "study_guide_L1",
-        "study_guide_L2",
-        "study_guide_L3",
-        "concept_modular_arithmetic",
-        "concept_cyclic_groups",
-        "concept_finite_fields",
-        "concept_perfect_secrecy"
-      ],
-      "relation": "form",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LECTURE_STUDY_GUIDE.md"
-    },
-    {
-      "id": "public_key_crypto_arc",
-      "label": "Public-Key Cryptography Arc (L7-L10)",
-      "nodes": [
-        "study_guide_L7",
-        "study_guide_L8",
-        "study_guide_L9",
-        "study_guide_L10",
-        "concept_rsa",
-        "concept_diffie_hellman",
-        "concept_digital_signatures"
-      ],
-      "relation": "form",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LECTURE_STUDY_GUIDE.md"
-    },
-    {
-      "id": "learn_feature_system",
-      "label": "Learn Feature System (Study-Practice-Quiz-XP)",
-      "nodes": [
-        "handoff_md_learn_feature",
-        "handoff_md_xp_system",
-        "handoff_md_study_viewer",
-        "handoff_md_where_to_study",
-        "handoff_md_learn_storage"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HANDOFF.md"
-    }
-  ]
+  "hyperedges": []
 }

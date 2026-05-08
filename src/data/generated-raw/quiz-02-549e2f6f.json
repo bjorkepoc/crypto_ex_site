@@ -147,7 +147,7 @@
         {
           "text": "Forskning viste en observerbar bias i utdata, og det ble rapportert om en mulig bakd\u00f8r innsatt av NSA.",
           "isCorrect": true,
-          "rationale": "Kristian Gj\u00f8steen ved NTNU var med p\u00e5 \u00e5 p\u00e5vise svakheter, og senere avsl\u00f8ringer indikerte finansielle avtaler for \u00e5 fremme algoritmen tross svakhetene."
+          "rationale": "Academic researchers var med p\u00e5 \u00e5 p\u00e5vise svakheter, og senere avsl\u00f8ringer indikerte finansielle avtaler for \u00e5 fremme algoritmen tross svakhetene."
         },
         {
           "text": "Den st\u00f8tter ikke bruk av TRNG som seed-kilde.",

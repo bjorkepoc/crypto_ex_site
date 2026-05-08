@@ -19,7 +19,7 @@ import exam2015 from "./questions/exam-2015.json";
 import exam2015Resit from "./questions/exam-2015-resit.json";
 import lecture09 from "./questions/lecture-09.json";
 import lecture10 from "./questions/lecture-10.json";
-import nlmBatch from "./questions/notebooklm-batch.json";
+import generatedBatch from "./questions/generated-batch.json";
 
 // Cast imported JSON to typed arrays
 const allQuestions: Question[] = [
@@ -41,7 +41,7 @@ const allQuestions: Question[] = [
   ...exam2015Resit as unknown as Question[],
   ...lecture09 as unknown as Question[],
   ...lecture10 as unknown as Question[],
-  ...nlmBatch as unknown as Question[],
+  ...generatedBatch as unknown as Question[],
 ];
 
 export function getAllQuestions(): Question[] {

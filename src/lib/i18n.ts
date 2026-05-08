@@ -9,7 +9,7 @@ const translations = {
   "nav.progress": { en: "Progress", no: "Fremgang" },
 
   // Dashboard
-  "dash.title": { en: "TTM4135 Exam Practice", no: "TTM4135 Eksamenstrening" },
+  "dash.title": { en: "Applied Cryptography Exam Practice", no: "Eksamenstrening i anvendt kryptografi" },
   "dash.mcq_count": { en: "multiple choice questions", no: "flervalgsspørsmål" },
   "dash.written_count": { en: "written questions", no: "skriftlige oppgaver" },
   "dash.attempts_total": { en: "attempts total", no: "forsøk totalt" },
@@ -51,8 +51,8 @@ const translations = {
   // Exam setup
   "exam.title": { en: "Simulate Exam", no: "Simuler eksamen" },
   "exam.description": {
-    en: "TTM4135 format: 30 MCQ (1pt, −0.33 penalty) + 5 written (6pt). Total 60 points, 3 hours.",
-    no: "TTM4135-format: 30 flervalg (1 poeng, −0,33 feil) + 5 skriftlige (6 poeng). Totalt 60 poeng, 3 timer.",
+    en: "Practice format: up to 30 MCQ (1pt, wrong-answer penalty by option count) + 5 written questions, 3 hours.",
+    no: "Øvingsformat: opptil 30 flervalg (1 poeng, feiltrekk etter antall alternativer) + 5 skriftlige oppgaver, 3 timer.",
   },
   "exam.available": { en: "Available questions", no: "Tilgjengelige spørsmål" },
   "exam.duration": { en: "Duration (minutes)", no: "Varighet (minutter)" },
@@ -192,7 +192,7 @@ const translations = {
   "filter.all": { en: "All", no: "Alle" },
   "filter.exams": { en: "Exams", no: "Eksamener" },
   "filter.exercises": { en: "Exercises", no: "Oppgaver" },
-  "filter.notebook": { en: "NotebookLM", no: "NotebookLM" },
+  "filter.notebook": { en: "Generated", no: "Generert" },
 
   // Preferences
   "prefs.theme": { en: "Theme", no: "Tema" },

@@ -1,11 +1,11 @@
-# Graph Report - .  (2026-05-08)
+# Graph Report - .  (2026-05-09)
 
 ## Corpus Check
-- 56 files · ~25,081 words
+- 59 files · ~23,111 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 257 nodes · 222 edges · 115 communities detected
+- 212 nodes · 242 edges · 57 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -67,84 +67,21 @@
 - [[_COMMUNITY_Community 54|Community 54]]
 - [[_COMMUNITY_Community 55|Community 55]]
 - [[_COMMUNITY_Community 56|Community 56]]
-- [[_COMMUNITY_Community 57|Community 57]]
-- [[_COMMUNITY_Community 58|Community 58]]
-- [[_COMMUNITY_Community 59|Community 59]]
-- [[_COMMUNITY_Community 60|Community 60]]
-- [[_COMMUNITY_Community 61|Community 61]]
-- [[_COMMUNITY_Community 62|Community 62]]
-- [[_COMMUNITY_Community 63|Community 63]]
-- [[_COMMUNITY_Community 64|Community 64]]
-- [[_COMMUNITY_Community 65|Community 65]]
-- [[_COMMUNITY_Community 66|Community 66]]
-- [[_COMMUNITY_Community 67|Community 67]]
-- [[_COMMUNITY_Community 68|Community 68]]
-- [[_COMMUNITY_Community 69|Community 69]]
-- [[_COMMUNITY_Community 70|Community 70]]
-- [[_COMMUNITY_Community 71|Community 71]]
-- [[_COMMUNITY_Community 72|Community 72]]
-- [[_COMMUNITY_Community 73|Community 73]]
-- [[_COMMUNITY_Community 74|Community 74]]
-- [[_COMMUNITY_Community 75|Community 75]]
-- [[_COMMUNITY_Community 76|Community 76]]
-- [[_COMMUNITY_Community 77|Community 77]]
-- [[_COMMUNITY_Community 78|Community 78]]
-- [[_COMMUNITY_Community 79|Community 79]]
-- [[_COMMUNITY_Community 80|Community 80]]
-- [[_COMMUNITY_Community 81|Community 81]]
-- [[_COMMUNITY_Community 82|Community 82]]
-- [[_COMMUNITY_Community 83|Community 83]]
-- [[_COMMUNITY_Community 84|Community 84]]
-- [[_COMMUNITY_Community 85|Community 85]]
-- [[_COMMUNITY_Community 86|Community 86]]
-- [[_COMMUNITY_Community 87|Community 87]]
-- [[_COMMUNITY_Community 88|Community 88]]
-- [[_COMMUNITY_Community 89|Community 89]]
-- [[_COMMUNITY_Community 90|Community 90]]
-- [[_COMMUNITY_Community 91|Community 91]]
-- [[_COMMUNITY_Community 92|Community 92]]
-- [[_COMMUNITY_Community 93|Community 93]]
-- [[_COMMUNITY_Community 94|Community 94]]
-- [[_COMMUNITY_Community 95|Community 95]]
-- [[_COMMUNITY_Community 96|Community 96]]
-- [[_COMMUNITY_Community 97|Community 97]]
-- [[_COMMUNITY_Community 98|Community 98]]
-- [[_COMMUNITY_Community 99|Community 99]]
-- [[_COMMUNITY_Community 100|Community 100]]
-- [[_COMMUNITY_Community 101|Community 101]]
-- [[_COMMUNITY_Community 102|Community 102]]
-- [[_COMMUNITY_Community 103|Community 103]]
-- [[_COMMUNITY_Community 104|Community 104]]
-- [[_COMMUNITY_Community 105|Community 105]]
-- [[_COMMUNITY_Community 106|Community 106]]
-- [[_COMMUNITY_Community 107|Community 107]]
-- [[_COMMUNITY_Community 108|Community 108]]
-- [[_COMMUNITY_Community 109|Community 109]]
-- [[_COMMUNITY_Community 110|Community 110]]
-- [[_COMMUNITY_Community 111|Community 111]]
-- [[_COMMUNITY_Community 112|Community 112]]
-- [[_COMMUNITY_Community 113|Community 113]]
-- [[_COMMUNITY_Community 114|Community 114]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `build_exam()` - 15 edges
 2. `loadLearnState()` - 8 edges
 3. `loadProgress()` - 8 edges
-4. `saveLearnState()` - 7 edges
-5. `checkAndUpdateStreak()` - 7 edges
-6. `clean_inline()` - 6 edges
-7. `parse_inline_answers_and_explanations()` - 6 edges
-8. `convert()` - 5 edges
+4. `convert()` - 7 edges
+5. `saveLearnState()` - 7 edges
+6. `checkAndUpdateStreak()` - 7 edges
+7. `clean_inline()` - 6 edges
+8. `parse_inline_answers_and_explanations()` - 6 edges
 9. `completeStudy()` - 5 edges
 10. `saveProgress()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
-
-## Hyperedges (group relationships)
-- **Mathematical Foundations Arc (L1-L3)** — study_guide_L1, study_guide_L2, study_guide_L3, concept_modular_arithmetic, concept_cyclic_groups, concept_finite_fields, concept_perfect_secrecy [EXTRACTED 1.00]
-- **Public-Key Cryptography Arc (L7-L10)** — study_guide_L7, study_guide_L8, study_guide_L9, study_guide_L10, concept_rsa, concept_diffie_hellman, concept_digital_signatures [EXTRACTED 1.00]
-- **Learn Feature System (Study-Practice-Quiz-XP)** — handoff_md_learn_feature, handoff_md_xp_system, handoff_md_study_viewer, handoff_md_where_to_study, handoff_md_learn_storage [EXTRACTED 1.00]
 
 ## Communities
 
@@ -153,16 +90,16 @@ Cohesion: 0.18
 Nodes (20): build_exam(), classify_topics(), clean_inline(), distribute_points(), estimate_difficulty(), ExamConfig, extract_control_mark_answer(), extract_pdf_text() (+12 more)
 
 ### Community 1 - "Community 1"
+Cohesion: 0.18
+Nodes (16): anonymize_text(), build_solution(), classify_topic(), convert(), estimate_difficulty(), is_off_topic(), keyword_matches(), make_id() (+8 more)
+
+### Community 2 - "Community 2"
 Cohesion: 0.36
 Nodes (11): addXp(), checkAndUpdateStreak(), completeStudy(), defaultLearnState(), loadLearnState(), markSectionRead(), recordPracticeResult(), recordQuizResult() (+3 more)
 
-### Community 2 - "Community 2"
+### Community 3 - "Community 3"
 Cohesion: 0.26
 Nodes (7): applyTheme(), emitChange(), getSnapshot(), isLang(), isTheme(), normalizePrefs(), setPrefs()
-
-### Community 3 - "Community 3"
-Cohesion: 0.25
-Nodes (10): build_solution(), classify_topic(), convert(), estimate_difficulty(), make_id(), Convert NotebookLM quiz JSON files into CryptoEx question bank format.  Usage:, Classify a question into one or more topics based on keyword matching., Estimate difficulty 1-3 based on heuristics. (+2 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.42
@@ -185,55 +122,55 @@ Cohesion: 0.29
 Nodes (2): handleWrittenScore(), t()
 
 ### Community 9 - "Community 9"
+Cohesion: 0.43
+Nodes (4): isMcqAnswerCorrect(), mcqPenaltyForOptionCount(), normalizeMcqAnswer(), scoreMcq()
+
+### Community 10 - "Community 10"
 Cohesion: 0.5
 Nodes (2): seededRandom(), shuffleOptions()
 
-### Community 10 - "Community 10"
+### Community 11 - "Community 11"
 Cohesion: 0.4
 Nodes (0):
 
-### Community 11 - "Community 11"
-Cohesion: 0.67
-Nodes (3): main(), parse_blocks(), Split text into blocks separated by one or more blank lines.
-
 ### Community 12 - "Community 12"
-Cohesion: 0.5
+Cohesion: 0.4
 Nodes (0):
 
 ### Community 13 - "Community 13"
-Cohesion: 0.5
-Nodes (0):
+Cohesion: 0.67
+Nodes (3): main(), parse_blocks(), Split text into blocks separated by one or more blank lines.
 
 ### Community 14 - "Community 14"
 Cohesion: 0.5
 Nodes (0):
 
 ### Community 15 - "Community 15"
+Cohesion: 0.5
+Nodes (0):
+
+### Community 16 - "Community 16"
 Cohesion: 1.0
 Nodes (2): StudyPage(), useLocalSectionsRead()
 
-### Community 16 - "Community 16"
+### Community 17 - "Community 17"
 Cohesion: 0.67
 Nodes (0):
-
-### Community 17 - "Community 17"
-Cohesion: 1.0
-Nodes (2): isSequentialAlpha(), parseAlphaList()
 
 ### Community 18 - "Community 18"
 Cohesion: 1.0
-Nodes (2): extractHintMarkdown(), normalizeHintLine()
+Nodes (2): isSequentialAlpha(), parseAlphaList()
 
 ### Community 19 - "Community 19"
 Cohesion: 1.0
-Nodes (2): generateExam(), shuffle()
+Nodes (2): extractHintMarkdown(), normalizeHintLine()
 
 ### Community 20 - "Community 20"
-Cohesion: 0.67
-Nodes (0):
+Cohesion: 1.0
+Nodes (2): generateExam(), shuffle()
 
 ### Community 21 - "Community 21"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0):
 
 ### Community 22 - "Community 22"
@@ -366,286 +303,52 @@ Nodes (0):
 
 ### Community 54 - "Community 54"
 Cohesion: 1.0
-Nodes (1): CryptoEx Project Overview
+Nodes (0):
 
 ### Community 55 - "Community 55"
 Cohesion: 1.0
-Nodes (1): Exercise Tagging Contract
+Nodes (0):
 
 ### Community 56 - "Community 56"
 Cohesion: 1.0
-Nodes (1): Verification Before Done Workflow
-
-### Community 57 - "Community 57"
-Cohesion: 1.0
-Nodes (1): Self-Improvement Loop
-
-### Community 58 - "Community 58"
-Cohesion: 1.0
-Nodes (1): Context Continuity via HANDOFF.md
-
-### Community 59 - "Community 59"
-Cohesion: 1.0
-Nodes (1): topics.ts - Canonical Lecture Mapping
-
-### Community 60 - "Community 60"
-Cohesion: 1.0
-Nodes (1): HANDOFF Project Context
-
-### Community 61 - "Community 61"
-Cohesion: 1.0
-Nodes (1): Learn Feature (Phase 1)
-
-### Community 62 - "Community 62"
-Cohesion: 1.0
-Nodes (1): XP and Level System
-
-### Community 63 - "Community 63"
-Cohesion: 1.0
-Nodes (1): Study Viewer Component
-
-### Community 64 - "Community 64"
-Cohesion: 1.0
-Nodes (1): Where to Study Panel
-
-### Community 65 - "Community 65"
-Cohesion: 1.0
-Nodes (1): Exercise Tagging Status
-
-### Community 66 - "Community 66"
-Cohesion: 1.0
-Nodes (1): Key Architectural Decisions
-
-### Community 67 - "Community 67"
-Cohesion: 1.0
-Nodes (1): Next Steps (Phase 2-3)
-
-### Community 68 - "Community 68"
-Cohesion: 1.0
-Nodes (1): learnStorage.ts - Separate localStorage
-
-### Community 69 - "Community 69"
-Cohesion: 1.0
-Nodes (1): CryptoEx README
-
-### Community 70 - "Community 70"
-Cohesion: 1.0
-Nodes (1): Tech Stack (Next.js, Tailwind, KaTeX)
-
-### Community 71 - "Community 71"
-Cohesion: 1.0
-Nodes (1): Project Directory Structure
-
-### Community 72 - "Community 72"
-Cohesion: 1.0
-Nodes (1): Content Statistics (344 questions)
-
-### Community 73 - "Community 73"
-Cohesion: 1.0
-Nodes (1): NotebookLM Question Generation
-
-### Community 74 - "Community 74"
-Cohesion: 1.0
-Nodes (1): TTM4135 Lecture Study Guide
-
-### Community 75 - "Community 75"
-Cohesion: 1.0
-Nodes (1): L1 - Basic Number Theory, Groups and Finite Fields
-
-### Community 76 - "Community 76"
-Cohesion: 1.0
-Nodes (1): L2 - Classical Encryption Techniques
-
-### Community 77 - "Community 77"
-Cohesion: 1.0
-Nodes (1): L3 - Hill Cipher, Stream Ciphers and OTP
-
-### Community 78 - "Community 78"
-Cohesion: 1.0
-Nodes (1): L4 - Block Ciphers, DES and AES
-
-### Community 79 - "Community 79"
-Cohesion: 1.0
-Nodes (1): L5 - Encryption Modes and PRNGs
-
-### Community 80 - "Community 80"
-Cohesion: 1.0
-Nodes (1): L6 - Hashes and MACs
-
-### Community 81 - "Community 81"
-Cohesion: 1.0
-Nodes (1): L7 - Number Theory for Public-Key Crypto
-
-### Community 82 - "Community 82"
-Cohesion: 1.0
-Nodes (1): L8 - Public Key Cryptography and RSA
-
-### Community 83 - "Community 83"
-Cohesion: 1.0
-Nodes (1): L9 - Discrete Log Public Key Cryptosystems
-
-### Community 84 - "Community 84"
-Cohesion: 1.0
-Nodes (1): L10 - Digital Signatures
-
-### Community 85 - "Community 85"
-Cohesion: 1.0
-Nodes (1): L11 - Key Establishment and Certificates
-
-### Community 86 - "Community 86"
-Cohesion: 1.0
-Nodes (1): L12 - Quantum-Safe Cryptography
-
-### Community 87 - "Community 87"
-Cohesion: 1.0
-Nodes (1): L13 - Transport Layer Security
-
-### Community 88 - "Community 88"
-Cohesion: 1.0
-Nodes (1): L14 - TLS 1.3 and IP Security
-
-### Community 89 - "Community 89"
-Cohesion: 1.0
-Nodes (1): L15 - Email Security and Secure Messaging
-
-### Community 90 - "Community 90"
-Cohesion: 1.0
-Nodes (1): Cross-Lecture Synthesis
-
-### Community 91 - "Community 91"
-Cohesion: 1.0
-Nodes (1): Highest-Priority Difficult Topics
-
-### Community 92 - "Community 92"
-Cohesion: 1.0
-Nodes (1): Modular Arithmetic and Inverses
-
-### Community 93 - "Community 93"
-Cohesion: 1.0
-Nodes (1): Cyclic Groups and Generators
-
-### Community 94 - "Community 94"
-Cohesion: 1.0
-Nodes (1): Finite Fields GF(p) and GF(2^n)
-
-### Community 95 - "Community 95"
-Cohesion: 1.0
-Nodes (1): Perfect Secrecy (OTP)
-
-### Community 96 - "Community 96"
-Cohesion: 1.0
-Nodes (1): Confusion and Diffusion
-
-### Community 97 - "Community 97"
-Cohesion: 1.0
-Nodes (1): Nonces, IVs, and Freshness
-
-### Community 98 - "Community 98"
-Cohesion: 1.0
-Nodes (1): HMAC Construction
-
-### Community 99 - "Community 99"
-Cohesion: 1.0
-Nodes (1): RSA Scheme
-
-### Community 100 - "Community 100"
-Cohesion: 1.0
-Nodes (1): Diffie-Hellman Key Exchange
-
-### Community 101 - "Community 101"
-Cohesion: 1.0
-Nodes (1): Digital Signatures
-
-### Community 102 - "Community 102"
-Cohesion: 1.0
-Nodes (1): PKI and Certificates
-
-### Community 103 - "Community 103"
-Cohesion: 1.0
-Nodes (1): Post-Quantum Cryptography
-
-### Community 104 - "Community 104"
-Cohesion: 1.0
-Nodes (1): Transport Layer Security (TLS)
-
-### Community 105 - "Community 105"
-Cohesion: 1.0
-Nodes (1): Signal Ratchet Protocol
-
-### Community 106 - "Community 106"
-Cohesion: 1.0
-Nodes (1): Rationale: Task-Level Not Set-Level Tagging
-
-### Community 107 - "Community 107"
-Cohesion: 1.0
-Nodes (1): Rationale: Separate localStorage Key for Learn
-
-### Community 108 - "Community 108"
-Cohesion: 1.0
-Nodes (1): Rationale: Static JSON for Study Content
-
-### Community 109 - "Community 109"
-Cohesion: 1.0
-Nodes (1): Rationale: Keyword Overlap for Question-Study Linking
-
-### Community 110 - "Community 110"
-Cohesion: 1.0
-Nodes (1): Document/File Icon
-
-### Community 111 - "Community 111"
-Cohesion: 1.0
-Nodes (1): Globe Icon
-
-### Community 112 - "Community 112"
-Cohesion: 1.0
-Nodes (1): Next.js Logo
-
-### Community 113 - "Community 113"
-Cohesion: 1.0
-Nodes (1): Vercel Logo
-
-### Community 114 - "Community 114"
-Cohesion: 1.0
-Nodes (1): Browser Window Icon
+Nodes (0):
 
 ## Knowledge Gaps
-- **68 isolated node(s):** `Convert NotebookLM quiz JSON files into CryptoEx question bank format.  Usage:`, `Classify a question into one or more topics based on keyword matching.`, `Estimate difficulty 1-3 based on heuristics.`, `Generate a stable, unique question ID.`, `Build a solution text from option rationales and hint.` (+63 more)
+- **10 isolated node(s):** `Convert generated quiz JSON files into CryptoEx question bank format.  Usage: p`, `Remove person/institution identifiers from generated study content.`, `Match topic keywords without substring hits inside unrelated words.`, `Skip generated questions that came from non-cryptography course material.`, `Classify a question into one or more topics based on keyword matching.` (+5 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 21`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Community 22`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (2 nodes): `handleStart()`, `page.tsx`
+- **Thin community `Community 23`** (2 nodes): `handleStart()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (2 nodes): `ActiveExam()`, `page.tsx`
+- **Thin community `Community 24`** (2 nodes): `ActiveExam()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (2 nodes): `MathText()`, `MathText.tsx`
+- **Thin community `Community 25`** (2 nodes): `MathText()`, `MathText.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (2 nodes): `SourceBadge()`, `SourceBadge.tsx`
+- **Thin community `Community 26`** (2 nodes): `SourceBadge()`, `SourceBadge.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 26`** (2 nodes): `SourceFilterBar()`, `SourceFilterBar.tsx`
+- **Thin community `Community 27`** (2 nodes): `SourceFilterBar()`, `SourceFilterBar.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (2 nodes): `ThemeInit.tsx`, `ThemeInit()`
+- **Thin community `Community 28`** (2 nodes): `ThemeInit.tsx`, `ThemeInit()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (2 nodes): `Timer.tsx`, `Timer()`
+- **Thin community `Community 29`** (2 nodes): `Timer.tsx`, `Timer()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (2 nodes): `TopicCard.tsx`, `TopicCard()`
+- **Thin community `Community 30`** (2 nodes): `TopicCard.tsx`, `TopicCard()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (2 nodes): `ReadProgressRing()`, `ReadProgressRing.tsx`
+- **Thin community `Community 31`** (2 nodes): `ReadProgressRing()`, `ReadProgressRing.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 31`** (2 nodes): `StarRating.tsx`, `StarRating()`
+- **Thin community `Community 32`** (2 nodes): `StarRating.tsx`, `StarRating()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (2 nodes): `StudySourcePanel.tsx`, `findRelevantSections()`
+- **Thin community `Community 33`** (2 nodes): `StudySourcePanel.tsx`, `findRelevantSections()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (2 nodes): `XpToast.tsx`, `XpToast()`
+- **Thin community `Community 34`** (2 nodes): `XpToast.tsx`, `XpToast()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (2 nodes): `t()`, `i18n.ts`
+- **Thin community `Community 35`** (2 nodes): `t()`, `i18n.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (2 nodes): `getLevel()`, `learn.ts`
+- **Thin community `Community 36`** (2 nodes): `getLevel()`, `learn.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 37`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (1 nodes): `next.config.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (1 nodes): `page.tsx`
+- **Thin community `Community 38`** (1 nodes): `next.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 39`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -653,155 +356,39 @@ Nodes (1): Browser Window Icon
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 41`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (1 nodes): `Navbar.tsx`
+- **Thin community `Community 42`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (1 nodes): `ProgressBar.tsx`
+- **Thin community `Community 43`** (1 nodes): `Navbar.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (1 nodes): `SolutionPanel.tsx`
+- **Thin community `Community 44`** (1 nodes): `ProgressBar.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (1 nodes): `LearningPath.tsx`
+- **Thin community `Community 45`** (1 nodes): `SolutionPanel.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (1 nodes): `LearnSkeleton.tsx`
+- **Thin community `Community 46`** (1 nodes): `LearningPath.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (1 nodes): `LectureNode.tsx`
+- **Thin community `Community 47`** (1 nodes): `LearnSkeleton.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (1 nodes): `StageProgress.tsx`
+- **Thin community `Community 48`** (1 nodes): `LectureNode.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (1 nodes): `StudyViewer.tsx`
+- **Thin community `Community 49`** (1 nodes): `StageProgress.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 50`** (1 nodes): `XpBar.tsx`
+- **Thin community `Community 50`** (1 nodes): `StudyViewer.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (1 nodes): `topics.ts`
+- **Thin community `Community 51`** (1 nodes): `XpBar.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (1 nodes): `index.ts`
+- **Thin community `Community 52`** (1 nodes): `topics.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (1 nodes): `exam-components.test.tsx`
+- **Thin community `Community 53`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (1 nodes): `CryptoEx Project Overview`
+- **Thin community `Community 54`** (1 nodes): `exam-components.test.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 55`** (1 nodes): `Exercise Tagging Contract`
+- **Thin community `Community 55`** (1 nodes): `question-bank-hygiene.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 56`** (1 nodes): `Verification Before Done Workflow`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (1 nodes): `Self-Improvement Loop`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (1 nodes): `Context Continuity via HANDOFF.md`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (1 nodes): `topics.ts - Canonical Lecture Mapping`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (1 nodes): `HANDOFF Project Context`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (1 nodes): `Learn Feature (Phase 1)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (1 nodes): `XP and Level System`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (1 nodes): `Study Viewer Component`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (1 nodes): `Where to Study Panel`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (1 nodes): `Exercise Tagging Status`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 66`** (1 nodes): `Key Architectural Decisions`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (1 nodes): `Next Steps (Phase 2-3)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (1 nodes): `learnStorage.ts - Separate localStorage`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 69`** (1 nodes): `CryptoEx README`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 70`** (1 nodes): `Tech Stack (Next.js, Tailwind, KaTeX)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 71`** (1 nodes): `Project Directory Structure`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 72`** (1 nodes): `Content Statistics (344 questions)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (1 nodes): `NotebookLM Question Generation`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (1 nodes): `TTM4135 Lecture Study Guide`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (1 nodes): `L1 - Basic Number Theory, Groups and Finite Fields`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 76`** (1 nodes): `L2 - Classical Encryption Techniques`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (1 nodes): `L3 - Hill Cipher, Stream Ciphers and OTP`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 78`** (1 nodes): `L4 - Block Ciphers, DES and AES`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 79`** (1 nodes): `L5 - Encryption Modes and PRNGs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 80`** (1 nodes): `L6 - Hashes and MACs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (1 nodes): `L7 - Number Theory for Public-Key Crypto`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 82`** (1 nodes): `L8 - Public Key Cryptography and RSA`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 83`** (1 nodes): `L9 - Discrete Log Public Key Cryptosystems`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 84`** (1 nodes): `L10 - Digital Signatures`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (1 nodes): `L11 - Key Establishment and Certificates`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 86`** (1 nodes): `L12 - Quantum-Safe Cryptography`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (1 nodes): `L13 - Transport Layer Security`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 88`** (1 nodes): `L14 - TLS 1.3 and IP Security`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (1 nodes): `L15 - Email Security and Secure Messaging`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 90`** (1 nodes): `Cross-Lecture Synthesis`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 91`** (1 nodes): `Highest-Priority Difficult Topics`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 92`** (1 nodes): `Modular Arithmetic and Inverses`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 93`** (1 nodes): `Cyclic Groups and Generators`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 94`** (1 nodes): `Finite Fields GF(p) and GF(2^n)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (1 nodes): `Perfect Secrecy (OTP)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 96`** (1 nodes): `Confusion and Diffusion`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 97`** (1 nodes): `Nonces, IVs, and Freshness`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (1 nodes): `HMAC Construction`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 99`** (1 nodes): `RSA Scheme`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 100`** (1 nodes): `Diffie-Hellman Key Exchange`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 101`** (1 nodes): `Digital Signatures`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 102`** (1 nodes): `PKI and Certificates`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 103`** (1 nodes): `Post-Quantum Cryptography`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 104`** (1 nodes): `Transport Layer Security (TLS)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 105`** (1 nodes): `Signal Ratchet Protocol`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 106`** (1 nodes): `Rationale: Task-Level Not Set-Level Tagging`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 107`** (1 nodes): `Rationale: Separate localStorage Key for Learn`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 108`** (1 nodes): `Rationale: Static JSON for Study Content`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 109`** (1 nodes): `Rationale: Keyword Overlap for Question-Study Linking`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 110`** (1 nodes): `Document/File Icon`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 111`** (1 nodes): `Globe Icon`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 112`** (1 nodes): `Next.js Logo`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 113`** (1 nodes): `Vercel Logo`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 114`** (1 nodes): `Browser Window Icon`
+- **Thin community `Community 56`** (1 nodes): `scoring.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What connects `Convert NotebookLM quiz JSON files into CryptoEx question bank format.  Usage:`, `Classify a question into one or more topics based on keyword matching.`, `Estimate difficulty 1-3 based on heuristics.` to the rest of the system?**
-  _68 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Convert generated quiz JSON files into CryptoEx question bank format.  Usage: p`, `Remove person/institution identifiers from generated study content.`, `Match topic keywords without substring hits inside unrelated words.` to the rest of the system?**
+  _10 weakly-connected nodes found - possible documentation gaps or missing edges._

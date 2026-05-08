@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CryptoEx — TTM4135 Exam Practice",
-  description: "Practice for TTM4135 Applied Cryptography exam",
+  title: "CryptoEx - Applied Cryptography Exam Practice",
+  description: "Practice for an applied cryptography exam",
 };
 
 export default function RootLayout({

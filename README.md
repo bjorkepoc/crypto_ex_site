@@ -1,8 +1,8 @@
-# CryptoEx — TTM4135 Exam Practice
+# CryptoEx - Applied Cryptography Exam Practice
 
-Local-first Next.js app for practicing NTNU TTM4135 Applied Cryptography exam
-content. Answer questions by topic, simulate full exams, review step-by-step
-solutions with KaTeX math, and track weak areas.
+Local-first Next.js app for practicing applied cryptography exam content.
+Answer questions by topic, simulate full exams, review step-by-step solutions
+with KaTeX math, and track weak areas.
 
 ## Features
 
@@ -95,7 +95,8 @@ src/
 │   ├── index.ts            # Question, ExamSession, UserProgress types
 │   └── learn.ts            # Learn types, XP/level system (new)
 scripts/
-└── convert-nlm-quizzes.py  # NotebookLM → CryptoEx question converter
+├── convert-generated-quizzes.py  # generated quiz -> CryptoEx question converter
+└── ingest-exams.py        # archived exam PDFs -> CryptoEx question banks
 ```
 
 ## Adding Questions
@@ -113,18 +114,18 @@ npm run build       # Production build
 
 ## Content
 
-**344 questions** (336 MCQ + 8 written) across 15 topics:
+**777 questions** (676 MCQ + 101 written) across 15 topics:
 
 | Source               | MCQ | Written | Total |
 | -------------------- | --- | ------- | ----- |
-| Exam 2025 (manual)   | 30  | 5       | 35    |
-| Lecture 9 (manual)   | 10  | 2       | 12    |
-| Lecture 10 (manual)  | 10  | 1       | 11    |
-| NotebookLM (auto)    | 286 | 0       | 286   |
+| Archived exams       | 390 | 98      | 488   |
+| Exercise/study items | 20  | 3       | 23    |
+| Generated quizzes    | 266 | 0       | 266   |
 
-NotebookLM questions were generated from 21 course sources (lectures L-1–L-15,
-exercises E-1–E-3, solution set S-1) using the `notebooklm-py` library, then
-converted via `scripts/convert-nlm-quizzes.py` with keyword-based topic
-classification and deduplication.
+Exam question banks are built from archived local exam PDFs with
+`scripts/ingest-exams.py`; set `CRYPTOEX_EXAMS_DIR` to the folder containing
+the source PDFs. Generated quiz exports are converted via
+`scripts/convert-generated-quizzes.py` with keyword-based topic classification,
+deduplication, off-topic filtering, and anonymization.
 
 All questions use LaTeX notation rendered via KaTeX.

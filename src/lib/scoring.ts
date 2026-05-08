@@ -2,31 +2,48 @@ export const MCQ_CORRECT_POINTS = 1;
 export const MCQ_PENALTY = -1 / 3;
 export const MCQ_UNANSWERED_POINTS = 0;
 
+export function normalizeMcqAnswer(answer: string | null | undefined): string {
+  if (!answer) return "";
+  return Array.from(new Set(answer.split(""))).sort().join("");
+}
+
+export function isMcqAnswerCorrect(
+  answer: string | null | undefined,
+  correctAnswer: string
+): boolean {
+  return normalizeMcqAnswer(answer) === normalizeMcqAnswer(correctAnswer);
+}
+
+export function mcqPenaltyForOptionCount(optionCount: number | undefined): number {
+  const count = Math.max(2, optionCount ?? 4);
+  return -1 / (count - 1);
+}
+
 export function scoreMcq(
   answers: Record<string, string | null>,
-  correctAnswers: Record<string, string>
+  correctAnswers: Record<string, string>,
+  optionCounts: Record<string, number> = {}
 ): { correct: number; incorrect: number; unanswered: number; total: number } {
   let correct = 0;
   let incorrect = 0;
   let unanswered = 0;
+  let rawTotal = 0;
 
   for (const qId of Object.keys(correctAnswers)) {
     const answer = answers[qId];
     if (!answer) {
       unanswered++;
-    } else if (answer === correctAnswers[qId]) {
+      rawTotal += MCQ_UNANSWERED_POINTS;
+    } else if (isMcqAnswerCorrect(answer, correctAnswers[qId])) {
       correct++;
+      rawTotal += MCQ_CORRECT_POINTS;
     } else {
       incorrect++;
+      rawTotal += mcqPenaltyForOptionCount(optionCounts[qId]);
     }
   }
 
-  const total =
-    correct * MCQ_CORRECT_POINTS +
-    incorrect * MCQ_PENALTY +
-    unanswered * MCQ_UNANSWERED_POINTS;
-
-  return { correct, incorrect, unanswered, total: Math.max(0, total) };
+  return { correct, incorrect, unanswered, total: Math.max(0, rawTotal) };
 }
 
 export function scoreWritten(scores: Record<string, number>): number {

@@ -30,7 +30,7 @@ export interface QuestionSource {
 }
 
 export interface McqOption {
-  key: string; // "a", "b", "c", "d"
+  key: string; // "a", "b", "c", ...
   text: string; // supports KaTeX via $...$
 }
 
@@ -42,7 +42,7 @@ export interface McqQuestion {
   difficulty: 1 | 2 | 3;
   text: string;
   options: McqOption[];
-  correctAnswer: string; // "a", "b", "c", "d"
+  correctAnswer: string; // Single key ("a") or sorted multi-key answer ("ab")
   solution: string; // markdown with KaTeX
 }
 

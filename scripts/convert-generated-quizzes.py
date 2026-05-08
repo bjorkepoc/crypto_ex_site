@@ -109,19 +109,23 @@ OFF_TOPIC_PATTERNS = [
     r"\boverall assessment\b",
 ]
 
-COURSE_CODE = "TTM" + "4135"
-INSTITUTION_NAME = "NT" + "NU"
+GENERIC_REDACTIONS = [
+    (re.compile(r"\b[A-Z]{3}\d{4}\b"), "the course"),
+]
 
-ANONYMIZED_REPLACEMENTS = [
-    (COURSE_CODE, "the course"),
-    (INSTITUTION_NAME, "the university"),
+EXTRA_REDACTION_TERMS = [
+    term.strip()
+    for term in os.environ.get("CRYPTOEX_REDACTION_TERMS", "").split("|")
+    if term.strip()
 ]
 
 
 def anonymize_text(text: str) -> str:
     """Remove person/institution identifiers from generated study content."""
-    for before, after in ANONYMIZED_REPLACEMENTS:
-        text = text.replace(before, after)
+    for pattern, replacement in GENERIC_REDACTIONS:
+        text = pattern.sub(replacement, text)
+    for term in EXTRA_REDACTION_TERMS:
+        text = re.sub(re.escape(term), "the source", text, flags=re.I)
     return text
 
 

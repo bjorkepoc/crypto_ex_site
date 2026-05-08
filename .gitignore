@@ -36,12 +36,12 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# local agent notes
+# local agent notes and generated analysis output
 /CLAUDE.md
 /CLAUDE.local.md
 /HANDOFF.md
 /.claude/
-/graphify-out/cache/
+/graphify-out/
 
 # vercel
 .vercel

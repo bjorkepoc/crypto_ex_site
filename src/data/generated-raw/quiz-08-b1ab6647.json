@@ -1,0 +1,317 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "Which security property of a hash function $H$ ensures it is computationally infeasible to find any input $x$ such that $H(x) = y$, given a specific output value $y$?",
+      "answerOptions": [
+        {
+          "text": "Preimage resistance",
+          "isCorrect": true,
+          "rationale": "This property, also known as being 'one-way', ensures that an attacker cannot reverse the hash function to find the original input from a given digest."
+        },
+        {
+          "text": "Collision resistance",
+          "isCorrect": false,
+          "rationale": "This property focuses on the difficulty of finding any two distinct inputs that produce the same output, rather than finding an input for a specific pre-determined output."
+        },
+        {
+          "text": "Second-preimage resistance",
+          "isCorrect": false,
+          "rationale": "While related, this property specifically involves the difficulty of finding a new input that matches the hash of a known, existing input."
+        },
+        {
+          "text": "Non-repudiation",
+          "isCorrect": false,
+          "rationale": "This is a security service often provided by digital signatures to prevent a sender from denying they sent a message, rather than a mathematical property of the hash function itself."
+        }
+      ],
+      "hint": "Consider the term used to describe a function that is difficult to reverse."
+    },
+    {
+      "question": "According to the birthday paradox, if a hash function has an output size of $k$ bits, approximately how many trials are needed to find a collision with a probability of $0.5$?",
+      "answerOptions": [
+        {
+          "text": "$2^{k}$",
+          "isCorrect": false,
+          "rationale": "This represents the complexity of a brute-force search to find a specific preimage, not a collision between two arbitrary values."
+        },
+        {
+          "text": "$2^{k/2}$",
+          "isCorrect": true,
+          "rationale": "The birthday paradox shows that the probability of a collision reaches $50\\%$ significantly faster than a brute-force search, specifically at the square root of the total output space."
+        },
+        {
+          "text": "$k^{2}$",
+          "isCorrect": false,
+          "rationale": "This suggests a polynomial relationship that does not account for the exponential size of the bit-space in cryptographic hashing."
+        },
+        {
+          "text": "$2k$",
+          "isCorrect": false,
+          "rationale": "This significantly underestimates the number of trials required to find a collision in a large bit-space."
+        }
+      ],
+      "hint": "Recall the mathematical relationship involving the square root of the total possible outputs."
+    },
+    {
+      "question": "Which of the following is a known security weakness inherent to the Merkle\u2013Damg\u00e5rd construction used in hash functions like SHA-256?",
+      "answerOptions": [
+        {
+          "text": "Length extension attack",
+          "isCorrect": true,
+          "rationale": "This attack allows an adversary to calculate the hash of a message appended with extra data if they know the hash of the original message and its length."
+        },
+        {
+          "text": "Squeezing phase vulnerability",
+          "isCorrect": false,
+          "rationale": "This phase is specific to sponge constructions like SHA-3, rather than the Merkle\u2013Damg\u00e5rd iterated structure."
+        },
+        {
+          "text": "Salt-collision attack",
+          "isCorrect": false,
+          "rationale": "Salting is a technique used in password storage to prevent dictionary attacks, not a structural weakness of the iteration method itself."
+        },
+        {
+          "text": "Birthday degradation",
+          "isCorrect": false,
+          "rationale": "The birthday paradox applies to all hash functions regardless of construction, so it is not a specific weakness of Merkle\u2013Damg\u00e5rd."
+        }
+      ],
+      "hint": "Think about an attack where knowing the hash of a message allows you to compute the hash of that message plus extra data."
+    },
+    {
+      "question": "In the context of the SHA-3 hash standard, what occurs during the 'absorbing' phase of the sponge construction?",
+      "answerOptions": [
+        {
+          "text": "Input blocks are XOR'ed into the state and processed by a function $f$",
+          "isCorrect": true,
+          "rationale": "In the sponge construction, the input message is first padded and then iteratively incorporated into the internal state before the output is generated."
+        },
+        {
+          "text": "The state bits are truncated to produce the final message digest",
+          "isCorrect": false,
+          "rationale": "Truncation or extraction of bits happens during the squeezing phase, which occurs after the input has been fully processed."
+        },
+        {
+          "text": "A secret key is combined with the padding to provide authentication",
+          "isCorrect": false,
+          "rationale": "Standard hash functions like SHA-3 are public functions and do not require a secret key during the basic hashing process."
+        },
+        {
+          "text": "The message length is appended to the final block to prevent collisions",
+          "isCorrect": false,
+          "rationale": "Appending the length is a characteristic of Merkle\u2013Damg\u00e5rd padding, whereas SHA-3 uses a different approach within its sponge structure."
+        }
+      ],
+      "hint": "Recall how data enters the internal state of the sponge before it is 'squeezed' out."
+    },
+    {
+      "question": "Which of the following statements best describes the primary difference between a hash function and a Message Authentication Code (MAC)?",
+      "answerOptions": [
+        {
+          "text": "A MAC requires a secret key, whereas a hash function is a public function",
+          "isCorrect": true,
+          "rationale": "MACs are designed to provide both integrity and authenticity by involving a shared secret, while hashes are used for integrity without a key."
+        },
+        {
+          "text": "Hash functions produce variable-length outputs, while MACs produce fixed-length tags",
+          "isCorrect": false,
+          "rationale": "Both cryptographic hash functions and MACs typically produce fixed-length outputs regardless of the input size."
+        },
+        {
+          "text": "MACs are used for confidentiality, while hash functions are used for integrity",
+          "isCorrect": false,
+          "rationale": "Neither MACs nor hash functions provide confidentiality on their own; encryption is required for secrecy."
+        },
+        {
+          "text": "A hash function is a symmetric mechanism, while a MAC is an asymmetric mechanism",
+          "isCorrect": false,
+          "rationale": "MACs are symmetric primitives because the sender and receiver share the same secret key; they are not asymmetric like digital signatures."
+        }
+      ],
+      "hint": "Think about which mechanism relies on a shared secret to prove the origin of a message."
+    },
+    {
+      "question": "The HMAC construction is defined as $H((K \\oplus opad) \\| H((K \\oplus ipad) \\| M))$. Why are the fixed strings 'ipad' and 'opad' used in this process?",
+      "answerOptions": [
+        {
+          "text": "To derive two distinct keys from a single key $K$ for nested hashing",
+          "isCorrect": true,
+          "rationale": "XORing the key with different constants creates two independent-looking keys to protect against attacks like length extension that affect simpler keyed-hash constructions."
+        },
+        {
+          "text": "To provide a random salt for every unique message $M$",
+          "isCorrect": false,
+          "rationale": "The 'ipad' and 'opad' values are fixed constants defined in the standard, not random values generated per message."
+        },
+        {
+          "text": "To ensure the output of the hash function $H$ is always $256$ bits",
+          "isCorrect": false,
+          "rationale": "The output size is determined by the specific hash function used (e.g., SHA-256), not the constants used in the HMAC wrapper."
+        },
+        {
+          "text": "To act as an initialisation vector ($IV$) for the underlying block cipher",
+          "isCorrect": false,
+          "rationale": "HMAC is built from hash functions, not block ciphers, and these constants serve to modify the key rather than initialise a cipher state."
+        }
+      ],
+      "hint": "Consider the goal of creating two different 'versions' of the secret key for the inner and outer hashes."
+    },
+    {
+      "question": "Which method of combining encryption and message authentication is generally considered the safest and is used in modern protocols?",
+      "answerOptions": [
+        {
+          "text": "Encrypt-then-MAC",
+          "isCorrect": true,
+          "rationale": "This approach provides integrity over the ciphertext itself, which prevents many attacks and ensures the recipient only decrypts messages that have been verified."
+        },
+        {
+          "text": "MAC-then-Encrypt",
+          "isCorrect": false,
+          "rationale": "This method can be vulnerable to padding oracle attacks because the receiver must decrypt the data before they can verify the MAC tag."
+        },
+        {
+          "text": "Encrypt-and-MAC",
+          "isCorrect": false,
+          "rationale": "Applying the MAC directly to the plaintext can leak information about the message content even if the ciphertext is secure."
+        },
+        {
+          "text": "Hash-then-Encrypt",
+          "isCorrect": false,
+          "rationale": "A simple hash does not provide authentication because it does not involve a secret key, making it insufficient for secure communication."
+        }
+      ],
+      "hint": "Identify the approach where the tag is calculated based on the output of the encryption process."
+    },
+    {
+      "question": "In Galois Counter Mode (GCM), what is the function of the GHASH component?",
+      "answerOptions": [
+        {
+          "text": "To provide message authentication using finite field multiplication",
+          "isCorrect": true,
+          "rationale": "GHASH is a keyed hash function that operates in $GF(2^{128})$ to ensure the integrity and authenticity of the data and associated headers."
+        },
+        {
+          "text": "To generate the keystream for the CTR mode encryption",
+          "isCorrect": false,
+          "rationale": "The keystream in GCM is generated by the underlying block cipher (e.g., AES) operating in Counter Mode, not by GHASH."
+        },
+        {
+          "text": "To securely salt the passwords before they are hashed",
+          "isCorrect": false,
+          "rationale": "GCM is an authenticated encryption mode for data transmission, not a mechanism specifically designed for password storage."
+        },
+        {
+          "text": "To increment the counter after each block is processed",
+          "isCorrect": false,
+          "rationale": "Incrementing the counter is a standard procedural step in CTR mode, whereas GHASH handles the authentication tag calculation."
+        }
+      ],
+      "hint": "Consider the role of finite field arithmetic in generating the authentication tag."
+    },
+    {
+      "question": "Why is it recommended to store 'salted' hashes of passwords rather than just the hashes themselves?",
+      "answerOptions": [
+        {
+          "text": "To force attackers to compute a unique dictionary for every user",
+          "isCorrect": true,
+          "rationale": "Salting ensures that two users with the same password have different stored hashes, preventing the use of precomputed tables (like rainbow tables)."
+        },
+        {
+          "text": "To make the hash function computationally slower to execute",
+          "isCorrect": false,
+          "rationale": "Salting adds randomness but not necessarily computational complexity; slowing down attacks is the purpose of iteration (e.g., PBKDF2)."
+        },
+        {
+          "text": "To allow the server to recover the original password if the salt is known",
+          "isCorrect": false,
+          "rationale": "Hashing is a one-way process; even with the salt, the original password cannot be recovered by the server."
+        },
+        {
+          "text": "To compress the password into a smaller storage format",
+          "isCorrect": false,
+          "rationale": "Hashing always produces a fixed-length output; the salt actually increases the amount of data that must be stored (the salt plus the hash)."
+        }
+      ],
+      "hint": "Think about how a unique, random string added to each password affects an attacker trying to use precomputed tables."
+    },
+    {
+      "question": "The PBKDF2 mechanism uses a parameter $c$ for iterations. What is the primary security benefit of increasing the value of $c$?",
+      "answerOptions": [
+        {
+          "text": "It increases the time required for an attacker to test each password guess",
+          "isCorrect": true,
+          "rationale": "By requiring thousands of iterations for a single hash calculation, the cost of brute-forcing low-entropy passwords becomes significantly higher for the attacker."
+        },
+        {
+          "text": "It increases the entropy of the user's original password",
+          "isCorrect": false,
+          "rationale": "Entropy is a property of the password chosen by the user; no algorithm can increase the underlying randomness of a human-selected string."
+        },
+        {
+          "text": "It eliminates the need for using a salt during the hashing process",
+          "isCorrect": false,
+          "rationale": "PBKDF2 still requires a salt to prevent precomputation attacks; iterations and salting are complementary techniques."
+        },
+        {
+          "text": "It ensures that the resulting key is always exactly $256$ bits long",
+          "isCorrect": false,
+          "rationale": "The length of the output key is a separate parameter and is not directly determined by the number of iterations performed."
+        }
+      ],
+      "hint": "Consider how repeating a process thousands of times affects the speed of a brute-force attack."
+    },
+    {
+      "question": "If an attacker is able to find a second preimage for a hash function, which other security property have they also effectively broken?",
+      "answerOptions": [
+        {
+          "text": "Collision resistance",
+          "isCorrect": true,
+          "rationale": "Collision resistance is a stronger property; since a second preimage involves finding two values that hash to the same thing, it by definition constitutes a collision."
+        },
+        {
+          "text": "Confidentiality",
+          "isCorrect": false,
+          "rationale": "Hash functions are public and do not provide secrecy; therefore, finding a second preimage does not impact confidentiality."
+        },
+        {
+          "text": "Non-repudiation",
+          "isCorrect": false,
+          "rationale": "This property relates to the legal/cryptographic inability to deny an action, which is not directly broken by finding a second preimage."
+        },
+        {
+          "text": "The sponge property",
+          "isCorrect": false,
+          "rationale": "The 'sponge' is a specific construction type (like in SHA-3), not a general security property of all hash functions."
+        }
+      ],
+      "hint": "Think about the relationship between finding 'any' two matching values versus finding a 'specific' matching value."
+    },
+    {
+      "question": "In GCM decryption, what is the first step the receiver should perform upon receiving the ciphertext $C$, nonce $N$, tag $T$, and associated data $A$?",
+      "answerOptions": [
+        {
+          "text": "Recompute the tag $T'$ and compare it with the received tag $T$",
+          "isCorrect": true,
+          "rationale": "In an authenticated encryption scheme, the authenticity should be verified before any decryption or further processing of the data occurs."
+        },
+        {
+          "text": "Immediately decrypt the ciphertext using the shared key $K$",
+          "isCorrect": false,
+          "rationale": "Decrypting before verifying the tag can expose the system to various side-channel attacks and process invalid, potentially malicious data."
+        },
+        {
+          "text": "Discard the associated data $A$ as it is not encrypted",
+          "isCorrect": false,
+          "rationale": "The associated data is critical because it is authenticated by the tag, even if it is not kept secret."
+        },
+        {
+          "text": "Increment the nonce $N$ to prepare for the next message",
+          "isCorrect": false,
+          "rationale": "The receiver must use the received nonce to verify the current message; incrementing is part of the sender's process for future messages."
+        }
+      ],
+      "hint": "Consider the 'Authenticated' part of Authenticated Encryption and what must be verified before trusting the data."
+    }
+  ]
+}

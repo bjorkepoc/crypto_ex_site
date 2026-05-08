@@ -1,0 +1,265 @@
+{
+  "title": "Kryptografi Quiz",
+  "questions": [
+    {
+      "question": "Hva er den prim\u00e6re svakheten ved STARTTLS-mekanismen i e-postprotokoller som SMTP og IMAP?",
+      "answerOptions": [
+        {
+          "text": "Den er s\u00e5rbar for STRIPTLS-angrep fordi den er opportunistisk.",
+          "isCorrect": true,
+          "rationale": "Siden STARTTLS starter som klartekst og forhandler kryptering, kan en angriper fjerne STARTTLS-flagget for \u00e5 tvinge kommunikasjonen til \u00e5 forbli ukryptert."
+        },
+        {
+          "text": "Den st\u00f8tter ikke bruk av moderne krypteringsalgoritmer som AES-256.",
+          "isCorrect": false,
+          "rationale": "STARTTLS muliggj\u00f8r bruk av TLS, som st\u00f8tter et bredt spekter av moderne og sterke krypteringsalgoritmer."
+        },
+        {
+          "text": "Den krever manuelt oppsett av offentlige n\u00f8kler mellom alle e-postservere.",
+          "isCorrect": false,
+          "rationale": "STARTTLS bruker standard TLS-sertifikater og krever ikke manuell n\u00f8kkelutveksling mellom servere p\u00e5 forh\u00e5nd."
+        },
+        {
+          "text": "Den beskytter kun metadataene i e-posten, ikke selve innholdet.",
+          "isCorrect": false,
+          "rationale": "STARTTLS krypterer hele kanalen mellom to noder, inkludert b\u00e5de metadata og selve e-postinnholdet under overf\u00f8ring."
+        }
+      ],
+      "hint": "Vurder hva som skjer hvis en angriper kan manipulere den innledende kommunikasjonen f\u00f8r kryptering er etablert."
+    },
+    {
+      "question": "Hvordan finner en mottaker-server den offentlige n\u00f8kkelen som trengs for \u00e5 verifisere en DKIM-signatur?",
+      "answerOptions": [
+        {
+          "text": "Ved \u00e5 gj\u00f8re et DNS-oppslag p\u00e5 en spesifikk tekstpost knyttet til selektoren og domenet.",
+          "isCorrect": true,
+          "rationale": "DKIM-n\u00f8kler er lagret i DNS-poster under formatet $[selector]._domainkey.[domain]$."
+        },
+        {
+          "text": "Ved \u00e5 be om n\u00f8kkelen direkte fra avsenderens MUA via SMTP.",
+          "isCorrect": false,
+          "rationale": "MUA-en sender selve signaturen i headeren, men n\u00f8kkelen hentes uavhengig for \u00e5 sikre autentisitet via domene-eieren."
+        },
+        {
+          "text": "Gjennom en sentralisert Certificate Authority (CA) som utsteder X.509-sertifikater.",
+          "isCorrect": false,
+          "rationale": "Dette beskriver PKI-modellen som brukes av S/MIME, ikke DKIM som bruker DNS-basert distribusjon."
+        },
+        {
+          "text": "Ved \u00e5 dekryptere en vedlagt sesjonsn\u00f8kkel som er inkludert i e-postens header.",
+          "isCorrect": false,
+          "rationale": "DKIM er en signaturmekanisme for autentisering, ikke en krypteringsmekanisme for konfidensialitet som krever sesjonsn\u00f8kler."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hvilken eksisterende internett-infrastruktur som brukes for \u00e5 koble domenenavn til spesifikk informasjon."
+    },
+    {
+      "question": "Hvilken rekkef\u00f8lge av operasjoner anbefales i PGP for \u00e5 sikre optimal sikkerhet og effektivitet?",
+      "answerOptions": [
+        {
+          "text": "Signering, deretter komprimering, og til slutt kryptering.",
+          "isCorrect": true,
+          "rationale": "Komprimering f\u00f8r kryptering reduserer redundans og filst\u00f8rrelse, mens signering av klartekst forhindrer angrep der en signatur kan flyttes til annen kryptert data."
+        },
+        {
+          "text": "Kryptering, deretter signering, og til slutt Base64-koding.",
+          "isCorrect": false,
+          "rationale": "Signering b\u00f8r skje f\u00f8r kryptering slik at mottakeren verifiserer den faktiske meldingen sendt av avsenderen."
+        },
+        {
+          "text": "Komprimering, deretter kryptering, og til slutt signering.",
+          "isCorrect": false,
+          "rationale": "Signering gj\u00f8res vanligvis f\u00f8r kryptering i PGP-arkitekturen for \u00e5 binde identiteten til det originale innholdet."
+        },
+        {
+          "text": "Base64-koding, deretter signering, og til slutt kryptering.",
+          "isCorrect": false,
+          "rationale": "Base64-koding er det siste steget for \u00e5 sikre trygg transport av bin\u00e6re data over tekstbaserte protokoller."
+        }
+      ],
+      "hint": "Vurder fordelene ved \u00e5 fjerne redundans f\u00f8r man gj\u00f8r dataene tilfeldige (kryptering)."
+    },
+    {
+      "question": "Hva er den fundamentale forskjellen mellom PKI-modellen i PGP og S/MIME?",
+      "answerOptions": [
+        {
+          "text": "PGP bruker en 'Web of Trust', mens S/MIME stoler p\u00e5 hierarkiske Certificate Authorities (CAs).",
+          "isCorrect": true,
+          "rationale": "PGP baserer seg p\u00e5 at brukere signerer hverandres n\u00f8kler, mens S/MIME bruker tradisjonelle X.509-sertifikater validert av sentrale instanser."
+        },
+        {
+          "text": "S/MIME bruker symmetriske n\u00f8kler for autentisering, mens PGP bruker asymmetriske n\u00f8kler.",
+          "isCorrect": false,
+          "rationale": "Begge protokollene bruker asymmetrisk kryptografi (offentlige/private n\u00f8kler) for sine sikkerhetsfunksjoner."
+        },
+        {
+          "text": "PGP krever at n\u00f8kler lagres i DNS, mens S/MIME lagrer n\u00f8kler lokalt i e-postklienten.",
+          "isCorrect": false,
+          "rationale": "DKIM bruker DNS, mens PGP ofte bruker dedikerte n\u00f8kkelservere eller direkte utveksling."
+        },
+        {
+          "text": "S/MIME er kun for kryptering, mens PGP st\u00f8tter b\u00e5de kryptering og signering.",
+          "isCorrect": false,
+          "rationale": "Begge teknologiene tilbyr b\u00e5de digital signering (autentisitet/integritet) og kryptering (konfidensialitet)."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hvem som er ansvarlig for \u00e5 bekrefte at en offentlig n\u00f8kkel faktisk tilh\u00f8rer en bestemt person."
+    },
+    {
+      "question": "Hvilken egenskap ved Signal-protokollen sikrer at en angriper ikke kan dekryptere tidligere meldinger selv om de f\u00e5r tak i de n\u00e5v\u00e6rende n\u00f8klene?",
+      "answerOptions": [
+        {
+          "text": "Forward Secrecy gjennom kontinuerlig ratcheting.",
+          "isCorrect": true,
+          "rationale": "Signal genererer nye n\u00f8kler for hver melding, slik at kompromittering av \u00e9n n\u00f8kkel ikke avsl\u00f8rer tidligere kommunikasjon."
+        },
+        {
+          "text": "Symmetrisk kryptering med AES-CBC.",
+          "isCorrect": false,
+          "rationale": "AES-CBC brukes til selve krypteringen av innholdet, men det er n\u00f8kkelh\u00e5ndteringen som s\u00f8rger for sikkerhet over tid."
+        },
+        {
+          "text": "Bruk av HMAC-SHA256 for meldingsautentisering.",
+          "isCorrect": false,
+          "rationale": "HMAC sikrer integritet og autentisitet for den enkelte melding, men beskytter ikke mot fremtidig dekryptering av gamle data."
+        },
+        {
+          "text": "Sentralisert registrering av brukeridentiteter p\u00e5 Signal-serveren.",
+          "isCorrect": false,
+          "rationale": "Serveren forenkler oppsettet, men bidrar ikke direkte til de kryptografiske egenskapene for fremtidig hemmelighold."
+        }
+      ],
+      "hint": "Dette konseptet kalles ofte 'fremoverrettet hemmelighold'."
+    },
+    {
+      "question": "Hva skjer i Signal-protokollen n\u00e5r kommunikasjonsretningen endres (f.eks. fra avsender til mottaker)?",
+      "answerOptions": [
+        {
+          "text": "Det utf\u00f8res en Diffie-Hellman (DH) ratchet for \u00e5 generere nye rot-n\u00f8kler.",
+          "isCorrect": true,
+          "rationale": "En ny ephemeral DH-n\u00f8kkel utveksles ved retningsendring for \u00e5 sikre post-compromise security og fornye n\u00f8kkelmaterialet."
+        },
+        {
+          "text": "Protokollen g\u00e5r tilbake til den forrige symmetriske n\u00f8kkelen for \u00e5 spare b\u00e5ndbredde.",
+          "isCorrect": false,
+          "rationale": "Signal g\u00e5r aldri bakover i n\u00f8kkelmaterialet; ratcheting beveger seg alltid fremover for \u00e5 opprettholde sikkerheten."
+        },
+        {
+          "text": "Serveren tvinger begge parter til \u00e5 laste opp nye 'PreKeys'.",
+          "isCorrect": false,
+          "rationale": "'PreKeys' brukes prim\u00e6rt for initialisering av sesjoner n\u00e5r den ene parten er offline, ikke for hver retningsendring."
+        },
+        {
+          "text": "Meldingen sendes ukryptert inntil en ny h\u00e5ndtrykk-fase er fullf\u00f8rt.",
+          "isCorrect": false,
+          "rationale": "Kommunikasjonen er alltid kryptert; ratcheting skjer s\u00f8ml\u00f8st som en del av protokollens meldingsflyt."
+        }
+      ],
+      "hint": "Signal kombinerer to typer ratchets; den ene skjer per melding, den andre ved endring i hvem som snakker."
+    },
+    {
+      "question": "Hva er hovedform\u00e5let med Signals PQXDH-protokoll?",
+      "answerOptions": [
+        {
+          "text": "\u00c5 beskytte mot 'Harvest Now, Decrypt Later'-angrep fra fremtidige kvantedatamaskiner.",
+          "isCorrect": true,
+          "rationale": "PQXDH introduserer post-kvante-kryptografi i n\u00f8kkelutvekslingen for \u00e5 sikre at data som lagres i dag ikke kan dekrypteres i fremtiden."
+        },
+        {
+          "text": "\u00c5 erstatte alle klassiske krypteringsalgoritmer med kvantesikre alternativer umiddelbart.",
+          "isCorrect": false,
+          "rationale": "PQXDH er en hybrid protokoll som fortsatt stoler p\u00e5 klassisk Diffie-Hellman for gjensidig autentisering."
+        },
+        {
+          "text": "\u00c5 muliggj\u00f8re ubegrenset antall deltakere i krypterte gruppesamtaler.",
+          "isCorrect": false,
+          "rationale": "Gruppemeldinger h\u00e5ndteres av andre mekanismer (som MLS), mens PQXDH fokuserer p\u00e5 sikkerheten i selve n\u00f8kkelutvekslingen."
+        },
+        {
+          "text": "\u00c5 eliminere behovet for sentrale servere i meldingsutvekslingen.",
+          "isCorrect": false,
+          "rationale": "Signal er fortsatt avhengig av propriet\u00e6re servere for registrering og formidling av meldinger."
+        }
+      ],
+      "hint": "Tenk p\u00e5 trusselen som oppst\u00e5r hvis noen lagrer kryptert trafikk i dag for \u00e5 knekke den om ti \u00e5r."
+    },
+    {
+      "question": "I sammenheng med e-postsikkerhet, hvilken informasjon anses som 'metadata' og lekker ofte selv ved bruk av ende-til-ende-kryptering som PGP?",
+      "answerOptions": [
+        {
+          "text": "Meldingens lengde, krypteringsalgoritmen som er brukt, og mottakerens n\u00f8kkel-ID.",
+          "isCorrect": true,
+          "rationale": "PGP-pakker inneholder headere som identifiserer n\u00f8klene som trengs for dekryptering og lengden p\u00e5 den krypterte filen."
+        },
+        {
+          "text": "Selve innholdet i vedleggene og emnefeltet i meldingen.",
+          "isCorrect": false,
+          "rationale": "PGP krypterer selve innholdet og vedleggene, selv om emnefeltet ofte forblir synlig avhengig av implementasjon."
+        },
+        {
+          "text": "Brukerens biometriske data og IP-adressen til avsenderens router.",
+          "isCorrect": false,
+          "rationale": "Dette er informasjon som kan logges av servere, men det regnes ikke som standard metadata definert i OpenPGP-spesifikasjonen."
+        },
+        {
+          "text": "Passordet til brukerens private n\u00f8kkel.",
+          "isCorrect": false,
+          "rationale": "Passordet til den private n\u00f8kkelen forlater aldri brukerens enhet og inkluderes aldri i meldings-metadata."
+        }
+      ],
+      "hint": "Metadata er 'data om dataene' som trengs for at systemet skal kunne behandle pakken."
+    },
+    {
+      "question": "Hvorfor er 'Why Johnny Can\u2019t Encrypt' (1999) fortsatt relevant for moderne e-postsikkerhet?",
+      "answerOptions": [
+        {
+          "text": "Den belyser at brukervennligheten i PGP er s\u00e5 lav at de fleste feiler i \u00e5 generere og h\u00e5ndtere n\u00f8kler korrekt.",
+          "isCorrect": true,
+          "rationale": "Studien og dens oppf\u00f8lgere viser at komplekse kryptografiske konsepter f\u00f8rer til brukerfeil som undergraver sikkerheten."
+        },
+        {
+          "text": "Den beviser matematisk at RSA-algoritmen er s\u00e5rbar for faktoriseringsangrep.",
+          "isCorrect": false,
+          "rationale": "Studien handlet om brukbarhet (usability) og menneskelige faktorer, ikke om de underliggende matematiske algoritmene."
+        },
+        {
+          "text": "Den foresl\u00e5r en ny protokoll som erstatter SMTP med en sikrere variant.",
+          "isCorrect": false,
+          "rationale": "Studien fokuserte p\u00e5 eksisterende verkt\u00f8y som PGP og hvordan brukere interagerte med dem, ikke p\u00e5 protokollendringer."
+        },
+        {
+          "text": "Den argumenterer for at all e-post b\u00f8r v\u00e6re sentralisert hos store tilbydere som Gmail.",
+          "isCorrect": false,
+          "rationale": "Studien kritiserte faktisk vanskelighetsgraden ved uavhengig ende-til-ende-kryptering."
+        }
+      ],
+      "hint": "Fokuser p\u00e5 interaksjonen mellom komplekse sikkerhetssystemer og vanlige brukere."
+    },
+    {
+      "question": "Hva kjennetegner Apples iMessage PQ3 i forhold til sikkerhetsniv\u00e5er for meldingsapper?",
+      "answerOptions": [
+        {
+          "text": "Den befinner seg p\u00e5 'Niv\u00e5 3' fordi den har b\u00e5de PQ-n\u00f8kkelutveksling og kontinuerlig PQ-rekeying.",
+          "isCorrect": true,
+          "rationale": "PQ3 g\u00e5r lenger enn Signal (som er Niv\u00e5 2) ved \u00e5 integrere post-kvante-kryptografi i den l\u00f8pende rekeying-prosessen."
+        },
+        {
+          "text": "Den er den eneste appen som bruker fullstendig kvantebasert maskinvare for kryptering.",
+          "isCorrect": false,
+          "rationale": "PQ3 bruker post-kvante-algoritmer (programvare) som kj\u00f8rer p\u00e5 klassisk maskinvare, ikke kvantedatamaskiner."
+        },
+        {
+          "text": "Den fjerner all st\u00f8tte for klassisk kryptering for \u00e5 tvinge alle brukere over p\u00e5 PQ-sikkerhet.",
+          "isCorrect": false,
+          "rationale": "Moderne PQ-protokoller er hybride og beholder klassiske algoritmer som et sikkerhetsnett."
+        },
+        {
+          "text": "Den krever at brukeren verifiserer n\u00f8kler manuelt via en QR-kode for hver melding.",
+          "isCorrect": false,
+          "rationale": "Selv om iMessage har 'Contact Key Verification', er dette en separat funksjon fra PQ3-niv\u00e5et for kryptering."
+        }
+      ],
+      "hint": "Se p\u00e5 forskjellen mellom den innledende n\u00f8kkelopprettelsen og den p\u00e5f\u00f8lgende vedlikeholdelsen av sesjonen."
+    }
+  ]
+}

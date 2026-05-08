@@ -1,0 +1,407 @@
+[
+  {
+    "lectureId": "L-1",
+    "title": "Basic Number Theory, Groups and Finite Fields",
+    "mainPoint": "Lecture 1 builds the mathematical language used by the rest of the course. Almost every later topic relies on modular arithmetic, inverses, cyclic groups, or finite-field arithmetic.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Divisibility, primes, Euclidean division, and greatest common divisors.\n- The Euclidean algorithm and the extended Euclidean algorithm.\n- Modular arithmetic and modular inverses.\n- Groups, cyclic groups, element order, and generators.\n- Finite fields such as $GF(p)$ and $GF(2^n)$.\n- Boolean algebra and XOR as basic cryptographic operations."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- What $a | b$ means, and why primes matter.\n- How to compute $\\gcd(a, b)$ using the Euclidean algorithm.\n- How back-substitution gives integers $x$ and $y$ such that $a \\cdot x + b \\cdot y = \\gcd(a, b)$.\n- Why $a$ has an inverse modulo $n$ exactly when $\\gcd(a, n) = 1$.\n- The group requirements: closure, associativity, identity, inverse.\n- The meaning of the order of a group and the order of an element.\n- Why $\\mathbb{Z}_p^*$ is special when $p$ is prime.\n- That XOR is addition modulo 2."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The first major difficulty is modular inversion. Students often memorize \"use extended Euclid\" without seeing why it works. The reason is simple but deep: if $\\gcd(a, n) = 1$, then there exist integers $x$ and $y$ with $a \\cdot x + n \\cdot y = 1$. Reducing that equation modulo $n$ kills the $n \\cdot y$ term and leaves $a \\cdot x \\equiv 1 \\pmod{n}$. That means $x$ is the inverse of $a$ modulo $n$. So the extended Euclidean algorithm is not a trick. It is a constructive proof that the inverse exists.\n\nThe second hard idea is the jump from ordinary arithmetic to algebraic structure. A group is not just \"numbers with an operation\". It is a set where the operation behaves predictably enough that we can reason about inversion and repeated application. Cryptography loves cyclic groups because once a generator $g$ exists, every group element can be written as a power of $g$. That turns group problems into exponent problems, which is exactly what later public-key crypto uses.\n\nThe third hard idea is finite fields. Over $GF(p)$, every nonzero element has a multiplicative inverse, which is why arithmetic works so cleanly in RSA-style settings and many number theory examples. Over $GF(2^n)$, the objects are best thought of as bit strings or polynomials with binary coefficients. Addition is XOR. Multiplication is polynomial multiplication reduced modulo an irreducible polynomial. This feels abstract at first, but it becomes practical later in AES."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Compute $\\gcd$ values and modular inverses by hand.\n- Decide when an inverse exists modulo $n$.\n- Explain what a cyclic group is and why generators matter.\n- Explain why prime modulus arithmetic behaves better than composite modulus arithmetic.\n- Read later crypto formulas without getting lost in the notation."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-2",
+    "title": "Classical Encryption Techniques",
+    "mainPoint": "Lecture 2 introduces the basic vocabulary of cryptography and cryptanalysis by studying old ciphers. The ciphers themselves are weak, but the attack ideas are still central.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Cryptology versus cryptography versus cryptanalysis.\n- Confidentiality versus authenticity.\n- Symmetric versus asymmetric systems.\n- Attack models such as ciphertext-only, known-plaintext, and chosen-plaintext.\n- Natural language statistics and why they leak structure.\n- Transposition ciphers versus substitution ciphers.\n- Caesar, monoalphabetic substitution, and Vigenère.\n- Period detection techniques such as Kasiski, autocorrelation, and index of coincidence."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- The difference between transposition and substitution.\n- Why English letter frequencies make simple substitution vulnerable.\n- Why Caesar is just a tiny key-space substitution cipher.\n- Why a random monoalphabetic substitution hides single-letter identities but still leaks language statistics.\n- Why Vigenère is stronger than Caesar but still not secure.\n- The intuition behind identifying the Vigenère period before solving each Caesar-like stream separately."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The hard idea here is not the mechanics of Caesar or Vigenère. It is the idea that encryption can fail even when the key is unknown, simply because the ciphertext still carries statistical structure from the plaintext. Natural language is highly non-random: some letters and digrams occur much more often than others. A substitution cipher preserves those frequencies, only with the labels renamed. That means the attacker is not guessing the key from nothing. The attacker is matching patterns.\n\nVigenère is harder because it mixes several Caesar shifts. At first that seems to destroy frequency analysis, but it only spreads the leakage across several positions. If the key has period $d$, then every $d$th character was encrypted with the same Caesar shift. Once the attacker finds $d$, the problem splits into $d$ smaller substitution problems. This is why period-finding is the real first step in Vigenère cryptanalysis.\n\nAnother important conceptual jump is attack models. The question is not only \"can the scheme be broken?\" but also \"what does the attacker know or control?\" A known-plaintext attack is much stronger than ciphertext-only. This thinking reappears later in modern notions such as CPA and CCA security."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Classify a cipher as transposition, substitution, or polyalphabetic.\n- Explain why language statistics are a security problem.\n- Describe how a Vigenère attack proceeds in two phases: find the period, then solve the shifts.\n- Use classical ciphers as examples of what modern ciphers must avoid leaking."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-3",
+    "title": "Hill Cipher, Stream Ciphers and the One-Time Pad",
+    "mainPoint": "Lecture 3 moves from character-shifting ciphers to algebraic and keystream-based ciphers. It shows both a mathematically elegant but weak cipher (Hill) and a perfectly secure but impractical cipher (the one-time pad).",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- The Hill cipher as matrix multiplication modulo 26.\n- Why invertibility of the key matrix matters.\n- Why linearity is dangerous.\n- Stream cipher encryption as $\\text{ciphertext} = \\text{plaintext} \\oplus \\text{keystream}$.\n- The conditions required for one-time pad security.\n- Shannon's definition of perfect secrecy.\n- Visual cryptography as a different style of secret sharing."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- Hill encryption: $C = K \\cdot P$ and decryption: $P = K^{-1} \\cdot C$.\n- The key matrix must be invertible modulo the alphabet size.\n- A known-plaintext attack on Hill can recover $K$ by solving linear equations.\n- Stream ciphers do not encrypt blocks independently; they generate a keystream.\n- OTP is secure only if the key is truly random, as long as the message, secret, and never reused.\n- Reusing a stream or OTP keystream is catastrophic."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The Hill cipher is often the first place where students feel the power of linear algebra in cryptography. It also shows exactly why \"mathematical\" does not mean \"secure\". Because the encryption is linear, enough plaintext-ciphertext pairs let the attacker solve for the key matrix directly. The attack is not brute force. It is algebra. That is the lesson: structure helps the attacker if the structure is too clean.\n\nThe one-time pad is hard conceptually because it looks almost too simple. Why should XOR or modular addition with a random key make the message perfectly hidden? The reason is that for any observed ciphertext, every plaintext of the same length is compatible with exactly one key. If the keys are uniformly random, then seeing the ciphertext does not make any plaintext more likely than before. That is what perfect secrecy means: observing the ciphertext does not change the posterior distribution of messages.\n\nThe catch is equally important. OTP security depends on brutal operational requirements. The key must be random, at least as long as the message, shared securely in advance, and used once. If two messages use the same keystream, their ciphertexts XOR together to reveal the XOR of the two plaintexts. That is why stream-cipher nonce reuse later becomes such a serious problem."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Encrypt and decrypt short Hill cipher examples.\n- Explain why a linear cipher is vulnerable to known-plaintext attacks.\n- Explain perfect secrecy in probability terms, not just in slogans.\n- Explain why OTP is theoretically ideal and practically awkward."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-4",
+    "title": "Block Ciphers, DES and AES",
+    "mainPoint": "Lecture 4 introduces the modern workhorse cipher family: block ciphers. The core idea is that many rounds of carefully designed confusion and diffusion can produce a secure permutation on fixed-size blocks.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Block ciphers as fixed-size keyed permutations.\n- Shannon's confusion and diffusion.\n- Product ciphers and iterated ciphers.\n- Feistel networks and substitution-permutation networks.\n- Avalanche properties.\n- Differential and linear cryptanalysis.\n- DES design and why its key length became too short.\n- Triple DES as an extension of DES.\n- AES as the modern standard block cipher."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- What a block cipher does and does not do by itself.\n- The difference between Feistel structure and SPN structure.\n- Why avalanche matters.\n- That DES is structurally clever but key-size limited.\n- Why double DES is not the simple fix it appears to be.\n- The broad AES round structure: nonlinear substitution, permutation, diffusion, and round-key addition."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The hardest conceptual jump here is seeing why repeated simple rounds can produce something much stronger than each round alone. One round of substitution or permutation does not hide much. Many rounds can mix local changes so widely that tiny input differences become global output differences. That is the purpose of confusion and diffusion, and avalanche is the symptom that this mixing is happening.\n\nFeistel and SPN designs can be confusing because both are iterated ciphers, but they solve reversibility differently. A Feistel network can be inverted even if the round function itself is not invertible, because half-block swapping and XOR create a reversible structure. An SPN typically uses invertible steps throughout. AES is the canonical SPN example.\n\nThe other hard idea is that \"strong design\" and \"real security margin\" are not the same thing. DES was a major engineering success, but 56-bit keys became too small for brute-force security. Triple DES extended its life, but with more cost. AES replaced it not because DES had totally failed mathematically, but because practical security and efficiency demanded a stronger standard.\n\nIf AES arithmetic feels mysterious, focus on the role of each step. SubBytes adds nonlinearity. ShiftRows and MixColumns spread local changes across the state. AddRoundKey injects the secret each round. You do not need to love the matrix details on day one, but you do need to see how the steps cooperate."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Explain confusion, diffusion, and avalanche in plain language.\n- Distinguish Feistel and SPN designs.\n- Explain why DES is historically important but no longer sufficient.\n- Describe the purpose of each main AES round component."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-5",
+    "title": "Encryption Modes and PRNGs",
+    "mainPoint": "Lecture 5 explains why a secure block cipher is not enough. How you use the block cipher matters just as much as which block cipher you choose.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Why direct block-by-block encryption leaks patterns.\n- Confidentiality modes: ECB, CBC, CFB, OFB, CTR.\n- Padding requirements and alternatives.\n- Parallelism and error propagation.\n- The role of IVs and nonces.\n- Random numbers and deterministic random bit generators.\n- CTR_DRBG and the Dual_EC_DRBG cautionary example."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- ECB is deterministic and leaks repeated blocks.\n- CBC chains each block to the previous ciphertext block and needs a proper IV.\n- OFB and CTR turn a block cipher into a keystream generator.\n- CTR mode absolutely requires nonce/counter uniqueness under a key.\n- Different modes have different operational properties: parallelizability, random access, padding, and error propagation.\n- A DRBG is deterministic after seeding, which is a feature, not a bug."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The biggest trap in this lecture is thinking that a secure primitive stays secure in every wrapper. It does not. ECB can use AES internally and still leak the visual structure of the plaintext because equal plaintext blocks produce equal ciphertext blocks. That is why modes exist in the first place: to add randomness, chaining, or state.\n\nThe second hard idea is that IV and nonce requirements are mode-specific. In CBC, the IV should be unpredictable or at least fresh enough that the first block does not become deterministic in a dangerous way. In CTR, the nonce does not need to be secret, but it must never repeat with the same key, because repetition causes keystream reuse. Once that happens, XORing ciphertexts leaks the XOR of plaintexts, just like stream-cipher reuse.\n\nCTR mode is especially important conceptually. It encrypts a sequence of counter blocks and uses the outputs as keystream. That means encryption and decryption are both just XOR with a keystream. It is fast, parallel, and clean, but it moves all safety onto nonce management. The mathematics is simple; the operations discipline is the hard part.\n\nThe DRBG section is a reminder that random number generation is part of cryptographic security, not a side detail. Dual_EC_DRBG became famous because a standard can be technically published and still inspire deep distrust if its structure appears to enable a hidden trapdoor."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Pick a suitable confidentiality mode and justify the choice.\n- Explain why ECB is bad even with a strong cipher.\n- Explain the difference between IV unpredictability and nonce uniqueness.\n- Explain why bad randomness can break otherwise sound designs."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-6",
+    "title": "Hashes and MACs",
+    "mainPoint": "Lecture 6 shifts from confidentiality to integrity and authentication. Hashes compress data; MACs authenticate data; authenticated encryption aims to do both at once.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Hash functions and their core security properties.\n- Collision resistance, preimage resistance, second-preimage resistance.\n- The birthday bound.\n- Iterated hashing and Merkle-Damgård.\n- Standardized hash families and broken historical ones.\n- Password hashing with salts.\n- Message authentication codes and HMAC.\n- Authenticated encryption and GCM."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- The exact difference between collision resistance and preimage resistance.\n- Why $n$-bit collision security is roughly $2^{n/2}$, not $2^n$.\n- Why Merkle-Damgård supports long inputs but introduces structural attacks.\n- Why hashing a password alone is not enough; salts matter.\n- Why a plain hash does not give authentication.\n- Why HMAC is stronger than the naive \"hash(key || message)\" approach.\n- Why authenticated encryption is preferable to bare encryption."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The three hash security notions are easy to mix up. Preimage resistance asks: given a digest $y$, can you find any $x$ with $H(x) = y$? Second-preimage asks: given one specific $x_1$, can you find a different $x_2$ with the same digest? Collision resistance asks for any pair $x_1 \\neq x_2$ with equal digest. The last one is usually the strongest practical notion because the attacker gets more freedom.\n\nThe birthday paradox matters because it changes the scale of collision attacks. If a hash has $k$ output bits, you do not need around $2^k$ work for a collision; around $2^{k/2}$ random tries already give a constant collision probability. That is why 256-bit outputs are commonly used when collision resistance matters.\n\nHMAC is one of the most exam-important constructions in the whole course. The key idea is that HMAC wraps the hash twice with different pad constants and a key-derived block. This prevents the structural problems that naive keyed hashes can have, including Merkle-Damgård length-extension style abuse. You do not need to derive the proof, but you do need to understand that HMAC is not just \"a hash with a secret stuck on\".\n\nGCM is hard because it combines two ideas: CTR-mode encryption for confidentiality and a polynomial-style authenticator over a finite field for integrity. Operationally, the big rule is nonce uniqueness. Reusing a GCM nonce under the same key is dangerous for both confidentiality and integrity."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- State and distinguish the three main hash security properties.\n- Explain why collision security scales with the birthday bound.\n- Explain why HMAC is a MAC and a plain hash is not.\n- Explain what authenticated encryption is trying to achieve."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-7",
+    "title": "Number Theory for Public-Key Crypto",
+    "mainPoint": "Lecture 7 turns basic number theory into public-key machinery. It connects modular arithmetic to prime generation and to the hardness assumptions used by RSA and discrete-log systems.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Chinese remainder theorem (CRT).\n- Euler's phi function.\n- Fermat's little theorem and Euler's theorem.\n- Primality testing.\n- Fermat primality test and Carmichael numbers.\n- Miller-Rabin testing.\n- Basic complexity thinking.\n- Factorization and discrete logarithm as computational problems."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- How CRT combines congruences modulo pairwise coprime moduli.\n- Basic phi values, especially for primes and products of distinct primes.\n- The statements and use cases of Fermat and Euler.\n- Why Fermat testing alone is not reliable.\n- What Carmichael numbers show.\n- The broad Miller-Rabin procedure and why it is much better in practice.\n- That \"probably prime\" can still be good enough when the error is tiny."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "CRT is conceptually beautiful because it says that arithmetic modulo a composite number with coprime factors can be decomposed into arithmetic modulo the factors. That is not just a theorem to memorize. It is the reason CRT-based speedups work later in RSA. It lets you solve one problem by solving several smaller ones and then recombining them.\n\nMiller-Rabin is the hardest part of this lecture for most people. The point is to catch composites that sneak past Fermat-style tests. Write $n - 1 = 2^v \\cdot u$ with $u$ odd. Then examine powers of a random base $a$. If $n$ were prime, the sequence of squarings has very restricted behavior: it can hit $1$ only in certain safe ways, and if it reaches $1$ from something other than $+1$ or $-1$ mod $n$, that exposes a nontrivial square root of $1$, which cannot happen for prime $n$. That is the intuition behind the test.\n\nThe deeper lesson is that public-key crypto depends on a chain: efficient arithmetic, efficient prime generation, and hard inverse problems. If any of those links were missing, modern public-key systems would not be usable."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Solve small CRT exercises.\n- Compute phi for standard forms of $n$.\n- Explain why Fermat is insufficient and Miller-Rabin is preferred.\n- Explain why factoring and discrete log are useful as one-way candidates."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-8",
+    "title": "Public Key Cryptography and the RSA Scheme",
+    "mainPoint": "Lecture 8 introduces the public-key idea and then studies RSA as the canonical example of trapdoor computation.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- One-way and trapdoor one-way functions.\n- Why public-key crypto solves key-distribution problems.\n- Hybrid encryption.\n- RSA key generation and operations.\n- Efficient exponentiation and CRT speedups.\n- Padding, especially OAEP-style thinking.\n- Security relation to factorization.\n- Side-channel attacks on implementations."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- Public key for encryption, private key for decryption.\n- RSA key generation: choose large primes $p, q$, set $n = pq$, compute $\\varphi(n)$, choose $e$, compute $d = e^{-1} \\bmod \\varphi(n)$.\n- Encryption: $c = m^e \\bmod n$.\n- Decryption: $m = c^d \\bmod n$.\n- Why public-key encryption is usually used only to transport a symmetric key.\n- The purpose of square-and-multiply.\n- Why raw RSA must be padded."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The most important conceptual point is why RSA decryption works at all. The secret is the relation $e \\cdot d \\equiv 1 \\pmod{\\varphi(n)}$. That means $e \\cdot d = 1 + k \\cdot \\varphi(n)$ for some integer $k$. Euler's theorem then says powers collapse in exactly the right way so that raising a ciphertext to the power $d$ reverses raising the message to the power $e$. If you do not see that link between number theory and the scheme, RSA feels like magic. It is not magic; it is modular arithmetic plus a trapdoor.\n\nThe second hard idea is that textbook RSA is not semantically secure. It is deterministic: the same plaintext under the same key gives the same ciphertext. That means attackers can test guesses and exploit algebraic structure. Padding schemes such as OAEP randomize the encoding before exponentiation so that the encryption behaves like a proper modern public-key scheme.\n\nThe third hard idea is implementation leakage. RSA can be mathematically sound and still fail if timing, power, or fault behavior reveals the private exponent. Square-and-multiply is especially instructive because the pattern of multiplies can depend on exponent bits. Constant-time techniques, blinding, and careful engineering matter because attackers do not have to break the math if the device betrays the key."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Carry out toy RSA key generation and encryption/decryption.\n- Explain why hybrid encryption is standard practice.\n- Explain why padding is required.\n- Explain the difference between breaking RSA mathematically and leaking it through implementation."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-9",
+    "title": "Discrete Log Public Key Cryptosystems",
+    "mainPoint": "Lecture 9 studies the other main public-key family: systems based on discrete logarithms rather than factorization.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Diffie-Hellman key exchange.\n- Computational assumptions behind DH-style systems.\n- The man-in-the-middle problem and authentication.\n- Static versus ephemeral keys.\n- ElGamal encryption.\n- Elliptic curves and elliptic-curve cryptography."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- How plain Diffie-Hellman works: Alice sends $g^a$, Bob sends $g^b$, both derive $g^{ab}$.\n- Why the protocol gives confidentiality but not identity by itself.\n- Why authenticated DH adds signatures or another binding mechanism.\n- The high-level ElGamal idea: randomness plus group multiplication.\n- Why elliptic-curve versions usually achieve the same security with smaller keys."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The most important conceptual point is that Diffie-Hellman is a key-agreement protocol, not an authentication protocol. Students often think \"the math is correct, so the protocol is secure\". But if an attacker can sit between the parties, the attacker can run one DH exchange with Alice and another with Bob, then relay traffic. No secret math is broken. The failure is missing identity binding.\n\nElGamal is worth understanding as a \"DH turned into encryption\" intuition. A fresh random exponent creates an ephemeral public value, and that fresh value is combined with the receiver's public key to mask the message. The reason this is better than textbook RSA from a confidentiality perspective is that ElGamal is naturally randomized.\n\nElliptic curves are usually the hardest new object in the course. You do not need full algebraic geometry. The key thing is that the points on a carefully chosen curve form a group, and the hard problem is scalar multiplication in reverse: given $P$ and $Q = [k]P$, find $k$. That is the elliptic-curve discrete-log problem. Because the best known attacks are worse than the best known attacks on finite-field DH at equal parameter size, ECC gives smaller keys for the same security level."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Explain DH clearly and identify its missing authentication property.\n- Explain why ephemeral keys help with forward secrecy.\n- Describe ElGamal at a high level.\n- Explain why ECC is attractive in practice."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-10",
+    "title": "Digital Signatures",
+    "mainPoint": "Lecture 10 turns public-key ideas from confidentiality into authenticity, integrity, and non-repudiation.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- What digital signatures guarantee.\n- Why signatures are different from MACs.\n- Security notions such as existential forgery under chosen-message attack.\n- RSA signatures.\n- Discrete-log signatures: ElGamal, Schnorr, DSA, ECDSA.\n- The role of hashing before signing.\n- The importance of good randomness in nonce-based signatures."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- A signature scheme has key generation, signing, and verification.\n- Signatures are publicly verifiable; MACs are not.\n- Modern security aims at resisting existential forgery under chosen-message attack.\n- RSA signatures sign a hash-derived value, not the whole message directly.\n- Schnorr/DSA/ECDSA-style schemes depend critically on nonce quality."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The easiest mistake in this lecture is to treat signatures as \"public-key MACs\". They are related, but the public-verification property changes everything. With a MAC, every verifier must know the shared secret, so no verifier can later prove which party created the tag. With signatures, anyone can verify using the public key, but only the signer should be able to produce the signature. That is why signatures enable non-repudiation.\n\nThe security notion of existential forgery under chosen-message attack sounds technical, but it captures the real danger. We do not only care whether an attacker can forge the exact message they want. We care whether the attacker can produce any new valid signature after interacting with the signer on messages of their choice. If the answer is yes, the scheme is broken.\n\nFor DSA-, Schnorr-, and ECDSA-style signatures, the hardest operational lesson is nonce reuse. These schemes mix the secret signing key with a fresh random nonce in a way that can often be algebraically inverted if the nonce repeats or is biased. This is one of the most realistic real-world signature failure modes."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Explain how signatures differ from MACs.\n- Describe the main security goal for a modern signature scheme.\n- Explain at a high level how RSA and discrete-log signatures differ.\n- Explain why bad nonce generation can destroy signature security."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-11",
+    "title": "Key Establishment and Certificates",
+    "mainPoint": "Lecture 11 studies how cryptographic primitives are combined into protocols that actually establish session keys between real systems.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Key management life cycle.\n- Long-term, ephemeral, and session keys.\n- Authentication and confidentiality as protocol goals.\n- Key pre-distribution, key transport, and key agreement.\n- Public-key and symmetric-key establishment methods.\n- Certificates and PKI.\n- Needham-Schroeder and replay attacks.\n- Kerberos and ticket-based authentication."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- Why session keys should be fresh.\n- Why long-term keys and session keys serve different roles.\n- The difference between transport and agreement.\n- What a certificate is doing in a protocol.\n- Why replay attacks are a protocol problem, not a cipher problem.\n- How timestamps, counters, and nonces provide freshness.\n- The basic purpose of tickets in Kerberos."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "Protocol lectures are hard because the question is no longer only \"can the attacker compute the key?\" It becomes \"who believes what, and why are they justified?\" A party can finish a protocol and still be wrong about who shares the key with them. That is why authentication in protocol analysis is subtle.\n\nNeedham-Schroeder is a classic because it shows how a design can look sensible and still fail under replay. If an old session key is compromised, replaying old messages can trick one side into accepting the old key again unless freshness is built in. The fix is not stronger encryption. The fix is evidence that the key is new for this run.\n\nCertificates are another conceptual jump. A certificate does not make a public key magically true. It binds an identity to a public key with a signature from an authority the verifier already trusts. PKI is therefore a trust-management system layered on top of signatures.\n\nKerberos is hard because it is multi-stage. The user first proves themselves to an authentication service, then gets a ticket-granting capability, then uses service tickets to talk to individual services. The gain is single sign-on. The cost is complexity and reliance on the KDC infrastructure."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Explain freshness and replay resistance.\n- Explain the difference between authentication and confidentiality in a protocol.\n- Explain what certificates and PKI contribute.\n- Describe the high-level flow of Kerberos."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-12",
+    "title": "Quantum-Safe Cryptography",
+    "mainPoint": "Lecture 12 explains why quantum computing threatens today's public-key systems and introduces the main families being standardized to replace them.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Shor's algorithm and its impact on RSA and discrete-log systems.\n- Grover's algorithm and its weaker impact on symmetric cryptography.\n- \"Harvest now, decrypt later\" as a deployment concern.\n- Lattice-style assumptions such as LWE and SIS.\n- KEMs and post-quantum signatures.\n- ML-KEM (Kyber) and ML-DSA (Dilithium).\n- Hybrid migration strategies."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- Quantum danger mainly targets public-key crypto first.\n- Symmetric crypto is not broken in the same way; parameters are often just increased.\n- Why long-term confidentiality motivates migration before large quantum computers exist.\n- What a KEM does: key generation, encapsulation, decapsulation.\n- That LWE and SIS are very different kinds of hardness assumptions than factoring and discrete log.\n- Why hybrid deployment is attractive during transition."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The first hard idea is strategic, not mathematical: migration is urgent even before a practical cryptanalytically relevant quantum computer exists, because adversaries can store ciphertext now and decrypt it later. If today's traffic needs to stay secret for many years, \"secure today, broken later\" is not good enough.\n\nThe second hard idea is what quantum actually changes. Shor's algorithm is devastating for factoring and discrete logarithms, so RSA, DH, ECDH, DSA, and ECDSA are all in trouble in a full-scale quantum world. Grover's algorithm is different: it gives a square-root speedup for brute force, so symmetric systems mostly need longer keys and hash outputs rather than complete replacement.\n\nLWE and SIS are hard because they do not look like the number theory problems you already know. The intuition for LWE is that linear equations become hard to solve when small noise is mixed in carefully. The intuition for SIS is that you must find a short nonzero vector satisfying a modular linear relation. You do not need the full reductions for exam purposes, but you do need to understand that post-quantum schemes are built on very different hardness landscapes.\n\nHybrid deployment is conceptually important. A hybrid handshake usually combines classical and post-quantum contributions so that the session remains secure unless both components fail. This is a practical migration pattern, not just a theoretical compromise."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Explain why public-key crypto is the first major quantum casualty.\n- Explain why \"harvest now, decrypt later\" matters.\n- Explain the basic idea of a KEM.\n- Explain why hybrid deployments are a sensible transitional design."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-13",
+    "title": "Transport Layer Security",
+    "mainPoint": "Lecture 13 studies TLS as a real deployed protocol that combines many course primitives into one complicated system.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- TLS history from SSL to TLS 1.2 and TLS 1.3.\n- TLS architecture: handshake, record, alert, change cipher spec.\n- Cipher suites and what they specify.\n- Record-layer confidentiality and integrity.\n- Handshake-based key establishment and authentication.\n- Real-world attacks on TLS."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- TLS is a protocol family, not just a cipher.\n- The handshake sets up keys and authenticates peers; the record layer protects data.\n- Cipher suites name both handshake choices and record protection choices.\n- TLS 1.2 widely used signed (EC)DHE for key exchange plus symmetric record protection.\n- Many practical TLS failures were due to downgrade, padding, compression, or implementation bugs."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The hardest conceptual issue is separating the roles of the sub-protocols. The handshake establishes shared secrets and authenticates the server, sometimes the client. The record layer then uses symmetric cryptography to protect bulk data. If you blur those layers together, TLS diagrams become impossible to reason about.\n\nThe second hard lesson is that attacks on TLS often do not mean \"AES was broken\". BEAST exploited CBC IV behavior. CRIME and BREACH exploited compression side channels. POODLE exploited downgrade plus padding-oracle behavior. Lucky 13 exploited timing leakage. Heartbleed was an implementation bounds-check failure, not a failure of the cryptographic design. This lecture is really about how secure primitives can still fail inside a large system.\n\nBackward compatibility is another recurring difficulty. Old protocol versions, legacy cipher suites, and downgrade paths create attack surface. TLS is a perfect case study in why deployed security is messier than textbook security."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Describe the difference between the TLS handshake and record layer.\n- Read a cipher suite name and explain its components.\n- Explain how several famous TLS attacks worked at a high level.\n- Explain why protocol evolution and deprecation matter."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-14",
+    "title": "TLS 1.3 and IP Security",
+    "mainPoint": "Lecture 14 shows how TLS 1.3 simplified and strengthened TLS, then compares TLS with IPsec as a lower-layer approach to secure communication.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Why TLS 1.3 removed legacy features.\n- One-RTT-style handshake improvements.\n- HKDF-based key schedule and multiple traffic key types.\n- 0-RTT early data and its trade-offs.\n- IPsec goals and where it sits in the stack.\n- ESP versus AH.\n- IKEv2 and Security Associations.\n- Transport mode versus tunnel mode."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- TLS 1.3 removes static RSA/DH, renegotiation, compression, and non-AEAD suites.\n- TLS 1.3 always uses ephemeral Diffie-Hellman style key exchange.\n- Most handshake messages are protected earlier than in TLS 1.2.\n- 0-RTT improves latency but does not give the same security as full fresh-handshake data.\n- ESP gives confidentiality plus integrity/authentication; AH does not give confidentiality and is largely deprecated.\n- A Security Association tells an IPsec endpoint how to process traffic.\n- Transport mode protects payload in host-to-host style; tunnel mode wraps the entire original packet and is common gateway-to-gateway."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "TLS 1.3 is best understood as a deliberate cleanup. Earlier TLS versions accumulated options that created too much complexity and too many dangerous legacy paths. TLS 1.3 aggressively removes weak or awkward features and makes ephemeral key agreement the default. That improves both forward secrecy and implementation clarity.\n\n0-RTT is conceptually tricky. It lets a client send early data before the full handshake completes when resuming with a pre-shared context. That helps performance, but the early data does not enjoy the same freshness and replay resistance properties as ordinary application data under a full handshake. So 0-RTT is a performance feature with careful usage limits, not a free win.\n\nIPsec is hard because it lives at a different layer than TLS. TLS secures applications and usually terminates at the endpoint application context. IPsec secures IP packets and can protect host-to-host or gateway-to-gateway traffic without application awareness. A Security Association is basically the connection state telling each side which algorithms, keys, and identifiers to use. Because SAs are directional, a full bidirectional setup uses separate state in each direction."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Explain the major security differences between TLS 1.2 and TLS 1.3.\n- Explain why 0-RTT is useful and why it is risky.\n- Explain the roles of ESP, AH, IKEv2, and SAs.\n- Explain transport versus tunnel mode."
+      }
+    ]
+  },
+  {
+    "lectureId": "L-15",
+    "title": "Email Security and Secure Messaging",
+    "mainPoint": "Lecture 15 compares two real-world communication settings that look similar from far away but have very different security models: email and instant messaging.",
+    "sections": [
+      {
+        "id": "themes",
+        "title": "Most Important Themes",
+        "content": "- Email architecture and threat surface.\n- Link security versus end-to-end security.\n- STARTTLS and downgrade issues.\n- DKIM and domain-level authentication.\n- PGP/OpenPGP and S/MIME.\n- Web of trust versus CA-based trust.\n- Usability problems in secure email.\n- Messaging security goals such as forward secrecy and post-compromise security.\n- Signal-style ratcheting and post-quantum secure messaging."
+      },
+      {
+        "id": "know-cold",
+        "title": "Know Cold",
+        "content": "- Email metadata and routing create privacy limits even when content is protected.\n- STARTTLS protects links, not end-to-end content.\n- DKIM authenticates sending domains, not necessarily individual humans.\n- PGP/OpenPGP and S/MIME both aim for end-to-end protection, but they differ in trust model.\n- PGP's web of trust is decentralized; S/MIME uses CA-backed X.509 certificates.\n- Forward secrecy is especially important for long-lived messaging.\n- Ratcheting continuously updates keys so compromise does not expose everything forever."
+      },
+      {
+        "id": "hard-parts",
+        "title": "Hard Part Breakdown",
+        "content": "The core conceptual split is link security versus end-to-end security. STARTTLS can protect one hop between mail servers, but email often passes through several servers and is stored at endpoints. So link encryption is valuable but does not solve the full confidentiality problem. DKIM is also useful, but it proves that a domain authorized the message, not that the human sender is who they claim to be in every meaningful sense.\n\nPGP and S/MIME aim at end-to-end security, but deployment is hard. PGP's web of trust is flexible but operationally difficult. S/MIME fits existing PKI models better but depends on certificate ecosystems and client support. Both systems also suffer from usability friction, which is one reason secure email adoption has historically lagged behind the theory.\n\nSecure messaging takes a different path. It assumes interactive conversations and can refresh keys continuously. Signal's ratchet is the key idea: derive a new message key very frequently, and mix in new Diffie-Hellman material over time. That gives forward secrecy and a measure of post-compromise recovery. If an attacker steals state now, that should not automatically expose old messages, and future updates can help heal the session later.\n\nThe post-quantum extension matters because messaging is a classic \"harvest-now-decrypt-later\" target. A protocol such as PQXDH tries to add a post-quantum contribution to the initial key establishment while keeping the system practical during transition."
+      },
+      {
+        "id": "objectives",
+        "title": "What to Be Able to Do",
+        "content": "- Distinguish link protection from end-to-end protection.\n- Explain what STARTTLS and DKIM do, and what they do not do.\n- Compare PGP and S/MIME trust models.\n- Explain forward secrecy, post-compromise security, and ratcheting in messaging."
+      }
+    ]
+  }
+]

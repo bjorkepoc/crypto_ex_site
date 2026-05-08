@@ -1,0 +1,599 @@
+[
+  {
+    "id": "exam2021-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q1"
+    },
+    "difficulty": 1,
+    "text": "Suppose that x-1 mod 17 = 5. Then",
+    "options": [
+      {
+        "key": "a",
+        "text": "x mod 17 = 7"
+      },
+      {
+        "key": "b",
+        "text": "x mod 17 = 6"
+      },
+      {
+        "key": "c",
+        "text": "x mod 17 = 5"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "5 × 7 mod 17 = 35 mod 17 = 1"
+  },
+  {
+    "id": "exam2021-mcq02",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q2"
+    },
+    "difficulty": 1,
+    "text": "Suppose that the 26-letter alphabet, A . . . Z is used for the plaintext in the 2 × 2 Hill cipher. Suppose that the letter E is the most common letter in the plaintext, occuring with frequency equal to 10%. Then in the ciphertext we can expect that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the most common letter occurs with frequency equal to 10%"
+      },
+      {
+        "key": "b",
+        "text": "the most common letter occurs with frequency below 10%"
+      },
+      {
+        "key": "c",
+        "text": "the most common letter occurs with frequency above 10%"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Since the Hill cipher is simple substitution in pairs, each occurrence of the common characters can be encrypted in many ways, thereby smoothing the frequencies."
+  },
+  {
+    "id": "exam2021-mcq03",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q3"
+    },
+    "difficulty": 1,
+    "text": "A typical RSA private key in use today may have length 3072 bits, but a typical symmetric key for the AES block cipher may have length only 128 bits. This longer key for RSA is necessary because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "security for public key encryption needs to be stronger than for symmetric key en- cryption"
+      },
+      {
+        "key": "b",
+        "text": "RSA keys need to be longer than symmetric keys to avoid attack by quantum com- puters"
+      },
+      {
+        "key": "c",
+        "text": "there are much better ways to attack RSA than brute force key search"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Factorisation has sub-exponential time algorithms, so that factorising the modulus and then computing the private key directly from the public key, is much easier than brute for search for the private key."
+  },
+  {
+    "id": "exam2021-mcq04",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q4"
+    },
+    "difficulty": 2,
+    "text": "Suppose that in a binary synchronous stream cipher a section of the ciphertext is 01000. An attacker knows that the plaintext used to obtain this ciphertext is 00101. The corre- sponding section of the decryption keystream is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "01101"
+      },
+      {
+        "key": "b",
+        "text": "00101"
+      },
+      {
+        "key": "c",
+        "text": "01000"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Since C = P ⊕K we can also calculate K = P ⊕C = 00101 ⊕01000 ="
+  },
+  {
+    "id": "exam2021-mcq05",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q5"
+    },
+    "difficulty": 1,
+    "text": "Consider the version of the triple DES (3-DES) block cipher with three independent keys. Compared with the AES block cipher, this version of 3-DES:",
+    "options": [
+      {
+        "key": "a",
+        "text": "has fewer possible keys than all versions of AES"
+      },
+      {
+        "key": "b",
+        "text": "has a shorter block length than all versions of AES"
+      },
+      {
+        "key": "c",
+        "text": "is faster to run in software than all versions of AES"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "3-DES has a 168-bit key length, so not shorter than AES 128, but has a 64-bit block length, so shorter than AES."
+  },
+  {
+    "id": "exam2021-mcq06",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q6"
+    },
+    "difficulty": 1,
+    "text": "Suppose that you have a message of 100 bits to encrypt and you choose to use the AES block cipher. Which of the following modes of operation will require the least number of sent bits in the encrypted message?",
+    "options": [
+      {
+        "key": "a",
+        "text": "ECB mode"
+      },
+      {
+        "key": "b",
+        "text": "Counter mode with a nonce of 64 bits"
+      },
+      {
+        "key": "c",
+        "text": "CBC mode"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "ECB uses one 128-bit block; counter mode uses 100 bits + 64 for nonce; CBC uses 128 for ciphertext block and 128 bits for IV."
+  },
+  {
+    "id": "exam2021-mcq07",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q7"
+    },
+    "difficulty": 1,
+    "text": "The Euler function φ is often useful for public key cryptography. It is true that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "φ(n) is always divisible by 3"
+      },
+      {
+        "key": "b",
+        "text": "if n is divisible by 3 then φ(n) is always divisible by 3"
+      },
+      {
+        "key": "c",
+        "text": "if n is divisible by 9 then φ(n) is always divisible by 3"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "φ(3) = 2 rules out the first two options. If n is divisible by 32 then 2 ∗3 is a factor of φ(n)."
+  },
+  {
+    "id": "exam2021-mcq08",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q8"
+    },
+    "difficulty": 2,
+    "text": "Suppose you want to prevent an attacker from finding a collision in a hash function. The attacker has enough computing power to calculate 240 hash values. You need to ensure that the attacker has only small chance of success but prefer the smallest acceptable output size. You have three possible output sizes to choose from. Which should you choose?",
+    "options": [
+      {
+        "key": "a",
+        "text": "40 bits"
+      },
+      {
+        "key": "b",
+        "text": "64 bits"
+      },
+      {
+        "key": "c",
+        "text": "128 bits"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Due to the birthday paradox, with 240 trials there is a good chance of a collision being found with an output of length even 80 bits. Therefore more than 80 bits is necessary"
+  },
+  {
+    "id": "exam2021-mcq09",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q9"
+    },
+    "difficulty": 1,
+    "text": "A message authentication code, MAC, takes as input a key K and message M and outputs a tag T. In order to be secure, it is essential that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "an attacker who knows a valid M and T cannot find K"
+      },
+      {
+        "key": "b",
+        "text": "an attacker who knows a valid K and T cannot find M"
+      },
+      {
+        "key": "c",
+        "text": "an attacker who knows a valid K and M cannot find T"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Knowing K allows forgeries. Therefore no secure MAC can leak K from knowledge of T and M which will be known to an attacker."
+  },
+  {
+    "id": "exam2021-mcq10",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q10"
+    },
+    "difficulty": 1,
+    "text": "The RSA signature scheme uses a modulus n and a public exponent e. If the modulus is chosen to be n = 13 × 23 = 299 (corrected) then the smallest valid choice for e would be",
+    "options": [
+      {
+        "key": "a",
+        "text": "e = 3"
+      },
+      {
+        "key": "b",
+        "text": "e = 5"
+      },
+      {
+        "key": "c",
+        "text": "e = 7"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "φ(243) = 2 × 12 × 11, so is divisible by 2, 3 and 4. The value of e must be prime to φ(n) for the private key to exist."
+  },
+  {
+    "id": "exam2021-mcq11",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q11"
+    },
+    "difficulty": 1,
+    "text": "For eﬃciency reasons it is often useful to keep fixed parameter values for many users of a cryptographic scheme. Which of the following is not a practical choice for digital signatures?",
+    "options": [
+      {
+        "key": "a",
+        "text": "RSA signatures with a fixed modulus n"
+      },
+      {
+        "key": "b",
+        "text": "DSA signatures with fixed generator g and fixed modulus p"
+      },
+      {
+        "key": "c",
+        "text": "ECDSA signatures with a fixed elliptic curve group"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Knowledge of one RSA signing/verification key is enough to factorise n. It is normal to re-use the parameters for DSA and ECDSA."
+  },
+  {
+    "id": "exam2021-mcq12",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q12"
+    },
+    "difficulty": 1,
+    "text": "When assessing the security of a key establishment protocol, such as the Needham- Schroeder protocol, we assume that an attacker is able to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "re-send messages sent in any previous runs of the protocol"
+      },
+      {
+        "key": "b",
+        "text": "force parties to re-use nonces used in previous runs of the protocol"
+      },
+      {
+        "key": "c",
+        "text": "obtain long-term keys used in any previous runs of the protocol"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "We assume that the network is controlled by the attacker who can then send any known values to the users. Nonces are chosen by users and cannot be controlled by the attacker. Long-term keys usually are static and a protocol cannot be secure in the future once long-term keys are known."
+  },
+  {
+    "id": "exam2021-mcq13",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q13"
+    },
+    "difficulty": 1,
+    "text": "In the TLS 1.2 handshake protocol, a ciphersuite is negotiated between the client and the server. Which of the following does not depend on the chosen ciphersuite:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the algorithm used to authenticate the record layer data"
+      },
+      {
+        "key": "b",
+        "text": "the algorithm used to sign the server key exchange message"
+      },
+      {
+        "key": "c",
+        "text": "the algorithm used to sign the server certificate"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Only the algorithms used actively in the handshake and record protocol are negotiated. The certificate is signed beforehand."
+  },
+  {
+    "id": "exam2021-mcq14",
+    "type": "mcq",
+    "topics": [
+      "tls",
+      "digital-signatures",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q14"
+    },
+    "difficulty": 1,
+    "text": "TLS 1.3 aims to establish secure connections faster than TLS 1.2. One difference between the protocols which contributes to this is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "clients can send a Diﬃe-Hellman ephemeral value before the ciphersuite is agreed"
+      },
+      {
+        "key": "b",
+        "text": "checking of server certificates is no longer required"
+      },
+      {
+        "key": "c",
+        "text": "servers can initiate the handshake protocol and use a ciphersuite of their choice"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "TLS 1.3 allows optimistic sending of the client key exchange message in the first flow, before the ciphersuite is decided."
+  },
+  {
+    "id": "exam2021-mcq15",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Q15"
+    },
+    "difficulty": 1,
+    "text": "PGP is a security protocol to protect emails in transit. PGP has seen very limited usage in practice. One of the reasons for this is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "usability is a challenge for many potential users"
+      },
+      {
+        "key": "b",
+        "text": "encryption is provided but it is not possible to authenticate mail senders"
+      },
+      {
+        "key": "c",
+        "text": "PGP-encrypted mail cannot be sent on the normal email system"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "PGP is transparent to mail servers and has optional signatures. It is notoriously hard for the average user to configure. Written answer questions"
+  },
+  {
+    "id": "exam2021-w-1",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 W1"
+    },
+    "difficulty": 1,
+    "text": "A →B : IDA, NA",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "A →B : IDA, NA",
+        "solution": "A →B : IDA, NA"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-w-2",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 W2"
+    },
+    "difficulty": 1,
+    "text": "B →S : IDA, IDB, NA, NB",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "B →S : IDA, IDB, NA, NB",
+        "solution": "B →S : IDA, IDB, NA, NB"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-w-3",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 W3"
+    },
+    "difficulty": 1,
+    "text": "S →B : {NA, IDA, IDB, KAB}KAS, {NB, IDA, IDB, KAB}KBS",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "S →B : {NA, IDA, IDB, KAB}KAS, {NB, IDA, IDB, KAB}KBS",
+        "solution": "S →B : {NA, IDA, IDB, KAB}KAS, {NB, IDA, IDB, KAB}KBS"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-w-4",
+    "type": "written",
+    "topics": [
+      "block-ciphers",
+      "hill-stream-otp",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 W4"
+    },
+    "difficulty": 3,
+    "text": "B →A : {NA, IDA, IDB, KAB}KAS",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "On receipt of message 4, A should check that the received NA is the same value as that chosen in message 1. Describe an attack on the protocol if A does not perform this check, including the messages which an attacker sends. What is the consequence of this attack?",
+        "solution": "On receipt of message 4, A should check that the received NA is the same value as that chosen in message 1. Describe an attack on the protocol if A does not perform this check, including the messages which an attacker sends. What is the consequence of this attack? Attacker can replay old messages and this would not be detected by A. The attacker can capture {NA, IDA, IDB, K' AB}KAS from a previous protocol run, obtain the old session key K' AB, and then it will be accepted by A."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "On receipt of message 3, B should also check that the received IDA is the same identity received in message 1 and sent in message 2. Describe an attack if B does not perform this check. Alternate question:",
+        "solution": "Suppose that instead of using authenticated encryption, plain encryption by a syn- chronous stream cipher is used, such as AES in counter mode. How does this also allow an attack? Attacker can change any known field. For example, IDB can be changed to IDC in message 4 by adding in IDB ⊕IDC. This will trick A to think the key is shared with C instead of B."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Suppose that instead of using authenticated encryption, plain encryption by a syn- chronous stream cipher is used, such as AES in counter mode. How does this also allow an attack?",
+        "solution": "Suppose that instead of using authenticated encryption, plain encryption by a syn- chronous stream cipher is used, such as AES in counter mode. How does this also allow an attack? Attacker can change any known field. For example, IDB can be changed to IDC in message 4 by adding in IDB ⊕IDC. This will trick A to think the key is shared with C instead of B."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-w-5",
+    "type": "written",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 W5"
+    },
+    "difficulty": 2,
+    "text": "Consider the following protocol with the goal of key establishment. This is a repaired version of the Needham-Schroeder protocol. Here NA is a nonce chosen by party A, NB is a nonce chosen by B, and KAB is the session key chosen by server S. IDA and IDB are identity strings for A and B respectively. KAS and KBS are key-encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "Consider the following protocol with the goal of key establishment. This is a repaired version of the Needham-Schroeder protocol. Here NA is a nonce chosen by party A, NB is a nonce chosen by B, and KAB is the session key chosen by server S. IDA and IDB are identity strings for A and B respectively. KAS and KBS are key-encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+        "solution": "Consider the following protocol with the goal of key establishment. This is a repaired version of the Needham-Schroeder protocol. Here NA is a nonce chosen by party A, NB is a nonce chosen by B, and KAB is the session key chosen by server S. IDA and IDB are identity strings for A and B respectively. KAS and KBS are key-encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-w-6",
+    "type": "written",
+    "topics": [
+      "email-messaging-security",
+      "hashes-macs",
+      "tls13-ipsec"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 W6"
+    },
+    "difficulty": 3,
+    "text": "The Signal messaging protocol uses two kinds of ratcheting to update the keys used to protect messages: Diﬃe-Hellman ratcheting is used when the next message is sent in the opposite direction from the previous message; symmetric ratcheting with a hash function is used when the next message is sent in the same direction. Assume a powerful adversary who can capture and delay messages and has the ability to compromise devices later.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "How does the ratcheting in Signal improve the security of messages against this adversary, in comparison to the security of: i. email messages encrypted with PGP; ii. messages sent as application data in a TLS 1.3 session.",
+        "solution": "How does the ratcheting in Signal improve the security of messages against this adversary, in comparison to the security of: i. email messages encrypted with PGP; There is no forward secrecy for PGP encryption, so the adversary will obtain all previous messages. ii. messages sent as application data in a TLS 1.3 session. The main difference is that a different key is used to protect each message. If a device is compromised, only the key to protect the current message will be revealed. Older messages cannot be found."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "If several messages are sent in the same direction in the Signal protocol, how does their security compare to the security of messages sent successively in opposite di- rections?",
+        "solution": "If several messages are sent in the same direction in the Signal protocol, how does their security compare to the security of messages sent successively in opposite di- rections? An adversary who delays messages and compromises the recipient can obtain all of the messages sent in the same direction. The adversary can only obtain the messages obtained after the compromise since the ratchet is one-way. There is also a (system imposed) limit on how many consecutive messages you can send before you are forced to do a DH-ratchet up and down."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

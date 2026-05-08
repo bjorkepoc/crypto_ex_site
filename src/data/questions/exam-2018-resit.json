@@ -1,0 +1,1182 @@
+[
+  {
+    "id": "exam2018-resit-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q1"
+    },
+    "difficulty": 2,
+    "text": "Which of the following does not have an inverse modulo 21?",
+    "options": [
+      {
+        "key": "a",
+        "text": "1"
+      },
+      {
+        "key": "b",
+        "text": "2"
+      },
+      {
+        "key": "c",
+        "text": "3"
+      },
+      {
+        "key": "d",
+        "text": "4"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-resit-mcq02",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q2"
+    },
+    "difficulty": 1,
+    "text": "A generator for Z∗ 21, has order: The group Z∗ 21, has order:",
+    "options": [
+      {
+        "key": "a",
+        "text": "3"
+      },
+      {
+        "key": "b",
+        "text": "7"
+      },
+      {
+        "key": "c",
+        "text": "12"
+      },
+      {
+        "key": "d",
+        "text": "20"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-resit-mcq03",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q3"
+    },
+    "difficulty": 2,
+    "text": "The Hill cipher is a historical cipher with the encryption equation C = KP mod n for k × k key matrix K and vectors C and P representing the ciphertext and plaintext. A fundamental weakness of the Hill cipher is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "brute force key search is easy for any value of k"
+      },
+      {
+        "key": "b",
+        "text": "the distribution of ciphertext characters is the same as the distribution of plaintext characters"
+      },
+      {
+        "key": "c",
+        "text": "it may not be possible to decrypt a valid ciphertext"
+      },
+      {
+        "key": "d",
+        "text": "encryption is a linear function so a known plaintext attack is easy"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq04",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q4"
+    },
+    "difficulty": 2,
+    "text": "According to Kerkhoff’s principle, which of the following should not be available to an attacker of an iterated block cipher?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The number of rounds"
+      },
+      {
+        "key": "b",
+        "text": "The key length"
+      },
+      {
+        "key": "c",
+        "text": "The block length"
+      },
+      {
+        "key": "d",
+        "text": "The round keys"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq05",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q5"
+    },
+    "difficulty": 1,
+    "text": "Which of the following is not a valid description of AES, the Advanced Encryption Standard, algorithm?",
+    "options": [
+      {
+        "key": "a",
+        "text": "A substitution-permutation network"
+      },
+      {
+        "key": "b",
+        "text": "A Feistel cipher"
+      },
+      {
+        "key": "c",
+        "text": "An iterated block cipher"
+      },
+      {
+        "key": "d",
+        "text": "A product cipher"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-mcq06",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q6"
+    },
+    "difficulty": 1,
+    "text": "Which of the following is a valid key size for AES, the Advanced Encryption Standard, algorithm?",
+    "options": [
+      {
+        "key": "a",
+        "text": "256 bits"
+      },
+      {
+        "key": "b",
+        "text": "512 bits"
+      },
+      {
+        "key": "c",
+        "text": "1024 bits"
+      },
+      {
+        "key": "d",
+        "text": "2048 bits"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq07",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs",
+      "block-ciphers",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q7"
+    },
+    "difficulty": 1,
+    "text": "Cipher-based MAC (CMAC) provides which of the following security services?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Integrity, but not confidentiality"
+      },
+      {
+        "key": "b",
+        "text": "Both confidentiality and integrity"
+      },
+      {
+        "key": "c",
+        "text": "Non-repudiation, but not confidentiality"
+      },
+      {
+        "key": "d",
+        "text": "Both confidentiality and non-repudiation"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq08",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q8"
+    },
+    "difficulty": 2,
+    "text": "Cipher block chaining (CBC) is a mode of operation for block ciphers. Which of the following statements about CBC mode is false?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Messages to be encrypted must be padded to be a complete number of blocks"
+      },
+      {
+        "key": "b",
+        "text": "One bit in error in the ciphertext leads to a whole random block in the decrypted plaintext"
+      },
+      {
+        "key": "c",
+        "text": "Equal plaintext blocks encrypt to equal ciphertext blocks"
+      },
+      {
+        "key": "d",
+        "text": "Decryption of a sequence of blocks can be conducted in parallel"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-resit-mcq09",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q9"
+    },
+    "difficulty": 1,
+    "text": "The main practical disadvantage of the one time pad is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "weak security"
+      },
+      {
+        "key": "b",
+        "text": "slow encryption performance"
+      },
+      {
+        "key": "c",
+        "text": "the ciphertext is longer than the plaintext"
+      },
+      {
+        "key": "d",
+        "text": "the difficulty of managing keys"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq10",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q10"
+    },
+    "difficulty": 1,
+    "text": "Which of the following statements about binary synchronous stream ciphers is false?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The keystream generated by the sender is the same as the keystream generated by the receiver"
+      },
+      {
+        "key": "b",
+        "text": "The keystream is dependent on the plaintext"
+      },
+      {
+        "key": "c",
+        "text": "The encryption operation is the same as the decryption operation"
+      },
+      {
+        "key": "d",
+        "text": "The ciphertext is dependent on the plaintext"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-mcq11",
+    "type": "mcq",
+    "topics": [
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q11"
+    },
+    "difficulty": 1,
+    "text": "The Fermat test and the Miller-Rabin test are two tests for deciding whether or not a number n is prime. Which of the following statements is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "If the Miller-Rabin test outputs probable prime then the Fermat test also outputs probable prime"
+      },
+      {
+        "key": "b",
+        "text": "If the Fermat test outputs probable prime then the Miller-Rabin test also outputs probable prime"
+      },
+      {
+        "key": "c",
+        "text": "If the Miller-Rabin test outputs probable prime then n is definitely prime"
+      },
+      {
+        "key": "d",
+        "text": "If the Fermat test outputs probable prime then n is definitely prime"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq12",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q12"
+    },
+    "difficulty": 1,
+    "text": "Suppose n = 77. According to Euler’s Theorem:",
+    "options": [
+      {
+        "key": "a",
+        "text": "27 mod n = 1"
+      },
+      {
+        "key": "b",
+        "text": "211 mod n = 1"
+      },
+      {
+        "key": "c",
+        "text": "260 mod n = 1"
+      },
+      {
+        "key": "d",
+        "text": "276 mod n = 1"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-resit-mcq13",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q13"
+    },
+    "difficulty": 1,
+    "text": "The Chinese Remainder Theorem can be used with the RSA signature algorithm to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "speed up signing"
+      },
+      {
+        "key": "b",
+        "text": "speed up verification"
+      },
+      {
+        "key": "c",
+        "text": "speed up key generation"
+      },
+      {
+        "key": "d",
+        "text": "protect against attacks using quantum computers"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq14",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q14"
+    },
+    "difficulty": 1,
+    "text": "Two processes often connected to public key cryptography are integer factorisation and prime generation. With regard to algorithms that we know today (on conventional comput- ers):",
+    "options": [
+      {
+        "key": "a",
+        "text": "integer factorisation is easier than prime generation for integers of the same length"
+      },
+      {
+        "key": "b",
+        "text": "prime generation is easier than integer factorisation for integers of the same length"
+      },
+      {
+        "key": "c",
+        "text": "integer factorisation requires exponential time with respect to the input size"
+      },
+      {
+        "key": "d",
+        "text": "prime generation requires exponential time with respect to the required output size"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-mcq15",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q15"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for encryption:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the public key of the sender is required in order to encrypt a message"
+      },
+      {
+        "key": "b",
+        "text": "the public key of the receiver is required in order to encrypt a message"
+      },
+      {
+        "key": "c",
+        "text": "the public key of the sender is required in order to decrypt a message"
+      },
+      {
+        "key": "d",
+        "text": "the public key of the receiver is required in order to decrypt a message"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-mcq16",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q16"
+    },
+    "difficulty": 2,
+    "text": "The RSA encryption algorithm uses a public exponent e, a private exponent d, and a public modulus n. In order to speed up the encryption process, it is common to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "choose a small value for e"
+      },
+      {
+        "key": "b",
+        "text": "choose a small value for d"
+      },
+      {
+        "key": "c",
+        "text": "apply the Chinese Remainder theorem"
+      },
+      {
+        "key": "d",
+        "text": "share the same modulus between different users"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq17",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q17"
+    },
+    "difficulty": 2,
+    "text": "ElGamal encryption in Z∗ p uses a prime modulus p, while RSA encryption uses a composite modulus n. When p and n are of the same length, and for small plaintexts:",
+    "options": [
+      {
+        "key": "a",
+        "text": "RSA ciphertexts and Elgamal ciphertexts are the same size"
+      },
+      {
+        "key": "b",
+        "text": "RSA ciphertexts and Elgamal ciphertexts are of a random size"
+      },
+      {
+        "key": "c",
+        "text": "RSA ciphertexts are twice the size of Elgamal ciphertexts"
+      },
+      {
+        "key": "d",
+        "text": "ElGamal ciphertexts are twice the size of RSA ciphertexts"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq18",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "key-establishment",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q18"
+    },
+    "difficulty": 2,
+    "text": "In the basic Diffie-Hellman key exchange protocol, Alice sends A = ga mod p to Bob, while Bob sends B = gb mod p to Alice. In order to compute the shared secret, Bob computes:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ab mod p"
+      },
+      {
+        "key": "b",
+        "text": "Ba mod p"
+      },
+      {
+        "key": "c",
+        "text": "Agb mod p"
+      },
+      {
+        "key": "d",
+        "text": "Bga mod p"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq19",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "quantum-safe",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q19"
+    },
+    "difficulty": 2,
+    "text": "Public key cryptosystems based on discrete logarithms can be implemented either in elliptic curve groups or in groups of integers modulo a prime p, often written Z∗ p. An advantage of using elliptic curve groups is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the cryptosystem is still secure if quantum computers become practical"
+      },
+      {
+        "key": "b",
+        "text": "shorter public keys can be used to achieve the same security level"
+      },
+      {
+        "key": "c",
+        "text": "implementation of exponentiation algorithms is simpler"
+      },
+      {
+        "key": "d",
+        "text": "there are no patent restrictions"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-mcq20",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q20"
+    },
+    "difficulty": 1,
+    "text": "Due to the so-called birthday paradox, we can expect to first find a collision in the SHA-384 hash function after computing around:",
+    "options": [
+      {
+        "key": "a",
+        "text": "220 hash values"
+      },
+      {
+        "key": "b",
+        "text": "250 hash values"
+      },
+      {
+        "key": "c",
+        "text": "2192 hash values"
+      },
+      {
+        "key": "d",
+        "text": "2383 hash values"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-resit-mcq21",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q21"
+    },
+    "difficulty": 1,
+    "text": "When a message authentication code (MAC) tag is received, in order to check data integrity the recipient needs to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "decrypt the tag and check for redundancy"
+      },
+      {
+        "key": "b",
+        "text": "encrypt the tag and check for redundancy"
+      },
+      {
+        "key": "c",
+        "text": "compare the received tag with the tag in the previous message"
+      },
+      {
+        "key": "d",
+        "text": "recompute the tag and compare with the received tag"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq22",
+    "type": "mcq",
+    "topics": [
+      "encryption-modes",
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q22"
+    },
+    "difficulty": 1,
+    "text": "The GCM algorithm is commonly used in TLS. GCM is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "an algorithm to compute the strongest ciphersuite shared between client and server"
+      },
+      {
+        "key": "b",
+        "text": "a MAC construction based on an iterated hash function"
+      },
+      {
+        "key": "c",
+        "text": "an encryption mode for stream ciphers"
+      },
+      {
+        "key": "d",
+        "text": "an authenticated encryption mode for block ciphers"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq23",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q23"
+    },
+    "difficulty": 1,
+    "text": "Digital certificates are signed by a certification authority. In order to make certificate verification as fast as possible, it is common for this purpose to use:",
+    "options": [
+      {
+        "key": "a",
+        "text": "RSA signatures"
+      },
+      {
+        "key": "b",
+        "text": "Elgamal signatures"
+      },
+      {
+        "key": "c",
+        "text": "DSA signatures"
+      },
+      {
+        "key": "d",
+        "text": "ECDSA signatures"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq24",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q24"
+    },
+    "difficulty": 1,
+    "text": "An X.509 digital certificate is issued by a certification authority. Which of the following is not required to be included in the certificate:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the subject’s private key"
+      },
+      {
+        "key": "b",
+        "text": "the subject’s public key"
+      },
+      {
+        "key": "c",
+        "text": "the subject’s identity"
+      },
+      {
+        "key": "d",
+        "text": "the expiry date"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2018-resit-mcq25",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "digital-signatures",
+      "email-messaging-security"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q25"
+    },
+    "difficulty": 1,
+    "text": "An alternative to a hierarchical PKI is to use a web of trust, for example as used by PGP. An important property in a web of trust, that does not apply in a hierarchical PKI, is that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "private keys can be generated by any party"
+      },
+      {
+        "key": "b",
+        "text": "public keys can be signed by any party"
+      },
+      {
+        "key": "c",
+        "text": "subjects can remain anonymous"
+      },
+      {
+        "key": "d",
+        "text": "a variety of different signature algorithms can be used to sign certificates"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-mcq26",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q26"
+    },
+    "difficulty": 1,
+    "text": "A valuable security property for key establishment protocols is forward secrecy. A protocol with this property ensures that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "an attacker with access to the current session key cannot obtain previous session keys"
+      },
+      {
+        "key": "b",
+        "text": "an attacker with access to previous session keys cannot obtain long-term keys"
+      },
+      {
+        "key": "c",
+        "text": "an attacker with access to long-term keys cannot obtain previous session keys"
+      },
+      {
+        "key": "d",
+        "text": "an attacker with access to previous session keys cannot obtain the current session key"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2018-resit-mcq27",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q27"
+    },
+    "difficulty": 1,
+    "text": "An example of a ciphersuite in TLS is: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256. When this ciphersuite is used, the role of the block cipher AES is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "to provide authenticated encryption for handshake data in combination with ECDSA signatures"
+      },
+      {
+        "key": "b",
+        "text": "to protect application data, running in GCM mode"
+      },
+      {
+        "key": "c",
+        "text": "to encrypt the elliptic curve Diffie-Hellman key exchange"
+      },
+      {
+        "key": "d",
+        "text": "to provide an optional alternative to HMAC for application data integrity protection"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-mcq28",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q28"
+    },
+    "difficulty": 1,
+    "text": "TLS consists of a number of protocols. The protocol responsible for setting up sessions with the correct keys and algorithms is called:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the record protocol"
+      },
+      {
+        "key": "b",
+        "text": "the alert protocol"
+      },
+      {
+        "key": "c",
+        "text": "the change cipher spec protocol"
+      },
+      {
+        "key": "d",
+        "text": "the handshake protocol"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq29",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q29"
+    },
+    "difficulty": 1,
+    "text": "STARTTLS is a security protocol often used to protect emails in transit. When used for email protection, STARTTLS:",
+    "options": [
+      {
+        "key": "a",
+        "text": "can protect confidentiality of email contents from malicious mail servers"
+      },
+      {
+        "key": "b",
+        "text": "can provide end-to-end security between the sender and recipient"
+      },
+      {
+        "key": "c",
+        "text": "requires special processing by email clients"
+      },
+      {
+        "key": "d",
+        "text": "can apply cryptographic protection to metadata such as email headers"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2018-resit-mcq30",
+    "type": "mcq",
+    "topics": [
+      "tls13-ipsec",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit Q30"
+    },
+    "difficulty": 1,
+    "text": "One common way to apply the IPSec protocol uses a gateway-to-gateway architecture. Which of the following statements about this architecture is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "It is often used to connect hosts on unsecured networks to resources on secured networks"
+      },
+      {
+        "key": "b",
+        "text": "A typical application is to securely connect two separate secure networks"
+      },
+      {
+        "key": "c",
+        "text": "It provides protection for data throughout its transit (end-to-end)"
+      },
+      {
+        "key": "d",
+        "text": "It is typically used with IPSec in transport mode"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2018-resit-w-1",
+    "type": "written",
+    "topics": [
+      "classical-encryption",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit W1"
+    },
+    "difficulty": 3,
+    "text": "Two examples of historical ciphers are: - the Vigenère cipher; - the random transposition cipher. Suppose that the alphabet used in each case has 27 characters, that the Vigenère cipher has period 10, and that the transposition cipher uses a block size of 10 characters.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "How many keys are possible for each of these ciphers? (You can write down an expression - there is no need to give an exact value.)",
+        "solution": "For the Vigenère cipher there are 2710 keys. For the simple transposition there are 10! keys."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Explain how an attacker can recover the key for each of these two ciphers using a chosen plaintext attack. Would a known plaintext attack be harder in each case?",
+        "solution": "For the Vigenère cipher a chosen plaintext attack will reveal the shift of each char- acter since the difference, mod 27, between the plaintext and ciphertext character is the key character. Thus with just 10 known plaintext/ciphertext pairs the key can be found. The same information is given with a known plaintext attack. For the simple transposition a plaintext with 10 different characters is sufficient to find the permutation. Thus a chosen plaintext attack will give the key by choosing 10 different characters. A known plaintext attack might leave some ambiguity after 10 characters if some of them are the same, so more plaintext/ciphertext pairs may be needed."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-resit-w-2",
+    "type": "written",
+    "topics": [
+      "encryption-modes",
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit W2"
+    },
+    "difficulty": 3,
+    "text": "Cipher block chaining (CBC) mode for a block cipher has general equation for computing each output block as: Ct = E(Pt ⊕Ct-1, K). CBC mode is often used to form a message authentication code (MAC), where the MAC tag T is the last block output by the CBC encryption process with a fixed IV. Consider a variant MAC algorithm where the IV is chosen randomly by the sender and included in the tag, so the new tag is (IV, T) and T is still the last CBC encrypted block.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Explain how a receiver of the message verifies the received tag given the message.",
+        "solution": "The receiver recomputes that tag using the received IV and the message to find the CBC ciphertext. The receiver then checks that the last block is equal to the received T."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Show that this variant is not a good MAC algorithm by explaining how an attacker can forge a tag on a new message, given a valid tag on any message.",
+        "solution": "We have C1 = E(P1 ⊕IV, K). An attacker can replace P1 with any message block P ' by also replacing IV with IV ' = IV ⊕P1 ⊕P '. Then the value of T is unchanged and can be sent with the IV ' as the MAC tag."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-resit-w-3",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit W3"
+    },
+    "difficulty": 3,
+    "text": "The RSA encryption algorithm uses a public exponent e, a private exponent d, and a public modulus n.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "If n = 55 and e = 3 what is the value of d?",
+        "solution": "d = e-1 mod φ(n) = 3-1 mod φ(55) = 3-1 mod 40 = 27."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Suppose that users rely on a trusted server S to generate their RSA modulus. To save on computation, S re-uses one prime from each modulus. For example, user U1 gets modulus n1 = pq , user U2 gets modulus n2 = qr, and user U3 gets modulus n3 = rs, for random large primes p, q, r and s. Explain how this would allow an attacker to factorise the modulus of all three users.",
+        "solution": "The attacker simply computes the greatest common divisor of each pair of moduli to efficiently find the shared prime. This can be computed efficiently using the Euclidean algorithm. Once one prime factor is known ordinary division can be used to find the other prime."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-resit-w-4",
+    "type": "written",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit W4"
+    },
+    "difficulty": 3,
+    "text": "Several public key cryptosystems work in the group Z∗ p. Suppose that p = 17 .",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "Show that 2 is not a generator of Z∗ 17 but that 3 is a generator of Z∗",
+        "solution": "28 mod 17 = 38 mod 17 = -1 Thus the order of g = 2 is 8 or less, while the order of 3 is 16, so 3 is a generator."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-resit-w-5",
+    "type": "written",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit W5"
+    },
+    "difficulty": 3,
+    "text": "The Kerberos protocol makes repeated use of a ticket. For example, in the initial interaction with the authentication server, a client C receives a ticket of the form: {KC,tgs, IDC, T1}Ktgs. where the notation {X}K denotes authenticated encryption of X using key K. Explain the purpose of each of each of the three elements KC,tgs, IDC, and T1. In particular, state what are the consequences if any of them is omitted.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "The Kerberos protocol makes repeated use of a ticket. For example, in the initial interaction with the authentication server, a client C receives a ticket of the form: {KC,tgs, IDC, T1}Ktgs. where the notation {X}K denotes authenticated encryption of X using key K. Explain the purpose of each of each of the three elements KC,tgs, IDC, and T1. In particular, state what are the consequences if any of them is omitted.",
+        "solution": "• KC,tgs is a shared key to be used with the next server (ticket granting server or TGS). It needs to be included to enable secure communication with the next server. • IDC is the identity of the client, which is used so that the TGS knows who the key is shared with. If it were not included the ticket then a malicious C could masquerade as a different party. • T1 is an expiry date (or timestamp) to ensure that the ticket is fresh. If it were not included then the ticket could be re-used at a later time, which could allow an old KC,tgs session key to be re-used."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2018-resit-w-6",
+    "type": "written",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2018 Resit W6"
+    },
+    "difficulty": 3,
+    "text": "The TLS handshake protocol allows negotiation of cryptographic ciphersuites.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "How is the negotiation process implemented within the TLS protocol messages?",
+        "solution": "The client sends available ciphersuites and version number in the client hello mes- sage. The server replies with its preferred (strongest) matching versions."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Explain two benefits of allowing such negotiation to occur, in comparison with having a fixed ciphersuite.",
+        "solution": "Advantages (any two): • Allows for better interoperability between clients and servers who may be us- ing older versions with weaker ciphersuites • Allows the client and server to find the most secure cipher suite they both sup- port. • Versatility should any particular (fixed) cipher suite be broken. It’s then trivial to change to another suite without changing the protocol."
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "How is the integrity of the negotiation process protected? For this question you may restrict your answer to widely used standard versions of TLS (versions 1.0, 1.1 and 1.2).",
+        "solution": "All of the handshake messages are authenticated in the finished messages, ensuring that the negotiation message (hello messages) are authentic."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

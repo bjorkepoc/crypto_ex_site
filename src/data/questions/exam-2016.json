@@ -1,0 +1,1018 @@
+[
+  {
+    "id": "exam2016-mcq01",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q1"
+    },
+    "difficulty": 1,
+    "text": "If a plaintext comes from a natural language, such as English, which of the following encryption algorithms can be expected to have a more even (“flatter”) frequency distribution of ciphertext characters?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The Caesar cipher"
+      },
+      {
+        "key": "b",
+        "text": "The random simple substitution cipher"
+      },
+      {
+        "key": "c",
+        "text": "A transposition cipher on blocks of size 10"
+      },
+      {
+        "key": "d",
+        "text": "The Vigenére cipher with a key of length 5"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-mcq02",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q2"
+    },
+    "difficulty": 1,
+    "text": "Which of the following is a fundamental weakness of the Hill cipher for any size of encryption matrix?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The number of possible keys is too small"
+      },
+      {
+        "key": "b",
+        "text": "Encryption is a linear function"
+      },
+      {
+        "key": "c",
+        "text": "The encryption function is computationally expensive"
+      },
+      {
+        "key": "d",
+        "text": "Decryption is not always possible"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-mcq03",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q3"
+    },
+    "difficulty": 2,
+    "text": "Double DES is the encryption algorithm defined by iterating two instances of the DES algorithm - the initial DES ciphertext is fed back into the encryption algorithm with an independent key. The main disadvantage of double DES is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "it is vulnerable to differential cryptanalysis;"
+      },
+      {
+        "key": "b",
+        "text": "it has poor avalanche effects;"
+      },
+      {
+        "key": "c",
+        "text": "the key length is too short to resist practical brute-force search;"
+      },
+      {
+        "key": "d",
+        "text": "there is a meet-in-the-middle attack which reduces the effective key length."
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-mcq04",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q4"
+    },
+    "difficulty": 1,
+    "text": "In an iterative block cipher the purpose of the key schedule is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "define how to derive the round keys from the master key;"
+      },
+      {
+        "key": "b",
+        "text": "generate different keys for every block encrypted;"
+      },
+      {
+        "key": "c",
+        "text": "choose between different master keys;"
+      },
+      {
+        "key": "d",
+        "text": "define how the master key is generated."
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-mcq05",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q5"
+    },
+    "difficulty": 2,
+    "text": "For any given values x and m, the square-and-multiply algorithm when used to compute x66 mod m requires:",
+    "options": [
+      {
+        "key": "a",
+        "text": "5 squarings and 3 multiplication modulo m"
+      },
+      {
+        "key": "b",
+        "text": "6 squarings and 1 multiplication modulo m"
+      },
+      {
+        "key": "c",
+        "text": "8 squarings and 1 multiplication modulo m"
+      },
+      {
+        "key": "d",
+        "text": "63 squarings and 1 multiplication modulo m"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-mcq06",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q6"
+    },
+    "difficulty": 1,
+    "text": "Which of the following pairs of equations cannot be solved using the Chinese Remainder Theorem?",
+    "options": [
+      {
+        "key": "a",
+        "text": "x ≡3 mod 5 and x ≡3 mod 11"
+      },
+      {
+        "key": "b",
+        "text": "x ≡3 mod 6 and x ≡4 mod 11"
+      },
+      {
+        "key": "c",
+        "text": "x ≡3 mod 5 and x ≡3 mod 12"
+      },
+      {
+        "key": "d",
+        "text": "x ≡3 mod 6 and x ≡4 mod 12"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-mcq07",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q7"
+    },
+    "difficulty": 2,
+    "text": "Let g be a generator for the integers modulo p. The discrete logarithm problem is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "given y, find x with y = xg mod p;"
+      },
+      {
+        "key": "b",
+        "text": "given x, find y with y = xg mod p."
+      },
+      {
+        "key": "c",
+        "text": "given y, find x with y = gx mod p;"
+      },
+      {
+        "key": "d",
+        "text": "given x, find y with y = gx mod p."
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-mcq08",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q8"
+    },
+    "difficulty": 2,
+    "text": "Which of the following block cipher modes of operation is not designed to provide data confidentiality?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Counter mode (CTR)"
+      },
+      {
+        "key": "b",
+        "text": "Cipher block chaining (CBC)"
+      },
+      {
+        "key": "c",
+        "text": "Cipher-based MAC (CMAC)"
+      },
+      {
+        "key": "d",
+        "text": "Counter with CBC-MAC (CCM)"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-mcq09",
+    "type": "mcq",
+    "topics": [
+      "encryption-modes",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q9"
+    },
+    "difficulty": 2,
+    "text": "The main disadvantage of basic Electronic Code Book (ECB) mode of operation for block ciphers, in comparison with counter mode (CTR) and cipher block chaining (CBC) mode, is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "ECB mode encryption is less efficient;"
+      },
+      {
+        "key": "b",
+        "text": "ECB mode has large error propagation;"
+      },
+      {
+        "key": "c",
+        "text": "equal plaintext blocks in ECB mode give equal ciphertext blocks;"
+      },
+      {
+        "key": "d",
+        "text": "ECB mode requires longer keys."
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-mcq10",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q10"
+    },
+    "difficulty": 1,
+    "text": "Which of these statements about the keystream used in the one time pad is false?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The keystream is completely random"
+      },
+      {
+        "key": "b",
+        "text": "The keystream is as long as the message"
+      },
+      {
+        "key": "c",
+        "text": "The keystream is generated by a linear feedback shift register (LFSR)"
+      },
+      {
+        "key": "d",
+        "text": "The keystream is only used once"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-mcq11",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q11"
+    },
+    "difficulty": 1,
+    "text": "The maximum period of a linear feedback shift register with 10 binary storage locations is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "10"
+      },
+      {
+        "key": "b",
+        "text": "512"
+      },
+      {
+        "key": "c",
+        "text": "1023"
+      },
+      {
+        "key": "d",
+        "text": "1024"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-mcq12",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q12"
+    },
+    "difficulty": 1,
+    "text": "In the RSA encryption algorithm it is common to use the Chinese Remainder Theorem to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "speed up the encryption process;"
+      },
+      {
+        "key": "b",
+        "text": "speed up the decryption process;"
+      },
+      {
+        "key": "c",
+        "text": "speed up the key generation process;"
+      },
+      {
+        "key": "d",
+        "text": "all of the above."
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-mcq13",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q13"
+    },
+    "difficulty": 2,
+    "text": "The RSA encryption scheme uses a public exponent e, a private exponent d, and a public modulus n which is the product of two primes p and q. Regarding security of the scheme it is known that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "knowledge of n and e is sufficient to find d;"
+      },
+      {
+        "key": "b",
+        "text": "an attacker who can encrypt a random message can find d;"
+      },
+      {
+        "key": "c",
+        "text": "finding d from p and q is as hard as factorising n;"
+      },
+      {
+        "key": "d",
+        "text": "an attacker who can find d is able to also find p and q"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-mcq14",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q14"
+    },
+    "difficulty": 2,
+    "text": "ElGamal encryption in Z∗ p uses a modulus p, while RSA encryption uses a composite modulus n. When these are chosen to be of the same length:",
+    "options": [
+      {
+        "key": "a",
+        "text": "RSA ciphertexts and Elgamal ciphertexts are the same size;"
+      },
+      {
+        "key": "b",
+        "text": "RSA ciphertexts and Elgamal ciphertexts are of a random size;"
+      },
+      {
+        "key": "c",
+        "text": "RSA ciphertexts are twice the size of Elgamal ciphertexts;"
+      },
+      {
+        "key": "d",
+        "text": "ElGamal ciphertexts are twice the size of RSA ciphertexts."
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-mcq15",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q15"
+    },
+    "difficulty": 2,
+    "text": "Three important computational problems in cryptography are: the discrete logarithm problem in Z∗ p (DLP), the discrete logarithm problem in elliptic curves (ECDLP) and the integer factorisation (IF) problem. If full-scale quantum computers become available then we know that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "all three of these problems will have efficient solutions;"
+      },
+      {
+        "key": "b",
+        "text": "only IF will have an efficient solution;"
+      },
+      {
+        "key": "c",
+        "text": "only DLP will have an efficient solution;"
+      },
+      {
+        "key": "d",
+        "text": "only IF and DLP will have efficient solutions."
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-mcq16",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q16"
+    },
+    "difficulty": 1,
+    "text": "HMAC is an algorithm often used in TLS. It is based on any iterated hash function. Which of these statements with regard to HMAC is false?",
+    "options": [
+      {
+        "key": "a",
+        "text": "HMAC takes a shared secret key as one input;"
+      },
+      {
+        "key": "b",
+        "text": "the output size of HMAC is the same as the output size of the hash function;"
+      },
+      {
+        "key": "c",
+        "text": "the message input to HMAC is of variable length;"
+      },
+      {
+        "key": "d",
+        "text": "both the hash function and HMAC provide message integrity."
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-mcq17",
+    "type": "mcq",
+    "topics": [
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q17"
+    },
+    "difficulty": 2,
+    "text": "Galois counter mode (GCM) is often used in TLS to provide:",
+    "options": [
+      {
+        "key": "a",
+        "text": "data confidentiality;"
+      },
+      {
+        "key": "b",
+        "text": "data integrity;"
+      },
+      {
+        "key": "c",
+        "text": "error checking;"
+      },
+      {
+        "key": "d",
+        "text": "authenticated encryption."
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-mcq18",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q18"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used to provide digital signatures:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the public key of the signer is required in order to generate the signature;"
+      },
+      {
+        "key": "b",
+        "text": "the public key of the verifier is required in order to generate the signature;"
+      },
+      {
+        "key": "c",
+        "text": "the private key of the signer is required in order to generate the signature;"
+      },
+      {
+        "key": "d",
+        "text": "the private key of the verifier is required in order to generate the signature."
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-mcq19",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "discrete-log-crypto",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q19"
+    },
+    "difficulty": 2,
+    "text": "The Digital Signature Algorithm (DSA) is a standardised algorithm based on ElGamal signatures. Compared with RSA signatures at the same security level which of the following is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "DSA signatures are shorter than RSA signatures;"
+      },
+      {
+        "key": "b",
+        "text": "DSA signatures are more efficient to verify, even if the public RSA exponent equals 3;"
+      },
+      {
+        "key": "c",
+        "text": "DSA signatures cannot use elliptic curve groups but RSA signatures can;"
+      },
+      {
+        "key": "d",
+        "text": "DSA signatures do not require a random input but RSA signatures do."
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-mcq20",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q20"
+    },
+    "difficulty": 1,
+    "text": "If we choose elements randomly from a set of 1 000 000 values then, according to the birthday paradox, a collision will occur with probability 0.5 after approximately:",
+    "options": [
+      {
+        "key": "a",
+        "text": "999 999 elements have been chosen;"
+      },
+      {
+        "key": "b",
+        "text": "500 000 elements have been chosen;"
+      },
+      {
+        "key": "c",
+        "text": "1 000 elements have been chosen;"
+      },
+      {
+        "key": "d",
+        "text": "20 elements have been chosen."
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-mcq21",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q21"
+    },
+    "difficulty": 2,
+    "text": "When assessing the security of a key establishment protocol such as the Needham- Schroeder protocol, we assume that an attacker is able to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "obtain any session keys used in previous runs of the protocol;"
+      },
+      {
+        "key": "b",
+        "text": "obtain the long-term key of the parties involved in the protocol run under attack;"
+      },
+      {
+        "key": "c",
+        "text": "break any encryption algorithm used in the protocol;"
+      },
+      {
+        "key": "d",
+        "text": "force any protocol participant to repeat nonce values."
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-mcq22",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q22"
+    },
+    "difficulty": 1,
+    "text": "Forward secrecy is provided in TLS as long as the handshake protocol uses:",
+    "options": [
+      {
+        "key": "a",
+        "text": "ephemeral Diffie-Hellman;"
+      },
+      {
+        "key": "b",
+        "text": "static Diffie-Hellman;"
+      },
+      {
+        "key": "c",
+        "text": "RSA with a 1024 bit modulus;"
+      },
+      {
+        "key": "d",
+        "text": "RSA with a 2048 bit modulus."
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-mcq23",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q23"
+    },
+    "difficulty": 1,
+    "text": "TLS consists of a number of protocols. The protocol responsible for providing confiden- tiality and data integrity to payload data is called:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the handshake protocol;"
+      },
+      {
+        "key": "b",
+        "text": "the record protocol;"
+      },
+      {
+        "key": "c",
+        "text": "the alert protocol;"
+      },
+      {
+        "key": "d",
+        "text": "the change cipher spec protocol."
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-mcq24",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q24"
+    },
+    "difficulty": 1,
+    "text": "A difference between the public key infrastructure used by TLS for web browsers, and that provided by PGP for email security, is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "PGP keys can be signed by any other user;"
+      },
+      {
+        "key": "b",
+        "text": "PGP keys are certified in a hierarchical manner;"
+      },
+      {
+        "key": "c",
+        "text": "PGP keys have no expiry date;"
+      },
+      {
+        "key": "d",
+        "text": "PGP keys can use any type of public key algorithm."
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-mcq25",
+    "type": "mcq",
+    "topics": [
+      "key-establishment",
+      "tls13-ipsec",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Q25"
+    },
+    "difficulty": 1,
+    "text": "Like TLS, IPSec can be used to set up secure communication between nodes. Which of the following applies to IPSec, but not to TLS?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Different suites of cryptographic algorithms can be used."
+      },
+      {
+        "key": "b",
+        "text": "Traffic flow confidentiality may be provided."
+      },
+      {
+        "key": "c",
+        "text": "Forward secrecy may be provided using Diffie-Hellman key exchange."
+      },
+      {
+        "key": "d",
+        "text": "The protocol specification defines both key establishment and security of user data."
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-w-1",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 W1"
+    },
+    "difficulty": 2,
+    "text": "A →S : IDA, IDB, NA",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "A →S : IDA, IDB, NA",
+        "solution": "There are 264 keys in total so, using the approximation that there are 225 seconds in a year, the attacker must search through 264/225 = 239 keys per second."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-w-2",
+    "type": "written",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 W2"
+    },
+    "difficulty": 2,
+    "text": "S →A : {KAB, IDA, IDB, NA}KAS",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "S →A : {KAB, IDA, IDB, NA}KAS",
+        "solution": "From the encryption equation, C2 = E(P2 ü C1, K) we see that changing P2 will result in a random change to C2 as long as the encryption algorithm is a strong block cipher. Moreover this will then propagate to C3 = E(P3 ü C2, K) which will also be randomly changed. Similar for C4. Thus the new ciphertext can be expected to be competely different for CÕ 2, CÕ 3, CÕ 4 while CÕ 1 = C1 since its inputs are unchanged."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-w-3",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 W3"
+    },
+    "difficulty": 1,
+    "text": "S →B : {KAB, IDA, IDB, NA}KBS",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "S →B : {KAB, IDA, IDB, NA}KBS",
+        "solution": "S(C) æ B : T Õ"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-w-4",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 W4"
+    },
+    "difficulty": 1,
+    "text": "B →A : {IDB, IDA, NA, NB}KAB",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "B →A : {IDB, IDA, NA, NB}KAB",
+        "solution": "B æ A(C) : {IDB, IDA, NA, NB}KÕ AB"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-w-5",
+    "type": "written",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 W5"
+    },
+    "difficulty": 3,
+    "text": "A →B : {IDA, IDB, NA, NB}KAB Describe a replay attack on this protocol, showing concrete messages sent by the attacker.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "A →B : {IDA, IDB, NA, NB}KAB Describe a replay attack on this protocol, showing concrete messages sent by the attacker.",
+        "solution": "A(C) æ B : {IDA, IDB, NA, NB}KÕ AB C takes the roles of both A and S and can compute the correct message 5 since it has the session key and can therefore decrypt message 4 to obtain NB. The exchange looks normal to B who accepts the old key KÕ ."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-w-6",
+    "type": "written",
+    "topics": [
+      "key-establishment",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 W6"
+    },
+    "difficulty": 3,
+    "text": "Consider the following protocol with the goal of key establishment. Here NA is a nonce chosen by A, NB is a nonce chosen by B, and KAB is the session key chosen by server S. IDA and IDB are identity strings for A and B respectively. KAS and KBS are key- encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "Consider the following protocol with the goal of key establishment. Here NA is a nonce chosen by A, NB is a nonce chosen by B, and KAB is the session key chosen by server S. IDA and IDB are identity strings for A and B respectively. KAS and KBS are key- encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+        "solution": "Since B does not receive any freshness guarantee from S the replay must be against him. The attacker can eavesdrop an old token T Õ = {KÕ AB, A, B, NA}KBS, the value NA, and obtain the old key KÕ AB. Then the attacker C masquerades as both S and A and starts a new session with the following messages."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-w-7",
+    "type": "written",
+    "topics": [
+      "discrete-log-crypto",
+      "key-establishment",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 W7"
+    },
+    "difficulty": 3,
+    "text": "Recently it has been widely suggested that secure communications on the Internet should provide forward secrecy.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Describe what attack forward secrecy prevents when provided on a TLS connection.",
+        "solution": "The attack would be that the adversary obtains the long-term keys of both parties and uses that to recover previously agreed session keys."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "How could a web server ensure that all TLS connections it establishes with clients provide forward secrecy?",
+        "solution": "The web server must only allow ciphersuites which use ephemeral Diffie-Hellman for the handshake protocol."
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Why is there a fundamental problem in providing forward secrecy for electronic mail (email)?",
+        "solution": "Since there is no interaction it must be possible for the mail recipient to decrypt the message with the long-term key alone. Therefore forward secrecy (strictly speaking) can never be achieved for email."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

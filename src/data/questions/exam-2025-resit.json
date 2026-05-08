@@ -1,0 +1,1183 @@
+[
+  {
+    "id": "exam2025-resit-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q1"
+    },
+    "difficulty": 1,
+    "text": "A symmetric key cipher must be secure against brute-force key search. A reasonable minimum key length for industry-standard security today is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "64 bits"
+      },
+      {
+        "key": "b",
+        "text": "108 bits"
+      },
+      {
+        "key": "c",
+        "text": "128 bits"
+      },
+      {
+        "key": "d",
+        "text": "512 bits"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-resit-mcq02",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q2"
+    },
+    "difficulty": 2,
+    "text": "Following Kerckhoff’s principle, we usually assume that an attacker of an encryption scheme has access to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Unbounded computational power"
+      },
+      {
+        "key": "b",
+        "text": "The decryption keys"
+      },
+      {
+        "key": "c",
+        "text": "The encryption keys"
+      },
+      {
+        "key": "d",
+        "text": "The description of the encryption and decryption algorithms"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq03",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q3"
+    },
+    "difficulty": 2,
+    "text": "2→1 mod 251 is equal to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "1"
+      },
+      {
+        "key": "b",
+        "text": "126"
+      },
+      {
+        "key": "c",
+        "text": "250"
+      },
+      {
+        "key": "d",
+        "text": "0.5"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq04",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q4"
+    },
+    "difficulty": 2,
+    "text": "In Z↑ 7, the multiplicative group of non-zero integers modulo 7:",
+    "options": [
+      {
+        "key": "a",
+        "text": "2 is a generator"
+      },
+      {
+        "key": "b",
+        "text": "3 is a generator"
+      },
+      {
+        "key": "c",
+        "text": "4 is a generator"
+      },
+      {
+        "key": "d",
+        "text": "There is no generator"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq05",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q5"
+    },
+    "difficulty": 1,
+    "text": "In an alphabet of 29 characters, how many possible permutations are there for the random simple substitution cipher?",
+    "options": [
+      {
+        "key": "a",
+        "text": "1029"
+      },
+      {
+        "key": "b",
+        "text": "229"
+      },
+      {
+        "key": "c",
+        "text": "2 · 1029"
+      },
+      {
+        "key": "d",
+        "text": "29!"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq06",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q6"
+    },
+    "difficulty": 2,
+    "text": "According to Kerkhoff’s principle, which of the following should not be available to an attacker of an iterated block cipher?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The round keys"
+      },
+      {
+        "key": "b",
+        "text": "The number of rounds"
+      },
+      {
+        "key": "c",
+        "text": "The key length"
+      },
+      {
+        "key": "d",
+        "text": "The block length"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-resit-mcq07",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q7"
+    },
+    "difficulty": 2,
+    "text": "Double DES is the encryption algorithm defined by iterating two instances of the DES algorithm - the initial DES ciphertext is fed back into the encryption algorithm with an independent key. The main disadvantage of double DES is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "It is vulnerable to differential cryptanalysis"
+      },
+      {
+        "key": "b",
+        "text": "It has poor avalanche effects"
+      },
+      {
+        "key": "c",
+        "text": "The key length is too short to resist practical brute-force search"
+      },
+      {
+        "key": "d",
+        "text": "There is a meet-in-the-middle attack which reduces the effective key length"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq08",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q8"
+    },
+    "difficulty": 1,
+    "text": "Three-key 3-DES is the block cipher algorithm defined by iterating three instances of the DES algorithm using three independent keys. In contrast to 128-bit key AES, three-key 3-DES:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Has a shorter key length"
+      },
+      {
+        "key": "b",
+        "text": "Is the most common choice in TLS ciphersuites"
+      },
+      {
+        "key": "c",
+        "text": "Has a longer block length"
+      },
+      {
+        "key": "d",
+        "text": "Is much less efficient for both encryption and decryption"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq09",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q9"
+    },
+    "difficulty": 1,
+    "text": "In the One-Time Pad (OTP), the key is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "A random sequence of characters, each of them independently generated"
+      },
+      {
+        "key": "b",
+        "text": "A random sequence of characters, each of them generated from a seed"
+      },
+      {
+        "key": "c",
+        "text": "A pseudo-random sequence of characters"
+      },
+      {
+        "key": "d",
+        "text": "A sequence of characters generated as a function of the message"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-resit-mcq10",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q10"
+    },
+    "difficulty": 1,
+    "text": "Suppose that 1001100101 is observed to be a ciphertext from the one-time pad using the binary alphabet. Then we know that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The plaintext was 1111111111 with probability 1/25"
+      },
+      {
+        "key": "b",
+        "text": "The plaintext must be different from 1001100101"
+      },
+      {
+        "key": "c",
+        "text": "The plaintext could have been any 10-bit string"
+      },
+      {
+        "key": "d",
+        "text": "The keystream used must be different from 1001100101"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-resit-mcq11",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q11"
+    },
+    "difficulty": 1,
+    "text": "Recall Euler’s phi function ω. If n = 99, what is the value of ω(n)?",
+    "options": [
+      {
+        "key": "a",
+        "text": "98"
+      },
+      {
+        "key": "b",
+        "text": "30"
+      },
+      {
+        "key": "c",
+        "text": "60"
+      },
+      {
+        "key": "d",
+        "text": "40"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-resit-mcq12",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q12"
+    },
+    "difficulty": 1,
+    "text": "For an integer n, when is testing for primality by trial division practical?",
+    "options": [
+      {
+        "key": "a",
+        "text": "When n is a Mersenne prime"
+      },
+      {
+        "key": "b",
+        "text": "When n is small"
+      },
+      {
+        "key": "c",
+        "text": "When n is large"
+      },
+      {
+        "key": "d",
+        "text": "When n is a palindromic prime"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq13",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q13"
+    },
+    "difficulty": 1,
+    "text": "Which of the following pairs of equations cannot be solved using the Chinese Remainder Theorem?",
+    "options": [
+      {
+        "key": "a",
+        "text": "x →1 (mod 7) and x →3 (mod 25)"
+      },
+      {
+        "key": "b",
+        "text": "x →5 (mod 11) and x →3 (mod 25)"
+      },
+      {
+        "key": "c",
+        "text": "x →3 (mod 5) and x →5 (mod 11)"
+      },
+      {
+        "key": "d",
+        "text": "x →3 (mod 5) and x →3 (mod 25)"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq14",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q14"
+    },
+    "difficulty": 1,
+    "text": "Let p be a prime, and g a generator for Z↑ p. The Discrete Logarithm problem is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Given x, recover y given y →x (mod p)"
+      },
+      {
+        "key": "b",
+        "text": "Given x, recover g given y →gx (mod p)"
+      },
+      {
+        "key": "c",
+        "text": "Given y, recover x given y →xg (mod p)"
+      },
+      {
+        "key": "d",
+        "text": "Given y, recover x given y →gx (mod p)"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq15",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q15"
+    },
+    "difficulty": 1,
+    "text": "The Euler function ω is often useful for public key cryptography. For any integer n > 1 it is always true that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "ω(n) is an odd integer"
+      },
+      {
+        "key": "b",
+        "text": "ω(n) divides n"
+      },
+      {
+        "key": "c",
+        "text": "ω(n) is an even integer"
+      },
+      {
+        "key": "d",
+        "text": "ω(n) < n"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq16",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q16"
+    },
+    "difficulty": 2,
+    "text": "The RSA encryption scheme uses a public exponent e, a private exponent d, and a public modulus n. The relationship between e and d is defined by:",
+    "options": [
+      {
+        "key": "a",
+        "text": "e · d →1 (mod n)"
+      },
+      {
+        "key": "b",
+        "text": "e · d →ω(n) (mod n)"
+      },
+      {
+        "key": "c",
+        "text": "e · d →1 (mod ω(n))"
+      },
+      {
+        "key": "d",
+        "text": "e · d →n ↑1 (mod ω(n))"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-resit-mcq17",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "block-ciphers",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q17"
+    },
+    "difficulty": 1,
+    "text": "A typical RSA private key in use today may have length 3072 bits, but a typical symmetric key for the AES block cipher may have length only 128 bits. This longer key for RSA is necessary because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Security for public key encryption needs to be stronger than for symmetric key encryption"
+      },
+      {
+        "key": "b",
+        "text": "RSA keys need to be longer than symmetric keys to avoid attack by quantum computers"
+      },
+      {
+        "key": "c",
+        "text": "There are more efficient attacks against RSA than brute-force"
+      },
+      {
+        "key": "d",
+        "text": "Like the One Time Pad (OTP), the key needs to be the same length as the message"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-resit-mcq18",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q18"
+    },
+    "difficulty": 1,
+    "text": "Due to the birthday paradox, we can expect to find a collision in the SHA-256 hash function after around:",
+    "options": [
+      {
+        "key": "a",
+        "text": "27 trials"
+      },
+      {
+        "key": "b",
+        "text": "28 trials"
+      },
+      {
+        "key": "c",
+        "text": "2128 trials"
+      },
+      {
+        "key": "d",
+        "text": "2256 trials"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-resit-mcq19",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q19"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for digital signatures:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The public key of the signer is used for signature verification"
+      },
+      {
+        "key": "b",
+        "text": "The public key of the verifier is used for signature verification"
+      },
+      {
+        "key": "c",
+        "text": "The private key of the signer is used for signature verification"
+      },
+      {
+        "key": "d",
+        "text": "The private key of the verifier is used for signature verification"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-resit-mcq20",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q20"
+    },
+    "difficulty": 1,
+    "text": "The inputs to a public key verification algorithm are:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The secret verification key, the message m and the signature ε"
+      },
+      {
+        "key": "b",
+        "text": "The public verification key, the message m and the signature ε"
+      },
+      {
+        "key": "c",
+        "text": "The public verification key and the hash of the signature ε and message m"
+      },
+      {
+        "key": "d",
+        "text": "The secret verification key and the hash of the signature ε and message m"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq21",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q21"
+    },
+    "difficulty": 1,
+    "text": "A difference between a message authentication code (MAC) and a digital signature is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "A digital signature scheme provides confidentiality but a MAC does not"
+      },
+      {
+        "key": "b",
+        "text": "A digital signature scheme provides data integrity but a MAC does not"
+      },
+      {
+        "key": "c",
+        "text": "A digital signature scheme provides non-repudiation but a MAC does not"
+      },
+      {
+        "key": "d",
+        "text": "A digital signature scheme provides data authentication but a MAC does not"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-resit-mcq22",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q22"
+    },
+    "difficulty": 1,
+    "text": "A digital signature scheme often applies a hash function to the signed message. A collision in the hash function can lead to a signature forgery because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The same message has two different signatures"
+      },
+      {
+        "key": "b",
+        "text": "Two different messages have the same signature"
+      },
+      {
+        "key": "c",
+        "text": "One message has two different hash values"
+      },
+      {
+        "key": "d",
+        "text": "Two different hash values produce the same signature"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq23",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "key-establishment",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q23"
+    },
+    "difficulty": 2,
+    "text": "In the basic Diffie-Hellman key exchange protocol, Alice send A = ga (mod p) to Bob, while Bob send B = gb (mod p) to Alice. In order to compute the shared secret, on receipt of B, Alice computes:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ba (mod p)"
+      },
+      {
+        "key": "b",
+        "text": "AgB (mod p)"
+      },
+      {
+        "key": "c",
+        "text": "Aa (mod p)"
+      },
+      {
+        "key": "d",
+        "text": "AB (mod p)"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-resit-mcq24",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q24"
+    },
+    "difficulty": 1,
+    "text": "Consider the group Z↑ 11 with generator g = 7. If y = 4 then the discrete logarithm of y, is",
+    "options": [
+      {
+        "key": "a",
+        "text": "3"
+      },
+      {
+        "key": "b",
+        "text": "4"
+      },
+      {
+        "key": "c",
+        "text": "5"
+      },
+      {
+        "key": "d",
+        "text": "6"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq25",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q25"
+    },
+    "difficulty": 1,
+    "text": "The Merkle-Damgård construction for hash functions makes use of a compression function h, which acts on successive message blocks. A benefit of this construction is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Computation of a hash value requires a fixed number of calls to h, independent of the length of the input message"
+      },
+      {
+        "key": "b",
+        "text": "If h is collision-resistant then the whole hash function is collision-resistant"
+      },
+      {
+        "key": "c",
+        "text": "No padding is required for the input message, no matter what is the output size of h"
+      },
+      {
+        "key": "d",
+        "text": "The length of the input message does not need to be included"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq26",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "digital-signatures",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q26"
+    },
+    "difficulty": 1,
+    "text": "The basic ephemeral Diffie-Hellman protocol can be authenticated by adding to each message a digital signature of the sender. The protocol then provides forward secrecy because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Revealing the Diffie-Hellman shared secret does not reveal the signing keys"
+      },
+      {
+        "key": "b",
+        "text": "Revealing the signing keys does not reveal the Diffie-Hellman shared secret"
+      },
+      {
+        "key": "c",
+        "text": "Revealing the Diffie-Hellman ephemeral secret keys does not reveal the Diffie-Hellman shared secret"
+      },
+      {
+        "key": "d",
+        "text": "Revealing the Diffie-Hellman ephemeral secret keys does not reveal the signing keys"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq27",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q27"
+    },
+    "difficulty": 1,
+    "text": "One valid TLS 1.2 ciphersuite is denoted as TLS_RSA_WITH_AES_128_CBC_SHA256. When this ciphersuite is chosen, integrity of application data is provided by:",
+    "options": [
+      {
+        "key": "a",
+        "text": "An HMAC tag with SHA-256 as the underlying hash function"
+      },
+      {
+        "key": "b",
+        "text": "A CBC-based tag with AES as the underlying encryption function"
+      },
+      {
+        "key": "c",
+        "text": "Signing each application message with an RSA signature"
+      },
+      {
+        "key": "d",
+        "text": "Appending a hash of each packet, using SHA-256, before encryption with AES"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-resit-mcq28",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security",
+      "block-ciphers",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q28"
+    },
+    "difficulty": 1,
+    "text": "PGP is a security protocol to protect emails in transit. Which of the following statements about PGP is true:",
+    "options": [
+      {
+        "key": "a",
+        "text": "It provides confidentiality of metadata such as email headers"
+      },
+      {
+        "key": "b",
+        "text": "It provides end-to-end security between the sender and recipient"
+      },
+      {
+        "key": "c",
+        "text": "It requires special processing by email servers during email transit"
+      },
+      {
+        "key": "d",
+        "text": "It uses hierarchical digital certificates as also used in HTTPS"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-mcq29",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q29"
+    },
+    "difficulty": 1,
+    "text": "TLS consists of a number of protocols. The protocol responsible for setting up sessions with the correct keys and algorithms is called:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The record protocol"
+      },
+      {
+        "key": "b",
+        "text": "The alert protocol"
+      },
+      {
+        "key": "c",
+        "text": "The change cipher spec protocol"
+      },
+      {
+        "key": "d",
+        "text": "The handshake protocol"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-resit-mcq30",
+    "type": "mcq",
+    "topics": [
+      "tls13-ipsec",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit Q30"
+    },
+    "difficulty": 1,
+    "text": "One common way to apply the IPSec protocol uses a gateway-to-gateway architecture. Which of the following statements about this architecture is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "It is often used to connect hosts on unsecured networks to resources on secured networks"
+      },
+      {
+        "key": "b",
+        "text": "A typical application is to securely connect two separate secure networks"
+      },
+      {
+        "key": "c",
+        "text": "It provides protection for data throughout its transit (end-to-end)"
+      },
+      {
+        "key": "d",
+        "text": "It is typically used with IPSec in transport mode"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-resit-w-1",
+    "type": "written",
+    "topics": [
+      "number-theory-basics",
+      "classical-encryption",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit W1"
+    },
+    "difficulty": 3,
+    "text": "The Hill cipher is a historical cipher with the encryption equation C = KP (mod n) for key matrix K and column vectors C and P representing the ciphertext and plaintext respectively. Here n is the size of the alphabet in use. In this question we consider the 2 ↓2 Hill cipher.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "What is the exact number of keys possible?",
+        "solution": "There are n4 possible 2 × 2 matrices modulo n. The set of all possible keys are the set of all such invertible matrices."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Explain what is meant by a chosen plaintext attack and chosen ciphertext attack on the Hill cipher.",
+        "solution": "In a chosen plaintext attack the attacker can choose a plaintext (matrix P for the Hill cipher) and see the corresponding ciphertext (matrix C). In a chosen ciphertext attack the attacker can choose a ciphertext C and see the corresponding plaintext P."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "How could you run a ciphertext-only attack (hint: think of using pairs of characters)?",
+        "solution": "A ciphertext-only attack can be run as follows: the Hill cipher encryption, preserves some digrams from the plaintext in the ciphertext. If the ciphertext is long enough, some groups of letters appear more often than others. We can then assume that those match to the most common digrams in the English language and construct plaintext- ciphertext pairs. Then we might be able to recompute the key via K = CP -1."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-resit-w-2",
+    "type": "written",
+    "topics": [
+      "encryption-modes",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit W2"
+    },
+    "difficulty": 3,
+    "text": "One mode of operation for block ciphers is cipher block chaining mode (CBC). The general equation for computing each output block is: Ct = E(Pt ↔Ct→1, K) where C0 = IV which is sent with the ciphertext. The notation A ↔B denotes bitwise exclusive-OR of blocks A and B.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "In order to save on bandwidth, two parties A and B agree beforehand on a fixed IV to be used for every message which they exchange. Discuss the security implications.",
+        "solution": "Encryption is now deterministic so every message always encrypts to the same cipher- text. In particular the first block now always encrypts the same way. An attacker can mount a dictionary attack using known or chosen plaintext attacks and decrypt blocks in the dictionary."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Suppose that there is an error in transmission when block Ct is sent to a recipient, so that one bit is changed. How many blocks, or partial blocks, are changed when the receiver decrypts? Explain your answer.",
+        "solution": "A one-bit change to the ciphertext results in incorrect decryption of the corresponding block, and of the following one. But the remaining blocks remain intact."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Is it possible to encrypt multiple plaintext blocks in parallel? Is it possible to decrypt multiple blocks in parallel? Explain your answers.",
+        "solution": "Encryption cannot be done in parallel, but decryption can."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-resit-w-3",
+    "type": "written",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit W3"
+    },
+    "difficulty": 3,
+    "text": "The Chinese Remainder Theorem (CRT) is often used to speed up decryption in the RSA cryptosystem. If the RSA modulus is n = pq, the decryption exponent is d and the ciphertext is C, then the method first computes Mp = Cd mod p→1 mod p and Mq = Cd mod q→1 mod q. Then Mp and Mq are combined with the CRT. Illustrate the use of the method for the case nwhere n = 65 = 5 ↓13, p = 5, q = 13, the decryption exponent is d = 5 and the ciphertext is C = 2. Specifically,",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Compute Mp and Mq.",
+        "solution": "Mp = C5 mod 4 mod 5 = 21 (mod 5) = 2 Mq = C5 mod 12 mod 13 = 25 (mod 13) = 6"
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Apply the CRT to recover M.",
+        "solution": "M = (2 × 13 × 13-1 (mod 5)) + (6 × 5 × 5-1 (mod 13)) (mod 65) = 32."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Can the CRT be used to speed up decryption? How? Explain your reasoning. Show your working to illustrate how the CRT is used and how each component is derived.",
+        "solution": "Yes; we are running computations modulo p and q which are roughly half the size of n, instead of running computations modulo n."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-resit-w-4",
+    "type": "written",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit W4"
+    },
+    "difficulty": 3,
+    "text": "Cryptosystems based on discrete logarithms often make use of a prime number p and a generator g of the integers modulo p, Z↑ p.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "Show that when p = 11, the value g = 7 is a generator but the value g = 3 is not.",
+        "solution": "Listing all values is okay, else using Fermat’s theorem is also ok."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "Consider Diffie-Hellman key exchange in Z↑ p when p = 11 and g = 7. If A chooses random secret input value a = 8 and receives message y = 5 from B, what is the shared secret which they both obtain?",
+        "solution": "The shared key they obtain is s = ya (mod p) = 58 (mod 11) = 4."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-resit-w-5",
+    "type": "written",
+    "topics": [
+      "tls",
+      "tls13-ipsec"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Resit W5"
+    },
+    "difficulty": 3,
+    "text": "Recently it has been widely suggested that secure communications on the Internet should provide forward secrecy.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Describe what attack forward secrecy prevents when provided on a TLS connection.",
+        "solution": "Forward secrecy prevents future compromises of secret keys from past sessions."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "How could a web server ensure that all TLS connections it establishes with clients provide forward secrecy?",
+        "solution": "It can only accept ciphersuites that ensure this (during the handshake protocol)."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "The TLS handshake protocol is complex and allows several variants. In this question we focus on the TLS 1.3 version of the handshake protocol. Describe one improvement of TLS 1.3 over TLS 1.2.",
+        "solution": "0-RTT, faster connection, more secure ciphersuites, mandatory forward secrecy."
+      }
+    ],
+    "totalPoints": 6
+  }
+]

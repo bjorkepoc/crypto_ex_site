@@ -1,0 +1,20 @@
+{
+  "overview": "The course has a clear arc:\n\n- Lectures 1 to 3 build the language of modular arithmetic, groups, statistics, linearity, and perfect secrecy.\n- Lectures 4 to 6 show how modern symmetric cryptography gets confidentiality, integrity, and authentication right.\n- Lectures 7 to 10 build public-key crypto from number theory, hard problems, key exchange, and signatures.\n- Lectures 11 to 15 show how those primitives become real protocols and systems.\n\nIf you want the shortest list of concepts that connect everything, focus on these:\n\n- Modular arithmetic and inverses.\n- Randomness, nonces, IVs, and freshness.\n- The difference between confidentiality, integrity, authentication, and non-repudiation.\n- The difference between primitives and protocols.\n- The fact that many real attacks exploit misuse, leakage, downgrade, or bad system design rather than directly \"breaking AES\" or \"breaking RSA\".",
+  "priorityTopics": [
+    "Extended Euclidean algorithm and modular inverses.",
+    "Cyclic groups, generators, and finite fields.",
+    "Vigenère period detection and frequency reasoning.",
+    "Why Hill cipher linearity enables key recovery.",
+    "Feistel versus SPN, and the role of confusion/diffusion.",
+    "IV/nonce rules in CBC, CTR, and GCM.",
+    "Collision versus preimage versus second-preimage resistance.",
+    "HMAC and why it is not just \"hash with a key\".",
+    "Miller-Rabin and nontrivial square roots of 1.",
+    "Why RSA needs padding and constant-time implementation.",
+    "Why Diffie-Hellman needs authentication.",
+    "Why nonce reuse destroys DSA/ECDSA-style signatures.",
+    "Freshness, replay protection, and certificate trust.",
+    "Why post-quantum migration cannot wait for a perfect future date.",
+    "Why TLS and messaging failures are often protocol or implementation failures."
+  ]
+}

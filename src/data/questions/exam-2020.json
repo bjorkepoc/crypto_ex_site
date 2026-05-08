@@ -1,0 +1,663 @@
+[
+  {
+    "id": "exam2020-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q1"
+    },
+    "difficulty": 1,
+    "text": "Suppose that n is any odd number. Then 2-1 mod n is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "n -2"
+      },
+      {
+        "key": "b",
+        "text": "(n + 1)/2"
+      },
+      {
+        "key": "c",
+        "text": "(n -1)/2"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "2 · (n + 1)/2 mod n = n + 1 mod n = 1."
+  },
+  {
+    "id": "exam2020-mcq02",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q2"
+    },
+    "difficulty": 1,
+    "text": "Suppose a plaintext comes from a natural language, similar to English, where the most frequent character appears with probability 1/10. For which of the following ciphers is the frequency of all ciphertext characters likely to be less than 1 in 10?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The random simple substitution cipher"
+      },
+      {
+        "key": "b",
+        "text": "A transposition cipher on blocks of size 12"
+      },
+      {
+        "key": "c",
+        "text": "The Vigen´ere cipher with a key of length 8"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "The Vigen´ere cipher smooths the frequency of the plaintext characters so we expect that the most frequent plaintext character will be split into ciphertext characters of lower frequencies."
+  },
+  {
+    "id": "exam2020-mcq03",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q3"
+    },
+    "difficulty": 1,
+    "text": "Which of the following ciphers has the largest number of possible keys?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The triple-DES cipher with two independent keys"
+      },
+      {
+        "key": "b",
+        "text": "The random simple substitution cipher with alphabet consisting of all 8-bit bytes"
+      },
+      {
+        "key": "c",
+        "text": "The AES block cipher with the shortest allowed key length"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "The alphabet for the simple substitution has 256 characters so there are 256! keys. A very crude estimate is that 256! >> 128128 = 2896 which is much more than the other two ciphers (or any modern standard cipher)."
+  },
+  {
+    "id": "exam2020-mcq04",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q4"
+    },
+    "difficulty": 1,
+    "text": "A block cipher is a function E(m, k) which takes a plaintext block m and a key k to a ciphertext block c. In any useful block cipher:",
+    "options": [
+      {
+        "key": "a",
+        "text": "for a fixed key k, the function E(·, k) is a permutation of the set of plaintext blocks"
+      },
+      {
+        "key": "b",
+        "text": "for a fixed plaintext block m, the function E(m, ·) is a permutation of the set of keys"
+      },
+      {
+        "key": "c",
+        "text": "for a fixed ciphertext block c, there is a unique pair (m, k) such that E(m, k) = c"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "For a fixed k, there must be exactly one ciphertext block which is the encryption of any plaintext block, otherwise it would not be possible to decrypt."
+  },
+  {
+    "id": "exam2020-mcq05",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q5"
+    },
+    "difficulty": 1,
+    "text": "Suppose the string ABCDE is a portion of a ciphertext which has been encrypted with the one time pad. The corresponding plaintext string P is another 5-character string. Which of the following is the most accurate statement?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Every possible plaintext string of length 5 is equally likely to be the correct P"
+      },
+      {
+        "key": "b",
+        "text": "The attacker gains nothing useful about the correct P from seeing ABCDE"
+      },
+      {
+        "key": "c",
+        "text": "The correct P is the same plaintext corresponding to any previous portion of cipher- text equal to ABCDE"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Although in general the plaintexts are not equally likely, the ciphertext from the one time pad does not help an attacker in guessing what was the correct plaintext."
+  },
+  {
+    "id": "exam2020-mcq06",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q6"
+    },
+    "difficulty": 1,
+    "text": "The discrete logarithm problem in Z∗ p is the basis for many public key cryptosystems. On conventional computers (not quantum computers) there is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "no known polynomial time algorithm"
+      },
+      {
+        "key": "b",
+        "text": "no known subexponential time algorithm"
+      },
+      {
+        "key": "c",
+        "text": "no known exponential time algorithm"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "The number field sieve is a sub-exponential time algorithm for the DLP in Z∗ p."
+  },
+  {
+    "id": "exam2020-mcq07",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q7"
+    },
+    "difficulty": 1,
+    "text": "The security of RSA encryption is related to the problem of integer factorisation in the following way:",
+    "options": [
+      {
+        "key": "a",
+        "text": "if RSA cannot be broken then factorisation is hard"
+      },
+      {
+        "key": "b",
+        "text": "if RSA can be broken then factorisation is easy"
+      },
+      {
+        "key": "c",
+        "text": "If RSA is secure then factorisation may be easy or hard"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "If factoring is easy then an attacker can find the RSA public key from the private key, so that RSA is definitely broken. This is the same as saying that if RSA cannot be broken than factorisation must be hard."
+  },
+  {
+    "id": "exam2020-mcq08",
+    "type": "mcq",
+    "topics": [
+      "number-theory-pk",
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q8"
+    },
+    "difficulty": 1,
+    "text": "The RSA encryption algorithm uses a public exponent e, a private exponent d, and a public modulus n. In order to speed up the decryption process, it is common to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "choose a small value for e"
+      },
+      {
+        "key": "b",
+        "text": "choose a small value for d"
+      },
+      {
+        "key": "c",
+        "text": "apply the Chinese Remainder theorem"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "The owner of the private decryption key also can have access to p and q, allowing application of the CRT"
+  },
+  {
+    "id": "exam2020-mcq09",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q9"
+    },
+    "difficulty": 1,
+    "text": "ElGamal encryption works in Z∗ p. The ciphertext of a message m is a pair (gk, myk). To avoid a known plaintext attack it is essential to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "choose a new k for each encryption"
+      },
+      {
+        "key": "b",
+        "text": "choose a new y for each encryption"
+      },
+      {
+        "key": "c",
+        "text": "choose a new g for each encryption"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Since y is the public key of the recipient, a new k must be chosen so that yk is different for each message. If not then yk can be extracted from one known plaintext/ciphertext pair and used to decrypt other messages."
+  },
+  {
+    "id": "exam2020-mcq10",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q10"
+    },
+    "difficulty": 1,
+    "text": "Let h be the identity function, h(x) = x defined on bit strings of length 128-bits. This function does not meet the property of being:",
+    "options": [
+      {
+        "key": "a",
+        "text": "oneway"
+      },
+      {
+        "key": "b",
+        "text": "collision-resistant"
+      },
+      {
+        "key": "c",
+        "text": "second pre-image resistant"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Given an output value y we know that the input to h was also y, thus h is not one-way."
+  },
+  {
+    "id": "exam2020-mcq11",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q11"
+    },
+    "difficulty": 1,
+    "text": "HMAC is a takes as input a key K and message M and outputs a tag T. Suppose that HMAC uses the hash function is SHA-256. If HMAC(K, Mi) is computed for many different messages Mi (and a fixed K) then two identical tags will probably first appear after:",
+    "options": [
+      {
+        "key": "a",
+        "text": "216 tag values are computed"
+      },
+      {
+        "key": "b",
+        "text": "2128 tag values are computed"
+      },
+      {
+        "key": "c",
+        "text": "2255 tag values are computed"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "By the birthday paradox, collisions are likely to appear after around the square root of the number of possible tags have been computed, so around 2256/2."
+  },
+  {
+    "id": "exam2020-mcq12",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q12"
+    },
+    "difficulty": 1,
+    "text": "A difference between a message authentication code (MAC) and a digital signature scheme is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a signature must be randomised but a MAC tag need not be"
+      },
+      {
+        "key": "b",
+        "text": "a MAC tag can be recomputed by the verifier but a signature cannot be"
+      },
+      {
+        "key": "c",
+        "text": "a MAC provides data integrity but a signature does not"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "The recipient of a MAC shares the key with the sender and can re- compute to verify the tag; for a signature only the private key owner can compute signa- tures."
+  },
+  {
+    "id": "exam2020-mcq13",
+    "type": "mcq",
+    "topics": [
+      "encryption-modes",
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q13"
+    },
+    "difficulty": 1,
+    "text": "The Kerberos protocol makes use of a ticket containing four values (KAB, IDA, IDS, NA) which is shared between a client A and server S. A suitable algorithm to use to protect these values would be:",
+    "options": [
+      {
+        "key": "a",
+        "text": "AES in GCM mode"
+      },
+      {
+        "key": "b",
+        "text": "AES in CBC mode"
+      },
+      {
+        "key": "c",
+        "text": "HMAC"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "The ticket needs to be confidential, to hide KAB, and preserve integrity of the identities and nonce. Therefore AES in GCM mode is the only option."
+  },
+  {
+    "id": "exam2020-mcq14",
+    "type": "mcq",
+    "topics": [
+      "tls",
+      "block-ciphers",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q14"
+    },
+    "difficulty": 1,
+    "text": "A difference between TLS 1.3 and TLS 1.2 is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the TLS 1.3 handshake protocol always provides forward secrecy"
+      },
+      {
+        "key": "b",
+        "text": "there are no known attacks on the TLS 1.3 protocol"
+      },
+      {
+        "key": "c",
+        "text": "the TLS 1.3 record protocol includes data compression"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Only Diﬃe-Hellman handshakes are allowed in TLS 1.3 since the RSA method in TLS 1.2 was removed."
+  },
+  {
+    "id": "exam2020-mcq15",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security",
+      "digital-signatures",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 Q15"
+    },
+    "difficulty": 1,
+    "text": "Many email servers add a DomainKeys Identified Mail (DKIM) digital signature to out- going mail. This signature:",
+    "options": [
+      {
+        "key": "a",
+        "text": "can be verified by any recipient of the email"
+      },
+      {
+        "key": "b",
+        "text": "is verified and then removed by the receiving domain mail server"
+      },
+      {
+        "key": "c",
+        "text": "can only be verified by the receiving domain"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "The signature is openly available in the mail headers and can be verified by anyone using the public key which can be obtained from the DNS record. Written answer questions"
+  },
+  {
+    "id": "exam2020-w-1",
+    "type": "written",
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 W1"
+    },
+    "difficulty": 3,
+    "text": "Consider a variant of the Hill cipher which has the encryption equation C = KP + L mod n where the key has two parts, a 2 × 2 matrix K and 2 × 1 column vector L. The column vectors C and P represent the ciphertext and plaintext respectively. Here n is the size of the alphabet in use. In this question all matrices are 2 × 2. If L = 0 then this variant is the same as the basic Hill cipher.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "What is the decryption equation for this variant cipher?",
+        "solution": "What is the decryption equation for this variant cipher? P = K-1(C -L) mod n (1 mark) Note that matrix multiplication is not commutative, so it matters in which order the computation is done."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "What is the possible number of keys in this variant? Write an expression in terms of n and the number of keys of the basic Hill cipher.",
+        "solution": "What is the possible number of keys in this variant? Write an expression in terms of n and the number of keys of the basic Hill cipher. n2 × NBH where NBH is the number of keys in the basic Hill. Not all matrices are valid for the basic Hill, so it is inaccurate to say that NBH = n4. (1 mark)"
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Explain how an attacker can use a chosen plaintext attack to obtain the key with three chosen plaintext pairs.",
+        "solution": "Explain how an attacker can use a chosen plaintext attack to obtain the key with three chosen plaintext pairs. Suppose that (P1, P2, P3) are three plaintext column vectors with corresponding ci- phertext vectors (C1, C2, C3). Then C1 = K · P1 + L (1) C2 = K · P2 + L (2) C3 = K · P3 + L (3) By setting P1 = 0 (column vector) we can first find L since then C1 = L. Then we can subtract L to get a square matrix equation: ((C2 -L)(C3 -L)) = K · (P2P3) which can be solved as the basic Hill for K by inverting (P2P3). Note that in a chosen plaintext attack P2 and P3 can be chosen to ensure that (P2P3) is invertible. (3 marks)"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2020-w-2",
+    "type": "written",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 W2"
+    },
+    "difficulty": 3,
+    "text": "A non-standard mode of operation for block ciphers has the following general equation for computing each output block: Ct = E(Pt ⊕Pt-1 ⊕Ct-1, K) where C0 = IV which is sent with the ciphertext and P0 = 0 (the block of all 0 bits). Alternate question: Ct = E(Pt ⊕Ct-1, K) ⊕Pt-1",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "What is the equation for decryption of ciphertext block Ct to obtain the plaintext block Pt?",
+        "solution": "What is the equation for decryption of ciphertext block Ct to obtain the plaintext block Pt? Pt = D(Ct, K) ⊕Pt-1 ⊕Ct-1 (1 mark) Alternate answer Pt = D(Ct ⊕Pt-1, K) ⊕Ct-1"
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Suppose that there is an error in transmission when block Ct is sent to a recipient, so that one bit is changed. How many blocks, or partial blocks, are changed when the receiver decrypts? Explain your answer.",
+        "solution": "Suppose that there is an error in transmission when block Ct is sent to a recipient, so that one bit is changed. How many blocks, or partial blocks, are changed when the receiver decrypts? Explain your answer. One bit change in Ct will give a random output for D(Ct, K). So Pt will be random. But this randomness will also then propagate to Pt+1 since Pt gets added in. Thus all subsequent plaintext blocks get changed randomly (but not independently). (2 marks)"
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Is it possible to encrypt multiple plaintext blocks in parallel? Is it possible to decrypt multiple blocks in parallel? Explain your answers.",
+        "solution": "Is it possible to encrypt multiple plaintext blocks in parallel? Is it possible to decrypt multiple blocks in parallel? Explain your answers. To encrypt in parallel you need to have the previous Ct-1 block so parallel encryption is not possible. Parallel decryption is possible by first finding all the D(Ct, K) values and then adding the previous Pt-1 and Ct-1 blocks. (However, the statement that parallel decryption is not possible was also accepted.) (2 marks) Alternate answer: To encrypt in parallel you need to have the previous Ct-1 block so parallel encryption is not possible. To decrypt in parallel you need to have the previous Pt-1 block so parallel decryption is not possible."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2020-w-3",
+    "type": "written",
+    "topics": [
+      "number-theory-pk",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 W3"
+    },
+    "difficulty": 3,
+    "text": "Two eﬃcient tests for primality of an integer n are the Fermat test and the Miller-Rabin test. Both tests use a base value a chosen randomly in the range 1 < a < n -1 and are usually run for multiple bases. Suppose that the tests are being used to test n = 45.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Show that 192 mod 45 = 1.",
+        "solution": "Show that 192 mod 45 = 1. 19 × 19 mod 45 = 361 mod 45 = 8 × 45 + 1 mod 45 = 1. (1 mark) Alternate answer: 16 × 16 mod 85 = 256 mod 85 = 1."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Show that the Fermat test will return that n = 45 is a probable prime if the value a = 8 is chosen.",
+        "solution": "Show that the Fermat test will return that n = 45 is a probable prime if the value a = 8 is chosen. 82 mod 45 = 19. Thus from part (a), 84 mod 45 = 192 mod 45 = 1 844 mod 45 = (84)11 mod 45 = 1 (2 marks) Alternate answer: 42 mod 85 = 19. Thus from part (a), 44 mod 85 = 162 mod 85 = 1 484 mod 85 = (44)21 mod 85 = 1"
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Show that the Miller-Rabin test will return that n = 45 is composite if the value a = 4 is chosen.",
+        "solution": "Show that the Miller-Rabin test will return that n = 45 is composite if the value a = 4 is chosen. 44 = 11 × 4. First compute 811 mod 45 = 88 × 83 = 1 × 19 × 8 mod 45 = 152 mod 45 = 17 172 mod 45 = 19 192 mod 45 = 1 (from part (a)) Since -1 never occurs in the sequence the Miller-Rabin test returns composite. (2 marks) Alternate answer: 84 = 21 × 4. First compute 421 mod 85 = 420 × 4 = 1 × 4 mod 85 = 4 42 mod 85 = 16 162 mod 85 = 1 (from part (a)) Since -1 never occurs in the sequence the Miller-Rabin test returns composite."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2020-w-4",
+    "type": "written",
+    "topics": [
+      "digital-signatures",
+      "discrete-log-crypto",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 W4"
+    },
+    "difficulty": 3,
+    "text": "Consider the Diﬃe-Hellman protocol in the group Z∗ p. In order to add authentication to the basic Diﬃe-Hellman protocol it is common to use digital signatures. An alternative is to use a long-term key directly in the protocol. Suppose that A has long-term secret key x with public key gx and B has long-term secret key y with public key gy. The protocol is then as follows. • A chooses random a and sends the value A = ga to B. • B chooses random b and sends the value B = gb to A. • A computes the session key KAB = Bx(gy)a, using the received message Y and the long-term key of B. • B computes the session key KBA = Ay(gx)b, using the received message X and the long-term key of A.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Show that A and B compute the same key: KAB = KBA.",
+        "solution": "Show that A and B compute the same key: KAB = KBA. KAB = Bx(gy)a = gbxgay = gbx+ay By symmetry this is also equal to KBA. (2 marks)"
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Show that this protocol does not achieve the forward secrecy property.",
+        "solution": "Show that this protocol does not achieve the forward secrecy property. We suppose that x and y are compromised after the session under attack is com- pleted. Then the attacker has recorded A and B can compute: KAB = AxBy = gax+by (3 marks)"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2020-w-5",
+    "type": "written",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 W5"
+    },
+    "difficulty": 3,
+    "text": "Two signature schemes commonly used today are RSA signatures and DSA signatures. Suppose that the RSA modulus n has length 2048 bits and the DSA modulus p has length 2048 bits with length of parameter q equal to 224 bits. You may assume that the DSA parameters p and q are fixed for all parties. Alternate question: Parameters are |n| = 3072, |p| = 3072, |q| = 256.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 1.5,
+        "text": "RSA signatures often use a public exponent e = 216 + 1. Approximately how much faster on average is signature verification with this value of e compared to when e is randomly chosen e?",
+        "solution": "RSA signatures often use a public exponent e = 216 + 1. Approximately how much faster on average is signature verification with this value of e compared to when e is randomly chosen e? With short exponent need only 17 multiplications. With random exponent around"
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "What is the approximate ratio of the signature length, RSA against DSA?",
+        "solution": "RSA signatures often use a public exponent e = 216 + 1. Approximately how much faster on average is signature verification with this value of e compared to when e is randomly chosen e? With short exponent need only 17 multiplications. With random exponent around"
+      },
+      {
+        "partLabel": "c",
+        "points": 1,
+        "text": "What is the approximate ratio of the signing key length, RSA against DSA?",
+        "solution": "RSA signatures often use a public exponent e = 216 + 1. Approximately how much faster on average is signature verification with this value of e compared to when e is randomly chosen e? With short exponent need only 17 multiplications. With random exponent around"
+      },
+      {
+        "partLabel": "d",
+        "points": 1,
+        "text": "What is the approximate ratio of the verification key length, RSA against DSA?",
+        "solution": "RSA signatures often use a public exponent e = 216 + 1. Approximately how much faster on average is signature verification with this value of e compared to when e is randomly chosen e? With short exponent need only 17 multiplications. With random exponent around"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2020-w-6",
+    "type": "written",
+    "topics": [
+      "email-messaging-security",
+      "tls13-ipsec"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2020 W6"
+    },
+    "difficulty": 3,
+    "text": "Protection of metadata, typically included in header information in network protocols, is important in preserving privacy.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Compare what cryptographic protection is available for IP metadata in (i) IPSec in tunnel mode and (ii) TLS between a client and server.",
+        "solution": "Compare what cryptographic protection is available for IP metadata in (i) IPSec in tunnel mode and (ii) TLS between a client and server. In tunnel model IPSec encapsulates IP header information so that it is hidden from eavesdroppers. In contrast, TLS in normal usage does not touch IP headers since it works at the top of the transport layer (2 marks)"
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Compare what cryptographic protection is available for email metadata in (i) PGP and (ii) STARTTLS.",
+        "solution": "Compare what cryptographic protection is available for email metadata in (i) PGP and (ii) STARTTLS. PGP protects mail contents end-to-end without changing the headers which are necessary to deliver the mail. In contrast, STARTTLS works between mail servers and encapsulates the mail headers, but this protection relies on trust in the mail servers. (2 marks)"
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Is there a conflict between protection of metadata and end-to-end security? Discuss such a conflict in the context of the above two examples.",
+        "solution": "Is there a conflict between protection of metadata and end-to-end security? Discuss such a conflict in the context of the above two examples. IPSec in tunnel model and STARTTLS are not end-to-end and both encapsulate their payload to hide the metadata. However, end-to-end communication needs to use the header information, as with PGP and TLS. A solution is to use both. (1 mark)"
+      }
+    ],
+    "totalPoints": 5
+  }
+]

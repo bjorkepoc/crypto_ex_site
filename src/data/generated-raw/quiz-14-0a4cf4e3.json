@@ -1,0 +1,707 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "In the context of symmetric key encryption, what is the relationship between the key used for encryption and the key used for decryption?",
+      "answerOptions": [
+        {
+          "text": "They are the same key or easily derivable from one another.",
+          "isCorrect": true,
+          "rationale": "Symmetric cryptography relies on a shared secret where both the sender and receiver use identical key material for their respective operations."
+        },
+        {
+          "text": "The encryption key is public while the decryption key remains secret.",
+          "isCorrect": false,
+          "rationale": "This describes asymmetric or public-key cryptography, where the roles of the keys are mathematically linked but distinct in visibility."
+        },
+        {
+          "text": "The decryption key must be a large prime factor of the encryption key.",
+          "isCorrect": false,
+          "rationale": "This confuses the relationship of keys in symmetric systems with the mathematical structure of specific asymmetric algorithms like RSA."
+        },
+        {
+          "text": "The encryption key is generated from the ciphertext after the message is sent.",
+          "isCorrect": false,
+          "rationale": "Keys must be established or known prior to the encryption process to secure the clear text effectively."
+        }
+      ],
+      "hint": "Consider the meaning of the word 'symmetric' in terms of balance or equality."
+    },
+    {
+      "question": "When creating a digital signature, which key does the signer use to 'sign' the hash of the original message?",
+      "answerOptions": [
+        {
+          "text": "The signer's private key.",
+          "isCorrect": true,
+          "rationale": "Only the owner of the private key should be able to produce a signature, ensuring the authenticity and non-repudiation of the message."
+        },
+        {
+          "text": "The recipient's public key.",
+          "isCorrect": false,
+          "rationale": "Using the recipient's public key is a standard procedure for encrypting a message for confidentiality, not for proving the sender's identity."
+        },
+        {
+          "text": "A shared symmetric session key.",
+          "isCorrect": false,
+          "rationale": "While symmetric keys can provide integrity, digital signatures specifically use asymmetric pairs to provide non-repudiation."
+        },
+        {
+          "text": "The signer's public key.",
+          "isCorrect": false,
+          "rationale": "The public key is used by others to verify the signature, as it is widely available and linked to the secret private key."
+        }
+      ],
+      "hint": "Think about which key is unique to the individual and kept secret to ensure only they could have created the signature."
+    },
+    {
+      "question": "What is the primary requirement for the moduli $d_1, d_2, \\dots, d_r$ in the Chinese Remainder Theorem?",
+      "answerOptions": [
+        {
+          "text": "They must be pairwise relatively prime.",
+          "isCorrect": true,
+          "rationale": "For a unique solution to exist modulo the product of the integers, the greatest common divisor of any two distinct moduli must be 1."
+        },
+        {
+          "text": "They must all be prime numbers.",
+          "isCorrect": false,
+          "rationale": "While primes are always relatively prime to each other, the theorem also applies to composite numbers as long as they do not share common factors."
+        },
+        {
+          "text": "They must be odd integers.",
+          "isCorrect": false,
+          "rationale": "Even integers can be used in the theorem provided that the other moduli do not share any common factors with them."
+        },
+        {
+          "text": "They must be smaller than the integers $c_i$.",
+          "isCorrect": false,
+          "rationale": "The values $c_i$ are remainders and can be any integer; their size relative to the moduli does not affect the theorem's validity."
+        }
+      ],
+      "hint": "Focus on the relationship between the divisors that ensures they don't 'overlap' in their factors."
+    },
+    {
+      "question": "What is the value of the Euler function $\\phi(10)$?",
+      "answerOptions": [
+        {
+          "text": "$4$",
+          "isCorrect": true,
+          "rationale": "The integers less than 10 that are relatively prime to 10 are $\\{1, 3, 7, 9\\}$, totalling four numbers."
+        },
+        {
+          "text": "$5$",
+          "isCorrect": false,
+          "rationale": "This might be mistaken for the count of odd numbers less than 10, but 5 is not relatively prime to 10 because $\\gcd(5, 10) = 5$."
+        },
+        {
+          "text": "$9$",
+          "isCorrect": false,
+          "rationale": "This would be the value if 10 were a prime number, where all positive integers less than $p$ are relatively prime to $p$."
+        },
+        {
+          "text": "$2$",
+          "isCorrect": false,
+          "rationale": "This only accounts for the prime factors of 10, rather than the count of integers that share no common factors with it."
+        }
+      ],
+      "hint": "List the numbers from 1 to 9 and remove those that share a factor (like 2 or 5) with 10."
+    },
+    {
+      "question": "According to the properties of the Euler function, if $p$ and $q$ are distinct prime numbers, how is $\\phi(pq)$ calculated?",
+      "answerOptions": [
+        {
+          "text": "$(p - 1)(q - 1)$",
+          "isCorrect": true,
+          "rationale": "Since the function is multiplicative for relatively prime integers, $\\phi(pq) = \\phi(p)\\phi(q) = (p-1)(q-1)$."
+        },
+        {
+          "text": "$pq - 1$",
+          "isCorrect": false,
+          "rationale": "This formula only applies if the product $pq$ itself were a prime number, which is impossible for distinct primes $p$ and $q$."
+        },
+        {
+          "text": "$p + q - 1$",
+          "isCorrect": false,
+          "rationale": "This does not account for the total number of integers in the set $Z_n^*$ and is not a standard property of the totient function."
+        },
+        {
+          "text": "$\\phi(p) + \\phi(q)$",
+          "isCorrect": false,
+          "rationale": "The Euler function is multiplicative rather than additive; summing the results does not yield the correct count of relatively prime integers."
+        }
+      ],
+      "hint": "Recall that $\\phi(p) = p-1$ for any prime, and the function follows a multiplicative rule for coprime numbers."
+    },
+    {
+      "question": "Fermat's Little Theorem states that if $p$ is prime and $1 < a < p-1$, then $a^{p-1} \\pmod p$ equals which value?",
+      "answerOptions": [
+        {
+          "text": "$1$",
+          "isCorrect": true,
+          "rationale": "This fundamental result in number theory shows that raising a non-multiple of a prime to the power of $(p-1)$ always results in a remainder of 1 when divided by that prime."
+        },
+        {
+          "text": "$a$",
+          "isCorrect": false,
+          "rationale": "This would imply the exponent was 1 or that the modulus was such that no reduction occurred, which contradicts the theorem."
+        },
+        {
+          "text": "$0$",
+          "isCorrect": false,
+          "rationale": "A result of 0 would mean that $p$ divides $a^{p-1}$, which is impossible if $\\gcd(a, p) = 1$."
+        },
+        {
+          "text": "$p - 1$",
+          "isCorrect": false,
+          "rationale": "While $p-1$ is congruent to $-1 \\pmod p$, the theorem specifically identifies the positive unit 1 as the result."
+        }
+      ],
+      "hint": "Think about the identity element for multiplication in modular arithmetic."
+    },
+    {
+      "question": "Under what condition is Fermat's Little Theorem considered a special case of Euler's Theorem?",
+      "answerOptions": [
+        {
+          "text": "When the modulus $n$ is a prime number $p$.",
+          "isCorrect": true,
+          "rationale": "Since $\\phi(p) = p - 1$ for any prime $p$, Euler's formula $a^{\\phi(n)} \\equiv 1 \\pmod n$ simplifies exactly to Fermat's formula."
+        },
+        {
+          "text": "When the base $a$ is a prime number.",
+          "isCorrect": false,
+          "rationale": "The primality of the base $a$ is not required for Euler's Theorem; only that it is relatively prime to the modulus."
+        },
+        {
+          "text": "When the exponent is an even number.",
+          "isCorrect": false,
+          "rationale": "The parity of the exponent is not a defining characteristic that links these two specific theorems."
+        },
+        {
+          "text": "When the modulus $n$ is a Carmichael number.",
+          "isCorrect": false,
+          "rationale": "Carmichael numbers are composite numbers that mimic prime behaviour in Fermat's test, which is an exception rather than a generalisation."
+        }
+      ],
+      "hint": "Consider the value of $\\phi(n)$ when $n$ has no factors other than 1 and itself."
+    },
+    {
+      "question": "Why is primality testing by trial division considered impractical for modern cryptography?",
+      "answerOptions": [
+        {
+          "text": "The number of potential divisors grows exponentially with the number of bits.",
+          "isCorrect": true,
+          "rationale": "Checking every prime up to $\\sqrt{n}$ becomes computationally impossible as the bit-length of $n$ reaches the hundreds or thousands used in crypto."
+        },
+        {
+          "text": "It only works for numbers that are perfect squares.",
+          "isCorrect": false,
+          "rationale": "Trial division works for any number, but its inefficiency is the issue, not its mathematical applicability to different types of integers."
+        },
+        {
+          "text": "It can only identify even composite numbers.",
+          "isCorrect": false,
+          "rationale": "Trial division can identify any factor, odd or even, but it is too slow to find large prime factors in a reasonable timeframe."
+        },
+        {
+          "text": "Modern computers cannot perform division operations on large integers.",
+          "isCorrect": false,
+          "rationale": "Computers are very efficient at division; the problem lies in the sheer quantity of divisions required to prove a large number is prime."
+        }
+      ],
+      "hint": "Think about how many numbers you would have to check if the target number has 500 digits."
+    },
+    {
+      "question": "Which of the following describes a 'Carmichael number'?",
+      "answerOptions": [
+        {
+          "text": "A composite number that satisfies $b^{n-1} \\equiv 1 \\pmod n$ for all integers $b$ relatively prime to $n$.",
+          "isCorrect": true,
+          "rationale": "These numbers are rare instances where the converse of Fermat's Little Theorem fails, making them appear prime to the Fermat test."
+        },
+        {
+          "text": "A prime number that fails the Miller-Rabin test.",
+          "isCorrect": false,
+          "rationale": "By definition, prime numbers never fail the Miller-Rabin test; they are always correctly identified as 'probable prime'."
+        },
+        {
+          "text": "A number that has exactly three prime factors.",
+          "isCorrect": false,
+          "rationale": "While some Carmichael numbers may have three factors, this is not their defining mathematical property in the context of primality testing."
+        },
+        {
+          "text": "The result of multiplying any two consecutive prime numbers.",
+          "isCorrect": false,
+          "rationale": "Products of two primes are called semiprimes and do not necessarily satisfy the Fermat congruence for all bases."
+        }
+      ],
+      "hint": "These are 'false primes' that trick a specific simple primality test."
+    },
+    {
+      "question": "What is a 'non-trivial square root of 1' modulo $n$?",
+      "answerOptions": [
+        {
+          "text": "A number $x$ such that $x^2 \\equiv 1 \\pmod n$, where $x \\not\\equiv 1$ and $x \\not\\equiv n-1$.",
+          "isCorrect": true,
+          "rationale": "In a prime modulus, only 1 and $-1$ (which is $n-1$) exist as square roots; finding any other value proves the modulus is composite."
+        },
+        {
+          "text": "The square root of any prime number larger than 1.",
+          "isCorrect": false,
+          "rationale": "Square roots of 1 are specific integers whose squares are congruent to 1, which is different from the square root of a prime."
+        },
+        {
+          "text": "A number that, when squared, equals $n + 1$.",
+          "isCorrect": false,
+          "rationale": "While such a number would be a square root of 1 modulo $n$, the definition of 'non-trivial' excludes the standard values 1 and $-1$."
+        },
+        {
+          "text": "The value of $\\phi(n)$ for any even integer.",
+          "isCorrect": false,
+          "rationale": "The Euler totient function $\\phi(n)$ is a count of integers and is not directly defined as a square root of 1."
+        }
+      ],
+      "hint": "Recall that 1 and $-1$ are the 'obvious' or 'trivial' square roots of 1."
+    },
+    {
+      "question": "How does the Miller-Rabin test handle the weakness of the Fermat primality test regarding Carmichael numbers?",
+      "answerOptions": [
+        {
+          "text": "It looks for non-trivial square roots of 1 during the exponentiation process.",
+          "isCorrect": true,
+          "rationale": "By checking intermediate steps in the calculation of $a^{n-1}$, the test can identify composites that the Fermat test would miss."
+        },
+        {
+          "text": "It only uses prime numbers as the base $a$.",
+          "isCorrect": false,
+          "rationale": "The choice of base $a$ is random; the test's strength comes from its mathematical procedure, not the specific primality of the base."
+        },
+        {
+          "text": "It performs trial division by all primes up to 1000 first.",
+          "isCorrect": false,
+          "rationale": "While often done in practice to save time, this is a pre-processing step and not the mechanism that resolves the Carmichael number issue."
+        },
+        {
+          "text": "It calculates the exact value of $\\phi(n)$ to verify the exponent.",
+          "isCorrect": false,
+          "rationale": "Calculating $\\phi(n)$ is as hard as factoring $n$, which would defeat the purpose of a fast primality test."
+        }
+      ],
+      "hint": "The test inspects a sequence of squares to find 'illegal' values that primes wouldn't produce."
+    },
+    {
+      "question": "If the Miller-Rabin test is run $k$ times with different random bases and returns 'probable prime' each time, what is the maximum probability that $n$ is actually composite?",
+      "answerOptions": [
+        {
+          "text": "$(1/4)^k$",
+          "isCorrect": true,
+          "rationale": "Each iteration has at most a $1/4$ chance of failing to detect a composite; repeating it $k$ times reduces the error exponentially."
+        },
+        {
+          "text": "$1 / (2k)$",
+          "isCorrect": false,
+          "rationale": "This linear reduction would be much slower and less secure than the actual exponential bound provided by the test."
+        },
+        {
+          "text": "The probability becomes zero.",
+          "isCorrect": false,
+          "rationale": "Miller-Rabin is a probabilistic test; while the error can be made negligibly small, it is never strictly zero."
+        },
+        {
+          "text": "$(1/2)^k$",
+          "isCorrect": false,
+          "rationale": "This is a common misconception, but the proven bound for the Miller-Rabin witness probability is actually $1/4$."
+        }
+      ],
+      "hint": "Consider the probability of a single failure ($1/4$) being compounded over multiple independent trials."
+    },
+    {
+      "question": "In complexity theory, what does 'Big O' notation $f(m) = O(g(m))$ represent?",
+      "answerOptions": [
+        {
+          "text": "An upper bound on the growth rate of a function as the input size increases.",
+          "isCorrect": true,
+          "rationale": "It describes the asymptotic behaviour, ensuring that $f(m)$ does not grow faster than some constant multiple of $g(m)$."
+        },
+        {
+          "text": "The exact number of steps an algorithm takes for an input of size $m$.",
+          "isCorrect": false,
+          "rationale": "Big O notation ignores constant factors and lower-order terms to focus on the long-term trend rather than exact counts."
+        },
+        {
+          "text": "The minimum time required to solve the easiest instance of a problem.",
+          "isCorrect": false,
+          "rationale": "Complexity analysis typically focuses on worst-case or average-case scenarios for the hardest instances, not the easiest."
+        },
+        {
+          "text": "The amount of physical memory (RAM) used by a program.",
+          "isCorrect": false,
+          "rationale": "While Big O can be used for space complexity, it is more commonly used to describe time complexity in general discussions."
+        }
+      ],
+      "hint": "Focus on the idea of a 'limit' or 'ceiling' on how fast the time requirement grows."
+    },
+    {
+      "question": "Which of the following describes a 'polynomial time' function in cryptography?",
+      "answerOptions": [
+        {
+          "text": "$f(m) = O(m^t)$ for some positive integer $t$.",
+          "isCorrect": true,
+          "rationale": "Polynomial time algorithms are generally considered efficient because their running time grows at a manageable rate relative to the input size."
+        },
+        {
+          "text": "$f(m) = O(b^m)$ for some $b > 1$.",
+          "isCorrect": false,
+          "rationale": "This describes an exponential time function, which grows much faster than a polynomial and is typically considered 'hard' or inefficient."
+        },
+        {
+          "text": "$f(m) = O(\\log m)$.",
+          "isCorrect": false,
+          "rationale": "While logarithmic time is faster than polynomial time, it is a specific subclass and not the general definition of the polynomial category."
+        },
+        {
+          "text": "$f(m) = O(m!)$.",
+          "isCorrect": false,
+          "rationale": "Factorial growth is even faster than exponential growth and represents extremely inefficient algorithms."
+        }
+      ],
+      "hint": "Look for a function where the input size $m$ is the base, not the exponent."
+    },
+    {
+      "question": "The 'Discrete Logarithm Problem' (DLP) in a cyclic group $G$ with generator $g$ asks us to find $x$ given $y$ such that:",
+      "answerOptions": [
+        {
+          "text": "$y = g^x \\pmod p$",
+          "isCorrect": true,
+          "rationale": "The difficulty of finding the exponent $x$ when given the base and the result in a modular field is a core hard problem for crypto."
+        },
+        {
+          "text": "$y = x^g \\pmod p$",
+          "isCorrect": false,
+          "rationale": "This describes finding a root, which is a different mathematical problem than finding an exponent (logarithm)."
+        },
+        {
+          "text": "$g = y \\cdot x \\pmod p$",
+          "isCorrect": false,
+          "rationale": "This is a simple linear equation that can be solved efficiently using the modular inverse, making it too easy for cryptography."
+        },
+        {
+          "text": "$x = \\phi(y) \\pmod g$",
+          "isCorrect": false,
+          "rationale": "This formula involves the Euler function but does not represent the relationship defined in the discrete logarithm problem."
+        }
+      ],
+      "hint": "Think about the definition of a standard logarithm, but applied to modular exponentiation."
+    },
+    {
+      "question": "What is the complexity of the best-known algorithms for integer factorization and discrete logarithms on a traditional (non-quantum) computer?",
+      "answerOptions": [
+        {
+          "text": "Sub-exponential",
+          "isCorrect": true,
+          "rationale": "These algorithms, like the Number Field Sieve, are faster than exponential but still significantly slower than polynomial time."
+        },
+        {
+          "text": "Polynomial",
+          "isCorrect": false,
+          "rationale": "If a polynomial time algorithm were known for traditional computers, current systems like RSA would be considered broken and insecure."
+        },
+        {
+          "text": "Exponential",
+          "isCorrect": false,
+          "rationale": "While trial division is exponential, we have discovered more advanced methods that perform better, classified as sub-exponential."
+        },
+        {
+          "text": "Constant time",
+          "isCorrect": false,
+          "rationale": "Constant time would mean the problem takes the same amount of time regardless of the size of the number, which is not the case."
+        }
+      ],
+      "hint": "It is an intermediate category that sits between 'efficient' and 'impossible'."
+    },
+    {
+      "question": "According to NIST guidelines (2016), a 128-bit symmetric key provides roughly the same security strength as which of the following RSA modulus sizes?",
+      "answerOptions": [
+        {
+          "text": "3072 bits",
+          "isCorrect": true,
+          "rationale": "Because factorization is sub-exponential, the key size for RSA must be significantly larger than symmetric keys to offer comparable resistance to attack."
+        },
+        {
+          "text": "128 bits",
+          "isCorrect": false,
+          "rationale": "A 128-bit RSA key is extremely insecure and can be factored in a fraction of a second on a modern smartphone."
+        },
+        {
+          "text": "1024 bits",
+          "isCorrect": false,
+          "rationale": "1024-bit RSA is equivalent to only about 80 bits of symmetric security, which is no longer recommended for high-security applications."
+        },
+        {
+          "text": "15360 bits",
+          "isCorrect": false,
+          "rationale": "This massive size is equivalent to a 256-bit symmetric key, which is the highest level of security currently standardised."
+        }
+      ],
+      "hint": "Consider that RSA keys need to be much larger than AES keys to maintain the same level of security."
+    },
+    {
+      "question": "What would be the effect of a large-scale quantum computer on the complexity of the integer factorization problem?",
+      "answerOptions": [
+        {
+          "text": "The complexity would drop to polynomial time.",
+          "isCorrect": true,
+          "rationale": "Shor's algorithm is a quantum algorithm that can factor integers in polynomial time, potentially breaking current public-key cryptosystems."
+        },
+        {
+          "text": "The problem would remain sub-exponential but with smaller constants.",
+          "isCorrect": false,
+          "rationale": "Quantum computers provide a fundamental shift in the class of complexity for this problem, not just a minor speedup."
+        },
+        {
+          "text": "Factorization would become impossible due to quantum uncertainty.",
+          "isCorrect": false,
+          "rationale": "Quantum mechanics provides new tools for computation rather than creating barriers to solving existing mathematical problems."
+        },
+        {
+          "text": "It would have no effect, as factorization is a purely mathematical problem.",
+          "isCorrect": false,
+          "rationale": "The complexity of a problem is tied to the computational model used; quantum computers change that model."
+        }
+      ],
+      "hint": "Quantum computers use specific algorithms (like Shor's) that are much more efficient for these tasks."
+    },
+    {
+      "question": "In the Miller-Rabin algorithm, if $n-1$ is written as $2^v u$, what is the specific requirement for $u$?",
+      "answerOptions": [
+        {
+          "text": "$u$ must be an odd integer.",
+          "isCorrect": true,
+          "rationale": "The process involves extracting all factors of 2 from $n-1$, leaving an odd remainder $u$ as the starting point for exponentiation."
+        },
+        {
+          "text": "$u$ must be a prime number.",
+          "isCorrect": false,
+          "rationale": "$u$ is simply what remains after removing powers of 2; it can be any odd integer, composite or prime."
+        },
+        {
+          "text": "$u$ must be less than $v$.",
+          "isCorrect": false,
+          "rationale": "There is no required relationship between the size of the odd part $u$ and the power of two $v$."
+        },
+        {
+          "text": "$u$ must be a perfect square.",
+          "isCorrect": false,
+          "rationale": "Requiring $u$ to be a square would severely limit the types of numbers $n$ that could be tested by the algorithm."
+        }
+      ],
+      "hint": "Think about what happens when you divide an even number by 2 repeatedly until you can't anymore."
+    },
+    {
+      "question": "What is the primary purpose of using the Number Field Sieve (NFS)?",
+      "answerOptions": [
+        {
+          "text": "It is the best current general method for factorising large integers.",
+          "isCorrect": true,
+          "rationale": "NFS is the algorithm responsible for setting most current records in factoring RSA-style numbers."
+        },
+        {
+          "text": "It is used to generate large prime numbers efficiently.",
+          "isCorrect": false,
+          "rationale": "Primality testing (like Miller-Rabin) is used for generation; NFS is used for the opposite task: breaking numbers apart into factors."
+        },
+        {
+          "text": "It provides a way to solve the Chinese Remainder Theorem with very few steps.",
+          "isCorrect": false,
+          "rationale": "The CRT is a constructive theorem with its own efficient algorithm; it does not require the heavy machinery of the Number Field Sieve."
+        },
+        {
+          "text": "It is a symmetric encryption algorithm designed for speed.",
+          "isCorrect": false,
+          "rationale": "NFS is a mathematical algorithm for number theory problems, not a block cipher or stream cipher used for encryption."
+        }
+      ],
+      "hint": "This method is the most powerful tool for attacking RSA keys."
+    },
+    {
+      "question": "If $x \\equiv 5 \\pmod 6$ and $x \\equiv 33 \\pmod{35}$, what is the value of $x$ modulo 210 as solved in the lecture example?",
+      "answerOptions": [
+        {
+          "text": "$173$",
+          "isCorrect": true,
+          "rationale": "Following the CRT steps provided, the sum of terms reduces to 173, which satisfies both original congruences."
+        },
+        {
+          "text": "$38$",
+          "isCorrect": false,
+          "rationale": "While 38 is $33 + 5$, simply adding the remainders does not account for the requirements of the moduli."
+        },
+        {
+          "text": "$209$",
+          "isCorrect": false,
+          "rationale": "This would be $-1 \\pmod{210}$, which might satisfy one congruence but does not satisfy both in this specific case."
+        },
+        {
+          "text": "$103$",
+          "isCorrect": false,
+          "rationale": "This is a plausible distractor that could result from a calculation error in the inversion or summation steps of the CRT."
+        }
+      ],
+      "hint": "The answer is a number that is 2 less than 35 plus 140, or alternatively, 210 minus 37."
+    },
+    {
+      "question": "Which set of integers is denoted by $Z_n^*$?",
+      "answerOptions": [
+        {
+          "text": "The set of positive integers less than $n$ that are relatively prime to $n$.",
+          "isCorrect": true,
+          "rationale": "The size of this set is given by the Euler function $\\phi(n)$, and it forms a group under multiplication modulo $n$."
+        },
+        {
+          "text": "All integers from $0$ to $n-1$.",
+          "isCorrect": false,
+          "rationale": "This is the set $Z_n$, which includes numbers that share factors with $n$ and thus do not have multiplicative inverses."
+        },
+        {
+          "text": "The set of all prime numbers less than $n$.",
+          "isCorrect": false,
+          "rationale": "While many members of $Z_n^*$ are prime, it also includes composite numbers that are coprime to $n$, as well as the number 1."
+        },
+        {
+          "text": "The set of divisors of $n$.",
+          "isCorrect": false,
+          "rationale": "Divisors (except 1) are never relatively prime to $n$, so they are actually excluded from the set $Z_n^*$."
+        }
+      ],
+      "hint": "This set contains exactly the numbers that have a multiplicative inverse modulo $n$."
+    },
+    {
+      "question": "In 2002, what breakthrough did Agrawal, Saxena, and Kayal achieve in number theory?",
+      "answerOptions": [
+        {
+          "text": "They found a deterministic polynomial-time primality test.",
+          "isCorrect": true,
+          "rationale": "The AKS test proved that primality is in the complexity class P, although probabilistic tests remain more popular in practice due to speed."
+        },
+        {
+          "text": "They proved that all Carmichael numbers are even.",
+          "isCorrect": false,
+          "rationale": "All Carmichael numbers are actually odd, a fact that was already well-understood before their breakthrough."
+        },
+        {
+          "text": "They discovered a way to factor integers in linear time.",
+          "isCorrect": false,
+          "rationale": "Factoring remains a hard problem; if it were solved in linear time, almost all modern internet security would vanish."
+        },
+        {
+          "text": "They proved that there are only a finite number of primes.",
+          "isCorrect": false,
+          "rationale": "The infinitude of primes has been a proven fact since Euclid's time over two millennia ago."
+        }
+      ],
+      "hint": "Their discovery showed that determining if a number is prime is 'efficient' in a theoretical sense."
+    },
+    {
+      "question": "How is the Discrete Logarithm Problem (DLP) defined on elliptic curve groups compared to $Z_p^*$?",
+      "answerOptions": [
+        {
+          "text": "The best-known algorithms for elliptic curves are exponential time.",
+          "isCorrect": true,
+          "rationale": "This makes elliptic curves more efficient for cryptography, as they require much smaller keys to achieve the same security as RSA or standard DLP."
+        },
+        {
+          "text": "Elliptic curve DLP is significantly easier to solve.",
+          "isCorrect": false,
+          "rationale": "On the contrary, the difficulty of the problem on curves allows for the use of much shorter bit-lengths."
+        },
+        {
+          "text": "They share the same sub-exponential complexity.",
+          "isCorrect": false,
+          "rationale": "The index calculus methods that provide sub-exponential speedups in $Z_p^*$ do not apply to general elliptic curve groups."
+        },
+        {
+          "text": "Quantum computers cannot solve the DLP on elliptic curves.",
+          "isCorrect": false,
+          "rationale": "Quantum computers can solve the DLP on both types of groups in polynomial time using a version of Shor's algorithm."
+        }
+      ],
+      "hint": "Think about why elliptic curve cryptography (ECC) uses 256-bit keys while RSA needs 3072 bits."
+    },
+    {
+      "question": "When generating large primes, why is it common to check the candidate against a list of small primes first?",
+      "answerOptions": [
+        {
+          "text": "To quickly eliminate obvious composites before running more expensive tests.",
+          "isCorrect": true,
+          "rationale": "A single modular division is much faster than a full Miller-Rabin round, saving significant CPU time during the search."
+        },
+        {
+          "text": "Because the Miller-Rabin test only works on numbers larger than 10,000.",
+          "isCorrect": false,
+          "rationale": "The Miller-Rabin test is mathematically sound for any odd integer $n > 3$."
+        },
+        {
+          "text": "To ensure the final prime is a Carmichael number.",
+          "isCorrect": false,
+          "rationale": "The goal is to find actual primes; Carmichael numbers are undesirable 'imposters' that tests try to avoid."
+        },
+        {
+          "text": "It is a legal requirement specified by NIST standards.",
+          "isCorrect": false,
+          "rationale": "While standards suggest efficient methods, this is a practical optimization based on computational cost, not just a regulatory rule."
+        }
+      ],
+      "hint": "Many random odd numbers can be easily discarded because they are multiples of 3, 5, or 7."
+    },
+    {
+      "question": "Which of the following integers is NOT a Carmichael number?",
+      "answerOptions": [
+        {
+          "text": "$1024$",
+          "isCorrect": true,
+          "rationale": "1024 is a power of 2 ($2^{10}$); it is obviously composite and fails the Fermat test immediately since it is even."
+        },
+        {
+          "text": "$561$",
+          "isCorrect": false,
+          "rationale": "This is actually the smallest Carmichael number, known for passing the Fermat test for all valid bases."
+        },
+        {
+          "text": "$1105$",
+          "isCorrect": false,
+          "rationale": "This is a well-known Carmichael number mentioned in the lecture material as an example of a 'pseudoprime'."
+        },
+        {
+          "text": "$1729$",
+          "isCorrect": false,
+          "rationale": "Also known as the Hardy-Ramanujan number, it is another classic example of a Carmichael number."
+        }
+      ],
+      "hint": "Check the list of first few Carmichael numbers provided in the slides, or consider the properties of powers of two."
+    },
+    {
+      "question": "What is meant by the 'asymptotic behaviour' of an algorithm's complexity?",
+      "answerOptions": [
+        {
+          "text": "How the time requirement behaves in the long run as the input size grows.",
+          "isCorrect": true,
+          "rationale": "Big O notation focuses on this trend to classify algorithms without getting bogged down in hardware-specific constants."
+        },
+        {
+          "text": "The speed of the algorithm on the fastest possible supercomputer.",
+          "isCorrect": false,
+          "rationale": "Asymptotic complexity is independent of hardware; it is a mathematical property of the algorithm's design."
+        },
+        {
+          "text": "The amount of time taken to compile the code before execution.",
+          "isCorrect": false,
+          "rationale": "Complexity analysis refers to the execution phase (running the algorithm), not the preparation phase (compilation)."
+        },
+        {
+          "text": "The probability that the algorithm returns a correct answer.",
+          "isCorrect": false,
+          "rationale": "This is known as 'soundness' or 'success probability', whereas 'complexity' refers to the consumption of resources like time and space."
+        }
+      ],
+      "hint": "Think about the phrase 'in the long run' regarding input size $m$."
+    }
+  ]
+}

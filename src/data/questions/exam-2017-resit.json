@@ -1,0 +1,1170 @@
+[
+  {
+    "id": "exam2017-resit-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q1"
+    },
+    "difficulty": 2,
+    "text": "Which of the following integers is a square root of 1 modulo 21?",
+    "options": [
+      {
+        "key": "a",
+        "text": "2"
+      },
+      {
+        "key": "b",
+        "text": "4"
+      },
+      {
+        "key": "c",
+        "text": "6"
+      },
+      {
+        "key": "d",
+        "text": "8"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq02",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q2"
+    },
+    "difficulty": 2,
+    "text": "The Hill cipher is a historical cipher with the encryption equation C = KP mod n for k × k key matrix K and vectors C and P representing the ciphertext and plaintext. A fundamental weakness of the Hill cipher is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "brute force key search is easy for any value of k"
+      },
+      {
+        "key": "b",
+        "text": "encryption is a linear function so a known plaintext attack is easy"
+      },
+      {
+        "key": "c",
+        "text": "the distribution of ciphertext characters is the same as the distribution of plaintext characters"
+      },
+      {
+        "key": "d",
+        "text": "it may not be possible to decrypt a valid ciphertext"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2017-resit-mcq03",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q3"
+    },
+    "difficulty": 1,
+    "text": "For which one of the following encryption algorithms are the distributions of plaintext and ciphertext characters the same?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The Caesar cipher"
+      },
+      {
+        "key": "b",
+        "text": "The random simple substitution cipher"
+      },
+      {
+        "key": "c",
+        "text": "A transposition cipher on blocks of size 12"
+      },
+      {
+        "key": "d",
+        "text": "The Vigenère cipher with a key of length 8"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2017-resit-mcq04",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q4"
+    },
+    "difficulty": 1,
+    "text": "Which of the following is not a valid key size for the AES cipher?",
+    "options": [
+      {
+        "key": "a",
+        "text": "128 bit"
+      },
+      {
+        "key": "b",
+        "text": "192 bits"
+      },
+      {
+        "key": "c",
+        "text": "256 bits"
+      },
+      {
+        "key": "d",
+        "text": "512 bits"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq05",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q5"
+    },
+    "difficulty": 2,
+    "text": "According to Kerkhoff’s principle, which of the following should not be available to an attacker of an iterated block cipher?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The round keys"
+      },
+      {
+        "key": "b",
+        "text": "The number of rounds"
+      },
+      {
+        "key": "c",
+        "text": "The key length"
+      },
+      {
+        "key": "d",
+        "text": "The block length"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq06",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q6"
+    },
+    "difficulty": 2,
+    "text": "Double DES is the encryption algorithm defined by iterating two instances of the DES algorithm - the initial DES ciphertext is fed back into the encryption algorithm with an independent key. The main disadvantage of double DES is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "it is vulnerable to differential cryptanalysis"
+      },
+      {
+        "key": "b",
+        "text": "it has poor avalanche effects"
+      },
+      {
+        "key": "c",
+        "text": "the key length is too short to resist practical brute-force search"
+      },
+      {
+        "key": "d",
+        "text": "there is a meet-in-the-middle attack which reduces the effective key length"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq07",
+    "type": "mcq",
+    "topics": [
+      "encryption-modes",
+      "block-ciphers",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q7"
+    },
+    "difficulty": 2,
+    "text": "Which of the following block cipher modes of operation is not designed to provide data confidentiality?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Galois counter mode (GCM)"
+      },
+      {
+        "key": "b",
+        "text": "Cipher block chaining (CBC)"
+      },
+      {
+        "key": "c",
+        "text": "Cipher-based MAC (CMAC)"
+      },
+      {
+        "key": "d",
+        "text": "Counter with CBC-MAC (CCM)"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2017-resit-mcq08",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q8"
+    },
+    "difficulty": 2,
+    "text": "Cipher block chaining (CBC) is a mode of operation for block ciphers. Which of the following statements about CBC mode is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Messages to be encrypted must be padded to be a complete number of blocks"
+      },
+      {
+        "key": "b",
+        "text": "One bit in error in the ciphertext leads to a single bit in error in the decrypted plaintext"
+      },
+      {
+        "key": "c",
+        "text": "Equal plaintext blocks encrypt to equal ciphertext blocks"
+      },
+      {
+        "key": "d",
+        "text": "Encryption of a sequence of blocks can be conducted in parallel"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq09",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q9"
+    },
+    "difficulty": 1,
+    "text": "The one-time pad achieves perfect secrecy. This means that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "each plaintext message is a perfectly random string"
+      },
+      {
+        "key": "b",
+        "text": "the only feasible attack is brute-force key search"
+      },
+      {
+        "key": "c",
+        "text": "an attacker cannot alter any bit in the ciphertext without this being detected"
+      },
+      {
+        "key": "d",
+        "text": "an attacker learns nothing about the plaintext from the ciphertext"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq10",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q10"
+    },
+    "difficulty": 2,
+    "text": "When using counter mode encryption with a block cipher, a binary keystream is generated by the sender. The keystream generated by the recipient is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the same as that generated by the sender"
+      },
+      {
+        "key": "b",
+        "text": "the complement of that generated by the sender (every bit is different)"
+      },
+      {
+        "key": "c",
+        "text": "random and independent of that generated by the sender"
+      },
+      {
+        "key": "d",
+        "text": "random but dependent on the ciphertext received"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq11",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q11"
+    },
+    "difficulty": 1,
+    "text": "Which of the following pairs of equations cannot be solved using the Chinese Remainder Theorem?",
+    "options": [
+      {
+        "key": "a",
+        "text": "x ≡3 mod 5 and x ≡3 mod 17"
+      },
+      {
+        "key": "b",
+        "text": "x ≡3 mod 6 and x ≡4 mod 17"
+      },
+      {
+        "key": "c",
+        "text": "x ≡3 mod 5 and x ≡3 mod 18"
+      },
+      {
+        "key": "d",
+        "text": "x ≡3 mod 6 and x ≡4 mod 18"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq12",
+    "type": "mcq",
+    "topics": [
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q12"
+    },
+    "difficulty": 1,
+    "text": "The Fermat test and the Miller-Rabin test are two tests for deciding whether or not a number n is prime. Which of the following statements is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "If the Miller-Rabin test outputs probable prime then the Fermat test also outputs probable prime"
+      },
+      {
+        "key": "b",
+        "text": "If the Fermat test outputs probable prime then the Miller-Rabin test also outputs probable prime"
+      },
+      {
+        "key": "c",
+        "text": "If the Miller-Rabin test outputs probable prime then n is definitely prime"
+      },
+      {
+        "key": "d",
+        "text": "If the Fermat test outputs probable prime then n is definitely prime"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq13",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q13"
+    },
+    "difficulty": 1,
+    "text": "Suppose n = 187 = 11 × 17. According to Euler’s Theorem:",
+    "options": [
+      {
+        "key": "a",
+        "text": "2100 mod n = 1"
+      },
+      {
+        "key": "b",
+        "text": "2160 mod n = 1"
+      },
+      {
+        "key": "c",
+        "text": "2186 mod n = 1"
+      },
+      {
+        "key": "d",
+        "text": "2188 mod n = 1"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2017-resit-mcq14",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q14"
+    },
+    "difficulty": 2,
+    "text": "Let g be a generator for the integers modulo p. The discrete logarithm problem is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "given y, find x with y = xg mod p;"
+      },
+      {
+        "key": "b",
+        "text": "given x, find y with y = xg mod p."
+      },
+      {
+        "key": "c",
+        "text": "given y, find x with y = gx mod p;"
+      },
+      {
+        "key": "d",
+        "text": "given x, find y with y = gx mod p."
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2017-resit-mcq15",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q15"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for encryption:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the public key of the sender is required in order to encrypt the plaintext"
+      },
+      {
+        "key": "b",
+        "text": "the public key of the receiver is required in order to encrypt the plaintext"
+      },
+      {
+        "key": "c",
+        "text": "the private key of the sender is required in order to encrypt the plaintext"
+      },
+      {
+        "key": "d",
+        "text": "the private key of the receiver is required in order to encrypt the plaintext"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2017-resit-mcq16",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q16"
+    },
+    "difficulty": 1,
+    "text": "The RSA encryption scheme often makes use of an algorithm known as OAEP. OAEP is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a pre-processing method for messages providing randomness and redundancy"
+      },
+      {
+        "key": "b",
+        "text": "a symmetric-key encryption algorithm for use in hybrid encryption"
+      },
+      {
+        "key": "c",
+        "text": "a method to generate large prime numbers efficienctly"
+      },
+      {
+        "key": "d",
+        "text": "a method to speed up decryption given knowledge of the factors of the modulus"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq17",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q17"
+    },
+    "difficulty": 2,
+    "text": "For the RSA encryption scheme a large modulus n is chosen, typically around 2048 bits in practice. To improve efficiency, this is often used together with value of:",
+    "options": [
+      {
+        "key": "a",
+        "text": "e = 216"
+      },
+      {
+        "key": "b",
+        "text": "d = 216"
+      },
+      {
+        "key": "c",
+        "text": "e = 216 + 1"
+      },
+      {
+        "key": "d",
+        "text": "d = 216 + 1"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2017-resit-mcq18",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "key-establishment",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q18"
+    },
+    "difficulty": 2,
+    "text": "In the basic Diffie-Hellman key exchange protocol, Alice sends ga mod p to Bob, while Bob sends gb mod p to Alice. They compute a shared secret of the form gab mod p. A limitation of the basic protocol is that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "neither Alice nor Bob knows who the key is shared with"
+      },
+      {
+        "key": "b",
+        "text": "an attacker can easily compute the shared secret from the exchanged messages"
+      },
+      {
+        "key": "c",
+        "text": "Bob can choose b to make the shared secret have a particular given value"
+      },
+      {
+        "key": "d",
+        "text": "the values g and p can only be used once"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq19",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q19"
+    },
+    "difficulty": 2,
+    "text": "Cryptosystems based on the discrete logarithm problem, such as Diffie-Hellman key exchange, can be implemented in the integers modulo a prime p or in an elliptic curve group. Which of the following statements is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "There is no known efficient algorithm to find elliptic curve discrete logarithms for quantum computers"
+      },
+      {
+        "key": "b",
+        "text": "Elliptic curve public keys can have multiple valid private keys"
+      },
+      {
+        "key": "c",
+        "text": "The square-and-multiply algorithm cannot be used in elliptic curve groups"
+      },
+      {
+        "key": "d",
+        "text": "Elliptic curve keys can typically be smaller for the same security level"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq20",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q20"
+    },
+    "difficulty": 1,
+    "text": "The SHA-2 family of hash algorithms includes members which have hash output sizes of:",
+    "options": [
+      {
+        "key": "a",
+        "text": "16 bits, 24 bits, 48 bits and 56 bits"
+      },
+      {
+        "key": "b",
+        "text": "100 bits, 200 bits, 250 bits and 300 bits"
+      },
+      {
+        "key": "c",
+        "text": "64 bits, 128 bits, 224 bits and 256 bits"
+      },
+      {
+        "key": "d",
+        "text": "224 bits, 256 bits, 384 bits and 512 bits"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq21",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q21"
+    },
+    "difficulty": 1,
+    "text": "HMAC is an algorithm often used in TLS and based on a hash function H. Which of these statements with regard to HMAC is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The same secret key must be used to generate and to verify the HMAC tag"
+      },
+      {
+        "key": "b",
+        "text": "The size of the tag output by HMAC varies with the size of the input message"
+      },
+      {
+        "key": "c",
+        "text": "The message input to HMAC must be of a fixed length"
+      },
+      {
+        "key": "d",
+        "text": "The hash function H must have a 256-bit output size"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq22",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q22"
+    },
+    "difficulty": 1,
+    "text": "A digital signature scheme often applies a hash function to the message to be signed. A collision in the hash function can lead to a signature forgery because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "one message has two different signatures"
+      },
+      {
+        "key": "b",
+        "text": "one signature is valid for two different messages"
+      },
+      {
+        "key": "c",
+        "text": "one message has two different hash values"
+      },
+      {
+        "key": "d",
+        "text": "two different hash values produce the same signature"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2017-resit-mcq23",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q23"
+    },
+    "difficulty": 1,
+    "text": "An X.509 digital certificate is issued by a certification authority on behalf of a subject. In order to verify a certificate it is necessary to possess:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the private key of the subject"
+      },
+      {
+        "key": "b",
+        "text": "the public key of the subject"
+      },
+      {
+        "key": "c",
+        "text": "the public key of the certification authority"
+      },
+      {
+        "key": "d",
+        "text": "the private key of the certification authority"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2017-resit-mcq24",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q24"
+    },
+    "difficulty": 1,
+    "text": "One type of key establishment protocol uses key transport: the session key is sent from a server to two parties to use to protect future communication. For this type of protocol:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a replay attack is always possible"
+      },
+      {
+        "key": "b",
+        "text": "forward secrecy is not possible"
+      },
+      {
+        "key": "c",
+        "text": "mutual authentication cannot be achieved"
+      },
+      {
+        "key": "d",
+        "text": "an active adversary can masquerade as any party"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2017-resit-mcq25",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q25"
+    },
+    "difficulty": 1,
+    "text": "Kerberos is an authentication service which provides a single sign-on solution. This means that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a user need only authenticate once in order to access many services during a defined period"
+      },
+      {
+        "key": "b",
+        "text": "a user needs to authenticate every time access to a server is required"
+      },
+      {
+        "key": "c",
+        "text": "only a single user is allowed to access a service at any one time"
+      },
+      {
+        "key": "d",
+        "text": "a single user is able to access services on behalf of other users"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-mcq26",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q26"
+    },
+    "difficulty": 1,
+    "text": "The purpose of the handshake protocol in TLS is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "change the cryptographic algorithms from previously used ones"
+      },
+      {
+        "key": "b",
+        "text": "signal events such as failures"
+      },
+      {
+        "key": "c",
+        "text": "setup sessions with the correct keys and algorithms"
+      },
+      {
+        "key": "d",
+        "text": "provide confidentiality and integrity for messages"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2017-resit-mcq27",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "discrete-log-crypto",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q27"
+    },
+    "difficulty": 1,
+    "text": "One TLS ciphersuite is denoted as TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256. When this ciphersuite is chosen, ECDSA is used:",
+    "options": [
+      {
+        "key": "a",
+        "text": "to sign the user data"
+      },
+      {
+        "key": "b",
+        "text": "to sign one or both Diffie-Hellman ephemeral values"
+      },
+      {
+        "key": "c",
+        "text": "to sign the server certificate"
+      },
+      {
+        "key": "d",
+        "text": "to sign the client certificate"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2017-resit-mcq28",
+    "type": "mcq",
+    "topics": [
+      "key-establishment",
+      "digital-signatures",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q28"
+    },
+    "difficulty": 2,
+    "text": "TLS is often used to protect communication between a web browser and a server. A so-called “man-in-the-middle” attack is possible on TLS if the adversary is able to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "obtain the public key of the server’s certification authority"
+      },
+      {
+        "key": "b",
+        "text": "eavesdrop on the key exchange messages"
+      },
+      {
+        "key": "c",
+        "text": "install new root certificates in the browser"
+      },
+      {
+        "key": "d",
+        "text": "obtain previously used session keys"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2017-resit-mcq29",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q29"
+    },
+    "difficulty": 1,
+    "text": "PGP is a scheme for email security. One reason for the limited usage of PGP is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "PGP is not supported by most email servers"
+      },
+      {
+        "key": "b",
+        "text": "PGP does not allow signing of messages, only encryption of messages"
+      },
+      {
+        "key": "c",
+        "text": "PGP software is only legally available to US citizens"
+      },
+      {
+        "key": "d",
+        "text": "PGP users have difficulty in managing their public/private key pairs"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2017-resit-mcq30",
+    "type": "mcq",
+    "topics": [
+      "tls13-ipsec",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit Q30"
+    },
+    "difficulty": 1,
+    "text": "One common way to apply the IPSec protocol uses a host-to-gateway architecture. Which of the following statements about this architecture is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "It is typically used to provide secure remote access from a single host"
+      },
+      {
+        "key": "b",
+        "text": "It is typically used for secure remote management of a single server"
+      },
+      {
+        "key": "c",
+        "text": "It provides protection for data throughout its transit (end-to-end)"
+      },
+      {
+        "key": "d",
+        "text": "It is typically used with IPSec in transport mode"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2017-resit-w-1",
+    "type": "written",
+    "topics": [
+      "classical-encryption"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit W1"
+    },
+    "difficulty": 1,
+    "text": "A →S : IDA, IDB, NA",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "A →S : IDA, IDB, NA",
+        "solution": "For the simple substitution there are 27! keys. For the transposition cipher there are 10! keys"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2017-resit-w-2",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit W2"
+    },
+    "difficulty": 3,
+    "text": "S →A : {KAB, IDB, NA}KAS, {KAB, IDA, TB}KBS",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "S →A : {KAB, IDB, NA}KAS, {KAB, IDA, TB}KBS",
+        "solution": "The receiver must recompute the tag exactly as done by the sender (actually only needs to see the last two blocks) and compare it with the one that was sent."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2017-resit-w-3",
+    "type": "written",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit W3"
+    },
+    "difficulty": 3,
+    "text": "A →B : {KAB, IDA, TB}KBS",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "What is the purpose of including the identity IDB in the first part of message 2? What attack could happen if it was not included?",
+        "solution": "Only need check that 26 mod 13 ̸= 1 and 24 mod 13 ̸= 1. 24 mod 13 = 3 and 26 mod 13 = 12. Thus 2 is a generator. 33 = 27 mod 13 so 3 has order 3 so 3 is not a generator"
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Suppose that an attacker can control the clock at B and set it to any chosen value. Explain how this allows such an attacker can launch a replay attack on the protocol.",
+        "solution": "The secret is z = gab = ya = 83 mod 13 = -8 mod 13 = 5"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2017-resit-w-4",
+    "type": "written",
+    "topics": [
+      "digital-signatures",
+      "hashes-macs",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit W4"
+    },
+    "difficulty": 3,
+    "text": "When using the RSA algorithm to form a digital signature, the output is a value s = h(m)d mod n for a suitable hash function h. The message m and s are sent to the verifier.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Given a valid public exponent e and the modulus n, how does the verifier check the signature?",
+        "solution": "Since s = h(m)d mod n for a valid signature, the verifier must compute se mod n, compute h(m) and check that they are equal."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Suppose now that the hash function is not used, so the signature for a message is simply s = md mod n. Explain how an attacker can construct a valid signature and message, without seeing any other signature.",
+        "solution": "Now s = md mod n. An attacker can choose a random value for s and then compute m = se mod n. Then s is a valid signature for the random message m (existential forgery)."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2017-resit-w-5",
+    "type": "written",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit W5"
+    },
+    "difficulty": 2,
+    "text": "Consider the following protocol with the goal of key establishment. Here NA is a nonce chosen by A, TB is a timestamp from the clock at S, and KAB is the session key chosen by server S. IDA and IDB are identity strings for A and B respectively. KAS and KBS are key-encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "Consider the following protocol with the goal of key establishment. Here NA is a nonce chosen by A, TB is a timestamp from the clock at S, and KAB is the session key chosen by server S. IDA and IDB are identity strings for A and B respectively. KAS and KBS are key-encrypting keys initially shared between S and A, and between S and B respectively. The notation {X}K denotes authenticated encryption of X with key K.",
+        "solution": "IDB is used to tell A who the key is going to be shared with by S. If it were omitted an adversary could masquerade as B by changing the identity IDB going to A in message 1 and A would not see any change."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2017-resit-w-6",
+    "type": "written",
+    "topics": [
+      "email-messaging-security",
+      "digital-signatures",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2017 Resit W6"
+    },
+    "difficulty": 3,
+    "text": "Two different protocols often used to protect email in transit are PGP and STARTTLS.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Consider the two following situations. i. You want to keep your email contents confidential from your email server. ii. You want to hide the identity of the person you are sending email to. Which of the two protocols can help you in each case? Explain your answers.",
+        "solution": "i. To protect your email contents you need to use PGP, since STARTTLS only provides link encryption. ii. To protect mail headers PGP does nothing, but STARTTLS can do this, at least against outside parties, since it encapsulates whole message within TLS."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Both of PGP and STARTTLS can use public key cryptography with certified public keys. How do they differ with regard to the way public key certificates are validated?",
+        "solution": "PGP uses a web of trust approach to certificates which allows any party to act as a certifier. TLS uses X.509 hierarchical certification authorities."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

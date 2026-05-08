@@ -1,0 +1,154 @@
+"use client";
+
+import { McqQuestion, McqOption } from "@/types";
+import MathText from "./MathText";
+import SourceBadge from "./SourceBadge";
+import SolutionPanel from "./SolutionPanel";
+import { usePrefs } from "@/lib/preferences";
+import { t } from "@/lib/i18n";
+import { isMcqAnswerCorrect, normalizeMcqAnswer } from "@/lib/scoring";
+import { useState, useMemo } from "react";
+
+/** Simple seeded PRNG for deterministic shuffle per question */
+function seededRandom(seed: string): () => number {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) {
+    h = (Math.imul(31, h) + seed.charCodeAt(i)) | 0;
+  }
+  return () => {
+    h = (Math.imul(h ^ (h >>> 16), 0x45d9f3b) + 0x1234567) | 0;
+    return ((h >>> 0) % 10000) / 10000;
+  };
+}
+
+function shuffleOptions(options: McqOption[], questionId: string): McqOption[] {
+  const rng = seededRandom(questionId);
+  const shuffled = [...options];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+interface McqCardProps {
+  question: McqQuestion;
+  onAnswer?: (questionId: string, correct: boolean) => void;
+  showResult?: boolean;
+  selectedAnswer?: string | null;
+  disabled?: boolean;
+  onSelect?: (key: string) => void;
+}
+
+export default function McqCard({
+  question,
+  onAnswer,
+  showResult: externalShowResult,
+  selectedAnswer: externalSelected,
+  disabled,
+  onSelect,
+}: McqCardProps) {
+  const { prefs } = usePrefs();
+  const lang = prefs.lang;
+  const [internalSelected, setInternalSelected] = useState<string | null>(null);
+  const [internalShowResult, setInternalShowResult] = useState(false);
+
+  const selected = externalSelected !== undefined ? externalSelected : internalSelected;
+  const showResult = externalShowResult !== undefined ? externalShowResult : internalShowResult;
+  const canCheckAnswer = onAnswer !== undefined && onSelect === undefined;
+
+  const displayOptions = useMemo(
+    () => shuffleOptions(question.options, question.id),
+    [question.options, question.id],
+  );
+  const displayLabels = ["a", "b", "c", "d"];
+  const correctAnswer = normalizeMcqAnswer(question.correctAnswer);
+  const normalizedSelected = normalizeMcqAnswer(selected);
+  const isMultiAnswer = correctAnswer.length > 1;
+
+  function handleSelect(key: string) {
+    if (showResult && !disabled) return;
+    if (disabled) return;
+    const nextSelection =
+      isMultiAnswer && selected
+        ? normalizedSelected.includes(key)
+          ? normalizeMcqAnswer(normalizedSelected.replace(key, ""))
+          : normalizeMcqAnswer(normalizedSelected + key)
+        : key;
+    if (onSelect) {
+      onSelect(nextSelection);
+      return;
+    }
+    setInternalSelected(nextSelection);
+  }
+
+  function handleSubmit() {
+    if (!selected) return;
+    setInternalShowResult(true);
+    onAnswer?.(question.id, isMcqAnswerCorrect(selected, question.correctAnswer));
+  }
+
+  return (
+    <div className="rounded-lg border border-th-border bg-th-card p-5">
+      <div className="mb-3 flex items-center gap-2">
+        <SourceBadge source={question.source} />
+        <span className="text-xs text-th-text-faint">
+          {t("mcq.difficulty", lang, question.difficulty)}
+        </span>
+      </div>
+      <div className="mb-4 text-th-text">
+        <MathText text={question.text} />
+      </div>
+      <div className="mb-4 space-y-2">
+        {displayOptions.map((opt, idx) => {
+          const optionSelected = normalizedSelected.includes(opt.key);
+          const optionCorrect = correctAnswer.includes(opt.key);
+          let optionClass =
+            "flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-sm transition-colors press";
+          if (showResult) {
+            if (optionCorrect) {
+              optionClass += " border-th-success-border bg-th-success-bg text-th-success anim-fade-in-scale";
+            } else if (optionSelected) {
+              optionClass += " border-th-error-border bg-th-error-bg text-th-error anim-shake";
+            } else {
+              optionClass += " border-th-border text-th-text-muted";
+            }
+          } else if (optionSelected) {
+            optionClass += " border-th-border-accent bg-th-selected text-th-text-accent";
+          } else {
+            optionClass += " border-th-border text-th-text-secondary hover:border-th-border-accent hover:bg-th-card-hover";
+          }
+
+          return (
+            <button
+              key={opt.key}
+              className={optionClass}
+              onClick={() => handleSelect(opt.key)}
+              disabled={showResult || disabled}
+            >
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-semibold uppercase">
+                {displayLabels[idx]}
+              </span>
+              <MathText text={opt.text} />
+            </button>
+          );
+        })}
+      </div>
+      {!showResult && !disabled && canCheckAnswer && (
+        <button
+          onClick={handleSubmit}
+          disabled={!selected}
+          className="rounded-lg bg-th-accent px-4 py-2 text-sm font-medium text-th-text-on-accent transition-colors hover:bg-th-accent-hover disabled:opacity-40 press"
+        >
+          {t("mcq.check", lang)}
+        </button>
+      )}
+      {showResult && (
+        <SolutionPanel
+          solution={question.solution}
+          correct={isMcqAnswerCorrect(selected, question.correctAnswer)}
+        />
+      )}
+    </div>
+  );
+}

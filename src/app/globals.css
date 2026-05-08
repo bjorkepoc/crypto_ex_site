@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* Light theme (default) */
+:root,
+[data-theme="light"] {
+  --bg-page: #fafafa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9fafb;
+  --bg-input: #ffffff;
+  --bg-nav: #ffffff;
+  --bg-badge-blue: #dbeafe;
+  --bg-badge-green: #dcfce7;
+  --bg-badge-yellow: #fef9c3;
+  --bg-accent: #2563eb;
+  --bg-accent-hover: #1d4ed8;
+  --bg-selected: #eff6ff;
+  --bg-muted: #f4f4f5;
+  --bg-bar: #f4f4f5;
+
+  --border-default: #e4e4e7;
+  --border-subtle: #f4f4f5;
+  --border-accent: #60a5fa;
+
+  --text-primary: #18181b;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
+  --text-faint: #a1a1aa;
+  --text-accent: #2563eb;
+  --text-on-accent: #ffffff;
+  --text-badge-blue: #1e40af;
+  --text-badge-green: #166534;
+  --text-badge-yellow: #854d0e;
+
+  --text-success: #16a34a;
+  --text-warning: #ca8a04;
+  --text-error: #dc2626;
+  --bg-success: #f0fdf4;
+  --bg-error: #fef2f2;
+  --bg-warning: #fefce8;
+  --border-success: #86efac;
+  --border-error: #fca5a5;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Mild theme — warm beige/cream, between light and dark */
+[data-theme="mild"] {
+  --bg-page: #ede6db;
+  --bg-card: #f5f0e8;
+  --bg-card-hover: #ece5da;
+  --bg-input: #f5f0e8;
+  --bg-nav: #e8e0d4;
+  --bg-badge-blue: #dce8f5;
+  --bg-badge-green: #dceee2;
+  --bg-badge-yellow: #f5ecd0;
+  --bg-accent: #6b8f5e;
+  --bg-accent-hover: #5a7d4e;
+  --bg-selected: #e2eadb;
+  --bg-muted: #e5ddd2;
+  --bg-bar: #ddd5ca;
+
+  --border-default: #d0c8bc;
+  --border-subtle: #ddd5ca;
+  --border-accent: #6b8f5e;
+
+  --text-primary: #3a3530;
+  --text-secondary: #5a534a;
+  --text-muted: #7d756a;
+  --text-faint: #a09888;
+  --text-accent: #4a7040;
+  --text-on-accent: #ffffff;
+  --text-badge-blue: #2a5080;
+  --text-badge-green: #2a6040;
+  --text-badge-yellow: #6a5020;
+
+  --text-success: #3a8050;
+  --text-warning: #8a6a20;
+  --text-error: #b04040;
+  --bg-success: #e0f0e4;
+  --bg-error: #f5e0e0;
+  --bg-warning: #f5ecd0;
+  --border-success: #90c8a0;
+  --border-error: #d8a0a0;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.08);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-page: #0f0f0f;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #222222;
+  --bg-input: #1a1a1a;
+  --bg-nav: #141414;
+  --bg-badge-blue: #1e2a3a;
+  --bg-badge-green: #1a2e20;
+  --bg-badge-yellow: #2e2a18;
+  --bg-accent: #3b82f6;
+  --bg-accent-hover: #2563eb;
+  --bg-selected: #1e293b;
+  --bg-muted: #262626;
+  --bg-bar: #262626;
+
+  --border-default: #2e2e2e;
+  --border-subtle: #222222;
+  --border-accent: #3b82f6;
+
+  --text-primary: #ececec;
+  --text-secondary: #b0b0b0;
+  --text-muted: #808080;
+  --text-faint: #555555;
+  --text-accent: #60a5fa;
+  --text-on-accent: #ffffff;
+  --text-badge-blue: #93c5fd;
+  --text-badge-green: #86efac;
+  --text-badge-yellow: #fde68a;
+
+  --text-success: #4ade80;
+  --text-warning: #facc15;
+  --text-error: #f87171;
+  --bg-success: #14201a;
+  --bg-error: #201414;
+  --bg-warning: #201e10;
+  --border-success: #22543d;
+  --border-error: #7f1d1d;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+}
+
+@theme inline {
+  --color-background: var(--bg-page);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-th-page: var(--bg-page);
+  --color-th-card: var(--bg-card);
+  --color-th-card-hover: var(--bg-card-hover);
+  --color-th-input: var(--bg-input);
+  --color-th-nav: var(--bg-nav);
+  --color-th-accent: var(--bg-accent);
+  --color-th-accent-hover: var(--bg-accent-hover);
+  --color-th-selected: var(--bg-selected);
+  --color-th-muted: var(--bg-muted);
+  --color-th-bar: var(--bg-bar);
+
+  --color-th-badge-blue-bg: var(--bg-badge-blue);
+  --color-th-badge-green-bg: var(--bg-badge-green);
+  --color-th-badge-yellow-bg: var(--bg-badge-yellow);
+  --color-th-badge-blue: var(--text-badge-blue);
+  --color-th-badge-green: var(--text-badge-green);
+  --color-th-badge-yellow: var(--text-badge-yellow);
+
+  --color-th-border: var(--border-default);
+  --color-th-border-subtle: var(--border-subtle);
+  --color-th-border-accent: var(--border-accent);
+
+  --color-th-text: var(--text-primary);
+  --color-th-text-secondary: var(--text-secondary);
+  --color-th-text-muted: var(--text-muted);
+  --color-th-text-faint: var(--text-faint);
+  --color-th-text-accent: var(--text-accent);
+  --color-th-text-on-accent: var(--text-on-accent);
+
+  --color-th-success: var(--text-success);
+  --color-th-warning: var(--text-warning);
+  --color-th-error: var(--text-error);
+  --color-th-success-bg: var(--bg-success);
+  --color-th-error-bg: var(--bg-error);
+  --color-th-warning-bg: var(--bg-warning);
+  --color-th-success-border: var(--border-success);
+  --color-th-error-border: var(--border-error);
+
+  --shadow-th-sm: var(--shadow-sm);
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* ── Animations ── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 var(--bg-accent); }
+  70% { box-shadow: 0 0 0 6px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@keyframes float-up {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-24px); }
+}
+@keyframes star-pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.3); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes celebration-burst {
+  0% { transform: scale(0.5); opacity: 0.4; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* ── Utility classes ── */
+.anim-fade-in { animation: fade-in 0.4s ease-out both; }
+.anim-fade-in-scale { animation: fade-in-scale 0.3s ease-out both; }
+.anim-shake { animation: shake 0.4s ease-in-out; }
+.anim-pulse-ring { animation: pulse-ring 2s ease-in-out infinite; }
+.anim-float-up { animation: float-up 0.8s ease-out forwards; }
+.anim-star-pop { animation: star-pop 0.3s ease-out both; }
+
+/* Smooth accordion via CSS grid trick */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.accordion-panel.open {
+  grid-template-rows: 1fr;
+}
+.accordion-panel > div {
+  overflow: hidden;
+}
+
+/* Press feedback on interactive elements */
+.press:active { transform: scale(0.97); }
+
+/* Celebration burst pseudo-element */
+.celebration-burst {
+  position: relative;
+}
+.celebration-burst::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, var(--bg-accent) 0%, transparent 70%);
+  animation: celebration-burst 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

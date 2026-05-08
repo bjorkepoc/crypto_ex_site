@@ -1,0 +1,652 @@
+[
+  {
+    "id": "exam2021-resit-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q1"
+    },
+    "difficulty": 1,
+    "text": "Suppose that 3x = kn + 1 for positive integers x, k and n. Then it follows that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "3-1 mod n = x mod n"
+      },
+      {
+        "key": "b",
+        "text": "3-1 mod n = k mod n"
+      },
+      {
+        "key": "c",
+        "text": "3-1 mod k = n mod k"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "3x mod n = kn + 1 mod n = 1"
+  },
+  {
+    "id": "exam2021-resit-mcq02",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q2"
+    },
+    "difficulty": 1,
+    "text": "Two historical ciphers are the simple substitution cipher and the Vigen`ere cipher. Suppose that the 26-letter alphabet, A . . . Z is used for the plaintext and that the Vigen`ere cipher has a key of length 5. Which of the following is true?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The Vigen`ere ciphertext will most likely have a flatter (more uniform) frequency distribution than the simple substitution ciphertext"
+      },
+      {
+        "key": "b",
+        "text": "The Vigen`ere cipher has more possible keys than the simple substitution cipher"
+      },
+      {
+        "key": "c",
+        "text": "The most frequent character in the Vigen`ere ciphertext will most likely be same as the most frequent character in the simple substitution ciphertext"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "The Vigen´ere cipher substitutes each plaintext character with different ciphertext characters resulting in a flatter distribution, in contrast to the simple substi- tution cipher which preserves the letter frequencies."
+  },
+  {
+    "id": "exam2021-resit-mcq03",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q3"
+    },
+    "difficulty": 1,
+    "text": "Suppose that in a binary synchronous stream cipher a section of the keystream is 01101. An attacker knows this keystream and intercepts the corresponding ciphertext 00101. The corresponding section of the plaintext is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "01000"
+      },
+      {
+        "key": "b",
+        "text": "00101"
+      },
+      {
+        "key": "c",
+        "text": "01101"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Since C = P ⊕K we can also calculate P = K ⊕C = 01101 ⊕00101 ="
+  },
+  {
+    "id": "exam2021-resit-mcq04",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q4"
+    },
+    "difficulty": 1,
+    "text": "The DES block cipher and the AES block cipher differ in the following way:",
+    "options": [
+      {
+        "key": "a",
+        "text": "AES has only one round function but DES uses several different round functions"
+      },
+      {
+        "key": "b",
+        "text": "AES has only one S-box but DES uses several different S-boxes"
+      },
+      {
+        "key": "c",
+        "text": "AES has only one round key but DES uses several different round keys"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Both AES and DES are iterated ciphers with different round keys and a fixed round function. AES has only one large S-box."
+  },
+  {
+    "id": "exam2021-resit-mcq05",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q5"
+    },
+    "difficulty": 1,
+    "text": "Suppose that you have a message of 160 bits to encrypt and you choose to use the AES block cipher. Which of the following modes of operation will require the least number of sent bits in the encrypted message?",
+    "options": [
+      {
+        "key": "a",
+        "text": "ECB mode"
+      },
+      {
+        "key": "b",
+        "text": "Counter mode with a nonce of 64 bits"
+      },
+      {
+        "key": "c",
+        "text": "CBC mode"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "ECB uses two 128-bit blocks so 256 bits; counter mode uses 160 bits + 64 bits for nonce so 224 bits; CBC uses two 128 ciphertext blocks and 128 bits for IV so 384 bits."
+  },
+  {
+    "id": "exam2021-resit-mcq06",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q6"
+    },
+    "difficulty": 2,
+    "text": "Suppose you want to prevent an attacker from finding a collision in a hash function. The attacker has enough computing power to calculate 280 hash values. You need to ensure that the attacker has only a small chance of success but you prefer the smallest acceptable output size. You have three possible output sizes to choose from. Which should you choose?",
+    "options": [
+      {
+        "key": "a",
+        "text": "128 bits"
+      },
+      {
+        "key": "b",
+        "text": "256 bits"
+      },
+      {
+        "key": "c",
+        "text": "384 bits"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Due to the birthday paradox, with 280 trials there is a good chance of a collision being found with an output of length 160 bits. Therefore more than 160 bits is necessary."
+  },
+  {
+    "id": "exam2021-resit-mcq07",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q7"
+    },
+    "difficulty": 1,
+    "text": "A message authentication code, MAC, takes as input a key K and message M and outputs a tag T. Suppose an attacker observes a valid tag T for a known message M. In order to be secure, it is essential that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the attacker cannot find a valid T for the same M and a different K"
+      },
+      {
+        "key": "b",
+        "text": "the attacker cannot find a valid M for the same T and a different K"
+      },
+      {
+        "key": "c",
+        "text": "the attacker cannot find a valid T for the same K and a different M"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Finding a new valid T with the same K is a forgery. For a different K the attacker can choose the key so this is not a forgery."
+  },
+  {
+    "id": "exam2021-resit-mcq08",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q8"
+    },
+    "difficulty": 1,
+    "text": "The Euler function φ is often useful for public key cryptography. Suppose that n = 143 = 11 × 13. Then for any a, it is true that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a150 ≡a30 mod n"
+      },
+      {
+        "key": "b",
+        "text": "a150 ≡a8 mod n"
+      },
+      {
+        "key": "c",
+        "text": "a150 ≡a15 mod n"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "φ(n) = 120 so by Euler ax mod n = ax+120 mod n."
+  },
+  {
+    "id": "exam2021-resit-mcq09",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "public-key-rsa",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q9"
+    },
+    "difficulty": 1,
+    "text": "A typical RSA private key in use today may have length 3072 bits, but a typical elliptic curve private key may have length around 256 bits. This longer key for RSA is necessary because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "security for RSA encryption needs to be stronger than for elliptic curve encryption (such as ElGamal encryption on elliptic curves)"
+      },
+      {
+        "key": "b",
+        "text": "RSA keys need to be longer than elliptic curve keys to avoid attack by quantum computers"
+      },
+      {
+        "key": "c",
+        "text": "there are faster algorithms known to solve the factorisation problem than there are to find elliptic curve discrete logarithms"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Factorisation has sub-exponential time algorithms, but we only know exponential time algorithms for the EC discrete logarithm problem."
+  },
+  {
+    "id": "exam2021-resit-mcq10",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q10"
+    },
+    "difficulty": 2,
+    "text": "Consider the following encryption scheme, which is similar to, but different from, the ElGamal encryption scheme. A ciphertext for message m has two parts: C1 = m·gk mod p and C2 = yk mod p, where y = gx is the recipient public key. In order to recover the message, the recipient must compute z = x-1 mod (p -1) and then:",
+    "options": [
+      {
+        "key": "a",
+        "text": "m = C1 · (Cz 2)-1 mod p"
+      },
+      {
+        "key": "b",
+        "text": "m = C2 · (Cz 1)-1 mod p"
+      },
+      {
+        "key": "c",
+        "text": "m = Cz 1 · (C2)-1 mod p"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Cz 2 mod p = ykz mod p = gxkx-1 mod (p-1) mod p = gk mod p. Therefore C1 · (Cz 2)-1 mod p = m · gk mod p/gk mod p = m."
+  },
+  {
+    "id": "exam2021-resit-mcq11",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q11"
+    },
+    "difficulty": 1,
+    "text": "The RSA signature scheme often uses a public exponent e = 216 + 1. Instead we could try to use a private exponent d = 216 + 1 to increase the speed of signature generation. This would not be a good idea because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "it would not be possible to find the correct public exponent e"
+      },
+      {
+        "key": "b",
+        "text": "an attacker could easily forge signatures"
+      },
+      {
+        "key": "c",
+        "text": "the Chinese Remainder Theorem could no longer be used to increase the speed of signature generation"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "If it is know that a fixed d is used, then with the modulus (part of the public key) forging signatures is trivial."
+  },
+  {
+    "id": "exam2021-resit-mcq12",
+    "type": "mcq",
+    "topics": [
+      "key-establishment",
+      "block-ciphers",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q12"
+    },
+    "difficulty": 1,
+    "text": "The Kerberos V5 security protocol provides authentication and key establishment using an online authentication server (AS) which shares a long-term key with each user. A limitation this protocol is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "forward secrecy is not provided"
+      },
+      {
+        "key": "b",
+        "text": "an attack is possible involving replay of a previously used session key"
+      },
+      {
+        "key": "c",
+        "text": "users need to obtain certified public keys in order to use the protocol"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "If a user long-term key is compromised then tickets from the AS can be decrypted to obtain the key used. So forward secrecy is not provided. The attack on Needham-Schroeder is not valid on Kerberos due to the use of timestamps in tickets. Public keys are not used."
+  },
+  {
+    "id": "exam2021-resit-mcq13",
+    "type": "mcq",
+    "topics": [
+      "tls",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q13"
+    },
+    "difficulty": 1,
+    "text": "When TLS is used to protect web browser communications with HTTPS, a set of root certificates comes with the browser. The keys from these root certificates are used to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "verify server certificates sent in the TLS handshake protocol"
+      },
+      {
+        "key": "b",
+        "text": "sign Diﬃe-Hellman ephemeral keys used in the TLS handshake protocol"
+      },
+      {
+        "key": "c",
+        "text": "encrypt the pre-master secret sent in the TLS handshake protocol"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "The root certificates are the root of security (authenticity) so that the signatures in server certificates can be verified. The server public key is used for signing Diﬃe-Hellman shares or, in the RSA case for TLS 1.2, encrypt the pre-master secret."
+  },
+  {
+    "id": "exam2021-resit-mcq14",
+    "type": "mcq",
+    "topics": [
+      "tls13-ipsec",
+      "digital-signatures",
+      "email-messaging-security"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q14"
+    },
+    "difficulty": 1,
+    "text": "In typical usage of tunnel mode, the IPSec protocol provides:",
+    "options": [
+      {
+        "key": "a",
+        "text": "protection of user metadata"
+      },
+      {
+        "key": "b",
+        "text": "end-to-end security of user data"
+      },
+      {
+        "key": "c",
+        "text": "non-repudiation of user data"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "IPSec in tunnel mode is typically used for gateway-to-gateway archi- tectures. The original IP header is encapsulated in a new IP packet and hidden from eavesdroppers."
+  },
+  {
+    "id": "exam2021-resit-mcq15",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit Q15"
+    },
+    "difficulty": 1,
+    "text": "PGP is a security protocol to protect emails in transit. One limitation of PGP is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a corrupted mail server is able to read the contents of PGP-encrypted mail"
+      },
+      {
+        "key": "b",
+        "text": "a corrupted mail server can reveal the metadata such as sender and recipient iden- tities"
+      },
+      {
+        "key": "c",
+        "text": "a corrupted mail server can forge valid PGP signatures on behalf of any message sender"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "PGP provides end-to-end security but must leave headers intact to allow routing of the message. Written answer questions"
+  },
+  {
+    "id": "exam2021-resit-w-1",
+    "type": "written",
+    "topics": [
+      "block-ciphers",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit W1"
+    },
+    "difficulty": 3,
+    "text": "Consider the following version of the historical Vigen`ere cipher. The alphabet consists of 64 characters (for example, 52 lower and upper case letters, 10 digits, full stop and comma). Encryption of each plaintext character pi consists of a shift defined by a key character ki. The key K is specified by a sequence of 20 characters: K = k0 . . . k19 where ki for i = 0, . . . , 19 gives the amount of shift in the ith alphabet, i.e. ci = pi + ki mod 20 mod 64.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "How many possible keys does this cipher have?",
+        "solution": "There are 64 possible shifts for each key character, so in total there are 6420."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "By comparing with the AES block cipher, explain how secure this cipher would be against brute force key search.",
+        "solution": "The number of possible keys is 2120 which is equivalent to a 120-bit key, only 8 bits smaller than AES-128 keys. Therefore this cipher is reasonably secure against brute force key search attack ."
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Explain how this cipher is easily broken with a known plaintext attack. Include an estimate of how much known plaintext would be needed.",
+        "solution": "With a known plaintext attack, an attacker can see the amount of shift for each key position. The whole key can be recovered from 20 consecutive characters of known/chosen plaintext."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-resit-w-2",
+    "type": "written",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit W2"
+    },
+    "difficulty": 3,
+    "text": "Consider a non-standard mode of operation for block ciphers, similar to, but different from, CTR mode. It has the following general equation for computing each output block: Ct = Ot ⊕Pt where Ot = E(Tt ⊕Ct-1, K) and Tt = N∥t is the concatenation of a nonce N and block number t, and C0 = 0 (the block of all 0 bits).",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "What is the equation for decryption of ciphertext block Ct to obtain the plaintext block Pt?",
+        "solution": "Thus an attacker can choose any M ' 1 and compute M ' 2 = M ' 1 ⊕M1 ⊕M2 and then the tag T is valid for this new message."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Suppose that there is an error in transmission when block Ct is sent to a recipient, so that one bit is changed. How many blocks, or partial blocks, are changed when the receiver decrypts? Explain your answer.",
+        "solution": "Thus an attacker can choose any M ' 1 and compute M ' 2 = M ' 1 ⊕M1 ⊕M2 and then the tag T is valid for this new message."
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Is it possible to encrypt multiple plaintext blocks in parallel? Is it possible to decrypt multiple blocks in parallel? Explain your answers.",
+        "solution": "Thus an attacker can choose any M ' 1 and compute M ' 2 = M ' 1 ⊕M1 ⊕M2 and then the tag T is valid for this new message."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-resit-w-3",
+    "type": "written",
+    "topics": [
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit W3"
+    },
+    "difficulty": 3,
+    "text": "A message authentication code (MAC) takes an input message M and key K and com- putes a tag T. Consider a MAC defined using a block cipher decryption function D with a 128-bit shared key K: MAC(M, K) = T = D(M, K). This MAC is only defined for messages of exactly 128 bits in length.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Explain how this MAC should be verified by a recipient of a pair (M, T).",
+        "solution": "Explain how this MAC should be verified by a recipient of a pair (M, T). The recipient simply recomputes the tag and checks that its computation is the same as the received T. For this MAC the recipient can also encrypt the tag and check that this yields the received message."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Explain why it should be diﬃcult for an attacker to find a valid tag for a given message M, even after seeing many valid message/tag pairs (Mi, Ti) for a fixed K and messages Mi different from M.",
+        "solution": "Explain why it should be diﬃcult for an attacker to find a valid tag for a given message M, even after seeing many valid message/tag pairs (Mi, Ti) for a fixed K and messages Mi different from M. To find a valid tag, the attacker needs to decrypt the “ciphertext” M with key K. This should not be possible for a good block cipher. Moreover, a good block cipher should be still be secure given many ciphertext plaintext pairs, which correspond to the (Mi, Ti) pairs."
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Suppose that the MAC is now re-defined to allow any message of 256-bits by dividing the 256-bit input M into two 128-bit sub-blocks M1, M2 and defining T = D(M1 ⊕ M2, K). Explain why it is now easy for an attacker to find a forgery given just one valid pair (M, T)",
+        "solution": "Suppose that the MAC is now re-defined to allow any message of 256-bits by dividing the 256-bit input M into two 128-bit sub-blocks M1, M2 and defining T = D(M1 ⊕ M2, K). Explain why it is now easy for an attacker to find a forgery given just one valid pair (M, T) A message M is now two 128-bit blocks, M1, M2. But given any such message, the tag T will remain the same by replacing these with M ' 1, M ' 2 where M1 ⊕M2 = M ' 1 ⊕M '"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-resit-w-4",
+    "type": "written",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit W4"
+    },
+    "difficulty": 3,
+    "text": "The Miller-Rabin algorithm is often used for generation of prime numbers in public key cryptography. A related, but simpler, algorithm is known at the Fermat test. These two tests are compared in this question. Show your working for the computations, which should all be straightforward without use of a calculator.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Show that 210 mod 341 = 1 and deduce that 32 is a non-trivial square root of 1 modulo 341. Use this result to find a factor of 341.",
+        "solution": "Show that 210 mod 341 = 1 and deduce that 32 is a non-trivial square root of 1 modulo 341. Use this result to find a factor of 341. 210 mod 341 = 1024 mod 341 = 3 × 341 + 1 mod 341 = 1. Therefore 210 mod 341 = (32)2 mod 341 = 1 and since 32 is different from 1 and -1 it is a non-trivial square root. gcd(31, 341) must be a factor of 341. 341 = 11*31. (Alternatively, gcd(33, 341) must be a factor of 341. 341 = 11*31.)"
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Show that the Fermat test will decide that 341 is a probable prime when the base is chosen as 2.",
+        "solution": "Show that the Fermat test will decide that 341 is a probable prime when the base is chosen as 2. The Fermat test will compute: 2340 mod 341 = (210)34 mod 341 = 1 so the Fermat test is passed."
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Show that the Miller-Rabin test correctly identifies 2 as a composite number.",
+        "solution": "Show that the Miller-Rabin test correctly identifies 2 as a composite number. Since 340 = 85 × 22, the Miller-Rabin test will compute: 285 mod 341 = (210)8 × 25 mod 341 = 32 and then 322 mod 341 = 1. So the M-R test finds the non-trivial square root 32 and identifies 341 as composite."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-resit-w-5",
+    "type": "written",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "discrete-log-crypto"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit W5"
+    },
+    "difficulty": 3,
+    "text": "Two digital signature algorithms often used in network security protocols are: RSA sig- natures and DSA signatures. Suppose that these signatures both use a modulus of size 3072 bits. Alternate question: Suppose that these signatures both use a modulus of size 4096 bits.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "What are the total sizes of the public information needed to verify a signature from each of the two schemes? Show separately the sizes of all different components, including all of the public parameters that would be needed in order to complete the verification.",
+        "solution": "RSA: modulus n: 3072 bits; verification exponent e: 17 bits or random 3072 bits. Total 3089 bits or 6144 DSA: modulus p: 3072 bits; generator g: 3072 bits; public key y: 3072 bits. Total 9216 bits."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Suppose that signatures from many different signers will be verified so that some parameters may be shared between different signers. For each of the two signature schemes, state which public parameters cannot be shared and explain why they cannot. What is the size of the public key components that must be different for each signer?",
+        "solution": "RSA modulus cannot be fixed, but public exponent can be fixed. 3072 bits for each user. DSA can fix p and g. 3072 bits for each user."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2021-resit-w-6",
+    "type": "written",
+    "topics": [
+      "tls",
+      "discrete-log-crypto",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2021 Resit W6"
+    },
+    "difficulty": 3,
+    "text": "The following ciphersuite for TLS 1.2 is classified as weak (for example by SSL Labs): TLS RSA WITH AES 256 GCM SHA384 Alternate question: TLS ECDHE RSA WITH AES 256 CBC SHA This question concerns comparison with the following TLS 1.3 ciphersuite: TLS AES 128 GCM SHA256",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Compare the security of these two ciphersuites, commenting on each of the algo- rithms used for handshake and for record layer security. Why is the TLS 1.2 cipher- suite weak while the TLS 1.3 ciphersuite is not?",
+        "solution": "Compare the security of these two ciphersuites, commenting on each of the algo- rithms used for handshake and for record layer security. Why is the TLS 1.2 cipher- suite weak while the TLS 1.3 ciphersuite is not? In the handshake protocol TLS1.3 ciphersuites always use ECDHE which gives for- ward secrecy. Using RSA in the handshake does not provide forward secrecy which is why it is classified as weak. The record layer algorithms are actually stronger in the TLS 1.2 ciphersuite since they used longer key lengths. Alternate answer: In the handshake protocol TLS1.3 ciphersuites always use ECDHE so in fact both ciphersuites specify the same handshake algorithms. which is why it is classified as weak. The record layer algorithms are the same in the TLS 1.2 and TLS 1.3 ciphersuites but the key derivation functions for the TLS 1.2 ciphersuite will use SHA which has been broken (collisions found) which is why it is classified as weak."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "How will the security of these two ciphersuites be affected if quantum computers become available to attackers in the future? Is there a difference between the security of sessions which happen before the attackers have the quantum computer and those which happen afterwards?",
+        "solution": "How will the security of these two ciphersuites be affected if quantum computers become available to attackers in the future? Is there a difference between the security of sessions which happen before the attackers have the quantum computer and those which happen afterwards? Quantum computers will allow breaking of both factorisation and ECDLP problems, so both ciphersuites will be broken. It does not matter much whether the session happens before or after quantum computers become available, except that attackers will need to record and store the TLS protocol messages for those session of interest. So storage is required for sessions before quantum computers exist."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

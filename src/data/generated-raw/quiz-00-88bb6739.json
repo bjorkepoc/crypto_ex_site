@@ -1,0 +1,733 @@
+{
+  "title": "Quantum Quiz",
+  "questions": [
+    {
+      "question": "Which quantum algorithm poses a significant theoretical threat to cryptographic systems based on the hardness of factoring and discrete logarithms, such as RSA and ECC?",
+      "answerOptions": [
+        {
+          "text": "Shor's Algorithm",
+          "isCorrect": true,
+          "rationale": "This algorithm can solve factoring and discrete log problems in polynomial time on a sufficiently large quantum computer."
+        },
+        {
+          "text": "Grover's Algorithm",
+          "isCorrect": false,
+          "rationale": "While significant, this algorithm provides a square root speedup for exhaustive search rather than a total break of these specific public-key assumptions."
+        },
+        {
+          "text": "Kyber's Algorithm",
+          "isCorrect": false,
+          "rationale": "Kyber refers to a specific post-quantum key encapsulation mechanism rather than a quantum attack algorithm."
+        },
+        {
+          "text": "Dilithium's Algorithm",
+          "isCorrect": false,
+          "rationale": "Dilithium is a post-quantum digital signature scheme, not an algorithm used by quantum computers to break classical encryption."
+        }
+      ],
+      "hint": "Consider the algorithm that specifically targets the mathematical foundations of RSA and Diffie-Hellman."
+    },
+    {
+      "question": "To maintain security against Grover's algorithm, what is the recommended adjustment for symmetric key encryption and hash functions?",
+      "answerOptions": [
+        {
+          "text": "Double the key sizes and output lengths",
+          "isCorrect": true,
+          "rationale": "Grover's algorithm provides a quadratic speedup for search, meaning doubling bit lengths effectively restores the original security level."
+        },
+        {
+          "text": "Switch to lattice-based symmetric encryption",
+          "isCorrect": false,
+          "rationale": "Symmetric primitives like AES are already considered quantum-resistant with adjusted parameters, so a full architectural switch is unnecessary."
+        },
+        {
+          "text": "Transition to purely deterministic hash functions",
+          "isCorrect": false,
+          "rationale": "Determinism is a standard property of hash functions and does not inherently mitigate quantum search speedups."
+        },
+        {
+          "text": "Use shorter keys to reduce the quantum attack surface",
+          "isCorrect": false,
+          "rationale": "Reducing key size would make the system more vulnerable to the speedups provided by quantum search."
+        }
+      ],
+      "hint": "Think about how to compensate for a square root reduction in search complexity."
+    },
+    {
+      "question": "In the context of the Learning With Errors (LWE) problem, what are the components of the distribution that an adversary must distinguish from a uniform distribution $(\\mathbf{A}, \\mathbf{u})$?",
+      "answerOptions": [
+        {
+          "text": "$(\\mathbf{A}, \\mathbf{As} + \\mathbf{e})$",
+          "isCorrect": true,
+          "rationale": "The LWE problem involves distinguishing a noisy linear transformation from purely random values."
+        },
+        {
+          "text": "$(\\mathbf{A}, \\mathbf{g}^{\\mathbf{s}})$",
+          "isCorrect": false,
+          "rationale": "This structure is characteristic of the Discrete Logarithm problem rather than lattice-based LWE."
+        },
+        {
+          "text": "$(\\mathbf{A}, \\mathbf{s} + \\mathbf{Ae})$",
+          "isCorrect": false,
+          "rationale": "The standard LWE formulation adds the error vector to the result of the matrix-vector product, not the other way around."
+        },
+        {
+          "text": "$(\\mathbf{A}, \\mathbf{As} \\cdot \\mathbf{e})$",
+          "isCorrect": false,
+          "rationale": "LWE relies on additive noise (errors) within a modular arithmetic framework rather than multiplicative noise."
+        }
+      ],
+      "hint": "Recall the visual representation of a matrix multiplied by a secret vector with an added error vector."
+    },
+    {
+      "question": "Which of the following conditions makes the Learning With Errors (LWE) problem harder for an attacker to solve?",
+      "answerOptions": [
+        {
+          "text": "The dimension of the problem becomes larger",
+          "isCorrect": true,
+          "rationale": "Increasing the dimension expands the search space and the complexity of lattice reduction algorithms."
+        },
+        {
+          "text": "The modulus $q$ becomes larger",
+          "isCorrect": false,
+          "rationale": "Larger moduli generally make the LWE problem easier, as the 'noise' becomes relatively smaller compared to the range of values."
+        },
+        {
+          "text": "The secret values in $\\mathbf{s}$ become smaller",
+          "isCorrect": false,
+          "rationale": "Smaller secret values typically reduce the complexity of the search space for specific types of attacks."
+        },
+        {
+          "text": "The error vector $\\mathbf{e}$ is set to zero",
+          "isCorrect": false,
+          "rationale": "Without errors, the problem reduces to a simple system of linear equations, which is solvable in polynomial time."
+        }
+      ],
+      "hint": "Focus on how the geometric complexity of the underlying lattice changes with different parameters."
+    },
+    {
+      "question": "How does the hardness of the Short Integer Solution (SIS) problem behave in relation to the modulus $q$ compared to the LWE problem?",
+      "answerOptions": [
+        {
+          "text": "It is opposite; SIS gets harder as the modulus gets larger",
+          "isCorrect": true,
+          "rationale": "SIS relies on finding short vectors, which becomes more difficult as the available space (modulus) increases."
+        },
+        {
+          "text": "It is identical; both get harder as the modulus gets smaller",
+          "isCorrect": false,
+          "rationale": "LWE and SIS have inverse relationships with the modulus parameter regarding their computational hardness."
+        },
+        {
+          "text": "SIS hardness is independent of the modulus $q$",
+          "isCorrect": false,
+          "rationale": "The modulus defines the bounds of the problem space, which directly impacts the difficulty of finding valid short solutions."
+        },
+        {
+          "text": "SIS gets easier as the dimension increases, unlike LWE",
+          "isCorrect": false,
+          "rationale": "Both problems generally become more difficult as the dimension of the lattice increases."
+        }
+      ],
+      "hint": "Refer to the graph comparing the two assumptions and their relationship with the bound $\\beta$."
+    },
+    {
+      "question": "According to Mosca's Inequality, when is a system considered to be in a state of 'DANGER'?",
+      "answerOptions": [
+        {
+          "text": "When the time to transition plus the time data must remain secure exceeds the time it takes to build a quantum computer",
+          "isCorrect": true,
+          "rationale": "If a quantum attacker can breach the system before the transition is complete and the old data has expired, security is lost."
+        },
+        {
+          "text": "When the time to transition is longer than the time data needs to be secure",
+          "isCorrect": false,
+          "rationale": "While problematic for efficiency, this alone doesn't define the 'danger' zone relative to the adversary's capabilities."
+        },
+        {
+          "text": "As soon as the first logical qubit is demonstrated",
+          "isCorrect": false,
+          "rationale": "A single logical qubit is insufficient to break industrial-grade classical encryption like RSA-2048."
+        },
+        {
+          "text": "When Shor's algorithm is successfully simulated on a classical supercomputer",
+          "isCorrect": false,
+          "rationale": "Classical simulation of Shor's algorithm is restricted to very small integers and does not pose a threat to real-world cryptography."
+        }
+      ],
+      "hint": "Think about the timeline of transition and the required shelf-life of encrypted data versus the adversary's timeline."
+    },
+    {
+      "question": "Which cryptographic standard is associated with the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)?",
+      "answerOptions": [
+        {
+          "text": "FIPS 203",
+          "isCorrect": true,
+          "rationale": "NIST has designated FIPS 203 as the official standard for ML-KEM, which is based on the CRYSTALS-Kyber algorithm."
+        },
+        {
+          "text": "FIPS 204",
+          "isCorrect": false,
+          "rationale": "FIPS 204 is the standard associated with ML-DSA (CRYSTALS-Dilithium) digital signatures."
+        },
+        {
+          "text": "FIPS 197",
+          "isCorrect": false,
+          "rationale": "This standard is associated with the Advanced Encryption Standard (AES), which is a symmetric primitive."
+        },
+        {
+          "text": "FIPS 186",
+          "isCorrect": false,
+          "rationale": "FIPS 186 covers the Digital Signature Standard (DSS), which includes traditional algorithms like RSA and ECDSA."
+        }
+      ],
+      "hint": "This document was highlighted as the specific publication for the new lattice-based KEM standard."
+    },
+    {
+      "question": "What is the primary motivation behind the 'Harvest Now, Decrypt Later' attack strategy?",
+      "answerOptions": [
+        {
+          "text": "To record encrypted traffic today so it can be decrypted once a powerful quantum computer is available",
+          "isCorrect": true,
+          "rationale": "Attackers can stockpile current encrypted data in anticipation of future quantum computing breakthroughs that will break the underlying RSA or ECC keys."
+        },
+        {
+          "text": "To use current quantum computers to slowly factorise RSA keys bit-by-bit over several years",
+          "isCorrect": false,
+          "rationale": "Current quantum computers lack the scale and error correction needed to perform any meaningful part of RSA factorisation."
+        },
+        {
+          "text": "To find collisions in hash functions before they are upgraded to longer output lengths",
+          "isCorrect": false,
+          "rationale": "This strategy specifically targets public-key encryption to bypass future secrecy, not just hash collisions."
+        },
+        {
+          "text": "To force companies to transition to post-quantum cryptography prematurely",
+          "isCorrect": false,
+          "rationale": "This is a passive data collection threat, not an active attempt to influence industry standards directly."
+        }
+      ],
+      "hint": "Consider why an adversary would collect data that they cannot currently read."
+    },
+    {
+      "question": "In a Key Encapsulation Mechanism (KEM), which of the following algorithms is required to be deterministic?",
+      "answerOptions": [
+        {
+          "text": "$KEM.Dec(c, sk)$",
+          "isCorrect": true,
+          "rationale": "Decapsulation must consistently produce the same shared secret from a given ciphertext and secret key to ensure communication reliability."
+        },
+        {
+          "text": "$KEM.KeyGen()$",
+          "isCorrect": false,
+          "rationale": "Key generation must be randomised to ensure that keys are unpredictable and unique to each user."
+        },
+        {
+          "text": "$KEM.Enc(pk)$",
+          "isCorrect": false,
+          "rationale": "Encapsulation is typically randomised to provide semantic security, ensuring different sessions produce different ciphertexts."
+        },
+        {
+          "text": "All three algorithms in the KEM triple must be deterministic",
+          "isCorrect": false,
+          "rationale": "Only the decapsulation process is strictly required to be deterministic; the others rely on randomness for security."
+        }
+      ],
+      "hint": "Identify which part of the process must always yield the exact same result for a specific set of inputs to work correctly."
+    },
+    {
+      "question": "According to the NSM cryptographic recommendations, how should ML-KEM be deployed?",
+      "answerOptions": [
+        {
+          "text": "In hybrid mode with a quantum-vulnerable key establishment scheme",
+          "isCorrect": true,
+          "rationale": "Hybrid modes are used as a safety net to ensure that if the new post-quantum assumptions are broken, the classical security still holds."
+        },
+        {
+          "text": "As a standalone replacement for all RSA and Elliptic Curve Diffie-Hellman implementations",
+          "isCorrect": false,
+          "rationale": "Standalone deployment is not yet recommended by many agencies due to the relative novelty of the lattice assumptions."
+        },
+        {
+          "text": "Exclusively using the ML-KEM-512 parameter set for maximum efficiency",
+          "isCorrect": false,
+          "rationale": "The source material specifically recommends ML-KEM-768 and ML-KEM-1024 for appropriate security levels."
+        },
+        {
+          "text": "Only for software signing and not for web browser traffic",
+          "isCorrect": false,
+          "rationale": "ML-KEM is intended for general key establishment, including secure web communication (as seen in Cloudflare's adoption)."
+        }
+      ],
+      "hint": "Think about the transition strategy that combines 'old' and 'new' methods."
+    },
+    {
+      "question": "Which messaging protocol recently introduced 'PQ3' to provide Level 3 quantum-secure communication?",
+      "answerOptions": [
+        {
+          "text": "iMessage",
+          "isCorrect": true,
+          "rationale": "Apple's iMessage introduced PQ3, which includes PQC key establishment and ongoing PQC rekeying."
+        },
+        {
+          "text": "Signal",
+          "isCorrect": false,
+          "rationale": "Signal introduced PQXDH, which is considered Level 2 as it focuses on PQC key establishment without the full Level 3 rekeying features mentioned for PQ3."
+        },
+        {
+          "text": "WhatsApp",
+          "isCorrect": false,
+          "rationale": "While WhatsApp uses end-to-end encryption, the source categorises it as Level 1, not having reached PQ3 status."
+        },
+        {
+          "text": "Telegram",
+          "isCorrect": false,
+          "rationale": "Telegram is listed as Level 0 in the provided diagram because it does not provide end-to-end encryption by default."
+        }
+      ],
+      "hint": "Look for the application that specifically reached the 'Level 3' tier in the messaging app security diagram."
+    },
+    {
+      "question": "In the CNSA 2.0 timeline, by which year is it expected that software/firmware signing must exclusively use CNSA 2.0 algorithms?",
+      "answerOptions": [
+        {
+          "text": "2030",
+          "isCorrect": true,
+          "rationale": "The timeline shows a transition period ending with exclusive use of CNSA 2.0 for software and firmware signing by 2030."
+        },
+        {
+          "text": "2025",
+          "isCorrect": false,
+          "rationale": "2025 is shown as the year when CNSA 2.0 is added as an option and preferred, but not yet exclusive."
+        },
+        {
+          "text": "2033",
+          "isCorrect": false,
+          "rationale": "By 2033, most categories like web browsers and niche equipment must be exclusive, but software signing has an earlier deadline."
+        },
+        {
+          "text": "2052",
+          "isCorrect": false,
+          "rationale": "2052 is a prediction for when RSA-2048 might be broken, not a deadline for algorithm transition."
+        }
+      ],
+      "hint": "Locate the specific row for 'Software/firmware signing' in the NSA timeline graphic."
+    },
+    {
+      "question": "Which of the following is an 'Advanced Primitive' that requires serious alterations to protocols to become quantum-safe?",
+      "answerOptions": [
+        {
+          "text": "Zero-Knowledge Proofs",
+          "isCorrect": true,
+          "rationale": "Advanced primitives like ZKPs and distributed privacy applications require significant changes compared to the drop-in replacements for standard encryption."
+        },
+        {
+          "text": "HMAC",
+          "isCorrect": false,
+          "rationale": "HMAC is a symmetric-key primitive that requires no major structural changes for quantum security, just appropriate parameter sizes."
+        },
+        {
+          "text": "Digital Signatures",
+          "isCorrect": false,
+          "rationale": "Standard digital signatures are categorised as having 'Almost Drop-in Replacements' through NIST's new PQC standards."
+        },
+        {
+          "text": "SHA-256",
+          "isCorrect": false,
+          "rationale": "SHA-256 belongs to the category where no structural changes are necessary to its core logic for quantum resistance."
+        }
+      ],
+      "hint": "Look for the category that mentions blockchain privacy applications and distributed privacy."
+    },
+    {
+      "question": "What is the approximate intersection point where the hardness of LWE and SIS are comparable, given fixed parameters $n, m,$ and $q$?",
+      "answerOptions": [
+        {
+          "text": "$\\beta \\approx q^{n/(n+m)}$",
+          "isCorrect": true,
+          "rationale": "This formula represents the point where the security trade-offs between the two lattice problems align."
+        },
+        {
+          "text": "$\\beta \\approx q \\cdot (n+m)$",
+          "isCorrect": false,
+          "rationale": "This expression does not account for the dimensional scaling that determines lattice problem complexity."
+        },
+        {
+          "text": "$\\beta \\approx \\sqrt{q}$",
+          "isCorrect": false,
+          "rationale": "While a square root might appear in Grover-related contexts, it does not define the intersection of LWE and SIS hardness levels."
+        },
+        {
+          "text": "$\\beta \\approx n/m$",
+          "isCorrect": false,
+          "rationale": "The relationship between hardness and the modulus $q$ is central to these problems and must be included in the formula."
+        }
+      ],
+      "hint": "Examine the figure label in the 'Hardness of LWE and SIS' section."
+    },
+    {
+      "question": "Comparing ML-DSA (CRYSTALS-Dilithium) to the classical Schnorr signature scheme, what is a key difference in how signatures are handled?",
+      "answerOptions": [
+        {
+          "text": "ML-DSA requires a check to ensure the norm of the signature is not too large",
+          "isCorrect": true,
+          "rationale": "To maintain security and prevent information leakage, lattice signatures like ML-DSA must be within specific geometric bounds (norms)."
+        },
+        {
+          "text": "ML-DSA uses uniform challenges whereas Schnorr uses small challenges",
+          "isCorrect": false,
+          "rationale": "The source indicates the opposite: Schnorr has uniform challenges, while ML-DSA uses small challenges."
+        },
+        {
+          "text": "ML-DSA is deterministic while Schnorr must be randomised",
+          "isCorrect": false,
+          "rationale": "While ML-DSA can be deterministic, the critical structural difference highlighted is the use of aborts and norm checks."
+        },
+        {
+          "text": "Schnorr signatures are much larger in size than ML-DSA signatures",
+          "isCorrect": false,
+          "rationale": "Classical signatures like Schnorr are significantly smaller than lattice-based signatures like ML-DSA."
+        }
+      ],
+      "hint": "Consider the specific geometric constraints inherent in lattice-based cryptography."
+    },
+    {
+      "question": "For a Key Encapsulation Mechanism, what does the $KEM.Enc(pk)$ algorithm output?",
+      "answerOptions": [
+        {
+          "text": "A shared key $k$ and a ciphertext $c$",
+          "isCorrect": true,
+          "rationale": "The encapsulation algorithm generates both the secret that will be shared and the encrypted package used to transmit it."
+        },
+        {
+          "text": "A public key $pk$ and a secret key $sk$",
+          "isCorrect": false,
+          "rationale": "Key generation (KeyGen) produces the keys, while Encapsulation uses an existing public key."
+        },
+        {
+          "text": "The decrypted shared key $k$ only",
+          "isCorrect": false,
+          "rationale": "Returning only the key would provide no way for the recipient to derive that same key; the ciphertext is essential."
+        },
+        {
+          "text": "A digital signature of the public key",
+          "isCorrect": false,
+          "rationale": "A KEM's purpose is key establishment, not identity verification or data signing."
+        }
+      ],
+      "hint": "Think about what both the sender and receiver need to establish a secure channel."
+    },
+    {
+      "question": "Which specific problem is highlighted as being solvable 'essentially as fast as using them' on a large quantum computer?",
+      "answerOptions": [
+        {
+          "text": "Computing discrete logs",
+          "isCorrect": true,
+          "rationale": "Shor's algorithm reduces the complexity of discrete log problems to a level where they can be solved efficiently, breaking the underlying security."
+        },
+        {
+          "text": "Finding hash collisions in SHA-3",
+          "isCorrect": false,
+          "rationale": "Finding hash collisions is affected by Grover's algorithm, which provides a speedup but doesn't make it 'essentially as fast' as computing the hash."
+        },
+        {
+          "text": "Solving the LWE problem",
+          "isCorrect": false,
+          "rationale": "LWE is currently believed to be resistant to quantum attacks, meaning quantum computers do not solve it efficiently."
+        },
+        {
+          "text": "Exhaustive search of 256-bit AES keys",
+          "isCorrect": false,
+          "rationale": "Even with Grover's algorithm, a 256-bit key provides 128 bits of quantum security, which remains computationally intractable."
+        }
+      ],
+      "hint": "This phrase refers to the impact of Shor's algorithm on traditional asymmetric assumptions."
+    },
+    {
+      "question": "What is the primary reason that quantum computers are described as 'different' rather than strictly 'better' in the lecture slides?",
+      "answerOptions": [
+        {
+          "text": "They will generally be worse at most tasks but do specific things much better",
+          "isCorrect": true,
+          "rationale": "Quantum computers are not universal accelerators; they excel at specific mathematical problems but are not faster for standard linear computations."
+        },
+        {
+          "text": "They are only faster because they operate at absolute zero temperatures",
+          "isCorrect": false,
+          "rationale": "Temperature is a requirement for hardware stability, but the speedup comes from quantum mechanical principles like superposition and interference."
+        },
+        {
+          "text": "They use bits and bytes exactly like classical computers but with higher clock speeds",
+          "isCorrect": false,
+          "rationale": "Quantum computers use qubits, which behave fundamentally differently from classical bits."
+        },
+        {
+          "text": "They are only intended for use in quantum chemistry and not for general data processing",
+          "isCorrect": false,
+          "rationale": "While quantum chemistry is a major application, they are also designed for specific algorithmic tasks in cryptography and optimization."
+        }
+      ],
+      "hint": "Consider the trade-off in performance between general-purpose and specialized quantum tasks."
+    },
+    {
+      "question": "In the diagram illustrating the 'Landscape of Quantum Computing in 2025', which region indicates that current error correction methods are viable?",
+      "answerOptions": [
+        {
+          "text": "Surface codes work",
+          "isCorrect": true,
+          "rationale": "The 'Surface codes work' region indicates a combination of qubit count and error rate where quantum error correction becomes effective."
+        },
+        {
+          "text": "Useful quantum chemistry without error correction",
+          "isCorrect": false,
+          "rationale": "This region specifically excludes error correction as a requirement for certain chemical simulations."
+        },
+        {
+          "text": "Logical qubits can be classically simulated",
+          "isCorrect": false,
+          "rationale": "If qubits can be simulated classically, they don't yet represent the quantum advantage sought for error-corrected systems."
+        },
+        {
+          "text": "RSA is broken",
+          "isCorrect": false,
+          "rationale": "The 'RSA is broken' region represents a future state requiring high qubit counts and very low error rates, far beyond current surface code capabilities."
+        }
+      ],
+      "hint": "Look for the labelled blue-shaded region in the error rate vs qubit count graph."
+    },
+    {
+      "question": "What does a quantum computer need to factorise a 2048-bit RSA integer in less than a week, according to Craig Gidney's 2025 estimate?",
+      "answerOptions": [
+        {
+          "text": "Less than a million noisy qubits",
+          "isCorrect": true,
+          "rationale": "Gidney's research significantly reduced the estimated resource requirements for breaking RSA-2048 compared to previous estimates."
+        },
+        {
+          "text": "Exactly 20 million noisy qubits",
+          "isCorrect": false,
+          "rationale": "This was the estimate from 2019, which Gidney's newer paper aims to 'substantially reduce'."
+        },
+        {
+          "text": "A quantum computer with zero error rate",
+          "isCorrect": false,
+          "rationale": "The estimate specifically accounts for 'noisy' qubits using surface code error correction cycles."
+        },
+        {
+          "text": "One thousand perfect logical qubits",
+          "isCorrect": false,
+          "rationale": "The estimate is based on the number of physical (noisy) qubits required to implement error-corrected logic, which is much higher than 1,000."
+        }
+      ],
+      "hint": "Focus on the highlighted text in the excerpt regarding the 2025 factoring research."
+    },
+    {
+      "question": "Which mathematical structure is the primary basis for the new 'Quantum-Safe' assumptions discussed in the lecture?",
+      "answerOptions": [
+        {
+          "text": "Lattices",
+          "isCorrect": true,
+          "rationale": "Lattices provide the foundation for problems like LWE and SIS, which are believed to be resistant to quantum attacks."
+        },
+        {
+          "text": "Elliptic Curves",
+          "isCorrect": false,
+          "rationale": "Elliptic curves are the basis for current (quantum-vulnerable) standards like ECDSA and ECDH."
+        },
+        {
+          "text": "Finite Fields",
+          "isCorrect": false,
+          "rationale": "While used within lattice cryptography, finite fields themselves (as used in RSA/DH) are not the 'new' quantum-safe assumption."
+        },
+        {
+          "text": "Superconducting loops",
+          "isCorrect": false,
+          "rationale": "Superconducting loops are a hardware technology for building qubits, not a mathematical hardness assumption for cryptography."
+        }
+      ],
+      "hint": "Think about the geometric arrangement of points in $n$-dimensional space used in ML-KEM and ML-DSA."
+    },
+    {
+      "question": "What happens to the hardness of the Short Integer Solution (SIS) problem as the secret values get smaller?",
+      "answerOptions": [
+        {
+          "text": "It gets harder",
+          "isCorrect": true,
+          "rationale": "As the allowed size of the secret values decreases, finding a valid 'short' non-zero solution becomes more constrained and computationally difficult."
+        },
+        {
+          "text": "It gets easier",
+          "isCorrect": false,
+          "rationale": "Smaller secret values typically make finding solutions harder in the SIS context, which is the opposite effect observed in LWE."
+        },
+        {
+          "text": "It remains constant",
+          "isCorrect": false,
+          "rationale": "The size of the secret values is a critical parameter that directly influences the hardness of the problem."
+        },
+        {
+          "text": "It becomes unsolvable even for classical computers",
+          "isCorrect": false,
+          "rationale": "SIS is always solvable in principle; the difficulty lies in the time required to find the solution, not its theoretical existence."
+        }
+      ],
+      "hint": "Check the SIS Hardness slide and its comparison with LWE regarding norms."
+    },
+    {
+      "question": "Which of the following is NOT a property of the ML-KEM decapsulation algorithm $KEM.Dec(c, sk)$?",
+      "answerOptions": [
+        {
+          "text": "It must be a randomised algorithm",
+          "isCorrect": true,
+          "rationale": "Decapsulation must be deterministic to ensure that the recipient always recovers the correct shared key."
+        },
+        {
+          "text": "It takes a secret key and a ciphertext as input",
+          "isCorrect": false,
+          "rationale": "This is a standard input requirement for decapsulation to recover the encapsulated key."
+        },
+        {
+          "text": "It returns the shared key $k$ upon success",
+          "isCorrect": false,
+          "rationale": "The successful outcome of decapsulation is the retrieval of the shared secret."
+        },
+        {
+          "text": "It returns a rejection symbol $\\perp$ in case of failure",
+          "isCorrect": false,
+          "rationale": "Standard KEM definitions include a rejection mechanism for invalid or tampered ciphertexts."
+        }
+      ],
+      "hint": "Review the definition of a KEM and which algorithms are randomized versus deterministic."
+    },
+    {
+      "question": "What does the 'BSI Timeline' predict will be broken by quantum computers by the year 2052?",
+      "answerOptions": [
+        {
+          "text": "RSA-2048",
+          "isCorrect": true,
+          "rationale": "The timeline explicitly marks 2052 as the point where RSA-2048 is broken by quantum computers."
+        },
+        {
+          "text": "SHA-256",
+          "isCorrect": false,
+          "rationale": "Hash functions are weakened by Grover's algorithm but not considered 'broken' in the same sense as factoring-based public-key systems."
+        },
+        {
+          "text": "All lattice-based cryptography",
+          "isCorrect": false,
+          "rationale": "Lattice-based cryptography is intended to remain secure long after RSA-2048 is broken."
+        },
+        {
+          "text": "The Bitcoin network",
+          "isCorrect": false,
+          "rationale": "While relevant to the discussion of signatures, the BSI timeline focus is on specific algorithmic assumptions like RSA."
+        }
+      ],
+      "hint": "Refer to the far-right end of the horizontal timeline labelled 'BSI Timeline'."
+    },
+    {
+      "question": "What is the role of a 'KEM combiner' in hybrid mode deployments?",
+      "answerOptions": [
+        {
+          "text": "To combine a post-quantum shared secret with a classical shared secret into a single key",
+          "isCorrect": true,
+          "rationale": "A combiner ensures that the resulting key is secure as long as at least one of the input schemes (classical or quantum-safe) remains unbroken."
+        },
+        {
+          "text": "To convert a digital signature into a key encapsulation mechanism",
+          "isCorrect": false,
+          "rationale": "Signatures and KEMs are different primitives; a combiner merges keys from the same class (key establishment)."
+        },
+        {
+          "text": "To increase the speed of ML-KEM decapsulation on legacy hardware",
+          "isCorrect": false,
+          "rationale": "Combiners actually add a small amount of overhead; their purpose is security redundancy, not performance optimization."
+        },
+        {
+          "text": "To manage the transition between different versions of the NIST standards",
+          "isCorrect": false,
+          "rationale": "While useful during transitions, the primary role is merging the security properties of distinct algorithms."
+        }
+      ],
+      "hint": "Think about why you would use ML-KEM alongside a 'quantum-vulnerable' scheme."
+    },
+    {
+      "question": "Which of the following describes the relationship between bits, bytes, and qubits as shown in the lecture graphics?",
+      "answerOptions": [
+        {
+          "text": "A 'qubyte' consists of eight entangled qubits",
+          "isCorrect": true,
+          "rationale": "The graphic shows a collection of 8 qubits linked together, mirroring the classical byte structure but with quantum properties."
+        },
+        {
+          "text": "A qubit can only represent the values 0 and 1 sequentially",
+          "isCorrect": false,
+          "rationale": "Qubits exist in a superposition of states, meaning they are not limited to sequential binary values."
+        },
+        {
+          "text": "Qubits are strictly more efficient for storing simple text files",
+          "isCorrect": false,
+          "rationale": "Classical bits are far more efficient and cheaper for standard data storage; qubits are for computation."
+        },
+        {
+          "text": "A 'qubit' is a software simulation of a bit on a quantum processor",
+          "isCorrect": false,
+          "rationale": "A qubit is a physical hardware state (like a spinning sphere in the diagram), not a software simulation."
+        }
+      ],
+      "hint": "Look at the 'Quantum Computers' slide featuring the hand-drawn illustrations of bits and bytes."
+    },
+    {
+      "question": "In the 'Crypto Categories' slide, which of the following can ONLY be performed using Lattice Cryptography?",
+      "answerOptions": [
+        {
+          "text": "Fully-Homomorphic Encryption (FHE)",
+          "isCorrect": true,
+          "rationale": "FHE allows for computation on encrypted data, a feat currently only practically achievable through lattice-based constructions."
+        },
+        {
+          "text": "Symmetric Encryption",
+          "isCorrect": false,
+          "rationale": "Symmetric encryption like AES is non-lattice based and remains secure in a quantum world with proper key sizes."
+        },
+        {
+          "text": "Digital Signatures",
+          "isCorrect": false,
+          "rationale": "While there are lattice signatures, digital signatures can also be built from other assumptions like hashes or codes."
+        },
+        {
+          "text": "Key Exchange",
+          "isCorrect": false,
+          "rationale": "Key exchange is possible through various methods, including isogenies or code-based crypto, not just lattices."
+        }
+      ],
+      "hint": "Identify the 'Advanced Primitive' mentioned on the far right of the categorisation slide."
+    },
+    {
+      "question": "What is the name of the digital signature scheme standardised in FIPS 204?",
+      "answerOptions": [
+        {
+          "text": "ML-DSA",
+          "isCorrect": true,
+          "rationale": "ML-DSA stands for Module-Lattice-Based Digital Signature Algorithm, based on CRYSTALS-Dilithium."
+        },
+        {
+          "text": "ML-KEM",
+          "isCorrect": false,
+          "rationale": "ML-KEM is the Key Encapsulation Mechanism standard, not the Digital Signature standard."
+        },
+        {
+          "text": "RSA-PSS",
+          "isCorrect": false,
+          "rationale": "RSA-PSS is a classical signature scheme and is not part of the new post-quantum FIPS standards."
+        },
+        {
+          "text": "Kyber",
+          "isCorrect": false,
+          "rationale": "Kyber is the underlying algorithm for the ML-KEM standard, not for digital signatures."
+        }
+      ],
+      "hint": "This acronym is frequently paired with ML-KEM but refers specifically to the signing process."
+    }
+  ]
+}

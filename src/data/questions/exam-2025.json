@@ -1,0 +1,1184 @@
+[
+  {
+    "id": "exam2025-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q1"
+    },
+    "difficulty": 1,
+    "text": "Which of the below represents an active threat:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Replay"
+      },
+      {
+        "key": "b",
+        "text": "Denial of Service"
+      },
+      {
+        "key": "c",
+        "text": "Traffic analysis"
+      },
+      {
+        "key": "d",
+        "text": "Eavesdropping"
+      }
+    ],
+    "correctAnswer": "ab",
+    "solution": "Correct answer: (ab)."
+  },
+  {
+    "id": "exam2025-mcq02",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q2"
+    },
+    "difficulty": 2,
+    "text": "2-1 mod 377 is equal to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "1"
+      },
+      {
+        "key": "b",
+        "text": "189"
+      },
+      {
+        "key": "c",
+        "text": "376"
+      },
+      {
+        "key": "d",
+        "text": "0.5"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq03",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q3"
+    },
+    "difficulty": 2,
+    "text": "In Z∗ 13, the multiplicative group of non-zero integers modulo 11:",
+    "options": [
+      {
+        "key": "a",
+        "text": "2 is a generator"
+      },
+      {
+        "key": "b",
+        "text": "3 is a generator"
+      },
+      {
+        "key": "c",
+        "text": "4 is a generator"
+      },
+      {
+        "key": "d",
+        "text": "there is no generator"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-mcq04",
+    "type": "mcq",
+    "topics": [
+      "classical-encryption"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q4"
+    },
+    "difficulty": 1,
+    "text": "In an alphabet of 27 characters, how many possible permutations are there for the random simple substitution cipher?",
+    "options": [
+      {
+        "key": "a",
+        "text": "1027"
+      },
+      {
+        "key": "b",
+        "text": "27!"
+      },
+      {
+        "key": "c",
+        "text": "227"
+      },
+      {
+        "key": "d",
+        "text": "2 · 1027"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq05",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q5"
+    },
+    "difficulty": 2,
+    "text": "According to Kerkhoff’s principle, which of the following should be available to an attacker of an iterated block cipher?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The round keys"
+      },
+      {
+        "key": "b",
+        "text": "The number of rounds"
+      },
+      {
+        "key": "c",
+        "text": "The key length"
+      },
+      {
+        "key": "d",
+        "text": "The IV"
+      }
+    ],
+    "correctAnswer": "bcd",
+    "solution": "Correct answer: (bcd)."
+  },
+  {
+    "id": "exam2025-mcq06",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q6"
+    },
+    "difficulty": 2,
+    "text": "Triple DES is the encryption algorithm defined by iterating three instances of the DES algorithm, by evaluating EDE (Encryption, Decryption, Encryption). Let K1, K2, K3 be the three keys used, so that we evaluate triple DES as C = E(D(E(P, K1), K2), K3), for some plaintext P. Which of the following is not an option for values of the keys?",
+    "options": [
+      {
+        "key": "a",
+        "text": "K1 = K3"
+      },
+      {
+        "key": "b",
+        "text": "K1 = K2 = K3"
+      },
+      {
+        "key": "c",
+        "text": "K1 = K2"
+      },
+      {
+        "key": "d",
+        "text": "K1, K2, K3 are all distinct"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-mcq07",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q7"
+    },
+    "difficulty": 2,
+    "text": "Recall that for AES, the S-boxes are defined over the finite field GF(28). Let’s take the easier example of GF(22). This is defined via the polynomial p(x) = x2 + x + 1. We recall the multiplication table below. What is the missing value in the table (denoted by ⋆)? × x x + 1 x x + 1 x x x + 1 ⋆ x + 1 x + 1 ⋆ x",
+    "options": [
+      {
+        "key": "a",
+        "text": "1"
+      },
+      {
+        "key": "b",
+        "text": "x"
+      },
+      {
+        "key": "c",
+        "text": "x + 1"
+      },
+      {
+        "key": "d",
+        "text": "0 are all distinct"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-mcq08",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q8"
+    },
+    "difficulty": 1,
+    "text": "Suppose that 110010 is observed to be a ciphertext from the one-time pad using the binary alphabet. Then we know that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The plaintext was 111111 with probability 1/26"
+      },
+      {
+        "key": "b",
+        "text": "The plaintext must be different from 110010"
+      },
+      {
+        "key": "c",
+        "text": "The keystream used must be different from 110010"
+      },
+      {
+        "key": "d",
+        "text": "The plaintext could have been any 6-bit string"
+      }
+    ],
+    "correctAnswer": "ad",
+    "solution": "Correct answer: (ad)."
+  },
+  {
+    "id": "exam2025-mcq09",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q9"
+    },
+    "difficulty": 1,
+    "text": "Recall Euler’s phi function ϕ. Let n be an integer, which factorises as n = pk0 0 ·pk1 1 ·. . .·pkℓ-1 ℓ-1 . What is the formula for computing ϕ(n)?",
+    "options": [
+      {
+        "key": "a",
+        "text": "ϕ(n) = Qℓ-1 i=0 pki-1 i (pi -1)"
+      },
+      {
+        "key": "b",
+        "text": "ϕ(n) = Qℓ-1 i=0 pki-1 i"
+      },
+      {
+        "key": "c",
+        "text": "ϕ(n) = Qℓ-1 i=0(pi -1)"
+      },
+      {
+        "key": "d",
+        "text": "ϕ(n) = Qℓ-2 i=0 pki-1 i (pi -1)"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-mcq10",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q10"
+    },
+    "difficulty": 1,
+    "text": "Recall Euler’s phi function ϕ. If n = 92, what is the value of ϕ(n)?",
+    "options": [
+      {
+        "key": "a",
+        "text": "88"
+      },
+      {
+        "key": "b",
+        "text": "45"
+      },
+      {
+        "key": "c",
+        "text": "91"
+      },
+      {
+        "key": "d",
+        "text": "44"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-mcq11",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q11"
+    },
+    "difficulty": 1,
+    "text": "The Euler function ϕ is often useful for public key cryptography. For any integer n > 1 it is always true that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "ϕ(n) is an odd integer"
+      },
+      {
+        "key": "b",
+        "text": "ϕ(n) divides n"
+      },
+      {
+        "key": "c",
+        "text": "ϕ(n) is an even integer"
+      },
+      {
+        "key": "d",
+        "text": "ϕ(n) < n"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-mcq12",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q12"
+    },
+    "difficulty": 1,
+    "text": "Which of the following pairs of equations cannot be solved using the Chinese Remainder Theorem?",
+    "options": [
+      {
+        "key": "a",
+        "text": "x ≡1 (mod 39) and x ≡3 (mod 28)"
+      },
+      {
+        "key": "b",
+        "text": "x ≡3 (mod 28) and x ≡5 (mod 4)"
+      },
+      {
+        "key": "c",
+        "text": "x ≡5 (mod 39) and x ≡3 (mod 4)"
+      },
+      {
+        "key": "d",
+        "text": "x ≡3 (mod 25) and x ≡5 (mod 4)"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq13",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q13"
+    },
+    "difficulty": 1,
+    "text": "Let p be a prime, and g a generator for Z∗ p. The Discrete Logarithm problem is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Given x and y ≡x (mod p), recover p"
+      },
+      {
+        "key": "b",
+        "text": "Given x, p and y ≡gx (mod p), recover g"
+      },
+      {
+        "key": "c",
+        "text": "Given x and y ≡xg (mod p), recover p"
+      },
+      {
+        "key": "d",
+        "text": "Given g, p and y ≡gx (mod p), recover x"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-mcq14",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q14"
+    },
+    "difficulty": 1,
+    "text": "Euler’s Theorem states that if n is an integer and gcd(a, n) = 1, then:",
+    "options": [
+      {
+        "key": "a",
+        "text": "aϕ(n) ≡1 (mod n)"
+      },
+      {
+        "key": "b",
+        "text": "an ≡1 (mod n)"
+      },
+      {
+        "key": "c",
+        "text": "na ≡a (mod n)"
+      },
+      {
+        "key": "d",
+        "text": "aϕ(n)+1 ≡0 (mod n)"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-mcq15",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q15"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for encryption:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The private key of the sender is needed during encryption"
+      },
+      {
+        "key": "b",
+        "text": "The private key of the recipient is needed during encryption"
+      },
+      {
+        "key": "c",
+        "text": "The private key of the recipient is needed during decryption"
+      },
+      {
+        "key": "d",
+        "text": "The private key of the sender is needed during decryption"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-mcq16",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q16"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used for digital signatures",
+    "options": [
+      {
+        "key": "a",
+        "text": "The public key of the verifier is used for signature verification"
+      },
+      {
+        "key": "b",
+        "text": "The private key of the signer is used for signature verification"
+      },
+      {
+        "key": "c",
+        "text": "The private key of the verifier is used for signature verification"
+      },
+      {
+        "key": "d",
+        "text": "The public key of the signer is used for signature verification"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2025-mcq17",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q17"
+    },
+    "difficulty": 1,
+    "text": "A function f is said to be one-way if:",
+    "options": [
+      {
+        "key": "a",
+        "text": "It is computationally hard to compute f(x) for all x"
+      },
+      {
+        "key": "b",
+        "text": "It is easy to compute f(x) for all x"
+      },
+      {
+        "key": "c",
+        "text": "It is easy to compute f(x) given x, but computationally hard to compute a pre-image of y, given y"
+      },
+      {
+        "key": "d",
+        "text": "It is computationally hard to compute f(x) given x, but easy to compute a pre-image of y, given y"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-mcq18",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "key-establishment",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q18"
+    },
+    "difficulty": 3,
+    "text": "Below, you can find an incomplete Diffie-Hellman key exchange. What are missing are: the value B sent by Bob to Alice (denoted by ⋆), and the value of the shared secret key K (denoted by ⋄). What is the value of the pair (⋆, ⋄)? Alice Secret: a Computes: A = ga mod p Bob Secret: b Computes: B = ⋆mod p A = ga mod p B = ⋆mod p Shared Secret Key: K = ⋄mod p",
+    "options": [
+      {
+        "key": "a",
+        "text": "(⋆, ⋄) = (gab, gab)"
+      },
+      {
+        "key": "b",
+        "text": "(⋆, ⋄) = (gb, gab)"
+      },
+      {
+        "key": "c",
+        "text": "(⋆, ⋄) = (ga, gab)"
+      },
+      {
+        "key": "d",
+        "text": "(⋆, ⋄) = (b, gab)"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq19",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q19"
+    },
+    "difficulty": 2,
+    "text": "Below, you can see the table of modular exponentiation modulo 11. What is the value of the missing entry (denoted by ⋆)? Table 1: ak mod 11 k\\a ⋆",
+    "options": [
+      {
+        "key": "a",
+        "text": "5"
+      },
+      {
+        "key": "b",
+        "text": "3"
+      },
+      {
+        "key": "c",
+        "text": "4"
+      },
+      {
+        "key": "d",
+        "text": "10"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq20",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q20"
+    },
+    "difficulty": 1,
+    "text": "The inputs to a public key verification algorithm are:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The secret verification key, the message m and the signature σ"
+      },
+      {
+        "key": "b",
+        "text": "The public verification key and the hash of the signature σ and message m"
+      },
+      {
+        "key": "c",
+        "text": "The public verification key, the message m and the signature σ"
+      },
+      {
+        "key": "d",
+        "text": "The secret verification key and the hash of the signature σ and message m"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-mcq21",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q21"
+    },
+    "difficulty": 1,
+    "text": "In a public key signature scheme, the unforgeability property refers to the fact that is is impossible to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Construct a pair (m, σ) that passes verification without the secret signing key Ks"
+      },
+      {
+        "key": "b",
+        "text": "Construct a pair (m, σ) that passes verification without the public verification key Ks"
+      },
+      {
+        "key": "c",
+        "text": "Construct a pair (m, σ) that passes verification without the secret verification key Ks"
+      },
+      {
+        "key": "d",
+        "text": "Construct a pair (m, σ) that passes verification without the public signing key Ks"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-mcq22",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q22"
+    },
+    "difficulty": 1,
+    "text": "A message authentication code (MAC) requires a key as input while a hash function does not. Because of this:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The output size of a MAC must be longer than the output size of a hash function for the same security level"
+      },
+      {
+        "key": "b",
+        "text": "The length of the output of a MAC must always be longer than the length of the output of a hash"
+      },
+      {
+        "key": "c",
+        "text": "A MAC can provide data integrity"
+      },
+      {
+        "key": "d",
+        "text": "a MAC can provide non-repudiation"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-mcq23",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q23"
+    },
+    "difficulty": 2,
+    "text": "A cryptographic hash function h often needs the property of collision resistance. To ensure that finding collisions is of the same order of difficulty as brute force key search on a symmetric cipher with a key of 256 bits, the output size of h should be approximately:",
+    "options": [
+      {
+        "key": "a",
+        "text": "512 bits"
+      },
+      {
+        "key": "b",
+        "text": "√ 256 bits"
+      },
+      {
+        "key": "c",
+        "text": "128 bits"
+      },
+      {
+        "key": "d",
+        "text": "256 bits"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-mcq24",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q24"
+    },
+    "difficulty": 1,
+    "text": "The Merkle-Damgård construction for hash functions makes use of a compression function h, which acts on successive message blocks. A benefit of this construction is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Computation of a hash value requires a fixed number of calls to h, independent of the length of the input message"
+      },
+      {
+        "key": "b",
+        "text": "If h is collision-resistant then the whole hash function is collision-resistant"
+      },
+      {
+        "key": "c",
+        "text": "No padding is required for the input message, no matter what the output size of h is"
+      },
+      {
+        "key": "d",
+        "text": "The length of the input message does not need to be included"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq25",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q25"
+    },
+    "difficulty": 3,
+    "text": "A plaintext P = 101101 is encrypted into a ciphertext C = 010011 with a one-time pad. Suppose that an attacker is able to mount a known plaintext attack to partially obtain the three lowest bits of P, P ' = 101 (i.e. P = 101 ∥P '), and the corresponding portion of C. Now, the attacker knows:",
+    "options": [
+      {
+        "key": "a",
+        "text": "That P = 101101"
+      },
+      {
+        "key": "b",
+        "text": "That K = 111110"
+      },
+      {
+        "key": "c",
+        "text": "That K = K' ∥110, for some K'"
+      },
+      {
+        "key": "d",
+        "text": "Nothing at all"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-mcq26",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "digital-signatures",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q26"
+    },
+    "difficulty": 2,
+    "text": "Galois counter mode (GCM) provides which of the following security services?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Integrity, but not confidentiality"
+      },
+      {
+        "key": "b",
+        "text": "Both confidentiality and integrity"
+      },
+      {
+        "key": "c",
+        "text": "Non-repudiation, but not confidentiality"
+      },
+      {
+        "key": "d",
+        "text": "Both confidentiality and non-repudiation"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq27",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q27"
+    },
+    "difficulty": 1,
+    "text": "The purpose of the handshake protocol in TLS is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Change the cryptographic algorithms from previously used ones"
+      },
+      {
+        "key": "b",
+        "text": "Signal events such as failures"
+      },
+      {
+        "key": "c",
+        "text": "Setup sessions with the correct keys and algorithms"
+      },
+      {
+        "key": "d",
+        "text": "Provide confidentiality and integrity for application messages"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2025-mcq28",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q28"
+    },
+    "difficulty": 1,
+    "text": "An X.509 digital certificate is issued by a certification authority CA for a subject A. Which of the following must be included in the certificate:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The subject’s private key"
+      },
+      {
+        "key": "b",
+        "text": "The subject’s public key"
+      },
+      {
+        "key": "c",
+        "text": "The certification authority’s private key"
+      },
+      {
+        "key": "d",
+        "text": "The certification authority’s public key"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2025-mcq29",
+    "type": "mcq",
+    "topics": [
+      "tls",
+      "quantum-safe",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q29"
+    },
+    "difficulty": 1,
+    "text": "A difference between TLS 1.3 and TLS 1.2 is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "The TLS 1.3 handshake protocol always provides forward secrecy"
+      },
+      {
+        "key": "b",
+        "text": "There are no known attacks on the TLS 1.3 protocol"
+      },
+      {
+        "key": "c",
+        "text": "The TLS 1.3 record protocol includes data compression"
+      },
+      {
+        "key": "d",
+        "text": "The TLS 1.3 protocol provides post-quantum security"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-mcq30",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 Q30"
+    },
+    "difficulty": 1,
+    "text": "One valid TLS 1.2 ciphersuite is denoted as TLS_RSA_WITH_AES_128_CBC_SHA256. When this ciphersuite is chosen, integrity of application data is provided by:",
+    "options": [
+      {
+        "key": "a",
+        "text": "An HMAC tag with SHA-256 as the underlying hash function"
+      },
+      {
+        "key": "b",
+        "text": "A CBC-based tag with AES as the underlying encryption function"
+      },
+      {
+        "key": "c",
+        "text": "Signing each application message with an RSA signature"
+      },
+      {
+        "key": "d",
+        "text": "Appending a hash of each packet, using SHA-256, before encryption with AES"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2025-w-1",
+    "type": "written",
+    "topics": [
+      "number-theory-basics",
+      "classical-encryption"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 W1"
+    },
+    "difficulty": 3,
+    "text": "An affine cipher has an encryption algorithm as follows: for some secret values a, b, an alphabet Ωof size | Ω|= ω, and a message m ∈Ω, E(x) = a · x + b (mod ω). We impose the requirement gcd(a, ω) = 1 (i.e. a and ω are co-prime), as decryption may not be defined otherwise.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "How many keys can we have (give a general formula)?",
+        "solution": "ϕ(ω) · ω - since we must have gcd(a, ω) = 1, there are ϕ(ω) possible values for a, and ω possible values for b."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Let ω = 28. How many keys can we have?",
+        "solution": "For ω = 28, ϕ(ω) · ω = 336."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "Let x = 6, a = 9, b = 21. What is the value of E(x)?",
+        "solution": "19."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-w-2",
+    "type": "written",
+    "topics": [
+      "encryption-modes",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 W2"
+    },
+    "difficulty": 3,
+    "text": "Recall the Output FeedBack Mode (OFB) for encryption. Figure 1: OFB mode of encryption The keystream is Ot = E(Ot-1, K), where O0 = IV is chosen at random, and K is the encryption key. Then, the encryption equation is Ct = Pt ⊕Ot.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 1.5,
+        "text": "What is the equation for decryption of ciphertext block Ct?",
+        "solution": "Pt = Ct ⊕Ot."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Is parallel encryption possible?",
+        "solution": "No (but keystream can be computed in advance)"
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Is parallel decryption possible?",
+        "solution": "No"
+      },
+      {
+        "partLabel": "d",
+        "points": 1.5,
+        "text": "If one bit is flipped in one ciphertext block, how many bits are affected in the plaintext after decryption?",
+        "solution": "A one-bit change in the ciphertext produces a one-bit change in the plaintext at the same location."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-w-3",
+    "type": "written",
+    "topics": [
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 W3"
+    },
+    "difficulty": 3,
+    "text": "Recall that in digital signatures, we have the following parameters/ algorithms: - A private signing key Ks; - A public verification key Kv; - A signing algorithm Sign, which takes in a message m and a signing key Ks, and outputs a signature σ Sign(m, Ks) = σ; - A verification algorithm Ver, which takes in a message m, a verification key Kv, and a signature σ, and outputs a boolean value True/ False Ver(m, σ, Kv) = True/ False.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Using the terminology above, recall the correctness and unforgeability properties of a signature scheme.",
+        "solution": "i. If σ = Sig(m, Ks), then Ver(m, σ, Kv) = True, for any matching signing/ verification keys ii. It is computationally infeasible for anyone without Ks to construct m and σ such that Ver(m, σ, Kv) = True."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "Consider this version of the RSA signature. - A modulus n = pq is computed from random large primes p and q - Two exponents e and d are generated with ed (mod ϕ(n)) = 1 - Private signing key is Ks = (d, p, q) - Public verification key is Kv = (e, n) RSA Digital Signature Algorithm Signature generation: Inputs are the message m, the modulus n and the private exponent d i. Compute signature σ = md (mod n) ii. Output the pair (m, σ) Signature verification: Inputs are the message m, the claimed signature σ and the verification key Kv = (e, n) i. Check whether σe (mod n) = m, and if so, output True; otherwise, output False Why is it insecure? (Hint: consider question 3a)).",
+        "solution": "Can forge signatures: for any two m, m', where an attacker can obtain the respective signatures σ, σ', the signature σ · σ' is a valid signature for the message m · m'."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "How can we fix this? (Hint: recall hash functions)",
+        "solution": "Hash the message before inputting it into the signature algorithm."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-w-4",
+    "type": "written",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 W4"
+    },
+    "difficulty": 3,
+    "text": "Cryptosystems based on discrete logarithms often make use of a prime number and a generator g of the integers modulo p, Z∗ p (recall that in class, we often wrote ⟨g⟩= Z∗ p, i.e. g generates the group Z∗ p).",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 3,
+        "text": "Show that when p = 19, the value g' = 5 is not a generator but the value g = 2 is a generator. (Hint: for the following question, you may find it helpful to list all the powers of g = 2 modulo 19).",
+        "solution": "They can list all values, or use Fermat’s little theorem - all answers are accepted here."
+      },
+      {
+        "partLabel": "b",
+        "points": 3,
+        "text": "Consider Diffie-Hellman key exchange in Z∗ p when p = 19 and g = 2. Alice chooses random secret input value a = 7, and so sends the value A = 14 = 27 (mod 19) to Bob. Bob sends his message B back, and they both compute the shared secret. If the value of the shared secret is 17, what is Bob’s secret b? (Hint: you can go back to Question 18 to see a partial summary of the Diffie-Hellman key exchange).",
+        "solution": "b = 4. Partial credit if they explain methodology/ how to get the answer/ etc., even if the correct value is not recovered."
+      }
+    ],
+    "totalPoints": 6
+  },
+  {
+    "id": "exam2025-w-5",
+    "type": "written",
+    "topics": [
+      "tls",
+      "tls13-ipsec",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2025 W5"
+    },
+    "difficulty": 3,
+    "text": "The TLS handshake protocol is complex and allows several variants. In this question we focus on the TLS 1.3 version of the handshake protocol.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "It is optional for a client to use a certificate. What are the security consequences when a client does not have a certificate?",
+        "solution": "The client does authenticate themselves, and so the server cannot verify their identity."
+      },
+      {
+        "partLabel": "b",
+        "points": 2,
+        "text": "TLS 1.3 offers several different ciphersuites which are negotiated in the handshake. State and explain one advantage and one disadvantage of allowing different cipher- suites.",
+        "solution": "- Advantages: flexibility, backwards compatibility. - Disadvantage: downgrade attacks."
+      },
+      {
+        "partLabel": "c",
+        "points": 2,
+        "text": "How does 0-RTT enhance the protocol compared to TLS1.2? Are there any security trade-offs?",
+        "solution": "The advantage is that we can have a faster connection. The disadvantage is that it can enable certain types of replay attacks."
+      }
+    ],
+    "totalPoints": 6
+  }
+]

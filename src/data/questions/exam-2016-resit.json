@@ -1,0 +1,1077 @@
+[
+  {
+    "id": "exam2016-resit-mcq01",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q1"
+    },
+    "difficulty": 1,
+    "text": "Cryptanalysis of the Vigenére cipher often uses autocorrelation in order to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "identify the period (key length)"
+      },
+      {
+        "key": "b",
+        "text": "determine the shift for a specific substitution alphabet"
+      },
+      {
+        "key": "c",
+        "text": "check if the original plaintext message is periodic"
+      },
+      {
+        "key": "d",
+        "text": "predict the likely plaintext"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-resit-mcq02",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q2"
+    },
+    "difficulty": 2,
+    "text": "When assessing the security of an iterative block cipher, which of the following do we usually assume is not available to the attacker?",
+    "options": [
+      {
+        "key": "a",
+        "text": "The ciphertext under attack"
+      },
+      {
+        "key": "b",
+        "text": "A small amount of ciphertext and corresponding plaintext"
+      },
+      {
+        "key": "c",
+        "text": "The round keys"
+      },
+      {
+        "key": "d",
+        "text": "The specification of the encryption algorithm"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-resit-mcq03",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q3"
+    },
+    "difficulty": 1,
+    "text": "Three-key 3-DES is the block cipher algorithm defined by iterating three instances of the DES algorithm using three independent keys. In contrast to 128-bit key AES, three-key 3-DES:",
+    "options": [
+      {
+        "key": "a",
+        "text": "has a shorter key length"
+      },
+      {
+        "key": "b",
+        "text": "is the most common choice in TLS ciphersuites"
+      },
+      {
+        "key": "c",
+        "text": "has a longer block length"
+      },
+      {
+        "key": "d",
+        "text": "is much less efficient for both encryption and decryption"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-resit-mcq04",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q4"
+    },
+    "difficulty": 1,
+    "text": "In a block cipher designed as a substitution-permutation network the purpose of an S-box is to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "substitute sub-blocks by other sub-blocks"
+      },
+      {
+        "key": "b",
+        "text": "permute different bit positions in the whole block"
+      },
+      {
+        "key": "c",
+        "text": "substitute plaintext bits by key bits"
+      },
+      {
+        "key": "d",
+        "text": "derive round keys from the master key"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-resit-mcq05",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q5"
+    },
+    "difficulty": 2,
+    "text": "For any given values x and m, the square-and-multiply algorithm when used to compute x36 mod m requires:",
+    "options": [
+      {
+        "key": "a",
+        "text": "5 squarings and 1 multiplication modulo m"
+      },
+      {
+        "key": "b",
+        "text": "6 squarings and 2 multiplications modulo m"
+      },
+      {
+        "key": "c",
+        "text": "5 squarings and 3 multiplications modulo m"
+      },
+      {
+        "key": "d",
+        "text": "6 squarings and 4 multiplications modulo m"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-resit-mcq06",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q6"
+    },
+    "difficulty": 2,
+    "text": "The Chinese Remainder Theorem is often used to solve simultaneous equations of the form x ≡c1 mod d1 and x ≡c2 mod d2. A solution can always be found if:",
+    "options": [
+      {
+        "key": "a",
+        "text": "c1 ̸= c2"
+      },
+      {
+        "key": "b",
+        "text": "d1 ̸= d2"
+      },
+      {
+        "key": "c",
+        "text": "gcd(c1, c2) = 1"
+      },
+      {
+        "key": "d",
+        "text": "gcd(d1, d2) = 1"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-resit-mcq07",
+    "type": "mcq",
+    "topics": [
+      "discrete-log-crypto",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q7"
+    },
+    "difficulty": 2,
+    "text": "Let g = 2 be a generator for the integers modulo 11. The discrete logarithm of 5 is then:",
+    "options": [
+      {
+        "key": "a",
+        "text": "3"
+      },
+      {
+        "key": "b",
+        "text": "4"
+      },
+      {
+        "key": "c",
+        "text": "5"
+      },
+      {
+        "key": "d",
+        "text": "6"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-resit-mcq08",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q8"
+    },
+    "difficulty": 2,
+    "text": "Which of the following block cipher modes of operation has a fixed length output, indepen- dent of the message length?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Counter mode (CTR)"
+      },
+      {
+        "key": "b",
+        "text": "Cipher block chaining (CBC)"
+      },
+      {
+        "key": "c",
+        "text": "Cipher-based MAC (CMAC)"
+      },
+      {
+        "key": "d",
+        "text": "Counter with CBC-MAC (CCM)"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-resit-mcq09",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q9"
+    },
+    "difficulty": 2,
+    "text": "Two modes of operation for block ciphers are counter mode (CTR) and cipher block chaining (CBC) mode. One property held by CTR mode and not held by CBC mode is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "encryption includes a random input"
+      },
+      {
+        "key": "b",
+        "text": "decryption in the mode uses encryption for the basic block cipher"
+      },
+      {
+        "key": "c",
+        "text": "equal plaintext blocks always encrypt to equal ciphertext blocks"
+      },
+      {
+        "key": "d",
+        "text": "authentication is provided"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-resit-mcq10",
+    "type": "mcq",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes",
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q10"
+    },
+    "difficulty": 2,
+    "text": "Two binary additive stream ciphers are the AES block cipher in counter (CTR) mode, and the (binary) one time pad. An advantage of using AES in CTR mode is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the error propagation properties are better"
+      },
+      {
+        "key": "b",
+        "text": "the level of confidentiality is higher"
+      },
+      {
+        "key": "c",
+        "text": "the key management process is more efficient"
+      },
+      {
+        "key": "d",
+        "text": "the encryption algorithm is simpler"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-resit-mcq11",
+    "type": "mcq",
+    "topics": [
+      "hill-stream-otp"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q11"
+    },
+    "difficulty": 1,
+    "text": "Suppose a linear feedback shift register (LFSR) with 40 binary storage locations is used as a keystream generator for a binary additive stream cipher. The main weakness of this cipher is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the period of the keystream cannot be greater than 80"
+      },
+      {
+        "key": "b",
+        "text": "a known plaintext attack is easy given 80 bits of plaintext/ciphertext"
+      },
+      {
+        "key": "c",
+        "text": "if the key defines the position of the feedback taps then there are at most 80 keys"
+      },
+      {
+        "key": "d",
+        "text": "if the key defines the initial LFSR state then there are at most 80 keys"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-resit-mcq12",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q12"
+    },
+    "difficulty": 1,
+    "text": "The Fermat test for whether or not a number n is prime is based on which of the following, when gcd(a, n) = 1?",
+    "options": [
+      {
+        "key": "a",
+        "text": "If an-1 mod n = 1 then n must be prime"
+      },
+      {
+        "key": "b",
+        "text": "If an-1 mod n = 1 then n must be composite"
+      },
+      {
+        "key": "c",
+        "text": "If n is composite then an-1 mod n = 1"
+      },
+      {
+        "key": "d",
+        "text": "If n is prime then an-1 mod n = 1"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-resit-mcq13",
+    "type": "mcq",
+    "topics": [
+      "number-theory-basics",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q13"
+    },
+    "difficulty": 2,
+    "text": "The RSA encryption scheme uses a public exponent e, a private exponent d, and a public modulus n. The relationship between e and d is defined by:",
+    "options": [
+      {
+        "key": "a",
+        "text": "ed ≡1 mod n"
+      },
+      {
+        "key": "b",
+        "text": "ed ≡φ(n) mod n"
+      },
+      {
+        "key": "c",
+        "text": "ed ≡1 mod φ(n)"
+      },
+      {
+        "key": "d",
+        "text": "ed ≡n -1 mod φ(n)"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-resit-mcq14",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q14"
+    },
+    "difficulty": 2,
+    "text": "When using an RSA public key today for a secure TLS connection, a reasonable minimum choice of modulus length is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "128 bits"
+      },
+      {
+        "key": "b",
+        "text": "512 bits"
+      },
+      {
+        "key": "c",
+        "text": "2048 bits"
+      },
+      {
+        "key": "d",
+        "text": "4096 bits"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-resit-mcq15",
+    "type": "mcq",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q15"
+    },
+    "difficulty": 1,
+    "text": "Due to the birthday paradox, we can expect to find a collision in the SHA-256 hash function after around:",
+    "options": [
+      {
+        "key": "a",
+        "text": "27 trials"
+      },
+      {
+        "key": "b",
+        "text": "28 trials"
+      },
+      {
+        "key": "c",
+        "text": "2128 trials"
+      },
+      {
+        "key": "d",
+        "text": "2255 trials"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-resit-mcq16",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q16"
+    },
+    "difficulty": 1,
+    "text": "Forward secrecy is the property that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "if a user’s long term key becomes known to an attacker, session keys established earlier are not compromised"
+      },
+      {
+        "key": "b",
+        "text": "if a user’s long term key becomes known to an attacker, session keys established later are not compromised"
+      },
+      {
+        "key": "c",
+        "text": "if a user’s session key becomes known to an attacker, that user’s long term key is not compromised"
+      },
+      {
+        "key": "d",
+        "text": "if a user’s session key becomes known to an attacker, that user’s long term key is also compromised"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-resit-mcq17",
+    "type": "mcq",
+    "topics": [
+      "encryption-modes",
+      "block-ciphers",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q17"
+    },
+    "difficulty": 1,
+    "text": "The TLS protocol typically provides both confidentiality and data integrity for user data. Which of the following is not suitable to provide both of these services?",
+    "options": [
+      {
+        "key": "a",
+        "text": "AES in GCM mode"
+      },
+      {
+        "key": "b",
+        "text": "AES in CBC mode with HMAC"
+      },
+      {
+        "key": "c",
+        "text": "AES in CCM mode"
+      },
+      {
+        "key": "d",
+        "text": "AES in CTR mode"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-resit-mcq18",
+    "type": "mcq",
+    "topics": [
+      "public-key-rsa",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q18"
+    },
+    "difficulty": 1,
+    "text": "When public key cryptography is used to provide digital signatures:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the public key of the signer is required in order to verify the signature"
+      },
+      {
+        "key": "b",
+        "text": "the public key of the verifier is required in order to verify the signature"
+      },
+      {
+        "key": "c",
+        "text": "the private key of the signer is required in order to verify the signature"
+      },
+      {
+        "key": "d",
+        "text": "the private key of the verifier is required in order to verify the signature"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-resit-mcq19",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "hashes-macs",
+      "block-ciphers"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q19"
+    },
+    "difficulty": 1,
+    "text": "A difference between a message authentication code (MAC) and a digital signature is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "a digital signature scheme provides confidentiality but a MAC does not"
+      },
+      {
+        "key": "b",
+        "text": "a digital signature scheme provides data integrity but a MAC does not"
+      },
+      {
+        "key": "c",
+        "text": "a digital signature scheme provides non-repudiation but a MAC does not"
+      },
+      {
+        "key": "d",
+        "text": "a digital signature scheme provides data authentication but a MAC does not"
+      }
+    ],
+    "correctAnswer": "c",
+    "solution": "Correct answer: (c)."
+  },
+  {
+    "id": "exam2016-resit-mcq20",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q20"
+    },
+    "difficulty": 1,
+    "text": "A digital signature scheme often applies a hash function to the signed message. A collision in the hash function can lead to a signature forgery because:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the same message has two different signatures"
+      },
+      {
+        "key": "b",
+        "text": "two different messages have the same signature"
+      },
+      {
+        "key": "c",
+        "text": "one message has two different hash values"
+      },
+      {
+        "key": "d",
+        "text": "two different hash values produce the same signature"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-resit-mcq21",
+    "type": "mcq",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q21"
+    },
+    "difficulty": 2,
+    "text": "When assessing the security of a key establishment protocol, such as the Needham- Schroeder protocol, we assume that an attacker is able to:",
+    "options": [
+      {
+        "key": "a",
+        "text": "obtain any session keys used in previous runs of the protocol"
+      },
+      {
+        "key": "b",
+        "text": "obtain the long-term key of the parties involved in the protocol run under attack"
+      },
+      {
+        "key": "c",
+        "text": "break any encryption algorithm used in the protocol"
+      },
+      {
+        "key": "d",
+        "text": "force any protocol participant to repeat nonce values"
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-resit-mcq22",
+    "type": "mcq",
+    "topics": [
+      "digital-signatures",
+      "public-key-rsa",
+      "quantum-safe"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q22"
+    },
+    "difficulty": 1,
+    "text": "RSA signatures are often used for signing digital certificates in preference to using DSA signatures. One reason for this is:",
+    "options": [
+      {
+        "key": "a",
+        "text": "RSA signatures are shorter with usual parameters"
+      },
+      {
+        "key": "b",
+        "text": "RSA signatures are faster to verify with usual parameters"
+      },
+      {
+        "key": "c",
+        "text": "RSA signatures are more secure with the same size public key"
+      },
+      {
+        "key": "d",
+        "text": "RSA signatures remain secure against quantum computers"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-resit-mcq23",
+    "type": "mcq",
+    "topics": [
+      "tls"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q23"
+    },
+    "difficulty": 1,
+    "text": "TLS consists of a number of protocols. The protocol responsible for negotiating the ciphersuite used in a particular TLS instance is called:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the handshake protocol;"
+      },
+      {
+        "key": "b",
+        "text": "the record protocol;"
+      },
+      {
+        "key": "c",
+        "text": "the alert protocol;"
+      },
+      {
+        "key": "d",
+        "text": "the change cipher spec protocol."
+      }
+    ],
+    "correctAnswer": "a",
+    "solution": "Correct answer: (a)."
+  },
+  {
+    "id": "exam2016-resit-mcq24",
+    "type": "mcq",
+    "topics": [
+      "email-messaging-security",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q24"
+    },
+    "difficulty": 1,
+    "text": "Email does not use an interactive protocol between sender and receiver. As a consequence:",
+    "options": [
+      {
+        "key": "a",
+        "text": "it is not possible to provide end-to-end security for email"
+      },
+      {
+        "key": "b",
+        "text": "it is not possible to use public key cryptography in email security"
+      },
+      {
+        "key": "c",
+        "text": "it is not possible to provide data integrity for email"
+      },
+      {
+        "key": "d",
+        "text": "it is not possible to provide forward secrecy for email"
+      }
+    ],
+    "correctAnswer": "d",
+    "solution": "Correct answer: (d)."
+  },
+  {
+    "id": "exam2016-resit-mcq25",
+    "type": "mcq",
+    "topics": [
+      "tls13-ipsec",
+      "block-ciphers",
+      "email-messaging-security"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit Q25"
+    },
+    "difficulty": 2,
+    "text": "Two modes of usage for IPsec are tunnel mode and transport mode. A characteristic of tunnel mode, not shared with transport mode is that:",
+    "options": [
+      {
+        "key": "a",
+        "text": "the original IP header is sent in cleartext (not encrypted)"
+      },
+      {
+        "key": "b",
+        "text": "a completely new IP header is constructed for each packet"
+      },
+      {
+        "key": "c",
+        "text": "the original payload data is encrypted"
+      },
+      {
+        "key": "d",
+        "text": "the original payload data is authenticated"
+      }
+    ],
+    "correctAnswer": "b",
+    "solution": "Correct answer: (b)."
+  },
+  {
+    "id": "exam2016-resit-w-1",
+    "type": "written",
+    "topics": [
+      "classical-encryption",
+      "hill-stream-otp",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit W1"
+    },
+    "difficulty": 3,
+    "text": "The Hill cipher is a historical cipher with the encryption equation C = KP mod n for key matrix K and column vectors C and P representing the ciphertext and plaintext respectively. Here n is the size of the alphabet in use. Assume that the alphabet has only five letters encoded as A = 0, B = 1, C = 2, D = 3, E = 4. Suppose that the encryption key for a 2 x 2 Hill cipher is K =  4  .",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2,
+        "text": "Encrypt the plaintext ABCD.",
+        "solution": "C = KP = ! ! = !"
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Determine the decryption key K-1.",
+        "solution": "K-1 = 4-1 -2 -2 ! mod 5 = ! = !"
+      },
+      {
+        "partLabel": "c",
+        "points": 1.5,
+        "text": "Decrypt the ciphertext DCBA. Give all results using integers in the range 0 to 4 inclusive.",
+        "solution": "P = K-1C = ! ! = !"
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-resit-w-2",
+    "type": "written",
+    "topics": [
+      "block-ciphers",
+      "encryption-modes"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit W2"
+    },
+    "difficulty": 3,
+    "text": "One mode of operation for the AES block cipher is cipher block chaining mode (CBC). The general equation for computing each output block is: Ct = E(Pt ⊕Ct-1, K) where C0 = IV which is sent with the ciphertext. Answer the following questions, with explanation, when CBC mode is applied.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 1.5,
+        "text": "What is the equation for decryption of ciphertext block Ct?",
+        "solution": "Pt = D(Ct, K) ⊕Ct-1"
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "Is it possible to encrypt several blocks in parallel?",
+        "solution": "From the encryption equation we see that encryption requires the previous ciphertext block. So parallel encryption is not possible."
+      },
+      {
+        "partLabel": "c",
+        "points": 1,
+        "text": "Is it possible to decrypt several blocks in parallel?",
+        "solution": "From part (a) we see that decryption only uses ciphertext blocks which are already received. Therefore parallel decryption is possible."
+      },
+      {
+        "partLabel": "d",
+        "points": 1,
+        "text": "If one bit is flipped in one ciphertext block, how many bits are affected in the plaintext after decryption?",
+        "solution": "If one bit is flipped in one ciphertext block, say Ct, we see from the decryption equation that this affects two decrypted blocks, Pt and Pt+1. For Pt we can expect a random change in all bits, but for Pt+1 only the position of the bit flip in Ct will be changed."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-resit-w-3",
+    "type": "written",
+    "topics": [
+      "public-key-rsa",
+      "discrete-log-crypto",
+      "number-theory-basics"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit W3"
+    },
+    "difficulty": 3,
+    "text": "The Elgamal encryption scheme encrypts a message M to a ciphertext pair C = (r, s) using a random k and public key y as follows. r = gk mod p s = Myk mod p",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Explain how the owner of the corresponding private key decrypts and obtains the plaintext from C.",
+        "solution": "M = s/rx mod p where y = gx."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Suppose a faulty implementation uses the same k value every time a message is encrypted. How can an attacker with access to a single plaintext/ciphertext pair use that to decrypt any other ciphertext?",
+        "solution": "Suppose the attacker knows that M1 is the plaintext for C1 = (r1, s1). Then he obtains yk = s1/M1. For any other ciphertext C2 = (r2, s2) he can then obtain M2 = s2/yk."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-resit-w-4",
+    "type": "written",
+    "topics": [
+      "number-theory-basics",
+      "number-theory-pk",
+      "public-key-rsa"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit W4"
+    },
+    "difficulty": 3,
+    "text": "The Chinese Remainder Theorem (CRT) is often used to speed up decryption in the RSA cryptosystem. If the RSA modulus is n = pq, the decryption exponent is d and the ciphertext is C, then the method first computes Mp = Cd mod p-1 mod p and Mq = Cd mod q-1 mod q. Then Mp and Mq are combined with the CRT. Illustrate the use of the method for the case where n = 35 = 5×7, the decryption exponent is d = 17 and the ciphertext is C = 2. Specifically, compute Mp and Mq and apply the CRT to find M.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 5,
+        "text": "The Chinese Remainder Theorem (CRT) is often used to speed up decryption in the RSA cryptosystem. If the RSA modulus is n = pq, the decryption exponent is d and the ciphertext is C, then the method first computes Mp = Cd mod p-1 mod p and Mq = Cd mod q-1 mod q. Then Mp and Mq are combined with the CRT. Illustrate the use of the method for the case where n = 35 = 5×7, the decryption exponent is d = 17 and the ciphertext is C = 2. Specifically, compute Mp and Mq and apply the CRT to find M.",
+        "solution": "Mp = C17 mod 4 mod 5 = 21 mod 5 = 2 Mq = C17 mod 6 mod 7 = 25 mod 7 = 4 M = (2 × 7 × 7-1 mod 5) + (4 × 5 × 5-1 mod 7) = (14 × 3) + (20 × 3) mod 35 = 32."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-resit-w-5",
+    "type": "written",
+    "topics": [
+      "hashes-macs"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit W5"
+    },
+    "difficulty": 3,
+    "text": "A message authentication code (MAC) computes a tag T for a message M given key K. Such a MAC is often defined using a cryptographic hash function H such as SHA-256.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Explain how a recipient of a message M and a tag T should check the integrity of the received message.",
+        "solution": "The recipient must share the key K and so can recompute the tag T for the received message M. If this agrees with the received tag then the message is accepted as authentic."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Consider the weak MAC function which computes the tag T as: T = H(M) ⊕H(K) How can an attacker who sees a valid (M, T) pair compute a valid tag on any chosen message M '?",
+        "solution": "Given M and T the attacker computes H(K) = T ⊕H(M). Then T ' = H(M ') ⊕H(K) can easily be computed by the attacker."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-resit-w-6",
+    "type": "written",
+    "topics": [
+      "key-establishment"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit W6"
+    },
+    "difficulty": 3,
+    "text": "The following message exchange shows a simplified version of the messages exchanged between the client (C) and the application server (V) in the Kerberos protocol. (Note this is the third interaction in the protocol, following exchanges with the authentication server and ticket granting server.) C V - ticketV , authenticatorC \u001b {TS2}KC,V \"! # \"! # where ticketV = {KC,V , IDC, T2}KV for some validity period T2 authenticatorC = {IDC, TS2}KC,V for some timestamp TS2.",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 2.5,
+        "text": "Explain the different purposes of ticketV and authenticatorC.",
+        "solution": "The ticket contains the key KC,V from the ticket granting service so the purpose is to allow V to obtain and to verify the authenticity and freshness of this shared key. The authenticator is generated by C to convince V that C is currently active (entity authentication)."
+      },
+      {
+        "partLabel": "b",
+        "points": 2.5,
+        "text": "Explain how C can use the second message to authenticate V .",
+        "solution": "On receipt of the second message C should decrypt and check that the timestamp is still current. Since V is the only other party which possesses KC,V it is the only party who could have formed a correct second message."
+      }
+    ],
+    "totalPoints": 5
+  },
+  {
+    "id": "exam2016-resit-w-7",
+    "type": "written",
+    "topics": [
+      "discrete-log-crypto",
+      "digital-signatures"
+    ],
+    "source": {
+      "type": "exam",
+      "label": "Exam 2016 Resit W7"
+    },
+    "difficulty": 3,
+    "text": "Consider the following ciphersuite specification for TLS: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+    "parts": [
+      {
+        "partLabel": "a",
+        "points": 1.5,
+        "text": "The letters EC mean that this ciphersuite uses elliptic curves. What is the advantage of using elliptic curves compared with using groups Z∗ p?",
+        "solution": "The advantage of using elliptic curves compared with using groups Z∗ p is that the keys and public key (Diffie-Hellman values) can be shorter for the same security level."
+      },
+      {
+        "partLabel": "b",
+        "points": 1.5,
+        "text": "The letters DHE mean that this ciphersuite uses ephemeral Diffie-Hellman values. What is the advantage of this compared with using static Diffie-Hellman values?",
+        "solution": "Only with ephemeral Diffie-Hellman values can forward secrecy be obtained. Static DH uses long-term keys which, if revealed, give away the DH shared secret."
+      },
+      {
+        "partLabel": "c",
+        "points": 1,
+        "text": "What is the ECDSA signature used for in this ciphersuite?",
+        "solution": "ECDSA signatures are used to authenticate the ephemeral Diffie-Hellman values exchanged in the handshake protocol."
+      },
+      {
+        "partLabel": "d",
+        "points": 1,
+        "text": "How is user data authenticated in this ciphersuite?",
+        "solution": "User data is authenticated using GCM mode which has a built-in authentication check."
+      }
+    ],
+    "totalPoints": 5
+  }
+]

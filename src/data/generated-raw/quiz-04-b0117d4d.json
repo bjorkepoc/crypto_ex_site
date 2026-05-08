@@ -1,0 +1,265 @@
+{
+  "title": "Kryptografi Quiz",
+  "questions": [
+    {
+      "question": "Hva er den prim\u00e6re matematiske \u00e5rsaken til at Hill-chifferet er s\u00e5rbart for et kjent klartekst-angrep ($known\\ plaintext\\ attack$)?",
+      "answerOptions": [
+        {
+          "text": "Chifferet er line\u00e6rt, noe som tillater l\u00f8sning av ligningssett.",
+          "isCorrect": true,
+          "rationale": "Siden transformasjonen er line\u00e6r, kan en angriper bruke matrisealgebra til \u00e5 isolere og beregne n\u00f8kkelmatrisen $K$ n\u00e5r nok klartekst-blokker er kjent."
+        },
+        {
+          "text": "Det bruker modulo 26, som har for f\u00e5 faktorer.",
+          "isCorrect": false,
+          "rationale": "Selv om modulo-verdien p\u00e5virker invertibilitet, er det den line\u00e6re strukturen og ikke selve tallomr\u00e5det som er den fundamentale svakheten."
+        },
+        {
+          "text": "Det er et polyalfabetisk substitusjonschiffer.",
+          "isCorrect": false,
+          "rationale": "At det er polyalfabetisk er generelt en styrke mot frekvensanalyse, men det beskytter ikke mot line\u00e6re angrep."
+        },
+        {
+          "text": "N\u00f8kkelmatrisen $K$ m\u00e5 alltid v\u00e6re symmetrisk.",
+          "isCorrect": false,
+          "rationale": "Det er ingen krav om at n\u00f8kkelmatrisen m\u00e5 v\u00e6re symmetrisk; den m\u00e5 derimot v\u00e6re invertibel modulo 26."
+        }
+      ],
+      "hint": "Vurder egenskapene til operasjonen $C = KP$ i line\u00e6r algebra."
+    },
+    {
+      "question": "I f\u00f8lge Shannons definisjon, hva m\u00e5 gjelde for at et chiffer skal oppn\u00e5 perfekt hemmelighold ($perfect\\ secrecy$)?",
+      "answerOptions": [
+        {
+          "text": "$Pr(M_i | C_j) = Pr(M_i)$ for alle meldinger og kryptotekster.",
+          "isCorrect": true,
+          "rationale": "Dette betyr at observasjon av en kryptotekst ikke gir noen tilleggsinformasjon om sannsynligheten for hvilken melding som ble sendt."
+        },
+        {
+          "text": "$Pr(M_i) = Pr(C_j)$ for alle verdier av $i$ og $j$.",
+          "isCorrect": false,
+          "rationale": "Sannsynligheten for meldingene trenger ikke v\u00e6re lik sannsynligheten for kryptotekstene for \u00e5 oppn\u00e5 perfekt hemmelighold."
+        },
+        {
+          "text": "Antall n\u00f8kler m\u00e5 v\u00e6re kvadratrot av antall meldinger.",
+          "isCorrect": false,
+          "rationale": "Shannon beviste faktisk at antall n\u00f8kler m\u00e5 v\u00e6re minst like stort som antall meldinger."
+        },
+        {
+          "text": "Kryptoteksten m\u00e5 v\u00e6re en uniform tilfeldig variabel uavhengig av n\u00f8kkelen.",
+          "isCorrect": false,
+          "rationale": "Kryptoteksten er avhengig av b\u00e5de meldingen og n\u00f8kkelen; det er den betingede sannsynligheten for meldingen gitt kryptoteksten som skal v\u00e6re uforandret."
+        }
+      ],
+      "hint": "Tenk p\u00e5 hvordan observasjonen av en kryptotekst p\u00e5virker kunnskapen om den opprinnelige meldingen."
+    },
+    {
+      "question": "Hvorfor kan dekryptering i et bin\u00e6rt One Time Pad (OTP) utf\u00f8res med n\u00f8yaktig samme operasjon som kryptering?",
+      "answerOptions": [
+        {
+          "text": "Fordi $XOR$-operasjonen er sin egen invers ($x \\oplus y \\oplus y = x$).",
+          "isCorrect": true,
+          "rationale": "Ved \u00e5 utf\u00f8re eksklusiv-eller ($XOR$) med samme n\u00f8kkelstr\u00f8m to ganger, kanselleres effekten av n\u00f8kkelen og man st\u00e5r igjen med den opprinnelige verdien."
+        },
+        {
+          "text": "Fordi bin\u00e6re tall alltid er kommutative under addisjon modulo 26.",
+          "isCorrect": false,
+          "rationale": "Bin\u00e6re OTP-er opererer modulo 2, ikke modulo 26, og kommutativitet alene forklarer ikke selvinvertering."
+        },
+        {
+          "text": "Fordi n\u00f8kkelen i en OTP alltid er en streng av nuller og enere.",
+          "isCorrect": false,
+          "rationale": "Dette er sant for alle bin\u00e6re chiffer, men det er de logiske egenskapene til $XOR$ som muliggj\u00f8r identisk prosess."
+        },
+        {
+          "text": "Fordi Shannon beviste at bin\u00e6r addisjon er den eneste perfekte operasjonen.",
+          "isCorrect": false,
+          "rationale": "Shannon beviste egenskapene ved perfekt hemmelighold, men addisjon modulo 26 kan ogs\u00e5 gi perfekt hemmelighold i en OTP."
+        }
+      ],
+      "hint": "Hva skjer n\u00e5r du bruker operasjonen $\\oplus$ to ganger med samme verdi?"
+    },
+    {
+      "question": "Under kryptanalyse av et Hill-chiffer med blokkst\u00f8rrelse $d$, n\u00e5r vil fors\u00f8ket p\u00e5 \u00e5 gjenopprette n\u00f8kkelen $K$ mislykkes selv om man har $d$ kjente par med blokker?",
+      "answerOptions": [
+        {
+          "text": "Hvis matrisen av klartekst-blokker $P$ ikke er invertibel modulo 26.",
+          "isCorrect": true,
+          "rationale": "Hvis determinanten til $P$ ikke er relativt primisk til 26, eksisterer ikke $P^{-1}$, og man kan ikke l\u00f8se ligningen $K = CP^{-1}$."
+        },
+        {
+          "text": "Hvis n\u00f8kkelmatrisen $K$ har en determinant lik 1.",
+          "isCorrect": false,
+          "rationale": "En determinant p\u00e5 1 betyr at matrisen er invertibel, noe som er et krav for at chifferet i det hele tatt skal fungere."
+        },
+        {
+          "text": "Hvis blokkst\u00f8rrelsen $d$ er et partall.",
+          "isCorrect": false,
+          "rationale": "Hill-chiffer fungerer fint med blokkst\u00f8rrelser som er partall; eksemplet i kilden bruker $d = 2$."
+        },
+        {
+          "text": "Hvis klarteksten inneholder uvanlige bokstaver som $Z$.",
+          "isCorrect": false,
+          "rationale": "Uvanlige bokstaver p\u00e5virker ikke den matematiske gjenopprettingen av matrisen s\u00e5 lenge man har korrekte par."
+        }
+      ],
+      "hint": "Tenk p\u00e5 kravene for \u00e5 l\u00f8se matriseligningen $C = KP$ for $K$."
+    },
+    {
+      "question": "Hva kjennetegner en 'synkron' str\u00f8m-chiffer?",
+      "answerOptions": [
+        {
+          "text": "N\u00f8kkelstr\u00f8mmen genereres uavhengig av klarteksten.",
+          "isCorrect": true,
+          "rationale": "I synkrone str\u00f8m-chiffre avhenger ikke genereringen av n\u00f8kkelen av meldingene som sendes, noe som krever at sender og mottaker er n\u00f8yaktig synkronisert."
+        },
+        {
+          "text": "Klarteksten og kryptoteksten m\u00e5 ha n\u00f8yaktig samme bit-frekvens.",
+          "isCorrect": false,
+          "rationale": "Frekvensen av bitene er et statistisk m\u00e5l og definerer ikke synkronitet i str\u00f8m-chiffre."
+        },
+        {
+          "text": "N\u00f8kkelen endres for hver blokk med 128 bits.",
+          "isCorrect": false,
+          "rationale": "Str\u00f8m-chiffre opererer typisk p\u00e5 enkeltelementer (bits eller tegn), ikke n\u00f8dvendigvis store blokker som 128 bits."
+        },
+        {
+          "text": "Sender og mottaker bruker ulike n\u00f8kler som er matematisk synkronisert.",
+          "isCorrect": false,
+          "rationale": "Str\u00f8m-chiffre er vanligvis symmetriske, betyr at de deler n\u00f8yaktig samme n\u00f8kkel."
+        }
+      ],
+      "hint": "Vurder forholdet mellom n\u00f8kkelstr\u00f8mmen og innholdet i meldingen."
+    },
+    {
+      "question": "I visuell kryptografi (2-av-2), hva er det visuelle resultatet n\u00e5r man legger to delbilder ($shares$) opp\u00e5 hverandre der den originale pikselen var hvit?",
+      "answerOptions": [
+        {
+          "text": "Pikselen blir halvveis hvit (best\u00e5r av en hvit og en svart sub-piksel).",
+          "isCorrect": true,
+          "rationale": "For hvite piksler brukes identiske sub-piksel-m\u00f8nstre i begge delbilder, som ved overlapping fortsatt slipper gjennom lys i de hvite omr\u00e5dene."
+        },
+        {
+          "text": "Pikselen blir helt hvit.",
+          "isCorrect": false,
+          "rationale": "Siden hver sub-piksel i delbildene inneholder noe svart for \u00e5 skjule informasjon, vil overlappingen aldri kunne bli helt hvit."
+        },
+        {
+          "text": "Pikselen blir helt svart.",
+          "isCorrect": false,
+          "rationale": "Helt svart piksel er resultatet av \u00e5 overlappe m\u00f8nstrene for en svart kilde-piksel, der de svarte sub-pikslene er komplement\u00e6re."
+        },
+        {
+          "text": "Pikselen endrer farge basert p\u00e5 lysbrytning.",
+          "isCorrect": false,
+          "rationale": "Modellen som beskrives bruker kun monokrome (svart/hvitt) piksler og enkel overlapping."
+        }
+      ],
+      "hint": "Husk hvordan sub-piksel-m\u00f8nstrene kombineres n\u00e5r de er like."
+    },
+    {
+      "question": "Hvilket problem anses som det mest kritiske hinderet for praktisk bruk av One Time Pad i stor skala?",
+      "answerOptions": [
+        {
+          "text": "Sikker h\u00e5ndtering og transport av n\u00f8kler som er like lange som meldingen.",
+          "isCorrect": true,
+          "rationale": "Fordi n\u00f8kkelen m\u00e5 v\u00e6re like lang som dataene og aldri gjenbrukes, blir logistikken rundt generering, distribusjon og lagring ekstremt krevende."
+        },
+        {
+          "text": "At chifferet kun er sikkert mot 'ciphertext-only'-angrep.",
+          "isCorrect": false,
+          "rationale": "OTP er faktisk teoretisk uknuselig uansett type angrep, forutsatt at n\u00f8kkelen er tilfeldig og hemmelig."
+        },
+        {
+          "text": "Mangelen p\u00e5 tilfeldige tall i moderne datamaskiner.",
+          "isCorrect": false,
+          "rationale": "Selv om ekte tilfeldighet er vanskelig, er det de logistiske problemene med n\u00f8kkellengden som er det st\u00f8rste praktiske hinderet."
+        },
+        {
+          "text": "At det krever bruk av romerske alfabeter.",
+          "isCorrect": false,
+          "rationale": "OTP kan brukes med alle typer alfabeter eller bin\u00e6re data, s\u00e5 dette er ikke en begrensning."
+        }
+      ],
+      "hint": "Tenk p\u00e5 forholdet mellom n\u00f8kkelens lengde og meldingens lengde."
+    },
+    {
+      "question": "Hill-chifferet beskrives som et polygram-chiffer. Hva menes med begrepet 'digram-substitusjon' i denne sammenhengen?",
+      "answerOptions": [
+        {
+          "text": "Substitusjon utf\u00f8res p\u00e5 par av tegn samtidig.",
+          "isCorrect": true,
+          "rationale": "Ved digram-substitusjon behandles to og to tegn som en enhet, noe som i Hill-chifferet tilsvarer en vektoroperasjon med $d = 2$."
+        },
+        {
+          "text": "Hvert tegn i alfabetet erstattes med to tilfeldige tegn.",
+          "isCorrect": false,
+          "rationale": "Dette ville \u00f8ke lengden p\u00e5 meldingen, mens Hill-chifferet bevarer antall tegn gjennom blokk-transformasjoner."
+        },
+        {
+          "text": "At chifferet kun fungerer med to mulige n\u00f8kler.",
+          "isCorrect": false,
+          "rationale": "Begrepet 'digram' refererer til antall tegn som krypteres sammen, ikke antall tilgjengelige n\u00f8kler."
+        },
+        {
+          "text": "At hver bokstav krypteres ved bruk av to ulike matriser i rekkef\u00f8lge.",
+          "isCorrect": false,
+          "rationale": "Dette ville v\u00e6rt et produkt-chiffer; digram-substitusjon betyr at inngangsverdien til chifferet er et par av tegn."
+        }
+      ],
+      "hint": "Se p\u00e5 prefikset 'di-' og ordet 'gram'."
+    },
+    {
+      "question": "Hvilken historisk person krediteres ofte for \u00e5 ha utviklet en maskin for One Time Pad ved bruk av teletype-utstyr i 1917?",
+      "answerOptions": [
+        {
+          "text": "Gilbert Vernam",
+          "isCorrect": true,
+          "rationale": "Vernam patenterte chifferet som i dag b\u00e6rer hans navn, og som danner grunnlaget for moderne bin\u00e6r OTP."
+        },
+        {
+          "text": "Lester Hill",
+          "isCorrect": false,
+          "rationale": "Hill publiserte sitt matrisebaserte chiffer i 1929, over ti \u00e5r etter Vernam."
+        },
+        {
+          "text": "Claude Shannon",
+          "isCorrect": false,
+          "rationale": "Shannon leverte det matematiske beviset for perfekt hemmelighold, men oppfant ikke den fysiske maskinen."
+        },
+        {
+          "text": "Adi Shamir",
+          "isCorrect": false,
+          "rationale": "Shamir er kjent for visuell kryptografi (1994) og RSA, ikke den originale OTP-maskinen."
+        }
+      ],
+      "hint": "Navnet p\u00e5 den bin\u00e6re varianten av OTP er ofte knyttet til denne personen."
+    },
+    {
+      "question": "Ved bruk av visuell kryptografi, hvilken egenskap gj\u00f8r at metoden regnes som 'ubetinget sikker' ($unconditionally\\ secure$)?",
+      "answerOptions": [
+        {
+          "text": "Hver enkelt 'share' inneholder statistisk sett ingen informasjon om kildebildet.",
+          "isCorrect": true,
+          "rationale": "Siden hver piksel i en 'share' er basert p\u00e5 en tilfeldig bit (OTP), er det umulig \u00e5 utlede noe om det originale bildet uten den andre delen."
+        },
+        {
+          "text": "Det kreves en datamaskin med enorm regnekraft for \u00e5 dekryptere bildet.",
+          "isCorrect": false,
+          "rationale": "Tvert imot krever dekryptering ingen regnekraft, bare menneskelig syn, mens sikkerheten er teoretisk snarere enn basert p\u00e5 kompleksitet."
+        },
+        {
+          "text": "Bildene er alltid kryptert med primtalls-modulering.",
+          "isCorrect": false,
+          "rationale": "Visuell kryptografi i sin enkleste form bruker bin\u00e6re m\u00f8nstre og overlapping, ikke primtalls-aritmetikk."
+        },
+        {
+          "text": "Det er umulig \u00e5 lage kopier av de fysiske delbildene.",
+          "isCorrect": false,
+          "rationale": "Sikkerheten ligger i den matematiske fordelingen av sub-piksler, ikke i materialets fysiske egenskaper."
+        }
+      ],
+      "hint": "Vurder hva en angriper kan l\u00e6re av \u00e5 se p\u00e5 kun ett av delbildene."
+    }
+  ]
+}

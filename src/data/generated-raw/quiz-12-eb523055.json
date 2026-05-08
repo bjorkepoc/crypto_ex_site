@@ -1,0 +1,681 @@
+{
+  "title": "Cryptography Quiz",
+  "questions": [
+    {
+      "question": "Which security property of a hash function states that, given a message $x_1$, it should be computationally infeasible to find a different message $x_2$ such that $H(x_1) = H(x_2)$?",
+      "answerOptions": [
+        {
+          "text": "Second-preimage resistance",
+          "isCorrect": true,
+          "rationale": "This property specifically focuses on the difficulty of finding a matching hash for a pre-determined, known input value."
+        },
+        {
+          "text": "One-wayness",
+          "isCorrect": false,
+          "rationale": "One-wayness, or preimage resistance, refers to the difficulty of finding any input that maps to a specific given output value."
+        },
+        {
+          "text": "Collision resistance",
+          "isCorrect": false,
+          "rationale": "Collision resistance is a broader property where it is hard to find any two arbitrary values that produce the same hash, rather than matching a specific one."
+        },
+        {
+          "text": "Non-repudiation",
+          "isCorrect": false,
+          "rationale": "Non-repudiation is a service often provided by digital signatures, not an inherent mathematical property of a basic hash function."
+        }
+      ],
+      "hint": "Consider the scenario where an attacker is trying to replace a specific known file with a malicious version that has the same hash."
+    },
+    {
+      "question": "According to the birthday paradox, if a hash function has an output size of $k$ bits, how many random trials are typically required to find a collision with a probability of approximately $0.5$?",
+      "answerOptions": [
+        {
+          "text": "$2^{k/2}$",
+          "isCorrect": true,
+          "rationale": "The birthday paradox implies that a collision is likely once the number of samples reaches the square root of the total possible outputs, which is $2^k$."
+        },
+        {
+          "text": "$2^k$",
+          "isCorrect": false,
+          "rationale": "This number of trials would be required to find a specific preimage or to exhaust the entire output space, rather than just finding any two matching values."
+        },
+        {
+          "text": "$k^2$",
+          "isCorrect": false,
+          "rationale": "This represents a polynomial relationship which significantly underestimates the exponential complexity of searching a bit-space."
+        },
+        {
+          "text": "$2^{k-1}$",
+          "isCorrect": false,
+          "rationale": "This represents a search through half the possible space, which is much larger than the square root required by the birthday effect."
+        }
+      ],
+      "hint": "Recall the relationship between the number of trials and the square root of the total set size $M$."
+    },
+    {
+      "question": "Why are hash functions with a $128$-bit output, such as MD5, no longer considered collision-resistant for modern security needs?",
+      "answerOptions": [
+        {
+          "text": "$2^{64}$ trials are computationally feasible for well-resourced attackers.",
+          "isCorrect": true,
+          "rationale": "Due to the birthday paradox, a $128$-bit hash only provides $64$ bits of collision security, which is within the reach of modern computing power."
+        },
+        {
+          "text": "They do not support salted inputs for password storage.",
+          "isCorrect": false,
+          "rationale": "Salting is an implementation technique for passwords and is not a limitation of the underlying hash function's output length."
+        },
+        {
+          "text": "A $128$-bit output is too short to represent arbitrary length messages.",
+          "isCorrect": false,
+          "rationale": "Hash functions always map arbitrary length inputs to a fixed-length digest; the input capacity is not limited by the output length."
+        },
+        {
+          "text": "They are susceptible to simple linear algebraic inversion.",
+          "isCorrect": false,
+          "rationale": "Hash functions are designed to be non-linear and one-way; the weakness lies in the collision probability, not easy inversion."
+        }
+      ],
+      "hint": "Apply the birthday paradox logic to determine the effective security level of a $128$-bit output."
+    },
+    {
+      "question": "In the Merkle\u2013Damg\u00e5rd construction, what is the purpose of adding an encoding of the message length during the padding process?",
+      "answerOptions": [
+        {
+          "text": "To prevent length extension and trivial second preimage attacks.",
+          "isCorrect": true,
+          "rationale": "Standardised padding that includes the message length ensures that messages of different lengths cannot easily result in the same internal state."
+        },
+        {
+          "text": "To ensure the message is a prime number of bits.",
+          "isCorrect": false,
+          "rationale": "Padding is used to make the message a multiple of the block size, not a prime number."
+        },
+        {
+          "text": "To compress the message before it enters the first function $h$.",
+          "isCorrect": false,
+          "rationale": "Compression is performed by the function $h$ itself during iteration, not by the length encoding."
+        },
+        {
+          "text": "To provide the key for the initialisation vector ($IV$).",
+          "isCorrect": false,
+          "rationale": "The $IV$ is a fixed, public value used to start the iteration and is not derived from the message length."
+        }
+      ],
+      "hint": "Think about how an attacker might exploit a hash if the padding did not distinguish between messages of different total lengths."
+    },
+    {
+      "question": "Which hash function family was selected as the winner of the NIST competition for SHA-3 in $2012$?",
+      "answerOptions": [
+        {
+          "text": "Keccak",
+          "isCorrect": true,
+          "rationale": "Keccak was chosen due to its high performance and its departure from the Merkle-Damg\u00e5rd design used in SHA-2."
+        },
+        {
+          "text": "Rijndael",
+          "isCorrect": false,
+          "rationale": "Rijndael was the winner of the Advanced Encryption Standard (AES) competition, not the SHA-3 competition."
+        },
+        {
+          "text": "MD6",
+          "isCorrect": false,
+          "rationale": "MD6 was a candidate in the competition but was not the eventual winner standardised as SHA-3."
+        },
+        {
+          "text": "SHA-256",
+          "isCorrect": false,
+          "rationale": "SHA-256 is part of the SHA-2 family, which the SHA-3 competition was intended to supplement or replace."
+        }
+      ],
+      "hint": "This algorithm uses a sponge construction rather than the traditional iterated compression function."
+    },
+    {
+      "question": "In the sponge construction used by SHA-3, what happens during the 'absorbing' phase?",
+      "answerOptions": [
+        {
+          "text": "Input blocks are $XOR$'ed into the first $r$ bits of the state, followed by function $f$.",
+          "isCorrect": true,
+          "rationale": "The absorbing phase processes the input by iteratively mixing it into the state's 'rate' portion using $XOR$ and the permutation function $f$."
+        },
+        {
+          "text": "Output bits are extracted from the state to form the digest.",
+          "isCorrect": false,
+          "rationale": "The extraction of bits occurs during the squeezing phase, not the absorbing phase."
+        },
+        {
+          "text": "The entire state is reset to a new random initialisation vector ($IV$).",
+          "isCorrect": false,
+          "rationale": "The state is initialised to zero once at the beginning, not during the absorbing phase."
+        },
+        {
+          "text": "The capacity bits $c$ are updated using the secret key.",
+          "isCorrect": false,
+          "rationale": "Standard hash functions like SHA-3 do not use a secret key, and the $c$ bits are not directly affected by the input blocks."
+        }
+      ],
+      "hint": "Look for the step where the message enters the internal state of the sponge."
+    },
+    {
+      "question": "A Message Authentication Code ($MAC$) provides which of the following security services?",
+      "answerOptions": [
+        {
+          "text": "Integrity and Authenticity",
+          "isCorrect": true,
+          "rationale": "MACs use a shared secret key to ensure that a message has not been altered and that it originated from a legitimate source."
+        },
+        {
+          "text": "Confidentiality and Secrecy",
+          "isCorrect": false,
+          "rationale": "MACs do not hide the contents of a message; they only provide a way to verify its source and correctness."
+        },
+        {
+          "text": "Non-repudiation for third parties",
+          "isCorrect": false,
+          "rationale": "Because the key is shared between two parties, a MAC cannot prove to a third party which of the two created the tag."
+        },
+        {
+          "text": "Privacy and Anonymity",
+          "isCorrect": false,
+          "rationale": "MACs are not designed to protect the identity of the sender or the contents of the transmission."
+        }
+      ],
+      "hint": "Think about the bank transfer example: the bank needs to know the amount is correct and that it truly came from Alice."
+    },
+    {
+      "question": "What is the fundamental difference between a $MAC$ and a digital signature?",
+      "answerOptions": [
+        {
+          "text": "A $MAC$ uses a symmetric shared key, whereas a signature uses asymmetric keys.",
+          "isCorrect": true,
+          "rationale": "MACs require both parties to have the same secret key, while signatures use a private key for signing and a public key for verification."
+        },
+        {
+          "text": "A $MAC$ provides confidentiality, but a signature does not.",
+          "isCorrect": false,
+          "rationale": "Neither mechanism inherently provides confidentiality; both are focused on integrity and authentication."
+        },
+        {
+          "text": "Signatures are faster to compute than $MAC$s.",
+          "isCorrect": false,
+          "rationale": "Symmetric primitives like MACs are generally much faster than asymmetric primitives like digital signatures."
+        },
+        {
+          "text": "A $MAC$ can only be used on fixed-length messages.",
+          "isCorrect": false,
+          "rationale": "Both MACs and signatures can handle messages of arbitrary length, typically by hashing the message first."
+        }
+      ],
+      "hint": "Recall the terms 'symmetric version of a signature' and the requirement for keys."
+    },
+    {
+      "question": "How does the $HMAC$ construction resist length extension attacks that affect basic Merkle\u2013Damg\u00e5rd hashes?",
+      "answerOptions": [
+        {
+          "text": "By using a nested structure with two different derived keys ($ipad$ and $opad$).",
+          "isCorrect": true,
+          "rationale": "The outer hash prevents an attacker from simply appending data to the internal state and continuing the hash calculation."
+        },
+        {
+          "text": "By encrypting the entire message using $AES$ before hashing.",
+          "isCorrect": false,
+          "rationale": "HMAC is built from hash functions and does not require a block cipher like AES to function."
+        },
+        {
+          "text": "By requiring the message to be padded to exactly $1024$ bits.",
+          "isCorrect": false,
+          "rationale": "HMAC handles arbitrary length messages; it does not force them to a specific fixed length."
+        },
+        {
+          "text": "By using a sponge construction that eliminates the compression function.",
+          "isCorrect": false,
+          "rationale": "HMAC can be used with Merkle-Damg\u00e5rd hashes like SHA-256; it is the construction itself, not the underlying hash, that provides the resistance."
+        }
+      ],
+      "hint": "Consider the mathematical formula: $H((K \\oplus opad) \\parallel H((K \\oplus ipad) \\parallel M))$."
+    },
+    {
+      "question": "According to the source material, which method of combining encryption and $MAC$ is generally considered the safest?",
+      "answerOptions": [
+        {
+          "text": "Encrypt-then-MAC",
+          "isCorrect": true,
+          "rationale": "This method provides integrity for the ciphertext itself, preventing attackers from tampering with encrypted data before decryption."
+        },
+        {
+          "text": "MAC-then-Encrypt",
+          "isCorrect": false,
+          "rationale": "This approach is vulnerable to padding oracle attacks because the recipient must decrypt before the integrity can be checked."
+        },
+        {
+          "text": "Encrypt-and-MAC",
+          "isCorrect": false,
+          "rationale": "This method may leak information about the plaintext through the MAC tag and does not protect the ciphertext from modification."
+        },
+        {
+          "text": "Hash-then-Encrypt",
+          "isCorrect": false,
+          "rationale": "Simple hashing does not involve a key and therefore cannot provide authentication in the same way a MAC does."
+        }
+      ],
+      "hint": "Think about which method allows the receiver to verify the integrity of the data before performing a decryption operation."
+    },
+    {
+      "question": "In the context of Authenticated Encryption with Associated Data ($AEAD$), what is the role of the 'Associated Data' ($A$)?",
+      "answerOptions": [
+        {
+          "text": "It is authenticated but remains unencrypted.",
+          "isCorrect": true,
+          "rationale": "Associated data, such as packet headers, needs to be readable for routing but must be protected against tampering."
+        },
+        {
+          "text": "It serves as the secret key for the encryption process.",
+          "isCorrect": false,
+          "rationale": "The secret key $K$ is a separate input; the associated data is metadata related to the message."
+        },
+        {
+          "text": "It is a random salt used to prevent dictionary attacks.",
+          "isCorrect": false,
+          "rationale": "While random nonces are used in AEAD, associated data specifically refers to non-secret information that requires integrity protection."
+        },
+        {
+          "text": "It is a secondary ciphertext used for redundancy.",
+          "isCorrect": false,
+          "rationale": "Associated data is not encrypted; it is additional information that travels alongside the ciphertext."
+        }
+      ],
+      "hint": "Consider information like header data in a network packet that needs to be checked for integrity but must stay in plaintext."
+    },
+    {
+      "question": "Which mode of operation combines Counter ($CTR$) mode encryption with a keyed hash function ($GHASH$) to provide $AEAD$?",
+      "answerOptions": [
+        {
+          "text": "Galois Counter Mode ($GCM$)",
+          "isCorrect": true,
+          "rationale": "GCM is a widely used AEAD mode that efficiently combines CTR mode for confidentiality and GHASH for authenticity."
+        },
+        {
+          "text": "Cipher Block Chaining ($CBC$)",
+          "isCorrect": false,
+          "rationale": "CBC is a confidentiality mode that does not inherently provide integrity or authentication."
+        },
+        {
+          "text": "Electronic Codebook ($ECB$)",
+          "isCorrect": false,
+          "rationale": "ECB is a basic encryption mode that is generally insecure and provides no authentication."
+        },
+        {
+          "text": "Output Feedback ($OFB$)",
+          "isCorrect": false,
+          "rationale": "OFB turns a block cipher into a stream cipher but does not include a mechanism for message authentication."
+        }
+      ],
+      "hint": "This mode is the most common choice for modern TLS (web) security."
+    },
+    {
+      "question": "In the $GCM$ algorithm, the $GHASH$ function performs operations in which mathematical structure?",
+      "answerOptions": [
+        {
+          "text": "The finite field $GF(2^{128})$",
+          "isCorrect": true,
+          "rationale": "GHASH uses polynomial multiplication in $GF(2^{128})$ to provide a fast and secure way to compute the authentication tag."
+        },
+        {
+          "text": "Elliptic Curve groups",
+          "isCorrect": false,
+          "rationale": "While elliptic curves are used in asymmetric cryptography, GCM's GHASH relies on standard finite field arithmetic."
+        },
+        {
+          "text": "The ring of integers modulo $2^{256}$",
+          "isCorrect": false,
+          "rationale": "Standard binary finite fields are used rather than large integer rings to ensure efficiency in hardware."
+        },
+        {
+          "text": "A Boolean lattice",
+          "isCorrect": false,
+          "rationale": "Cryptography uses algebraic structures like fields and groups rather than basic Boolean lattices for these operations."
+        }
+      ],
+      "hint": "Recall the polynomial $x^{128} + x^7 + x^2 + 1$ mentioned in the lecture."
+    },
+    {
+      "question": "What is a primary reason that $GCM$ is often faster than using $AES$ with $HMAC$ on modern processors?",
+      "answerOptions": [
+        {
+          "text": "Hardware support for carry-less multiplication and $AES$ instructions.",
+          "isCorrect": true,
+          "rationale": "Intel and other chips have specific instructions that accelerate the exact operations GCM needs for GHASH and AES."
+        },
+        {
+          "text": "$GCM$ does not require a secret key for authentication.",
+          "isCorrect": false,
+          "rationale": "GCM definitely requires a secret key $K$ for both encryption and the GHASH subkey."
+        },
+        {
+          "text": "It processes data in $512$-bit blocks instead of $128$-bit blocks.",
+          "isCorrect": false,
+          "rationale": "GCM uses the standard $128$-bit block size of AES."
+        },
+        {
+          "text": "It skips the padding step required by hash functions.",
+          "isCorrect": false,
+          "rationale": "GCM uses padding ($0^u$ and $0^v$) to ensure data aligns with block boundaries, just like most block-based algorithms."
+        }
+      ],
+      "hint": "Think about the specific hardware features in Intel chips mentioned in the text."
+    },
+    {
+      "question": "When storing passwords on a server, what is the purpose of adding a 'salt' before hashing?",
+      "answerOptions": [
+        {
+          "text": "To force attackers to compute a unique dictionary for every user.",
+          "isCorrect": true,
+          "rationale": "By making the hash unique even for identical passwords, salting prevents the use of pre-computed tables (like rainbow tables) across the whole database."
+        },
+        {
+          "text": "To encrypt the password so that the server can recover it later.",
+          "isCorrect": false,
+          "rationale": "Hashing is one-way; the salt does not make the hash reversible, and the server should not be able to recover the original password."
+        },
+        {
+          "text": "To increase the entropy of the user's password to $256$ bits.",
+          "isCorrect": false,
+          "rationale": "A salt increases the uniqueness of the hash, but it does not change the inherent complexity (entropy) of the password the user chose."
+        },
+        {
+          "text": "To slow down the hashing process by a factor of $10,000$.",
+          "isCorrect": false,
+          "rationale": "Salting itself is fast; 'stretching' or iteration (like in PBKDF2) is what slows down the process."
+        }
+      ],
+      "hint": "Consider what happens if two users have the same password and no salt is used."
+    },
+    {
+      "question": "The $PBKDF2$ algorithm is used for 'Key Derivation'. What is the critical mechanism it uses to protect low-entropy passwords?",
+      "answerOptions": [
+        {
+          "text": "Iterative application of a $PRF$ (like $HMAC$) thousands of times.",
+          "isCorrect": true,
+          "rationale": "By repeating the operation many times, it becomes computationally expensive for an attacker to guess passwords, while remaining manageable for a legitimate login."
+        },
+        {
+          "text": "Converting the password into a public-private key pair.",
+          "isCorrect": false,
+          "rationale": "PBKDF2 is a symmetric key derivation function and does not involve asymmetric cryptography."
+        },
+        {
+          "text": "Restricting the password to only alphanumeric characters.",
+          "isCorrect": false,
+          "rationale": "PBKDF2 does not enforce password policy; it is a mathematical function to process whatever password is provided."
+        },
+        {
+          "text": "Encrypting the salt with $AES-256$.",
+          "isCorrect": false,
+          "rationale": "The salt is usually stored in plaintext alongside the hash; it does not need to be encrypted."
+        }
+      ],
+      "hint": "Recall the formula $U_1 \\oplus U_2 \\oplus \\dots \\oplus U_c$ and the variable $c$."
+    },
+    {
+      "question": "If a group of $23$ randomly chosen people is gathered, what is the probability that at least two share the same birthday?",
+      "answerOptions": [
+        {
+          "text": "Greater than $0.5$",
+          "isCorrect": true,
+          "rationale": "The birthday paradox shows that even in relatively small groups, the probability of a coincidence is surprisingly high."
+        },
+        {
+          "text": "Exactly $1/365$",
+          "isCorrect": false,
+          "rationale": "This is the probability that a specific person has a birthday on a specific pre-determined day."
+        },
+        {
+          "text": "Approximately $23/365$",
+          "isCorrect": false,
+          "rationale": "This linear estimation fails to account for the number of possible pairs among the 23 people."
+        },
+        {
+          "text": "Less than $0.1$",
+          "isCorrect": false,
+          "rationale": "This ignores the exponential growth in the number of potential pairs as more people are added to the group."
+        }
+      ],
+      "hint": "This is the classic example used to illustrate collision probabilities in hash functions."
+    },
+    {
+      "question": "Which of the following is an iterative hash function construction that applies a compression function to fixed-size message blocks?",
+      "answerOptions": [
+        {
+          "text": "Merkle\u2013Damg\u00e5rd",
+          "isCorrect": true,
+          "rationale": "This construction is the basis for several hash standards, including MD5 and the SHA-2 family."
+        },
+        {
+          "text": "Galois Counter Mode",
+          "isCorrect": false,
+          "rationale": "GCM is a mode of operation for block ciphers to provide authenticated encryption, not a basic hash construction."
+        },
+        {
+          "text": "Sponge construction",
+          "isCorrect": false,
+          "rationale": "While iterative, the sponge construction uses a permutation function rather than a traditional compression function $h(x_1, x_2)$."
+        },
+        {
+          "text": "Feistel network",
+          "isCorrect": false,
+          "rationale": "A Feistel network is a structure used to build block ciphers (like DES), not iterated hash functions."
+        }
+      ],
+      "hint": "Look for the structure that uses an $IV$ and links blocks $m_1, m_2, \\dots, m_{\\ell}$."
+    },
+    {
+      "question": "In the SHA-2 family, what is the size of the 'message length' field when the block length is $1024$ bits?",
+      "answerOptions": [
+        {
+          "text": "$128$ bits",
+          "isCorrect": true,
+          "rationale": "For SHA-2 variants with larger blocks (like SHA-512), a $128$-bit field is used to accommodate extremely large messages."
+        },
+        {
+          "text": "$64$ bits",
+          "isCorrect": false,
+          "rationale": "A $64$-bit length field is used for SHA-256, which has a smaller block size of $512$ bits."
+        },
+        {
+          "text": "$256$ bits",
+          "isCorrect": false,
+          "rationale": "While the output might be $256$ bits, the internal length encoding field does not need to be that large."
+        },
+        {
+          "text": "$32$ bits",
+          "isCorrect": false,
+          "rationale": "A $32$-bit field would limit the maximum message size too severely for modern cryptographic standards."
+        }
+      ],
+      "hint": "Recall the 'Padding in the SHA-2 family' slide details."
+    },
+    {
+      "question": "Which security property is broken if an attacker can find *any* two different values $x_1$ and $x_2$ such that $H(x_1) = H(x_2)$?",
+      "answerOptions": [
+        {
+          "text": "Collision resistance",
+          "isCorrect": true,
+          "rationale": "Collision resistance is the property that protects against finding any two arbitrary inputs that map to the same output."
+        },
+        {
+          "text": "Preimage resistance",
+          "isCorrect": false,
+          "rationale": "Preimage resistance specifically concerns finding an input for a pre-chosen output value $y$."
+        },
+        {
+          "text": "Entropy resistance",
+          "isCorrect": false,
+          "rationale": "Entropy is a measure of randomness, not a standard named security property of hash functions like collision resistance."
+        },
+        {
+          "text": "Key-space resistance",
+          "isCorrect": false,
+          "rationale": "Hash functions are generally public and unkeyed; this term is more relevant to block ciphers or MACs."
+        }
+      ],
+      "hint": "This is often considered the 'strongest' or most difficult property to satisfy."
+    },
+    {
+      "question": "In a sponge construction, the 'capacity' $c$ bits are never directly affected by input and never output. What is their primary purpose?",
+      "answerOptions": [
+        {
+          "text": "To provide security against collision and preimage attacks.",
+          "isCorrect": true,
+          "rationale": "The capacity bits ensure that there is a hidden part of the state that an attacker cannot easily control or observe, which is vital for the function's security."
+        },
+        {
+          "text": "To store the secret salt for the hash.",
+          "isCorrect": false,
+          "rationale": "Standard SHA-3 is an unkeyed hash function and does not store a salt in its internal state."
+        },
+        {
+          "text": "To act as a counter for $CTR$ mode encryption.",
+          "isCorrect": false,
+          "rationale": "The sponge construction is used for hashing; it is not the same as the counter used in GCM/CTR modes."
+        },
+        {
+          "text": "To allow the hash to be reversed by the intended recipient.",
+          "isCorrect": false,
+          "rationale": "Hash functions are by definition one-way; the capacity does not provide a 'backdoor' for inversion."
+        }
+      ],
+      "hint": "Consider the relationship between $r$ (rate) and $c$ (capacity) in the internal state bits $b$."
+    },
+    {
+      "question": "Which of the following describes 'unforgeability under chosen message attack' for a $MAC$?",
+      "answerOptions": [
+        {
+          "text": "The attacker cannot produce a valid $(M, T)$ pair even after seeing tags for messages of their choice.",
+          "isCorrect": true,
+          "rationale": "This security model assumes the attacker is very powerful and can obtain tags for any message, yet still cannot forge a new valid tag."
+        },
+        {
+          "text": "The attacker cannot recover the secret key $K$ from a set of $(M, T)$ pairs.",
+          "isCorrect": false,
+          "rationale": "While key recovery should be hard, unforgeability is a stronger requirement focused on the ability to create valid tags."
+        },
+        {
+          "text": "The attacker cannot find a collision where $MAC(M_1, K) = MAC(M_2, K)$.",
+          "isCorrect": false,
+          "rationale": "MACs primarily focus on authentication/integrity for a specific key, not global collision resistance in the same way as hashes."
+        },
+        {
+          "text": "The attacker cannot decrypt the message $M$ without the key $K$.",
+          "isCorrect": false,
+          "rationale": "MACs do not provide confidentiality; they are for integrity and authentication, so they don't 'decrypt' anything."
+        }
+      ],
+      "hint": "Think about the 'forging oracle' mentioned in the lecture notes."
+    },
+    {
+      "question": "Why is 'MAC-then-Encrypt' potentially vulnerable to attacks in protocols like $TLS$?",
+      "answerOptions": [
+        {
+          "text": "Attackers can distinguish between padding errors and $MAC$ verification failures.",
+          "isCorrect": true,
+          "rationale": "This side-channel information allows attackers to perform 'padding oracle' attacks to eventually decrypt the message."
+        },
+        {
+          "text": "The $MAC$ tag itself is not encrypted and leaks the plaintext.",
+          "isCorrect": false,
+          "rationale": "In MAC-then-Encrypt, the tag is appended to the message *before* encryption, so the tag *is* encrypted."
+        },
+        {
+          "text": "It requires two different keys, which increases memory usage.",
+          "isCorrect": false,
+          "rationale": "All secure combinations should ideally use derived keys ($K_1, K_2$); this is not the source of the security vulnerability."
+        },
+        {
+          "text": "The recipient cannot compute the $MAC$ without knowing the encryption algorithm.",
+          "isCorrect": false,
+          "rationale": "The recipient always knows the protocol; the vulnerability stems from the sequence of error checks, not lack of algorithm knowledge."
+        }
+      ],
+      "hint": "Consider what a receiver does after decrypting and finding that the data looks wrong."
+    },
+    {
+      "question": "What is the typical value for the 'nonce' ($N$) length in $GCM$ as used in $TLS$?",
+      "answerOptions": [
+        {
+          "text": "$96$ bits",
+          "isCorrect": true,
+          "rationale": "A $96$-bit nonce is the standard recommendation for GCM because it allows for a simple and efficient counter initialisation."
+        },
+        {
+          "text": "$128$ bits",
+          "isCorrect": false,
+          "rationale": "While a block is $128$ bits, GCM usually leaves space for the counter increment within that block, making the recommended nonce $96$ bits."
+        },
+        {
+          "text": "$256$ bits",
+          "isCorrect": false,
+          "rationale": "This would exceed the block size of the underlying AES algorithm used in GCM."
+        },
+        {
+          "text": "$64$ bits",
+          "isCorrect": false,
+          "rationale": "A $64$-bit nonce might be too short to safely avoid collisions in systems that generate nonces randomly."
+        }
+      ],
+      "hint": "Look at the GCM algorithm details specifically for the TLS implementation."
+    },
+    {
+      "question": "In the $HMAC$ formula $HMAC(M, K) = H((K \\oplus opad) \\parallel H((K \\oplus ipad) \\parallel M))$, what does the symbol '$\\parallel$' represent?",
+      "answerOptions": [
+        {
+          "text": "Concatenation of bit strings",
+          "isCorrect": true,
+          "rationale": "This symbol is standard notation for joining two binary strings together to form one longer string."
+        },
+        {
+          "text": "Bitwise $XOR$ operation",
+          "isCorrect": false,
+          "rationale": "The $\\oplus$ symbol is used for bitwise XOR; $\\parallel$ is used for joining strings."
+        },
+        {
+          "text": "Logical 'OR' comparison",
+          "isCorrect": false,
+          "rationale": "In cryptography, we are usually manipulating bit strings directly rather than evaluating logical truth values like 'OR'."
+        },
+        {
+          "text": "Parallel processing of two hashes",
+          "isCorrect": false,
+          "rationale": "The hashes are nested (one is inside the other), meaning they must be processed sequentially, not in parallel."
+        }
+      ],
+      "hint": "Think about how multiple components are joined together to form the input for a hash function."
+    },
+    {
+      "question": "Which of the following is true regarding the entropy of user passwords compared to cryptographic keys?",
+      "answerOptions": [
+        {
+          "text": "Passwords generally have much lower entropy (e.g., $21$ bits) than standard keys (e.g., $128$ bits).",
+          "isCorrect": true,
+          "rationale": "Human-memorisable passwords are significantly easier to guess than random $128$-bit keys, which is why salting and stretching are necessary."
+        },
+        {
+          "text": "A $23$-character alphanumeric password provides $128$ bits of entropy.",
+          "isCorrect": false,
+          "rationale": "While it's a long password, the set of human-chosen alphanumeric strings is much smaller than the set of all random bit strings."
+        },
+        {
+          "text": "Encryption keys are designed to have low entropy for easier recovery.",
+          "isCorrect": false,
+          "rationale": "Cryptographic keys must have high entropy to be resistant to brute-force attacks."
+        },
+        {
+          "text": "Modern hash functions increase the entropy of the password before storing it.",
+          "isCorrect": false,
+          "rationale": "Hash functions are deterministic; they cannot create 'randomness' (entropy) that wasn't in the original password."
+        }
+      ],
+      "hint": "Compare the 'RockYou' database example to the requirements for AES-128."
+    }
+  ]
+}

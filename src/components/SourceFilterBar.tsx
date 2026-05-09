@@ -81,7 +81,7 @@ export default function SourceFilterBar({ value, onChange }: Props) {
   }
 
   return (
-    <div className="flex gap-1.5 overflow-x-auto pb-1">
+    <div className="flex flex-wrap gap-1.5 pb-1">
       {filters.map((f) => {
         const active = isActive(f.id);
         const label = f.labelKey.startsWith("filter.")

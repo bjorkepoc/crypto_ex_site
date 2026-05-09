@@ -35,6 +35,7 @@ const translations = {
   // MCQ
   "mcq.difficulty": { en: "Difficulty {0}/3", no: "Vanskelighetsgrad {0}/3" },
   "mcq.check": { en: "Check answer", no: "Sjekk svar" },
+  "mcq.multi_answer": { en: "Select all that apply.", no: "Velg alle som passer." },
   "mcq.correct": { en: "Correct!", no: "Riktig!" },
   "mcq.incorrect": { en: "Wrong answer", no: "Feil svar" },
 

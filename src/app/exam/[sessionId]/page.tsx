@@ -3,6 +3,8 @@
 import { useParams, useRouter } from "next/navigation";
 import { getExamSession, saveExamSession } from "@/lib/storage";
 import { getQuestionById } from "@/data";
+import { canEditExamSession } from "@/lib/examReviewGuard";
+import { withExamScore } from "@/lib/examScoring";
 import { useHydrated } from "@/lib/useHydrated";
 import { usePrefs } from "@/lib/preferences";
 import { t } from "@/lib/i18n";
@@ -27,21 +29,42 @@ export default function ActiveExam() {
   const session = hydrated ? getExamSession(sessionId) : null;
 
   useEffect(() => {
-    if (hydrated && !getExamSession(sessionId)) {
+    if (!hydrated) return;
+    const current = getExamSession(sessionId);
+    if (!current) {
       router.replace("/exam");
+      return;
+    }
+    if (!canEditExamSession(current)) {
+      router.replace(`/exam/${sessionId}/review`);
     }
   }, [hydrated, router, sessionId]);
 
   const handleSubmit = useCallback(() => {
     const current = getExamSession(sessionId);
     if (!current) return;
-    saveExamSession({ ...current, finishedAt: Date.now() });
+    if (!canEditExamSession(current)) {
+      router.replace(`/exam/${sessionId}/review`);
+      return;
+    }
+    const mcqs = current.mcqQuestions
+      .map((id) => getQuestionById(id))
+      .filter((q): q is McqQuestion => q?.type === "mcq");
+    const writtens = current.writtenQuestions
+      .map((id) => getQuestionById(id))
+      .filter((q): q is WrittenQuestion => q?.type === "written");
+    const submitted = withExamScore(
+      { ...current, finishedAt: Date.now() },
+      mcqs,
+      writtens,
+    );
+    saveExamSession(submitted);
     router.push(`/exam/${sessionId}/review`);
   }, [sessionId, router]);
 
   if (!hydrated) return null;
 
-  if (!session) {
+  if (!session || !canEditExamSession(session)) {
     return null;
   }
 
@@ -54,7 +77,7 @@ export default function ActiveExam() {
 
   function handleMcqSelect(questionId: string, key: string) {
     const current = getExamSession(sessionId);
-    if (!current) return;
+    if (!current || !canEditExamSession(current)) return;
     saveExamSession({
       ...current,
       mcqAnswers: { ...current.mcqAnswers, [questionId]: key },

@@ -26,12 +26,12 @@ export default function Navbar() {
 
   return (
     <nav className="border-b border-th-border bg-th-nav">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-6">
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6">
           <Link href="/" className="text-lg font-bold text-th-text">
             CryptoEx
           </Link>
-          <div className="flex gap-4">
+          <div className="flex min-w-0 flex-wrap gap-x-3 gap-y-2 sm:gap-x-4">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -47,7 +47,7 @@ export default function Navbar() {
             ))}
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           {/* Theme toggle */}
           <div className="flex rounded-lg border border-th-border bg-th-muted p-0.5">
             {themes.map((th) => (

@@ -99,6 +99,11 @@ export default function McqCard({
       <div className="mb-4 text-th-text">
         <MathText text={question.text} />
       </div>
+      {isMultiAnswer && !showResult && (
+        <p className="mb-3 text-xs font-medium text-th-text-accent">
+          {t("mcq.multi_answer", lang)}
+        </p>
+      )}
       <div className="mb-4 space-y-2">
         {displayOptions.map((opt, idx) => {
           const optionSelected = normalizedSelected.includes(opt.key);

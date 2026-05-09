@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "tsx --test tests/scoring.test.ts tests/privacy-hygiene.test.ts tests/question-bank-hygiene.test.ts tests/exam-components.test.tsx",
+    "test": "tsx --test tests/scoring.test.ts tests/privacy-hygiene.test.ts tests/question-bank-hygiene.test.ts tests/exam-components.test.tsx tests/exam-review-guard.test.ts",
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {

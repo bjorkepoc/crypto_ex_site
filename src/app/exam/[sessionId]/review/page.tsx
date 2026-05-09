@@ -5,13 +5,9 @@ import { getExamSession, saveExamSession } from "@/lib/storage";
 import { getQuestionById } from "@/data";
 import { useHydrated } from "@/lib/useHydrated";
 import { usePrefs } from "@/lib/preferences";
+import { canReviewExamSession } from "@/lib/examReviewGuard";
+import { scoreExamSession, withExamScore } from "@/lib/examScoring";
 import { t } from "@/lib/i18n";
-import {
-  MCQ_CORRECT_POINTS,
-  scoreMcq,
-  scoreWritten,
-  totalExamScore,
-} from "@/lib/scoring";
 import { McqQuestion, WrittenQuestion } from "@/types";
 import McqCard from "@/components/McqCard";
 import WrittenCard from "@/components/WrittenCard";
@@ -30,14 +26,20 @@ export default function ExamReview() {
   const session = hydrated ? getExamSession(sessionId) : null;
 
   useEffect(() => {
-    if (hydrated && !getExamSession(sessionId)) {
+    if (!hydrated) return;
+    const current = getExamSession(sessionId);
+    if (!current) {
       router.replace("/exam");
+      return;
+    }
+    if (!canReviewExamSession(current)) {
+      router.replace(`/exam/${sessionId}`);
     }
   }, [hydrated, router, sessionId]);
 
   if (!hydrated) return null;
 
-  if (!session) {
+  if (!session || !canReviewExamSession(session)) {
     return null;
   }
 
@@ -50,22 +52,8 @@ export default function ExamReview() {
     .map((id) => getQuestionById(id))
     .filter(Boolean) as WrittenQuestion[];
 
-  const correctAnswers: Record<string, string> = {};
-  const optionCounts: Record<string, number> = {};
-  for (const q of mcqQuestions) {
-    correctAnswers[q.id] = q.correctAnswer;
-    optionCounts[q.id] = q.options.length;
-  }
-
-  const mcqResult = scoreMcq(session.mcqAnswers, correctAnswers, optionCounts);
-  const writtenResult = scoreWritten(session.writtenScores);
-  const mcqMax = mcqQuestions.length * MCQ_CORRECT_POINTS;
-  const writtenMax = writtenQuestions.reduce(
-    (sum, q) => sum + Number(q.totalPoints || 0),
-    0
-  );
-  const totalMax = mcqMax + writtenMax;
-  const total = totalExamScore(mcqResult.total, writtenResult, totalMax);
+  const { mcqResult, writtenResult, mcqMax, writtenMax, total } =
+    scoreExamSession(session, mcqQuestions, writtenQuestions);
 
   function handleWrittenScore(questionId: string, score: number) {
     const current = getExamSession(sessionId);
@@ -74,11 +62,7 @@ export default function ExamReview() {
       ...current,
       writtenScores: { ...current.writtenScores, [questionId]: score },
     };
-    const wr = scoreWritten(updated.writtenScores);
-    const scored = totalExamScore(mcqResult.total, wr, totalMax);
-    updated.totalScore = scored.total;
-    updated.totalMaxScore = scored.max;
-    saveExamSession(updated);
+    saveExamSession(withExamScore(updated, mcqQuestions, writtenQuestions));
     setVersion((n) => n + 1);
   }
 

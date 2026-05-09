@@ -1,13 +1,15 @@
 "use client";
 
 import { topics } from "@/data/topics";
+import { getQuestionById } from "@/data";
+import { scoreExamSession } from "@/lib/examScoring";
 import { loadProgress, wipeAllProgress, wipeTopicProgress } from "@/lib/storage";
 import { useHydrated } from "@/lib/useHydrated";
 import { usePrefs } from "@/lib/preferences";
 import { t, topicNames } from "@/lib/i18n";
 import ProgressBar from "@/components/ProgressBar";
 import Link from "next/link";
-import { TopicId } from "@/types";
+import { ExamSession, McqQuestion, TopicId, WrittenQuestion } from "@/types";
 import { useState } from "react";
 
 export default function ProgressPage() {
@@ -60,6 +62,23 @@ export default function ProgressPage() {
   );
   const overallAccuracy =
     totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+
+  function examHistoryLabel(session: ExamSession): string {
+    if (!session.finishedAt) return t("progress.not_completed", lang);
+
+    if (session.totalScore !== undefined) {
+      return `${session.totalScore.toFixed(1)}/${(session.totalMaxScore ?? 60).toFixed(0)}`;
+    }
+
+    const mcqQuestions = session.mcqQuestions
+      .map((id) => getQuestionById(id))
+      .filter((q): q is McqQuestion => q?.type === "mcq");
+    const writtenQuestions = session.writtenQuestions
+      .map((id) => getQuestionById(id))
+      .filter((q): q is WrittenQuestion => q?.type === "written");
+    const { total } = scoreExamSession(session, mcqQuestions, writtenQuestions);
+    return `${total.total.toFixed(1)}/${total.max.toFixed(0)}`;
+  }
 
   return (
     <div>
@@ -183,9 +202,7 @@ export default function ProgressPage() {
                   )}
                 </span>
                 <span className="text-sm font-medium text-th-text">
-                  {s.totalScore !== undefined
-                    ? `${s.totalScore.toFixed(1)}/${(s.totalMaxScore ?? 60).toFixed(0)}`
-                    : t("progress.not_completed", lang)}
+                  {examHistoryLabel(s)}
                 </span>
               </Link>
             ))}
